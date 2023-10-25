@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+
+  <title>Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm – Yixian Wang</title>
+  <meta name="description" content="
+Implemented base sequential version of K-Means algorithm on CPU by C&#43;&#43;
+Implemented first parallel version of K-Means with Thrust primitives and a GroupBy-Aggregate by C&#43;&#43;
+Implemented second parallel version of K-Means with CUDA by C&#43;&#43;
+Implemented third parallel version of K-Means with CUDA on Shared Memory by C&#43;&#43;
+Analyzed speedup among all the implementations
+" />
+
+  
+
+<meta property="og:title" content="Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm" />
+<meta property="og:description" content="
+Implemented base sequential version of K-Means algorithm on CPU by C&#43;&#43;
+Implemented first parallel version of K-Means with Thrust primitives and a GroupBy-Aggregate by C&#43;&#43;
+Implemented second parallel version of K-Means with CUDA by C&#43;&#43;
+Implemented third parallel version of K-Means with CUDA on Shared Memory by C&#43;&#43;
+Analyzed speedup among all the implementations
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yixianwang.github.io/projects/cuda_kmeans/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2021-10-24T15:21:05-04:00" />
+<meta property="article:modified_time" content="2021-10-24T15:21:05-04:00" />
+
+  <meta itemprop="name" content="Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm">
+<meta itemprop="description" content="
+Implemented base sequential version of K-Means algorithm on CPU by C&#43;&#43;
+Implemented first parallel version of K-Means with Thrust primitives and a GroupBy-Aggregate by C&#43;&#43;
+Implemented second parallel version of K-Means with CUDA by C&#43;&#43;
+Implemented third parallel version of K-Means with CUDA on Shared Memory by C&#43;&#43;
+Analyzed speedup among all the implementations
+"><meta itemprop="datePublished" content="2021-10-24T15:21:05-04:00" />
+<meta itemprop="dateModified" content="2021-10-24T15:21:05-04:00" />
+<meta itemprop="wordCount" content="1379">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm"/>
+<meta name="twitter:description" content="
+Implemented base sequential version of K-Means algorithm on CPU by C&#43;&#43;
+Implemented first parallel version of K-Means with Thrust primitives and a GroupBy-Aggregate by C&#43;&#43;
+Implemented second parallel version of K-Means with CUDA by C&#43;&#43;
+Implemented third parallel version of K-Means with CUDA on Shared Memory by C&#43;&#43;
+Analyzed speedup among all the implementations
+"/>
+
+    <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
+    <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
+
+
+
+  <link href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" rel="stylesheet" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+
+
+
+  
+
+
+  <script>
+     
+    if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+  </script>
+
+  
+</head>
+<body dir="ltr"><div class="nav-container sticky top-0 z-20 w-full bg-transparent print:hidden">
+  <div class="nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:shadow-[0_0_0_1px_#000] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:shadow-[0_0_0_1px_#fff]"></div>
+
+  <nav class="mx-auto flex items-center justify-end gap-2 h-16 px-6 max-w-[90rem]">
+    <a class="flex items-center hover:opacity-75 ltr:mr-auto rtl:ml-auto" href="/">
+        <img class="block dark:hidden" src="/images/logo.svg" alt="Yixian Wang" height="20" width="20" />
+        <img class="hidden dark:block" src="/images/logo.svg" alt="Yixian Wang" height="20" width="20" />
+        <span class="mx-2 font-extrabold inline select-none" title="Yixian Wang">Yixian Wang</span>
+    </a><a
+            title="Home"
+            href="/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Home</span>
+          </a><a
+            title="Projects"
+            href="/projects/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
+          >
+            <span class="text-center">Projects</span>
+          </a><a
+            title="Notes"
+            href="/notes/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Notes</span>
+          </a><a
+            title="Blog"
+            href="/blog/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Blog</span>
+          </a><div class="search-wrapper relative md:w-64">
+  <div class="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300 contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-dark placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="absolute my-1.5 select-none ltr:right-1.5 rtl:left-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 dark:bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 transition-opacity pointer-events-none hidden sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hidden border border-gray-200 bg-white text-gray-100 dark:border-neutral-800 dark:bg-neutral-900 absolute top-full z-20 mt-2 overflow-auto overscroll-contain rounded-xl py-2.5 shadow-xl max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] inset-x-0 ltr:md:left-auto rtl:md:right-auto contrast-more:border contrast-more:border-gray-900 contrast-more:dark:border-gray-50 w-screen min-h-[100px] max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<a class="p-2 text-current" target="_blank" rel="noreferer" href="https://github.com/yixianwang" title="GitHub"><svg height=24 fill="currentColor" viewBox="3 3 18 18">
+  <path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path>
+</svg>
+<span class="sr-only">GitHub</span>
+          </a><button type="button" aria-label="Menu" class="hamburger-menu -mr-2 rounded p-2 active:bg-gray-400/20 md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='mx-auto flex max-w-screen-xl'>
+    
+    
+<nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#hardware-details--os-version--settings">Hardware Details &amp; OS Version &amp; Settings
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#data">Data
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#the-fastest-implementation">The Fastest Implementation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#compare-and-analyze-performance-among-four-implementations">Compare and Analyze Performance Among Four Implementations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware">Estimate the best-case performance of CUDA implementation should have based on the hardware
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#analyze-why-thrust-is-compromising">Analyze Why Thrust Is Compromising
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer">Analyze the Fraction of the End-to-End Runtime of CUDA Implementations Spent in Data Transfer
+        </a>
+      </li></ul>
+      <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline ml-1 h-3.5 w-3.5 border rounded-full border-gray-500 hover:border-gray-900 dark:border-gray-400 dark:hover:border-gray-100 contrast-more:border-gray-800 contrast-more:dark:border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="https://yixianwang.github.io/projects/"></a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm</div>
+</div>
+
+        <div class="content">
+          <h1>Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm</h1>
+          <ul>
+<li>Implemented base <strong>sequential</strong> version of K-Means algorithm on CPU by C++</li>
+<li>Implemented first parallel version of K-Means with <strong>Thrust</strong> primitives and a GroupBy-Aggregate by C++</li>
+<li>Implemented second parallel version of K-Means with <strong>CUDA</strong> by C++</li>
+<li>Implemented third parallel version of K-Means with <strong>CUDA on Shared Memory</strong> by C++</li>
+<li>Analyzed speedup among all the implementations</li>
+</ul>
+<h2>Hardware Details &amp; OS Version &amp; Settings<span class="absolute -mt-20" id="hardware-details--os-version--settings"></span>
+    <a href="#hardware-details--os-version--settings" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>GPU:</strong> the Codio environment(Tesla T4, Driver Version: 460.91.03 , CUDA Version: 11.2)</li>
+<li><strong>CPU:</strong> the Codio environment(Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, 4 cores)</li>
+<li><strong>OS:</strong> the Codio environment(Ubuntu 18.04.2 LTS (GNU/Linux 5.4.0-1054-aws x86_64))</li>
+</ul>
+<blockquote>
+<p>the data in this report was collected when I set “threshold argument” to 1e-6.</p>
+</blockquote>
+<h2>Data<span class="absolute -mt-20" id="data"></span>
+    <a href="#data" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="/datasets/cuda_kmeans/random-n2048-d16-c16.txt">Data1: size = 2048, dim = 16, c = 16</a></li>
+<li><a href="/datasets/cuda_kmeans/random-n16384-d24-c16.txt">Data2: size = 16384, dim = 24, c = 16</a></li>
+<li><a href="/datasets/cuda_kmeans/random-n65536-d32-c16.txt">Data3: size = 65536, dim = 32, c = 16</a></li>
+</ul>
+<h2>The Fastest Implementation<span class="absolute -mt-20" id="the-fastest-implementation"></span>
+    <a href="#the-fastest-implementation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>For averaged elapsed time per iteration, <strong>CUDA Shared Memory is always the fastest</strong> implementation on different input sizes. (Fig. 1, left) Because the shared memory in each block is very fast, which means the processing unit for each thread can access data in shared memory very fast after transferring data from global memory to the shared memory.</p>
+</li>
+<li>
+<p>For total elapsed time (E2E runtime), <strong>sequential version is the fastest</strong> when the input size is very small and <strong>CUDA Shared Memory is the fastest</strong> when the input size is very large. (Fig. 1, right) The main reason is that the CPU is very powerful in computing a single thread and the CPU doesn’t need to transfer data between host and device. When the input size is very small, it is the fastest. However, when the input size is large, the power and advantage of parallel are obvious, and the overhead over transferring data can be ignored, and in this case, the CUDA Shared Memory is my fastest implementation.</p>
+</li>
+</ul>
+<h2>Compare and Analyze Performance Among Four Implementations<span class="absolute -mt-20" id="compare-and-analyze-performance-among-four-implementations"></span>
+    <a href="#compare-and-analyze-performance-among-four-implementations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>The <strong>CUDA Shared Memory</strong> has the smallest elapsed time per iteration (Fig. 1, left) but it also has the largest overhead on transferring data between host and device and between the device and shared memory. It is the fastest implementation when the input size is very large. As the amount of input data increases, it can get more benefit from parallelism and the influence of the overhead can be ignored. (Fig. 1, right)</p>
+</li>
+<li>
+<p>The <strong>CUDA Basic</strong> is slightly slower than CUDA Shared Memory on converging speed (Fig. 1, left) and it also has a slightly smaller overhead on transferring data than CUDA Shared Memory, because it doesn’t have to transfer data between the device and shared memory. (Fig. 1, right)</p>
+</li>
+<li>
+<p>The <strong>Thrust</strong> is always converging slower than CUDA Basic and has a similar overhead as CUDA Basic. However, it can always converge faster than Sequential implementation. (Fig. 1, left)</p>
+</li>
+<li>
+<p>The <strong>sequential</strong> has the slowest converge speed but it doesn’t have any overhead on transferring data. The CPU is very powerful the Sequential version is the fastest implementation for the total elapsed time when the input size is small. (Fig. 1, right)</p>
+</li>
+</ul>
+<p>
+    <img src="../images/cuda_kmeans_1.png" alt="cuda kmeans 1" loading="lazy" /></p>
+<!-- <img src="../images/cuda_kmeans_1.png" alt="image" width="100%" height="auto"> -->
+<blockquote>
+<p>Fig. 1. Averaged elapsed time per iteration and Total elapsed time(E2E runtime) measured on different input size.</p>
+</blockquote>
+<h2>Estimate the best-case performance of CUDA implementation should have based on the hardware<span class="absolute -mt-20" id="estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware"></span>
+    <a href="#estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
+<p>Based on the number of threads in my program and the number of processing contexts actually supported by my hardware</p>
+</blockquote>
+<ul>
+<li>
+<p>Because a higher occupancy reduces processor idle time(SM may stall due to unavailability of data or busy functional units) and improves overall performance. The best case of performance of CUDA implementation should have the highest occupancy in theory.</p>
+</li>
+<li>
+<p>At first, I should list my device info in detail and then use this info to deduce the theoretical best performance of CUDA implementation speedup compared to sequential implementation. I use Codio environment for my lab2. In the Codio environment, the device is Tesla T4, the warp size is 32, the maximum number of threads per block is 1024, the maximum number of blocks is 2147483647. I also found out the bandwidth between Host and Device is 6.3GB/s and the bandwidth between Device to Device is 239.4 GB/s.</p>
+</li>
+<li>
+<p>Secondly, I ignore the time cost on data transfer and only focus on elapsed time per iteration when estimating the best-case performance, because, from the device info above, we can see that the bandwidth are too big to measure its performance and the “cudaMemCpy” instruction is not an asynchronous instruction(it will cause different performance each time when I test it because it has “barrier” within this kind of function). In addition, the fraction of the end-to-end runtime in CUDA versions is spent in data transfer are the most time-consuming part(Fig. 3.) and the fraction also decreasing when the input size increasing, this is irrelevant with the number of thread or other settings in the program. For these three reasons, it’s fair to ignore the data transfer part when estimating the best performance case. I also assume that the CPU clock cycle per processor is the same as the GPU.</p>
+</li>
+<li>
+<p>In addition, in my program, I set my number of threads per block in my CUDA implementation to 32, because the warp size of Tesla T4 is 32, and thus the warp schedulers can map each thread to their own position without more or less. Another reason I set the block size to 32 is that after I experimented with the different thread numbers from 16 to 1024 for each given input size and I always got the smallest elapsed time per iteration when the number of threads per block is 32. (I also got the best performance when thread number is 86, the only reason I can come up with is the randomness in bank conflict, because I use double data type throughout in my program, this will produce 2-way bank conflict in 32 warp size situation, every second bank is being asked for 2 different values. The warp scheduler will handle the 2-way bank conflict in random in a sequential style.)</p>
+</li>
+<li>
+<p>At last, from all above assumption, the theoretical speedup of my CUDA implementations should have when I set my number of threads in each block to 32, and the hardware in Codio support this setup when the input size smaller than 2147483647 * 32, which is maximum block size times warp size of Tesla T4. In this setup, the warp scheduler won’t let any memory wait for others and thus it has the maximum occupancy.</p>
+</li>
+</ul>
+<p>
+    <img src="../images/cuda_kmeans_2.png" alt="cuda kmeans 2" loading="lazy" /></p>
+<blockquote>
+<p>Fig. 2. Cuda Shmem, Cuda basic, and Thrust implementations speed up X times compared to sequential kmeans. “2k, 16k and 65k” means “2048, 16384 and 65536” input size. Red color is Cuda Shmem, orange color is Cuda basic and yellow color is Thrust implementation.</p>
+</blockquote>
+<h2>Analyze Why Thrust Is Compromising<span class="absolute -mt-20" id="analyze-why-thrust-is-compromising"></span>
+    <a href="#analyze-why-thrust-is-compromising" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>The Thrust is the slowest parallel implementation, and it does match my expectations. (Fig. 1, left and Fig. 2.)</p>
+</li>
+<li>
+<p>The first reason is that the advantages of Thrust are abstraction and portability, but under the hood, it has more temporary memory allocations required by the Thrust algorithm during computing than CUDA implementations. For example, in lab2, the Thrust algorithm has additional temporary memory to store the data structure to perform the “reduce_by_key” function. However, we can visually manage every memory in CUDA implementation. Thus, these additional temporary memory allocations can impact Thrust performance.</p>
+</li>
+<li>
+<p>The second reason is that Thrust cannot make use of shared memory or constant memory in GPU, both two kinds of memories have almost register speed. The Thrust only can make use of global GPU memory and transfer data to computing units through L1 memory to register.</p>
+</li>
+</ul>
+<p>
+    <img src="../images/cuda_kmeans_3.png" alt="cuda kmeans 3" loading="lazy" /></p>
+<blockquote>
+<p>Fig. 3. The fraction of the end-to-end runtime in CUDA versions(Shared Memory and Basic) is spent in data transfer.</p>
+</blockquote>
+<h2>Analyze the Fraction of the End-to-End Runtime of CUDA Implementations Spent in Data Transfer<span class="absolute -mt-20" id="analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer"></span>
+    <a href="#analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>For both CUDA versions (Shared Memory and Basic), the fraction is decreased with the increasing input data size. This indicates that the impact of the overhead of transferring data is decreasing with the increase of input size. (Fig. 3.)</p>
+</li>
+<li>
+<p>For CUDA Shared Memory has slightly more overhead on transferring data than CUDA basic, because to use shared memory in GPU, it must transfer data from device to shared memory whereas the CUDA Basic only has overhead on transferring data between host and device, it doesn’t need shared memory.</p>
+</li>
+</ul>
+        </div>
+        <div class="mt-16"></div>
+        <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
+        href="/projects/go_tree_comparison/"
+        title="Exploring Concurrency Programming with Go"
+        class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Exploring Concurrency Programming with Go</a><a
+        href="/projects/pthreads_prefix_sum/"
+        title="Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm"
+        class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
+      >Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer bg-gray-100 pb-[env(safe-area-inset-bottom)] dark:bg-neutral-900 print:bg-transparent"><hr class="dark:border-neutral-800" />
+  <div
+    class='max-w-screen-xl mx-auto flex justify-center py-12 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)] text-gray-600 dark:text-gray-400 md:justify-start'
+  >
+    <div class="flex w-full flex-col items-center sm:items-start"><div class="font-semibold"><a class="flex text-sm items-center gap-1 text-current" target="_blank" rel="noopener noreferrer" title="Hextra GitHub Homepage" href="https://github.com/imfing/hextra">
+    <span
+      >Powered by Hextra<svg height=1em class="inline-block ml-1 align-text-bottom" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="m 105.50024,22.224647 c -9.59169,-5.537563 -21.40871,-5.537563 -31.000093,0 L 39.054693,42.689119 C 29.463353,48.226675 23.55484,58.460531 23.55484,69.535642 v 40.928918 c 0,11.07542 5.908513,21.3092 15.499853,26.84652 l 35.445453,20.46446 c 9.591313,5.53732 21.408404,5.53732 31.000094,0 l 35.44507,-20.46446 c 9.59131,-5.53732 15.49985,-15.7711 15.49985,-26.84652 V 69.535642 c 0,-11.075111 -5.90854,-21.308967 -15.49985,-26.846523 z M 34.112797,85.737639 c -1.384445,2.397827 -1.384445,5.352099 0,7.749927 l 24.781554,42.922974 c 1.38437,2.39783 3.942853,3.87496 6.711592,3.87496 h 49.563107 c 2.76905,0 5.3273,-1.47713 6.71144,-3.87496 l 24.78194,-42.922974 c 1.38414,-2.397828 1.38414,-5.3521 0,-7.749927 L 121.88049,42.814746 c -1.38414,-2.397828 -3.94239,-3.874964 -6.71144,-3.874964 H 65.605944 c -2.768739,0 -5.327223,1.477059 -6.711592,3.874964 z" style="stroke-width:0.774993" /></svg></span>
+  </a></div>
+    </div>
+  </div>
+</footer>
+    
+  </body>
+  <script defer src="/js/main.min.f23221a8e57adcb5aa6d050e2100d1c595ff19e697545505940d1c1f002de248.js" integrity="sha256-8jIhqOV63LWqbQUOIQDRxZX/GeaXVFUFlA0cHwAt4kg="></script>
+
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+  <script defer src="/en.search.min.9afdc7c586c6f971dd94df10b989f10faaf38e5702571fd8cfc9ff9135c2d495.js" integrity="sha256-mv3HxYbG&#43;XHdlN8QuYnxD6rzjlcCVx/Yz8n/kTXC1JU="></script>
+
+
+</html>
