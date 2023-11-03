@@ -15,6 +15,134 @@
     
     
     <item>
+      <title>Deadlock</title>
+      <link>https://yixianwang.github.io/blog/deadlock/</link>
+      <pubDate>Fri, 03 Nov 2023 01:13:37 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/blog/deadlock/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Deadlock defination and how to prevent deadlock.&lt;/p&gt;
+&lt;h1&gt;Situations of deadlock&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;In concurrent computing, deadlock is any situation in which &lt;strong&gt;no member of some group of entities can proceed&lt;/strong&gt; because each waits for another member, including itself, to take action, such as sending a message or, more commonly, releasing a lock.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Deadlocks are a common problem in multiprocessing systems, parallel computing, and distributed systems, because in these contexts systems often use software or hardware locks to arbitrate shared resources and implement process synchronization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In an operating system, a deadlock occurs when &lt;strong&gt;a process or thread enters a waiting state&lt;/strong&gt; because a requested system resource is held by another waiting process, which in turn is waiting for another resource held by another waiting process. If a process remains indefinitely unable to change its state because resources requested by it are being used by another process that itself is waiting, then the system is said to be in a deadlock.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In a communications system, deadlocks occur mainly due to &lt;strong&gt;loss or corruption of signals&lt;/strong&gt; rather than contention for resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Avoid Deadlock in Concurrent Programming&lt;/h1&gt;&lt;p&gt;Deadlock is a permanent blocking of a set of threads that are competing for a set of resources. Just because some thread can make progress does not mean that there is not a deadlock somewhere else.&lt;/p&gt;
+&lt;h2&gt;1. Self deadlock &amp;amp;&amp;amp; Recursive Deadlock&lt;span class=&#34;absolute -mt-20&#34; id=&#34;1-self-deadlock--recursive-deadlock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-self-deadlock--recursive-deadlock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The most common error causing deadlock is&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Self deadlock&lt;/strong&gt;: a thread tries to acquire a lock it is already holding.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recursive deadlock&lt;/strong&gt;: is very easy to program by mistake.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example, if a code monitor has every module function grabbing the mutex lock for the duration of the call, then any call between the functions within the module protected by the mutex lock immediately deadlocks. If a function calls some code outside the module which, through some circuitous path, calls back into any method protected by the same mutex lock, then it will deadlock too.&lt;/p&gt;
+&lt;h3&gt;Solution&lt;span class=&#34;absolute -mt-20&#34; id=&#34;solution&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#solution&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The solution for this kind of deadlock is to &lt;strong&gt;avoid calling functions outside the module&lt;/strong&gt; when you don&amp;rsquo;t know whether they will call back into the module without reestablishing invariants and dropping all module locks before making the call. Of course, after the call completes and the locks are reacquired, the state must be &lt;strong&gt;verified&lt;/strong&gt; to be sure the intended operation is still valid.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Summary: avoid calling functions outside the module and if called, it has to be verified the intended operation is still valid.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2. Permanent blocking of threads&lt;span class=&#34;absolute -mt-20&#34; id=&#34;2-permanent-blocking-of-threads&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-permanent-blocking-of-threads&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;An example of another kind of deadlock is when two threads, thread 1 and thread 2, each acquires a mutex lock, A and B, respectively. Suppose that thread 1 tries to acquire mutex lock B and thread 2 tries to acquire mutex lock A. Thread 1 cannot proceed and it is blocked waiting for mutex lock B. Thread 2 cannot proceed and it is blocked waiting for mutex lock A. Nothing can change, so this is a permanent blocking of the threads, and a deadlock.&lt;/p&gt;
+&lt;h3&gt;Solution1: lock hierarchy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;solution1-lock-hierarchy&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#solution1-lock-hierarchy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This kind of deadlock is avoided by establishing an order in which locks are acquired (a &lt;strong&gt;lock hierarchy&lt;/strong&gt;). When all threads always acquire locks in the specified order, this deadlock is avoided.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Summary: not optimal. The discarded lock might have many assumptions and need to reevaluate later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Solution2: mutex_trylock()&lt;span class=&#34;absolute -mt-20&#34; id=&#34;solution2-mutex_trylock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#solution2-mutex_trylock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Adhering to a strict order of lock acquisition is not always optimal. When thread 2 has many assumptions about the state of the module while holding mutex lock B, giving up mutex lock B to acquire mutex lock A and then reacquiring mutex lock B in order would cause it to discard its assumptions and reevaluate the state of the module.&lt;/p&gt;
+&lt;p&gt;The blocking synchronization primitives usually have variants that attempt to get a lock and fail if they cannot, such as &lt;code&gt;mutex_trylock()&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Summary: optimal. This allows threads to violate the lock hierarchy when there is no contention. When there is contention, the held locks must usually be discarded and the locks reacquired in order.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;3. Deadlocks Related to Scheduling&lt;span class=&#34;absolute -mt-20&#34; id=&#34;3-deadlocks-related-to-scheduling&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-deadlocks-related-to-scheduling&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Because there is no guaranteed order in which locks are acquired, a problem in threaded programs is that a particular thread never acquires a lock, even though it seems that it should.&lt;/p&gt;
+&lt;p&gt;This usually happens when the thread that holds the lock releases it, lets a small amount of time pass, and then reacquires it. Because the lock was released, it might seem that the other thread should acquire the lock. But, because nothing blocks the thread holding the lock, it continues to run from the time it releases the lock until it reacquires the lock, and so no other thread is run.&lt;/p&gt;
+&lt;p&gt;You can usually solve this type of problem by calling &lt;code&gt;thr_yield(3T)&lt;/code&gt; just before the call to reacquire the lock. This allows other threads to run and to acquire the lock.&lt;/p&gt;
+&lt;p&gt;Because the time-slice requirements of applications are so variable, the threads library does not impose any. Use calls to &lt;code&gt;thr_yield()&lt;/code&gt; to make threads share time as you require.&lt;/p&gt;
+&lt;h1&gt;Locking Guidelines&lt;/h1&gt;&lt;p&gt;Here are some simple guidelines for locking.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Try &lt;strong&gt;not to hold locks across long operations&lt;/strong&gt; like I/O where performance can be adversely affected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Don&amp;rsquo;t hold locks when calling a function that is outside the module&lt;/strong&gt; and that might reenter the module.&lt;/li&gt;
+&lt;li&gt;In general, &lt;strong&gt;start with a coarse-grained approach&lt;/strong&gt;, identify bottlenecks, and add finer-grained locking where necessary to alleviate the bottlenecks. Most locks are held for short amounts of time and contention is rare, so fix only those locks that have measured contention.&lt;/li&gt;
+&lt;li&gt;When using multiple locks, avoid deadlocks by making sure that &lt;strong&gt;all threads acquire the locks in the same order&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Thread vs Process</title>
+      <link>https://yixianwang.github.io/blog/thread_vs_process/</link>
+      <pubDate>Fri, 03 Nov 2023 00:54:29 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/blog/thread_vs_process/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The difference between thread and process.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A thread is a &lt;strong&gt;lightweight process&lt;/strong&gt; that &lt;strong&gt;shares the same address space&lt;/strong&gt; as other threads in the same process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A process is a &lt;strong&gt;heavyweight unit&lt;/strong&gt; of execution that has its &lt;strong&gt;own address space, memory, and resources&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Threads are typically used to &lt;strong&gt;improve the performance&lt;/strong&gt; of an application by allowing multiple tasks to be executed concurrently.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Processes are typically used to &lt;strong&gt;improve the security&lt;/strong&gt; of an application by isolating different tasks from each other.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feature&lt;/th&gt;
+&lt;th&gt;Thread&lt;/th&gt;
+&lt;th&gt;Process&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Address Space&lt;/td&gt;
+&lt;td&gt;Shares the same address space as other threads in the same process&lt;/td&gt;
+&lt;td&gt;Has its own address space&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory&lt;/td&gt;
+&lt;td&gt;Shares the same memory as other threads in the same process&lt;/td&gt;
+&lt;td&gt;Has its own memory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resources&lt;/td&gt;
+&lt;td&gt;Shares the same resources as other threads in the same process&lt;/td&gt;
+&lt;td&gt;Has its own resources&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Performance&lt;/td&gt;
+&lt;td&gt;Typically better than process&lt;/td&gt;
+&lt;td&gt;Typically worse than threads&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Security&lt;/td&gt;
+&lt;td&gt;Less secure than processes&lt;/td&gt;
+&lt;td&gt;More secure than threads&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Monotonic Stack</title>
       <link>https://yixianwang.github.io/blog/monotonic_stack/</link>
       <pubDate>Sat, 16 Sep 2023 11:20:11 -0400</pubDate>

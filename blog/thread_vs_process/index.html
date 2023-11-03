@@ -11,61 +11,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Self-driving SuperTuxKart with Pytorch – Yixian Wang</title>
-  <meta name="description" content="
-Designed deep networks for a racing simulator, SuperTuxKart with Pytorch
-Trained linear model and multi-layer perceptron model to classify images from SuperTuxKart
-Trained a convolutional network to classify images from SuperTuxKart
-Built classification network fully convolutional and solved a semantic labeling task (labeling every pixel
-in the image)
-Implemented an object detector
-Trained a CNN to do vision-based self-driving in SuperTuxKart
-Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
-" />
+  <title>Thread vs Process – Yixian Wang</title>
+  <meta name="description" content="The difference between thread and process." />
 
   
 
-<meta property="og:title" content="Self-driving SuperTuxKart with Pytorch" />
-<meta property="og:description" content="
-Designed deep networks for a racing simulator, SuperTuxKart with Pytorch
-Trained linear model and multi-layer perceptron model to classify images from SuperTuxKart
-Trained a convolutional network to classify images from SuperTuxKart
-Built classification network fully convolutional and solved a semantic labeling task (labeling every pixel
-in the image)
-Implemented an object detector
-Trained a CNN to do vision-based self-driving in SuperTuxKart
-Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
-" />
+<meta property="og:title" content="Thread vs Process" />
+<meta property="og:description" content="The difference between thread and process." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/projects/supertuxkart/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2021-06-25T02:08:49-04:00" />
-<meta property="article:modified_time" content="2021-06-25T02:08:49-04:00" />
+<meta property="og:url" content="https://yixianwang.github.io/blog/thread_vs_process/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-11-03T00:54:29-04:00" />
+<meta property="article:modified_time" content="2023-11-03T00:54:29-04:00" />
 
-  <meta itemprop="name" content="Self-driving SuperTuxKart with Pytorch">
-<meta itemprop="description" content="
-Designed deep networks for a racing simulator, SuperTuxKart with Pytorch
-Trained linear model and multi-layer perceptron model to classify images from SuperTuxKart
-Trained a convolutional network to classify images from SuperTuxKart
-Built classification network fully convolutional and solved a semantic labeling task (labeling every pixel
-in the image)
-Implemented an object detector
-Trained a CNN to do vision-based self-driving in SuperTuxKart
-Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
-"><meta itemprop="datePublished" content="2021-06-25T02:08:49-04:00" />
-<meta itemprop="dateModified" content="2021-06-25T02:08:49-04:00" />
-<meta itemprop="wordCount" content="70">
+  <meta itemprop="name" content="Thread vs Process">
+<meta itemprop="description" content="The difference between thread and process."><meta itemprop="datePublished" content="2023-11-03T00:54:29-04:00" />
+<meta itemprop="dateModified" content="2023-11-03T00:54:29-04:00" />
+<meta itemprop="wordCount" content="151">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Self-driving SuperTuxKart with Pytorch"/>
-<meta name="twitter:description" content="
-Designed deep networks for a racing simulator, SuperTuxKart with Pytorch
-Trained linear model and multi-layer perceptron model to classify images from SuperTuxKart
-Trained a convolutional network to classify images from SuperTuxKart
-Built classification network fully convolutional and solved a semantic labeling task (labeling every pixel
-in the image)
-Implemented an object detector
-Trained a CNN to do vision-based self-driving in SuperTuxKart
-Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
-"/>
+<meta name="twitter:title" content="Thread vs Process"/>
+<meta name="twitter:description" content="The difference between thread and process."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -111,14 +75,14 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
             title="Projects"
             href="/projects/"
             
-            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
           >
             <span class="text-center">Projects</span>
           </a><a
             title="Blog"
             href="/blog/"
             
-            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
           >
             <span class="text-center">Blog</span>
           </a><a
@@ -193,7 +157,7 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
     <ul class="flex flex-col gap-1 md:hidden">
       
       
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/blog/"
@@ -209,13 +173,14 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
   >Deadlock
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/blog/thread_vs_process/"
     
   >Thread vs Process
     </a>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -373,7 +338,7 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
               
             </li></ul>
       </div></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/projects/"
@@ -421,14 +386,13 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
   >Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/projects/supertuxkart/"
     
   >Self-driving SuperTuxKart with Pytorch
     </a>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -479,33 +443,74 @@ Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)
       <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
-        <a href="https://yixianwang.github.io/projects/">Projects</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Self-driving SuperTuxKart with Pytorch</div>
+        <a href="https://yixianwang.github.io/blog/">Blog</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Thread vs Process</div>
 </div>
 
         <div class="content">
-          <h1>Self-driving SuperTuxKart with Pytorch</h1>
-          <ul>
-<li>Designed deep networks for a racing simulator, SuperTuxKart with Pytorch</li>
-<li>Trained linear model and multi-layer perceptron model to classify images from SuperTuxKart</li>
-<li>Trained a convolutional network to classify images from SuperTuxKart</li>
-<li>Built classification network fully convolutional and solved a semantic labeling task (labeling every pixel
-in the image)</li>
-<li>Implemented an object detector</li>
-<li>Trained a CNN to do vision-based self-driving in SuperTuxKart</li>
-<li>Programmed a SuperTuxKart ice-hockey player (AI that plays ice-hockey)</li>
+          <h1>Thread vs Process</h1>
+          <p>The difference between thread and process.</p>
+<ul>
+<li>
+<p>A thread is a <strong>lightweight process</strong> that <strong>shares the same address space</strong> as other threads in the same process.</p>
+</li>
+<li>
+<p>A process is a <strong>heavyweight unit</strong> of execution that has its <strong>own address space, memory, and resources</strong>.</p>
+</li>
+<li>
+<p>Threads are typically used to <strong>improve the performance</strong> of an application by allowing multiple tasks to be executed concurrently.</p>
+</li>
+<li>
+<p>Processes are typically used to <strong>improve the security</strong> of an application by isolating different tasks from each other.</p>
+</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Thread</th>
+<th>Process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Address Space</td>
+<td>Shares the same address space as other threads in the same process</td>
+<td>Has its own address space</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Shares the same memory as other threads in the same process</td>
+<td>Has its own memory</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>Shares the same resources as other threads in the same process</td>
+<td>Has its own resources</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Typically better than process</td>
+<td>Typically worse than threads</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Less secure than processes</td>
+<td>More secure than threads</td>
+</tr>
+</tbody>
+</table>
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/projects/pthreads_prefix_sum/"
-        title="Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm"
+        href="/blog/deadlock/"
+        title="Deadlock"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm</a><a
-        href="/projects/nlp_semantic_parsing_encoder_decoder/"
-        title="Semantic Parsing with Encoder-Decoder Models"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Deadlock</a><a
+        href="/blog/monotonic_stack/"
+        title="Monotonic Stack"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Semantic Parsing with Encoder-Decoder Models<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Monotonic Stack<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
