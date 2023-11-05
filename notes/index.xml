@@ -16,7 +16,7 @@
     
     
     <item>
-      <title>latex</title>
+      <title>Latex</title>
       <link>https://yixianwang.github.io/notes/latex/</link>
       <pubDate>Mon, 23 Oct 2023 23:51:32 -0400</pubDate>
       
@@ -91,7 +91,7 @@
     </item>
     
     <item>
-      <title>Sql</title>
+      <title>SQL</title>
       <link>https://yixianwang.github.io/notes/sql/</link>
       <pubDate>Fri, 03 Nov 2023 17:51:02 -0400</pubDate>
       
@@ -99,7 +99,7 @@
       <description>
         
         
-        &lt;h1&gt;Syntax&lt;/h1&gt;&lt;h2&gt;WITH and DATE_SUB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;with-and-date_sub&#34;&gt;&lt;/span&gt;
+        &lt;h1&gt;Mysql Syntax&lt;/h1&gt;&lt;h2&gt;WITH and DATE_SUB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;with-and-date_sub&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#with-and-date_sub&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://leetcode.com/problems/game-play-analysis-iv/description/?envType=study-plan-v2&amp;amp;envId=top-sql-50&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Leetcode 550&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-0&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first_logins&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -256,7 +256,7 @@ UNION ALL won&amp;rsquo;t remove duplicates&lt;/p&gt;
     </item>
     
     <item>
-      <title>colab_tips</title>
+      <title>Colab Tips</title>
       <link>https://yixianwang.github.io/notes/colab_tips/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -320,7 +320,7 @@ sys.path.insert(0, nb_path)
     </item>
     
     <item>
-      <title>colab_upload</title>
+      <title>Colab Upload</title>
       <link>https://yixianwang.github.io/notes/colab_upload/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -342,7 +342,7 @@ cmd_string = &amp;lsquo;git clone https://{0}:{1}@github.com/{2}&amp;rsquo;.form
     </item>
     
     <item>
-      <title>conda</title>
+      <title>Conda</title>
       <link>https://yixianwang.github.io/notes/conda/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -358,7 +358,7 @@ conda env remove -n ENV_NAME&lt;/p&gt;
     </item>
     
     <item>
-      <title>cpp</title>
+      <title>Cpp</title>
       <link>https://yixianwang.github.io/notes/cpp/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -1362,7 +1362,7 @@ gtest_discover_tests(hello_test)&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opac
     </item>
     
     <item>
-      <title>cuda</title>
+      <title>CUDA</title>
       <link>https://yixianwang.github.io/notes/cuda/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -1869,112 +1869,7 @@ texture cache	                  8 KB	8 KB&lt;/code&gt;&lt;/pre&gt;&lt;div class=
     </item>
     
     <item>
-      <title>django</title>
-      <link>https://yixianwang.github.io/notes/django/</link>
-      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/django/</guid>
-      <description>
-        
-        
-        &lt;p&gt;//0
-virtualenv dj&lt;/p&gt;
-&lt;p&gt;cd dj&lt;/p&gt;
-&lt;p&gt;pip install django&lt;/p&gt;
-&lt;p&gt;django-admin startproject reports_proj&lt;/p&gt;
-&lt;p&gt;python manage.py migrate&lt;/p&gt;
-&lt;p&gt;python manage.py createsuperuser&lt;/p&gt;
-&lt;p&gt;python manage.py startapp sales&lt;/p&gt;
-&lt;p&gt;python manage.py startapp reports&lt;/p&gt;
-&lt;p&gt;python manage.py startapp profiles&lt;/p&gt;
-&lt;p&gt;python manage.py startapp products&lt;/p&gt;
-&lt;p&gt;python manage.py startapp customers&lt;/p&gt;
-&lt;p&gt;python manage.py runserver
-http://127.0.0.1:8000/
-//10
-pip install pillow django-crispy-forms matplotlib seaborn pandas xhtml2pdf
-pip freeze
-pip freeze &amp;gt; requirements.txt&lt;/p&gt;
-&lt;p&gt;//15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;settings.py&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;Application definition&lt;/h1&gt;&lt;p&gt;INSTALLED_APPS = [
-&amp;hellip;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# our apps
-&#39;customers&#39;,
-&#39;products&#39;,
-&#39;profiles&#39;,
-&#39;reports&#39;,
-&#39;sales&#39;,
-# 3rd party
-&#39;crispy_forms&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;]&lt;/p&gt;
-&lt;h1&gt;define crispy template&lt;/h1&gt;&lt;p&gt;CRISPY_TEMPLATE_PACK = &amp;lsquo;bootstrap4&amp;rsquo;&lt;/p&gt;
-&lt;p&gt;&amp;lsquo;DIRS&amp;rsquo;: [BASE_DIR / &amp;rsquo;templates&amp;rsquo;]&lt;/p&gt;
-&lt;p&gt;mkdir templates
-touch base.html
-touch navbar.html&lt;/p&gt;
-&lt;p&gt;STATICFILES_DIRS = [
-BASE_DIR / &amp;lsquo;static&amp;rsquo;
-]
-MEDIA_URL = &amp;lsquo;/media/&amp;rsquo;
-MEDIA_ROOT = BASE_DIR / &amp;lsquo;media&amp;rsquo;&lt;/p&gt;
-&lt;p&gt;mkdir static
-touch style.css&lt;/p&gt;
-&lt;p&gt;mkdir media&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;urls.py
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;urlpatterns = [
-path(&amp;lsquo;admin/&amp;rsquo;, admin.site.urls),
-]&lt;/p&gt;
-&lt;p&gt;urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;base.html&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;customers/models.py
-class Customer(models.models):
-name = models.CharField(max_length=120)
-logo = models.ImageField(upload_to=&amp;lsquo;customers&amp;rsquo;, default=&amp;lsquo;no_picture.png&amp;rsquo;)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;mv no_picture.png media&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;customers/admin.py
-from .models import Customer&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;Register your models here.&lt;/h1&gt;&lt;p&gt;admin.site.register(Customer)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;terminal
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>ds</title>
+      <title>Data Science Knowledge</title>
       <link>https://yixianwang.github.io/notes/ds/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -2125,7 +2020,112 @@ ROC ≥ 0.9: Outstanding discrimination&lt;/p&gt;
     </item>
     
     <item>
-      <title>git</title>
+      <title>Django</title>
+      <link>https://yixianwang.github.io/notes/django/</link>
+      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/django/</guid>
+      <description>
+        
+        
+        &lt;p&gt;//0
+virtualenv dj&lt;/p&gt;
+&lt;p&gt;cd dj&lt;/p&gt;
+&lt;p&gt;pip install django&lt;/p&gt;
+&lt;p&gt;django-admin startproject reports_proj&lt;/p&gt;
+&lt;p&gt;python manage.py migrate&lt;/p&gt;
+&lt;p&gt;python manage.py createsuperuser&lt;/p&gt;
+&lt;p&gt;python manage.py startapp sales&lt;/p&gt;
+&lt;p&gt;python manage.py startapp reports&lt;/p&gt;
+&lt;p&gt;python manage.py startapp profiles&lt;/p&gt;
+&lt;p&gt;python manage.py startapp products&lt;/p&gt;
+&lt;p&gt;python manage.py startapp customers&lt;/p&gt;
+&lt;p&gt;python manage.py runserver
+http://127.0.0.1:8000/
+//10
+pip install pillow django-crispy-forms matplotlib seaborn pandas xhtml2pdf
+pip freeze
+pip freeze &amp;gt; requirements.txt&lt;/p&gt;
+&lt;p&gt;//15&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;settings.py&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Application definition&lt;/h1&gt;&lt;p&gt;INSTALLED_APPS = [
+&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# our apps
+&#39;customers&#39;,
+&#39;products&#39;,
+&#39;profiles&#39;,
+&#39;reports&#39;,
+&#39;sales&#39;,
+# 3rd party
+&#39;crispy_forms&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;]&lt;/p&gt;
+&lt;h1&gt;define crispy template&lt;/h1&gt;&lt;p&gt;CRISPY_TEMPLATE_PACK = &amp;lsquo;bootstrap4&amp;rsquo;&lt;/p&gt;
+&lt;p&gt;&amp;lsquo;DIRS&amp;rsquo;: [BASE_DIR / &amp;rsquo;templates&amp;rsquo;]&lt;/p&gt;
+&lt;p&gt;mkdir templates
+touch base.html
+touch navbar.html&lt;/p&gt;
+&lt;p&gt;STATICFILES_DIRS = [
+BASE_DIR / &amp;lsquo;static&amp;rsquo;
+]
+MEDIA_URL = &amp;lsquo;/media/&amp;rsquo;
+MEDIA_ROOT = BASE_DIR / &amp;lsquo;media&amp;rsquo;&lt;/p&gt;
+&lt;p&gt;mkdir static
+touch style.css&lt;/p&gt;
+&lt;p&gt;mkdir media&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;urls.py
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;urlpatterns = [
+path(&amp;lsquo;admin/&amp;rsquo;, admin.site.urls),
+]&lt;/p&gt;
+&lt;p&gt;urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;base.html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;customers/models.py
+class Customer(models.models):
+name = models.CharField(max_length=120)
+logo = models.ImageField(upload_to=&amp;lsquo;customers&amp;rsquo;, default=&amp;lsquo;no_picture.png&amp;rsquo;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;mv no_picture.png media&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;customers/admin.py
+from .models import Customer&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Register your models here.&lt;/h1&gt;&lt;p&gt;admin.site.register(Customer)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;terminal
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Git</title>
       <link>https://yixianwang.github.io/notes/git/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -2252,7 +2252,7 @@ gcloud compute scp &amp;ndash;recurse [INSTANCE_NAME]:[REMOTE_DIR] [LOCAL_DIR]&l
     </item>
     
     <item>
-      <title>hexo</title>
+      <title>Hexo</title>
       <link>https://yixianwang.github.io/notes/hexo/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -2533,7 +2533,7 @@ Then next time we create new post with hexo command line, it will also create a 
     </item>
     
     <item>
-      <title>hugo</title>
+      <title>Hugo</title>
       <link>https://yixianwang.github.io/notes/hugo/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -2796,7 +2796,7 @@ git push origin main&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transi
     </item>
     
     <item>
-      <title>java</title>
+      <title>Java</title>
       <link>https://yixianwang.github.io/notes/java/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -4154,7 +4154,7 @@ it&amp;rsquo;s not going to modify or delete our existing commits&lt;/p&gt;
     </item>
     
     <item>
-      <title>pytest</title>
+      <title>Pytest</title>
       <link>https://yixianwang.github.io/notes/pytest/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -4192,7 +4192,7 @@ it&amp;rsquo;s not going to modify or delete our existing commits&lt;/p&gt;
     </item>
     
     <item>
-      <title>python_script</title>
+      <title>Python Scripts</title>
       <link>https://yixianwang.github.io/notes/python_script/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
       
@@ -4242,6 +4242,238 @@ it&amp;rsquo;s not going to modify or delete our existing commits&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://yixianwang.github.io/notes/markdown/</link>
+      <pubDate>Mon, 23 Oct 2023 21:50:46 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/markdown/</guid>
+      <description>
+        
+        
+        &lt;!-- ---
+title: Markdown Syntax Guide
+date: 2020-01-01
+authors:
+  - name: John Doe
+    link: https://example.com/johndoe
+excludeSearch: true
+--- --&gt;
+&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files.&lt;/p&gt;
+&lt;h2&gt;Basic Syntax&lt;span class=&#34;absolute -mt-20&#34; id=&#34;basic-syntax&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#basic-syntax&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Headings&lt;span class=&#34;absolute -mt-20&#34; id=&#34;headings&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#headings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-0&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Heading 2&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heading-2&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heading-2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Heading 3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heading-3&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heading-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Heading 4&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heading-4&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heading-4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;Heading 5&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heading-5&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heading-5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;h6&gt;Heading 6&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heading-6&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heading-6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h6&gt;&lt;h3&gt;Emphasis&lt;span class=&#34;absolute -mt-20&#34; id=&#34;emphasis&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#emphasis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-1&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;*This text will be italic*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;_This will also be italic_
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**This text will be bold**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;__This will also be bold__
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;_You **can** combine them_&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-1&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;This text will be italic&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This will also be italic&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This text will be bold&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This will also be bold&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You &lt;strong&gt;can&lt;/strong&gt; combine them&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Lists&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lists&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lists&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Unordered&lt;span class=&#34;absolute -mt-20&#34; id=&#34;unordered&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#unordered&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Item 1&lt;/li&gt;
+&lt;li&gt;Item 2
+&lt;ul&gt;
+&lt;li&gt;Item 2a&lt;/li&gt;
+&lt;li&gt;Item 2b&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Ordered&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ordered&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ordered&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;1. Item 1
+2. Item 2
+3. Item 3
+   1. Item 3a
+   2. Item 3b&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-3&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Images&lt;span class=&#34;absolute -mt-20&#34; id=&#34;images&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#images&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-4&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;GitHub Logo&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-4&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&#34; alt=&#34;GitHub Logo&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;Links&lt;span class=&#34;absolute -mt-20&#34; id=&#34;links&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#links&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-5&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[&lt;span class=&#34;nt&#34;&gt;Hugo&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://gohugo.io&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-5&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Blockquotes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;blockquotes&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#blockquotes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-6&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;As Newton said:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; If I have seen further it is by standing on the shoulders of Giants.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-6&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If I have seen further it is by standing on the shoulders of Giants.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Inline Code&lt;span class=&#34;absolute -mt-20&#34; id=&#34;inline-code&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#inline-code&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-7&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Inline &lt;span class=&#34;sb&#34;&gt;`code`&lt;/span&gt; has &lt;span class=&#34;sb&#34;&gt;`back-ticks around`&lt;/span&gt; it.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-7&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; has &lt;code&gt;back-ticks around&lt;/code&gt; it.&lt;/p&gt;
+&lt;h3&gt;Code Blocks&lt;span class=&#34;absolute -mt-20&#34; id=&#34;code-blocks&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#code-blocks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Syntax Highlighting&lt;span class=&#34;absolute -mt-20&#34; id=&#34;syntax-highlighting&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#syntax-highlighting&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-8&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;```go
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-8&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-9&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-9&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Tables&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tables&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#tables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-10&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Syntax    | Description |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| --------- | ----------- |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Header    | Title       |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Paragraph | Text        |&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-10&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Syntax&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Header&lt;/td&gt;
+&lt;td&gt;Title&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Paragraph&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;References&lt;span class=&#34;absolute -mt-20&#34; id=&#34;references&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#references&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.markdownguide.org/basic-syntax/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/formats/#markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
       </description>
     </item>
     
