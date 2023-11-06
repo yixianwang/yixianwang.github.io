@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Dynamic Programming">
 <meta itemprop="description" content="Covered all topics of Dynamic Programming"><meta itemprop="datePublished" content="2022-12-15T10:36:13-04:00" />
 <meta itemprop="dateModified" content="2022-12-15T10:36:13-04:00" />
-<meta itemprop="wordCount" content="22115">
+<meta itemprop="wordCount" content="22170">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dynamic Programming"/>
 <meta name="twitter:description" content="Covered all topics of Dynamic Programming"/>
@@ -745,6 +745,14 @@
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#chapter-1-dp-%e5%85%a5%e9%97%a8">Chapter 1: DP 入门
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-to-realize-a-dp-problem">How to realize a DP problem
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#%e5%b8%b8%e8%a7%81dp%e7%b1%bb%e5%9e%8b">常见DP类型：
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -2912,19 +2920,42 @@
 </ul>
 <!-- vim-markdown-toc -->
 <h2>Chapter 1: DP 入门<span class="absolute -mt-20" id="chapter-1-dp-入门"></span>
-    <a href="#chapter-1-dp-%e5%85%a5%e9%97%a8" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>
-<p>常见DP类型：</p>
-<ul>
-<li>坐标型（20%）</li>
-<li>序列型（20%）</li>
-<li>划分型（20%）</li>
-<li>区间型（15%）</li>
-<li>背包型（10%）</li>
-<li>最长序列型（5%）</li>
-<li>博弈型（5%）</li>
-<li>综合型（5%）</li>
+    <a href="#chapter-1-dp-%e5%85%a5%e9%97%a8" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>How to realize a DP problem<span class="absolute -mt-20" id="how-to-realize-a-dp-problem"></span>
+    <a href="#how-to-realize-a-dp-problem" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>First, if the question is asking for the
+<ol>
+<li><code>How many ways</code></li>
+<li><code>Maximum or Minimum</code></li>
+<li><code>Yes/No</code></li>
+</ol>
+</li>
+<li>Second, we have to make decisions that may depend on previously made decisions</li>
 </ul>
+<h3>常见DP类型：<span class="absolute -mt-20" id="常见dp类型"></span>
+    <a href="#%e5%b8%b8%e8%a7%81dp%e7%b1%bb%e5%9e%8b" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>坐标型（20%）</p>
+</li>
+<li>
+<p>序列型（20%）</p>
+</li>
+<li>
+<p>划分型（20%）</p>
+</li>
+<li>
+<p>区间型（15%）</p>
+</li>
+<li>
+<p>背包型（10%）</p>
+</li>
+<li>
+<p>最长序列型（5%）</p>
+</li>
+<li>
+<p>博弈型（5%）</p>
+</li>
+<li>
+<p>综合型（5%）</p>
 </li>
 <li>
 <p>DP时间空间优化</p>
@@ -3714,7 +3745,7 @@
 </ul>
 <h3>初探 划分型动态规划<span class="absolute -mt-20" id="初探-划分型动态规划"></span>
     <a href="#%e5%88%9d%e6%8e%a2-%e5%88%92%e5%88%86%e5%9e%8b%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><a href="https://www.lintcode.com/problem/512" target="_blank" rel="noopener">Lintcode 512 Decode Ways</a></li>
+<li><a href="https://leetcode.com/problems/decode-ways/" target="_blank" rel="noopener">Leetcode 91 Decode Ways</a></li>
 </ul>
 <h4>动态规划组成部分一：确定状态<span class="absolute -mt-20" id="动态规划组成部分一确定状态-1"></span>
     <a href="#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e4%b8%80%e7%a1%ae%e5%ae%9a%e7%8a%b6%e6%80%81-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
@@ -3789,12 +3820,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// last one digit --&gt; letter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// s[i - 1] == [1, 9]
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// last two digits --&gt; letter
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// s[i - 2]s[i - 1]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// s[i - 2]s[i - 1] == [10, 26]
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;1&#39;</span> <span class="o">||</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;2&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;6&#39;</span><span class="p">)))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
@@ -3817,7 +3849,7 @@
     <a href="#%e5%9d%90%e6%a0%87%e5%9e%8b%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e6%9c%80%e5%b0%8f%e8%b7%af%e5%be%84%e5%92%8c" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
     <img src="../images_dp/2.5.png" alt="2.5" loading="lazy" /></p>
 <ul>
-<li><a href="https://www.lintcode.com/problem/110" target="_blank" rel="noopener">Lintcode 110 Minimum Path Sum</a></li>
+<li><a href="https://leetcode.com/problems/minimum-path-sum/" target="_blank" rel="noopener">Leetcode 64 Minimum Path Sum</a></li>
 </ul>
 <div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Mine correct version
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
@@ -4086,7 +4118,7 @@
 </blockquote>
 <h3>坐标型动态规划：炸弹袭击<span class="absolute -mt-20" id="坐标型动态规划炸弹袭击"></span>
     <a href="#%e5%9d%90%e6%a0%87%e5%9e%8b%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e7%82%b8%e5%bc%b9%e8%a2%ad%e5%87%bb" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><a href="https://www.lintcode.com/problem/553" target="_blank" rel="noopener">Lintcode 553 Bomb Enemy</a></li>
+<li><a href="https://leetcode.com/problems/bomb-enemy/" target="_blank" rel="noopener">Leetcode 361 Bomb Enemy</a></li>
 </ul>
 <h4>动态规划组成部分一：确定状态<span class="absolute -mt-20" id="动态规划组成部分一确定状态-2"></span>
     <a href="#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e4%b8%80%e7%a1%ae%e5%ae%9a%e7%8a%b6%e6%80%81-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
@@ -4186,6 +4218,8 @@
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">right</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// up
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// count E like prefix_sum
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// encounter W start from 0
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">up</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -4296,7 +4330,7 @@
 <p>
     <img src="../images_dp/2.11.png" alt="binary operation" loading="lazy" /></p>
 <ul>
-<li><a href="https://www.lintcode.com/problem/664" target="_blank" rel="noopener">Lintcode 664 Counting Bits</a></li>
+<li><a href="https://leetcode.com/problems/counting-bits/description/" target="_blank" rel="noopener">Leetcode 338 Counting Bits</a></li>
 </ul>
 <h4>题目分析<span class="absolute -mt-20" id="题目分析-1"></span>
     <a href="#%e9%a2%98%e7%9b%ae%e5%88%86%e6%9e%90-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
