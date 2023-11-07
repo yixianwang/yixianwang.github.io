@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Dynamic Programming">
 <meta itemprop="description" content="Covered all topics of Dynamic Programming"><meta itemprop="datePublished" content="2022-12-15T10:36:13-04:00" />
 <meta itemprop="dateModified" content="2022-12-15T10:36:13-04:00" />
-<meta itemprop="wordCount" content="22170">
+<meta itemprop="wordCount" content="22238">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dynamic Programming"/>
 <meta name="twitter:description" content="Covered all topics of Dynamic Programming"/>
@@ -4434,12 +4434,26 @@
 </div>
 <h3>Exercise: 最长上升子序列<span class="absolute -mt-20" id="exercise-最长上升子序列"></span>
     <a href="#exercise-%e6%9c%80%e9%95%bf%e4%b8%8a%e5%8d%87%e5%ad%90%e5%ba%8f%e5%88%97" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><a href="https://www.lintcode.com/problem/397/" target="_blank" rel="noopener">Lintcode Longest Increasing Continuous Subsequence</a></li>
+<li><a href="https://leetcode.com/problems/longest-increasing-subsequence/description/" target="_blank" rel="noopener">LIS: Leetcode 300 Longest Increasing Subsequence</a></li>
 </ul>
 <div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-15"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">longestIncreasingContinuousSubsequence</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">lengthOfLIS</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// compare current number with all previous numbers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// if satisfies the increasing condition then compete
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// [0, i)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">*</span><span class="nf">max_element</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">f</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -4527,12 +4541,12 @@
 <h3>前缀型<span class="absolute -mt-20" id="前缀型"></span>
     <a href="#%e5%89%8d%e7%bc%80%e5%9e%8b" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>坐标型关心走到哪儿，前缀型不关心<br>
 前缀型永远是用前缀来表示子状态: 看前<code>i</code>个数怎样怎样，和前<code>j</code>个数或前<code>i - 1</code>个数的怎样怎样，之间的关系</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-18">$$\begin{align}
-dp[i] &amp;= 前`i`个数取出的最大和(不关心第`i`个取或者不取) \\ 
-      &amp;= max(dp[i - 2] &#43; a[i], dp[i - 1]) 以此来避免取相邻的两个房子 \\
-优化：dp[i \% 3] &amp;= 前`i`个数取出的最大和(不关心第`i`个取或者不取) \\ 
-      &amp;= max(dp[(i - 2) \% 3] &#43; a[i], dp[(i - 1) \% 3]) 以此来避免取相邻的两个房子 
-\end{align}$$</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-18"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nv">\begin</span><span class="nb">{align}
+</span></span></span><span class="line"><span class="cl"><span class="nb">dp</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> 前`i`个数取出的最大和</span><span class="o">(</span><span class="nb">不关心第`i`个取或者不取</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"> 
+</span></span></span><span class="line"><span class="cl"><span class="nb">      &amp;</span><span class="o">=</span><span class="nb"> max</span><span class="o">(</span><span class="nb">dp</span><span class="o">[</span><span class="nb">i </span><span class="o">-</span><span class="nb"> </span><span class="m">2</span><span class="o">]</span><span class="nb"> </span><span class="o">+</span><span class="nb"> a</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="nb">, dp</span><span class="o">[</span><span class="nb">i </span><span class="o">-</span><span class="nb"> </span><span class="m">1</span><span class="o">])</span><span class="nb"> 以此来避免取相邻的两个房子 </span><span class="nv">\\</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="nb">优化：dp</span><span class="o">[</span><span class="nb">i </span><span class="nv">\%</span><span class="nb"> </span><span class="m">3</span><span class="o">]</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> 前`i`个数取出的最大和</span><span class="o">(</span><span class="nb">不关心第`i`个取或者不取</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"> 
+</span></span></span><span class="line"><span class="cl"><span class="nb">      &amp;</span><span class="o">=</span><span class="nb"> max</span><span class="o">(</span><span class="nb">dp</span><span class="o">[(</span><span class="nb">i </span><span class="o">-</span><span class="nb"> </span><span class="m">2</span><span class="o">)</span><span class="nb"> </span><span class="nv">\%</span><span class="nb"> </span><span class="m">3</span><span class="o">]</span><span class="nb"> </span><span class="o">+</span><span class="nb"> a</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="nb">, dp</span><span class="o">[(</span><span class="nb">i </span><span class="o">-</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb"> </span><span class="nv">\%</span><span class="nb"> </span><span class="m">3</span><span class="o">])</span><span class="nb"> 以此来避免取相邻的两个房子 
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{align}</span><span class="s">$$</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
