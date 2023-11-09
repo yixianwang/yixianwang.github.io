@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Draft: Monotonic Stack">
 <meta itemprop="description" content="Coverd all topics of Monotonic Stack"><meta itemprop="datePublished" content="2023-09-16T11:20:11-04:00" />
 <meta itemprop="dateModified" content="2023-09-16T11:20:11-04:00" />
-<meta itemprop="wordCount" content="689">
+<meta itemprop="wordCount" content="690">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Draft: Monotonic Stack"/>
 <meta name="twitter:description" content="Coverd all topics of Monotonic Stack"/>
@@ -330,6 +330,22 @@
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/docker/"
+    
+  >Docker
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/airflow/"
+    
+  >Airflow
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -712,7 +728,7 @@
           <p>Coverd all topics of Monotonic Stack</p>
 <p>单调栈：求一个位置往左看或者往右看，第一个小于等于它的数的时候，用单调栈</p>
 <h1>1</h1><ul>
-<li><a href="https://www.lintcode.com/problem/1852/" target="_blank" rel="noopener">Lintcode 1852 最终优惠价</a></li>
+<li><a href="https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/description/" target="_blank" rel="noopener">Leetcode 1475 最终优惠价</a></li>
 </ul>
 <h2>解释<span class="absolute -mt-20" id="解释"></span>
     <a href="#%e8%a7%a3%e9%87%8a" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -736,7 +752,7 @@
 <li>如果发现我的算法需要将一个元素，反复入栈，反复出栈，就不是单调栈算法，不符合单调栈最基本的特点。</li>
 </ul>
 <h2>Template<span class="absolute -mt-20" id="template"></span>
-    <a href="#template" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="kn">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <a href="#template" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="kn">from</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="n">栈不空</span> <span class="ow">and</span> <span class="n">单调性不存在</span>
 </span></span><span class="line"><span class="cl">    <span class="n">记录此时的答案</span> <span class="c1"># 一般情况下是放在弹出栈之前的(弹前，弹中，弹后)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -754,7 +770,7 @@
 <h2>Answer<span class="absolute -mt-20" id="answer"></span>
     <a href="#answer" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">finalDiscountedPrice</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">finalPrices</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">prices</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">stack</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">results</span><span class="p">(</span><span class="n">prices</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">prices</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
@@ -777,15 +793,16 @@
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">final_discounted_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">stack</span> <span class="ow">and</span> <span class="n">prices</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&gt;=</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">results</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">results</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">finalPrices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">stack</span> <span class="ow">and</span> <span class="n">prices</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&gt;=</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">results</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">results</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
