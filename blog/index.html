@@ -588,7 +588,7 @@
             <h3><a style="color: inherit; text-decoration: none;" class="block font-semibold mt-8 text-2xl " href="/blog/sweep_line_algorithm/">Sweep Line Algorithm</a></h3>
             
             <p class="opacity-50 text-sm mt-1 leading-1">Published Date: November 10, 2023</p>
-            <p class="opacity-80 mt-5 leading-6">Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals.
+            <p class="opacity-80 mt-5 leading-6">
               
             </p>
             <span class="inline-block"> <a class="text-[color:hsl(var(--primary-hue),100%,50%)] underline underline-offset-2 decoration-from-font" href="/blog/sweep_line_algorithm/">Read more →</a> </span>

@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Sweep Line Algorithm – Yixian Wang</title>
-  <meta name="description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals." />
+  <meta name="description" content="" />
 
   
 
 <meta property="og:title" content="Sweep Line Algorithm" />
-<meta property="og:description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/blog/sweep_line_algorithm/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-11-10T20:45:48-05:00" />
 <meta property="article:modified_time" content="2023-11-10T20:45:48-05:00" />
 
   <meta itemprop="name" content="Sweep Line Algorithm">
-<meta itemprop="description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals."><meta itemprop="datePublished" content="2023-11-10T20:45:48-05:00" />
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-11-10T20:45:48-05:00" />
 <meta itemprop="dateModified" content="2023-11-10T20:45:48-05:00" />
 <meta itemprop="wordCount" content="715">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sweep Line Algorithm"/>
-<meta name="twitter:description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals."/>
+<meta name="twitter:description" content=""/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -949,7 +949,6 @@
     </button>
   </div>
 </div>
-
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
