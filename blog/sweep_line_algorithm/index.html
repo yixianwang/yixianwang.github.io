@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Sweep Line Algorithm">
 <meta itemprop="description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals."><meta itemprop="datePublished" content="2023-11-10T20:45:48-05:00" />
 <meta itemprop="dateModified" content="2023-11-10T20:45:48-05:00" />
-<meta itemprop="wordCount" content="743">
+<meta itemprop="wordCount" content="715">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sweep Line Algorithm"/>
 <meta name="twitter:description" content="Sweep Line Algorithm 使用一根假想的线，在坐标轴上水平或垂直移动 像扫描一样经过数据并处理的算法 Leetcode 56. Merge Intervals Leetcode 56. Merge Intervals Approach 1: Greedy intervals排序，左边界越小越优先 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 class Solution { public: std::vector&lt;std::vector&lt;int&gt;&gt; merge(std::vector&lt;std::vector&lt;int&gt;&gt;&amp; intervals) { // corner case std::vector&lt;std::vector&lt;int&gt;&gt; result; if (intervals.size() == 0) return result; // intervals排序，左边界越小越优先 auto comp = [](const auto&amp; left, const auto&amp; right) { if (left[0] &lt; right[0]) { return true; } return false; }; std::sort(intervals.begin(), intervals.end(), comp); // 前一个区间的右边界在后一个区间的左边界之后 == 两区间合并 for (int i = 0; i &lt; intervals."/>
@@ -187,9 +187,9 @@
             </li>
           <li>
               <a
-                href="#lintcode-850-employee-free-time"
+                href="#leetcode-759-employee-free-time"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Lintcode 850. Employee Free Time</a>
+              >Leetcode 759. Employee Free Time</a>
             </li>
           </ul>
   
@@ -636,7 +636,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lintcode-850-employee-free-time">Lintcode 850. Employee Free Time
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#leetcode-759-employee-free-time">Leetcode 759. Employee Free Time
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -882,50 +882,52 @@
     </button>
   </div>
 </div>
-<h2>Lintcode 850. Employee Free Time<span class="absolute -mt-20" id="lintcode-850-employee-free-time"></span>
-    <a href="#lintcode-850-employee-free-time" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li><a href="https://www.lintcode.com/problem/850/" target="_blank" rel="noopener">Lintcode 850. Employee Free Time</a></li>
+<h2>Leetcode 759. Employee Free Time<span class="absolute -mt-20" id="leetcode-759-employee-free-time"></span>
+    <a href="#leetcode-759-employee-free-time" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://leetcode.com/problems/employee-free-time/" target="_blank" rel="noopener">Leetcode 759. Employee Free Time</a></li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * Definition of Interval:
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * class Interval {
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * public:
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *     int start, end;
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *     Interval(int start, int end) {
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *         this-&gt;start = start;
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *         this-&gt;end = end;
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *     }
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * }
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">// Definition for an Interval.
+</span></span></span><span class="line"><span class="cl"><span class="cm">class Interval {
+</span></span></span><span class="line"><span class="cl"><span class="cm"> public:
+</span></span></span><span class="line"><span class="cl"><span class="cm">  int start;
+</span></span></span><span class="line"><span class="cl"><span class="cm">  int end;
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">  Interval() {}
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">  Interval(int _start, int _end) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">    start = _start;
+</span></span></span><span class="line"><span class="cl"><span class="cm">    end = _end;
+</span></span></span><span class="line"><span class="cl"><span class="cm">  }
+</span></span></span><span class="line"><span class="cl"><span class="cm">};
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">  <span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm">   * @param schedule: a list schedule of employees
-</span></span></span><span class="line"><span class="cl"><span class="cm">   * @return: Return a list of finite intervals 
-</span></span></span><span class="line"><span class="cl"><span class="cm">   */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">employeeFreeTime</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">schedule</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">employeeFreeTime</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;&gt;</span> <span class="n">schedule</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">schedule</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">schedule</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">schedule</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">schedule</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="p">(</span><span class="n">j</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">)});</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">schedule</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">].</span><span class="n">start</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">schedule</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">].</span><span class="n">end</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">});</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">left</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">return</span> <span class="n">left</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">comp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mh">0xcfcfcfcf</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mh">0x3f3f3f3f</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">temp_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">INT_MIN</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">temp_sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">left</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">!=</span> <span class="mh">0x3f3f3f3f</span> <span class="o">&amp;&amp;</span> <span class="n">left</span> <span class="o">!=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// left != right is the corner case
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">right</span> <span class="o">!=</span> <span class="n">INT_MAX</span> <span class="o">&amp;&amp;</span> <span class="n">left</span> <span class="o">!=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// left != right is the corner case
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">left</span><span class="p">));</span> <span class="c1">// right, left
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
