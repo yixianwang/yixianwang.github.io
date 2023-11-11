@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Sweep Line Algorithm">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-11-10T20:45:48-05:00" />
 <meta itemprop="dateModified" content="2023-11-10T20:45:48-05:00" />
-<meta itemprop="wordCount" content="715">
+<meta itemprop="wordCount" content="780">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sweep Line Algorithm"/>
 <meta name="twitter:description" content=""/>
@@ -632,11 +632,23 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-3-sweep-line-algorithm">Approach 3: Sweep Line Algorithm
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-3-sweep-line-without-heap">Approach 3: Sweep Line without Heap
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-4-sweep-line-with-heap">Approach 4: Sweep Line with Heap
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#leetcode-759-employee-free-time">Leetcode 759. Employee Free Time
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-1-sweep-line-without-heap">Approach 1: Sweep Line: without heap
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-2-sweep-line-with-heap">Approach 2: Sweep Line: with heap
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -661,9 +673,22 @@
 
         <div class="content">
           <h1>Sweep Line Algorithm</h1>
-          <h1>Sweep Line Algorithm</h1><ul>
+          <ul>
 <li>使用一根假想的线，在坐标轴上水平或垂直移动</li>
 <li>像扫描一样经过数据并处理的算法</li>
+<li>Take Aways:
+<ul>
+<li>注意点有交集的时候:
+<ul>
+<li>case 1(merge interval): start = -1, end = 1 (or comp: left[1] &gt; right[1])</li>
+<li>case 2(meeting room II, employee free time): start = 1, end = -1 (or comp: left[1] &lt; right[1])</li>
+</ul>
+</li>
+<li>sort all boundary</li>
+<li>sort first element first, then sort the second element</li>
+<li>watch on <code>left == right</code> scenarios</li>
+</ul>
+</li>
 </ul>
 <h2>Leetcode 56. Merge Intervals<span class="absolute -mt-20" id="leetcode-56-merge-intervals"></span>
     <a href="#leetcode-56-merge-intervals" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -838,8 +863,8 @@
     </button>
   </div>
 </div>
-<h3>Approach 3: Sweep Line Algorithm<span class="absolute -mt-20" id="approach-3-sweep-line-algorithm"></span>
-    <a href="#approach-3-sweep-line-algorithm" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<h3>Approach 3: Sweep Line without Heap<span class="absolute -mt-20" id="approach-3-sweep-line-without-heap"></span>
+    <a href="#approach-3-sweep-line-without-heap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">minMeetingRooms</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">logs</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">logs</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -860,15 +885,15 @@
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">temp_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">temp_sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">left</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      <span class="n">temp_sum</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// if (temp_sum == 0) {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">//   left = v[i][0];
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">temp_sum</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">      <span class="n">answer</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">temp_sum</span><span class="p">);</span> <span class="c1">// compete the maximum number of overlap layers
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="n">temp_sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">right</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// if (temp_sum == 0) {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">//   right = v[i][0];
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">answer</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -882,27 +907,29 @@
     </button>
   </div>
 </div>
+<h3>Approach 4: Sweep Line with Heap<span class="absolute -mt-20" id="approach-4-sweep-line-with-heap"></span>
+    <a href="#approach-4-sweep-line-with-heap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">minMeetingRooms</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">logs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h2>Leetcode 759. Employee Free Time<span class="absolute -mt-20" id="leetcode-759-employee-free-time"></span>
     <a href="#leetcode-759-employee-free-time" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li><a href="https://leetcode.com/problems/employee-free-time/" target="_blank" rel="noopener">Leetcode 759. Employee Free Time</a></li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*
-</span></span></span><span class="line"><span class="cl"><span class="cm">// Definition for an Interval.
-</span></span></span><span class="line"><span class="cl"><span class="cm">class Interval {
-</span></span></span><span class="line"><span class="cl"><span class="cm"> public:
-</span></span></span><span class="line"><span class="cl"><span class="cm">  int start;
-</span></span></span><span class="line"><span class="cl"><span class="cm">  int end;
-</span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm">  Interval() {}
-</span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm">  Interval(int _start, int _end) {
-</span></span></span><span class="line"><span class="cl"><span class="cm">    start = _start;
-</span></span></span><span class="line"><span class="cl"><span class="cm">    end = _end;
-</span></span></span><span class="line"><span class="cl"><span class="cm">  }
-</span></span></span><span class="line"><span class="cl"><span class="cm">};
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<h3>Approach 1: Sweep Line: without heap<span class="absolute -mt-20" id="approach-1-sweep-line-without-heap"></span>
+    <a href="#approach-1-sweep-line-without-heap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">employeeFreeTime</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;&gt;</span> <span class="n">schedule</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
@@ -942,7 +969,24 @@
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-5"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Approach 2: Sweep Line: with heap<span class="absolute -mt-20" id="approach-2-sweep-line-with-heap"></span>
+    <a href="#approach-2-sweep-line-with-heap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;</span> <span class="n">employeeFreeTime</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Interval</span><span class="o">&gt;&gt;</span> <span class="n">schedule</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
