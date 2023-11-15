@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Sweep Line Algorithm">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-11-10T20:45:48-05:00" />
 <meta itemprop="dateModified" content="2023-11-10T20:45:48-05:00" />
-<meta itemprop="wordCount" content="2763">
+<meta itemprop="wordCount" content="3112">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sweep Line Algorithm"/>
 <meta name="twitter:description" content=""/>
@@ -262,6 +262,24 @@
                 href="#leetcode-1589-maximum-sum-obtained-of-any-permutation"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Leetcode 1589. Maximum Sum Obtained of Any Permutation</a>
+            </li>
+          <li>
+              <a
+                href="#leetcode-1943-describe-the-painting"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Leetcode 1943. Describe the Painting</a>
+            </li>
+          <li>
+              <a
+                href="#skip-leetcode-1674-minimum-moves-to-make-array-complementary"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >[Skip] Leetcode 1674. Minimum Moves to Make Array Complementary</a>
+            </li>
+          <li>
+              <a
+                href="#leetcode-2158-amount-of-new-area-painted-each-day"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Leetcode 2158. Amount of New Area Painted Each Day</a>
             </li>
           </ul>
   
@@ -829,6 +847,26 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-1-prefix-sum-2">Approach 1: Prefix Sum
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#leetcode-1943-describe-the-painting">Leetcode 1943. Describe the Painting
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-1-prefix-sum-failed-in-corner-case">Approach 1: Prefix Sum: Failed in corner case
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#-approach-2-sweep-line-ac">!!! Approach 2: Sweep Line: AC
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#skip-leetcode-1674-minimum-moves-to-make-array-complementary">[Skip] Leetcode 1674. Minimum Moves to Make Array Complementary
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#leetcode-2158-amount-of-new-area-painted-each-day">Leetcode 2158. Amount of New Area Painted Each Day
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1863,6 +1901,142 @@
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-22"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Leetcode 1943. Describe the Painting<span class="absolute -mt-20" id="leetcode-1943-describe-the-painting"></span>
+    <a href="#leetcode-1943-describe-the-painting" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://leetcode.com/problems/describe-the-painting/" target="_blank" rel="noopener">Leetcode 1943. Describe the Painting</a></li>
+</ul>
+<h3>Approach 1: Prefix Sum: Failed in corner case<span class="absolute -mt-20" id="approach-1-prefix-sum-failed-in-corner-case"></span>
+    <a href="#approach-1-prefix-sum-failed-in-corner-case" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Failded Corner Case:
+<ul>
+<li>Input: segments = [[1,4,5],[1,4,7],[4,7,1],[4,7,11]]</li>
+<li>Output: [[1,4,12],[4,7,12]]</li>
+</ul>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-23"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define print(x) std::copy(x.begin(), x.end(), std::ostream_iterator&lt;int&gt;(std::cout, &#34; &#34;)); std::cout &lt;&lt; std::endl
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;&gt;</span> <span class="n">splitPainting</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">segments</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">segments</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">100001</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">s</span> <span class="p">:</span> <span class="n">segments</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">color</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">v</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">+=</span> <span class="n">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">v</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-=</span> <span class="n">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 0, 0, 1, 1, 2, 2, 1, 0, 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">pre_mix</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pre_mix</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// leading 0 or unchanged mix color
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">pre_mix</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">left</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]});</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">pre_mix</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-23"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>!!! Approach 2: Sweep Line: AC<span class="absolute -mt-20" id="-approach-2-sweep-line-ac"></span>
+    <a href="#-approach-2-sweep-line-ac" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>when the <strong>prefix sum</strong> cannot identify the specific index, we need use <strong>sweep line</strong></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-24"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;&gt;</span> <span class="n">splitPainting</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mp</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">prev_key</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// None
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">long</span> <span class="kt">long</span> <span class="n">color</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// temp_sum: color mix accumulation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">_</span><span class="p">]</span> <span class="o">:</span> <span class="n">mp</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// std::cout &lt;&lt; &#34;key: &#34; &lt;&lt; key &lt;&lt; &#34; value: &#34; &lt;&lt; _ &lt;&lt; &#34; mp[prev_key]: &#34; &lt;&lt; mp[prev_key] &lt;&lt; std::endl;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// if color == 0, means this part isn&#39;t paint
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">prev_key</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">color</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">color</span> <span class="o">+=</span> <span class="n">mp</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">prev_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-24"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>[Skip] Leetcode 1674. Minimum Moves to Make Array Complementary<span class="absolute -mt-20" id="skip-leetcode-1674-minimum-moves-to-make-array-complementary"></span>
+    <a href="#skip-leetcode-1674-minimum-moves-to-make-array-complementary" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-25"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">minMoves</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-25"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Leetcode 2158. Amount of New Area Painted Each Day<span class="absolute -mt-20" id="leetcode-2158-amount-of-new-area-painted-each-day"></span>
+    <a href="#leetcode-2158-amount-of-new-area-painted-each-day" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://leetcode.com/problems/amount-of-new-area-painted-each-day/" target="_blank" rel="noopener">Leetcode 2158. Amount of New Area Painted Each Day</a></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-26"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">amountPainted</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">paint</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-26"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
