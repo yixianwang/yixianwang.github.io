@@ -91,6 +91,34 @@
     </item>
     
     <item>
+      <title>[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note</title>
+      <link>https://yixianwang.github.io/notes/ccia_reading_note/</link>
+      <pubDate>Thu, 23 Nov 2023 17:51:57 -0500</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/ccia_reading_note/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Chapter 1: Introduction&lt;span class=&#34;absolute -mt-20&#34; id=&#34;chapter-1-introduction&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chapter-1-introduction&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;concurrency&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;processor(including processing unit(or core))&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;task switching&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;context switch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hardware threads&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.1 What is concurrency&lt;span class=&#34;absolute -mt-20&#34; id=&#34;11-what-is-concurrency&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#11-what-is-concurrency&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;In computer system, concurrency is about two or more indenpendent activites happening at the same time.&lt;/li&gt;
+&lt;li&gt;Sometimes, people also referring task switching is concurrency, but it&amp;rsquo;s an illusion of concurrency. In a single-core scenario, the operating system do some scheduling to divide the different tasks into chunks, and then the chunks from different tasks are interleaved.&lt;/li&gt;
+&lt;li&gt;The number of hardware threads is an important factor to consider. It describes how many independent tasks the hardware can run concurrently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Approaches to concurrency&lt;span class=&#34;absolute -mt-20&#34; id=&#34;approaches-to-concurrency&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#approaches-to-concurrency&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Google Test</title>
       <link>https://yixianwang.github.io/notes/google_test/</link>
       <pubDate>Thu, 09 Nov 2023 20:44:40 -0500</pubDate>
