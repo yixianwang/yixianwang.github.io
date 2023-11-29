@@ -26,7 +26,7 @@
   <meta itemprop="name" content="[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note">
 <meta itemprop="description" content="Chapter 1: Introduction concurrency processor(including processing unit(or core)) task switching context switch hardware threads 1.1 Concurrency In computer system, concurrency is about two or more indenpendent activites happening at the same time. Sometimes, people also referring task switching is concurrency, but it&rsquo;s an illusion of concurrency. In a single-core scenario, the operating system do some scheduling to divide the different tasks into chunks, and then the chunks from different tasks are interleaved."><meta itemprop="datePublished" content="2023-11-23T17:51:57-05:00" />
 <meta itemprop="dateModified" content="2023-11-23T17:51:57-05:00" />
-<meta itemprop="wordCount" content="181">
+<meta itemprop="wordCount" content="255">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note"/>
 <meta name="twitter:description" content="Chapter 1: Introduction concurrency processor(including processing unit(or core)) task switching context switch hardware threads 1.1 Concurrency In computer system, concurrency is about two or more indenpendent activites happening at the same time. Sometimes, people also referring task switching is concurrency, but it&rsquo;s an illusion of concurrency. In a single-core scenario, the operating system do some scheduling to divide the different tasks into chunks, and then the chunks from different tasks are interleaved."/>
@@ -796,6 +796,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approaches-to-concurrency">approaches to concurrency
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#concurrency-vs-parallelism">concurrency vs. parallelism
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -847,8 +851,18 @@
 <li>pros: easier to write <strong>safe</strong> concurrent code</li>
 </ul>
 </li>
-<li>multithreaded process:</li>
+<li>multithreaded process(favored):
+<ul>
+<li>Shared memory: all threads in a process share the same address space, and most of the data can be accessed directly from the all threads. (global variables remain global, pointers or references to objects or data can be passed around among threads)</li>
+<li>cons: <strong>flexibility</strong> - we must ensure that the view of the data seen by each thread is consistent whenever it&rsquo;s accessed.</li>
+<li>pros: low <strong>overhead</strong></li>
+</ul>
+</li>
 </ol>
+<h4>concurrency vs. parallelism<span class="absolute -mt-20" id="concurrency-vs-parallelism"></span>
+    <a href="#concurrency-vs-parallelism" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>separation of concerns and performance</li>
+</ul>
 
         </div>
         <div class="mt-16"></div>

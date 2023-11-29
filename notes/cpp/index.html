@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Cpp">
 <meta itemprop="description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="2649">
+<meta itemprop="wordCount" content="2621">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cpp"/>
 <meta name="twitter:description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."/>
@@ -1750,7 +1750,9 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <p>The compile-time error that will appear as if const value is passed to any non-const argument of the function</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-22"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-22"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// error: no matching function for call to &#39;foo&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// candidate function not viable: 1st argument (&#39;const int *&#39;) would lose const qualifier
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"> 
@@ -1770,35 +1772,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<ul>
-<li></li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-23"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// error: no matching function for call to &#39;foo&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1">// candidate function not viable: 1st argument (&#39;const int *&#39;) would lose const qualifier
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-23"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<ul>
-<li></li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-24"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Function foo() with variable
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-23"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Function foo() with variable
 </span></span></span><span class="line"><span class="cl"><span class="c1">// const int
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// y = 6; const value
@@ -1827,7 +1801,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-24"
+      data-clipboard-target="#code-block-23"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1835,7 +1809,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <p>const return</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-25"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// int foo(int y) { // no error
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-24"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// int foo(int y) { // no error
 </span></span></span><span class="line"><span class="cl"><span class="c1">// const int foo(int y) { // no error
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="nf">foo</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// error: cannot assign to variable &#39;y&#39; with const-qualified type &#39;const int&#39;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">--</span><span class="n">y</span><span class="p">;</span> 
@@ -1853,7 +1827,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-25"
+      data-clipboard-target="#code-block-24"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1862,7 +1836,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
 </div>
 <p>An object declared as const cannot be modified and hence, can invoke only const member functions as these functions ensure not to modify the object.</p>
 <p>When a function is declared as const, it can be called on any type of object, const object as well as non-const objects.</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-26"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-25"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// Constructor
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">Test</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1911,7 +1885,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-26"
+      data-clipboard-target="#code-block-25"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1921,7 +1895,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
 <h2>random seed<span class="absolute -mt-20" id="random-seed"></span>
     <a href="#random-seed" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p><code>3407</code></p>
 <h2>C++20 comparison operator<span class="absolute -mt-20" id="c20-comparison-operator"></span>
-    <a href="#c20-comparison-operator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-27"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
+    <a href="#c20-comparison-operator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-26"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">   <span class="n">Point</span><span class="p">()</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
@@ -1936,7 +1910,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-27"
+      data-clipboard-target="#code-block-26"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1944,7 +1918,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <h2>To initialize two dimentional array<span class="absolute -mt-20" id="to-initialize-two-dimentional-array"></span>
-    <a href="#to-initialize-two-dimentional-array" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-28"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+    <a href="#to-initialize-two-dimentional-array" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-27"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">**</span> <span class="n">secondStore</span><span class="p">;</span>
@@ -1958,7 +1932,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-28"
+      data-clipboard-target="#code-block-27"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1969,7 +1943,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <a href="#heap-set-vs-priority_queue" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>we cannot iterate <code>priority_queue</code>, but we can make a copy of it and then use &lsquo;pop&rsquo; and &rsquo;top()&rsquo; to iterate</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-29"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-28"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;set&gt;</span><span class="cp">
@@ -2035,7 +2009,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-29"
+      data-clipboard-target="#code-block-28"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -2043,7 +2017,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <h2>heap with multiset, erase with find<span class="absolute -mt-20" id="heap-with-multiset-erase-with-find"></span>
-    <a href="#heap-with-multiset-erase-with-find" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-30"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Leetcode 731. My calendar II(Sweep Line Algorithm)
+    <a href="#heap-with-multiset-erase-with-find" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-29"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Leetcode 731. My calendar II(Sweep Line Algorithm)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="cp">#define print(x) std::copy(x.begin(), x.end(), std::ostream_iterator&lt;int&gt;(std::cout, &#34; &#34;)); std::cout &lt;&lt; std::endl
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">class</span> <span class="nc">MyCalendarTwo</span> <span class="p">{</span>
@@ -2095,7 +2069,7 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-30"
+      data-clipboard-target="#code-block-29"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -2103,12 +2077,12 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <h2>return min or max element from hashmap<span class="absolute -mt-20" id="return-min-or-max-element-from-hashmap"></span>
-    <a href="#return-min-or-max-element-from-hashmap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-31"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">;};</span>
+    <a href="#return-min-or-max-element-from-hashmap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-30"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">;};</span>
 </span></span><span class="line"><span class="cl"><span class="n">min_value</span> <span class="o">=</span> <span class="n">min_element</span><span class="p">(</span><span class="n">my_map</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">my_map</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">cmp</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-31"
+      data-clipboard-target="#code-block-30"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
