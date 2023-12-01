@@ -12,32 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Spark – Yixian Wang</title>
-  <meta name="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process
-pyspark use local[*] by default
-local: one executor local[K]: K executors, K threads local[*]: the number of cpu executors change mode with pyspark --master" />
+  <meta name="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ApplicationMaster(AM), ResourceManager(RM), NodeManager(NM), Container Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process" />
 
   
 
 <meta property="og:title" content="Spark" />
-<meta property="og:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process
-pyspark use local[*] by default
-local: one executor local[K]: K executors, K threads local[*]: the number of cpu executors change mode with pyspark --master" />
+<meta property="og:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ApplicationMaster(AM), ResourceManager(RM), NodeManager(NM), Container Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/spark/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-12-01T00:32:23-05:00" />
 <meta property="article:modified_time" content="2023-12-01T00:32:23-05:00" />
 
   <meta itemprop="name" content="Spark">
-<meta itemprop="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process
-pyspark use local[*] by default
-local: one executor local[K]: K executors, K threads local[*]: the number of cpu executors change mode with pyspark --master"><meta itemprop="datePublished" content="2023-12-01T00:32:23-05:00" />
+<meta itemprop="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ApplicationMaster(AM), ResourceManager(RM), NodeManager(NM), Container Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process"><meta itemprop="datePublished" content="2023-12-01T00:32:23-05:00" />
 <meta itemprop="dateModified" content="2023-12-01T00:32:23-05:00" />
-<meta itemprop="wordCount" content="90">
+<meta itemprop="wordCount" content="121">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark"/>
-<meta name="twitter:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process
-pyspark use local[*] by default
-local: one executor local[K]: K executors, K threads local[*]: the number of cpu executors change mode with pyspark --master"/>
+<meta name="twitter:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ApplicationMaster(AM), ResourceManager(RM), NodeManager(NM), Container Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -877,13 +869,34 @@ local: one executor local[K]: K executors, K threads local[*]: the number of cpu
 <li>executor: Container in YARN</li>
 </ul>
 </li>
-<li>driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler
+<li>driver:
 <ul>
+<li>running in spark, including DAGScheduler &amp;&amp; TaskScheduler</li>
 <li>combine operations and form DAG(directed acyclic graph)</li>
 <li>break down job into stages</li>
+<li>similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling</li>
+<li>DAGScheduler:
+<ul>
+<li>split job into stages</li>
+</ul>
+</li>
+<li>TaskScheduler:
+<ul>
+<li>similar to AM, responsible for applying resources and scheduling</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<blockquote>
+<p>YARN: ApplicationMaster(AM), ResourceManager(RM), NodeManager(NM), Container
+
+    <img src="../images-spark/spark-1.png" alt="cuda kmeans 1" loading="lazy" />
+
+    <img src="../images-spark/spark.svg" alt="cuda kmeans 1" loading="lazy" />
+
+    <img src="../images-spark/spark.drawio" alt="cuda kmeans 1" loading="lazy" /></p>
+</blockquote>
 <h2>Operating Mode<span class="absolute -mt-20" id="operating-mode"></span>
     <a href="#operating-mode" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>local/local-cluster/standalone/yarn/mesos</li>
