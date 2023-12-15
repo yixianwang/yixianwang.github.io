@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spark Core">
 <meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
 <meta itemprop="dateModified" content="2023-12-03T19:43:27-05:00" />
-<meta itemprop="wordCount" content="1014">
+<meta itemprop="wordCount" content="1144">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark Core"/>
 <meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"/>
@@ -1541,7 +1541,67 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 </div>
 <h2>Pair RDD Operations<span class="absolute -mt-20" id="pair-rdd-operations"></span>
     <a href="#pair-rdd-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>create Pair RDD<span class="absolute -mt-20" id="create-pair-rdd"></span>
-    <a href="#create-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>transformation on Pair RDD<span class="absolute -mt-20" id="transformation-on-pair-rdd"></span>
+    <a href="#create-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># There are multiple ways to create Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 1: load from file, and then transform to Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="s2">&#34;/data/spark_demo/rdd/wc.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">lines</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-12"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 2: parallelize array</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;Hadoop&#34;</span><span class="p">,</span> <span class="s2">&#34;Spark&#34;</span><span class="p">,</span> <span class="s2">&#34;Hive&#34;</span><span class="p">,</span> <span class="s2">&#34;Spark&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;Hadoop&#39;, 1), (&#39;Spark&#39;, 1), (&#39;Hive&#39;, 1), (&#39;Spark&#39;, 1)]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-13"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 3: keyBy(): customize the rule for key grouping</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;black&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">,</span> <span class="s2">&#34;white&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;grey&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># with cutomized function to create keys, return Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">keyBy</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(5, &#39;black&#39;), (4, &#39;blue&#39;), (5, &#39;white&#39;), (5, &#39;green&#39;), (4, &#39;grey&#39;)]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-14"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-15"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 4: creating with tuple</span>
+</span></span><span class="line"><span class="cl"><span class="n">pets</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;dog&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="n">pets</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;cat&#39;, 1), (&#39;dog&#39;, 1), (&#39;cat&#39;, 2)]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-15"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>transformation on Pair RDD<span class="absolute -mt-20" id="transformation-on-pair-rdd"></span>
     <a href="#transformation-on-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>RDD cache<span class="absolute -mt-20" id="rdd-cache"></span>
     <a href="#rdd-cache" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>overview<span class="absolute -mt-20" id="overview"></span>
     <a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>approaches<span class="absolute -mt-20" id="approaches"></span>
