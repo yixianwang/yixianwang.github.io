@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Spark Core – Yixian Wang</title>
-  <meta name="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies 1 : 1 wide dependencies multiple : multiple Create sparkContext from pyspark." />
+  <meta name="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一" />
 
   
 
 <meta property="og:title" content="Spark Core" />
-<meta property="og:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies 1 : 1 wide dependencies multiple : multiple Create sparkContext from pyspark." />
+<meta property="og:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/spark-core/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-12-03T19:43:27-05:00" />
 <meta property="article:modified_time" content="2023-12-03T19:43:27-05:00" />
 
   <meta itemprop="name" content="Spark Core">
-<meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies 1 : 1 wide dependencies multiple : multiple Create sparkContext from pyspark."><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
+<meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
 <meta itemprop="dateModified" content="2023-12-03T19:43:27-05:00" />
-<meta itemprop="wordCount" content="387">
+<meta itemprop="wordCount" content="893">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark Core"/>
-<meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies 1 : 1 wide dependencies multiple : multiple Create sparkContext from pyspark."/>
+<meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -252,6 +252,14 @@
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/poetry/"
+    
+  >Poetry
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -655,6 +663,13 @@
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/poetry/"
+    
+  >Poetry
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/pytest/"
     
   >Pytest
@@ -912,7 +927,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#transformation">transformation
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#transformation-rdd--rdd">transformation: RDD&ndash;&gt;RDD
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -924,11 +939,11 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#narrow-dependencies">narrow dependencies
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#narrow-dependencies---1--1">narrow dependencies - 1 : 1
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#wide-dependencies">wide dependencies
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#wide-dependencies---multiple--multiple">wide dependencies - multiple : multiple
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -940,11 +955,11 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#parallelize-array">parallelize array
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#1-parallelize-array">1. parallelize array
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#load-data-from-outside">load data from outside
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#2-load-data-from-outside">2. load data from outside
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -952,7 +967,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#transformation-1">transformation
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#transformation-rdd--rdd-1">transformation: RDD&ndash;&gt;RDD
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1137,8 +1152,8 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
   </div>
 </div>
 <h3>operations<span class="absolute -mt-20" id="operations"></span>
-    <a href="#operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>transformation<span class="absolute -mt-20" id="transformation"></span>
-    <a href="#transformation" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
+    <a href="#operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>transformation: RDD&ndash;&gt;RDD<span class="absolute -mt-20" id="transformation-rdd--rdd"></span>
+    <a href="#transformation-rdd--rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
 <thead>
 <tr>
 <th style="text-align:left">Operations</th>
@@ -1191,7 +1206,7 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 <tbody>
 <tr>
 <td style="text-align:left">reduce</td>
-<td></td>
+<td>operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip;</td>
 </tr>
 <tr>
 <td style="text-align:left">collect</td>
@@ -1203,7 +1218,7 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 </tr>
 <tr>
 <td style="text-align:left">take(n)</td>
-<td>get first unsorted n elements within RDD</td>
+<td>get first unsorted n elements within RDD, top(n) can have first sorted n elements</td>
 </tr>
 <tr>
 <td style="text-align:left">takeOrdered(n, [ordering])</td>
@@ -1224,14 +1239,21 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 </tbody>
 </table>
 <h3>Depencencies<span class="absolute -mt-20" id="depencencies"></span>
-    <a href="#depencencies" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>narrow dependencies<span class="absolute -mt-20" id="narrow-dependencies"></span>
-    <a href="#narrow-dependencies" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
-<li>1 : 1</li>
-</ul>
-<h4>wide dependencies<span class="absolute -mt-20" id="wide-dependencies"></span>
-    <a href="#wide-dependencies" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
-<li>multiple : multiple</li>
-</ul>
+    <a href="#depencencies" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-spark/spark-core-1.png" alt="spark-core-1" loading="lazy" /></p>
+<h4>narrow dependencies - 1 : 1<span class="absolute -mt-20" id="narrow-dependencies---1--1"></span>
+    <a href="#narrow-dependencies---1--1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>每个父RDD的分区都至多被一个子RDD的分区使用。一对一</p>
+<ol>
+<li>输入输出一对一，结果RDD的分区结构不变，主要是map, flatMap</li>
+<li>输入输出一对一，但结果RDD的分区结构发生变化，如union, coalesce</li>
+<li>从输入中选择部分元素的算子，如filter, distinct, subtract, sample</li>
+</ol>
+<h4>wide dependencies - multiple : multiple<span class="absolute -mt-20" id="wide-dependencies---multiple--multiple"></span>
+    <a href="#wide-dependencies---multiple--multiple" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>多个子RDD的分区依赖一个父RDD的分区。一对多</p>
+<ol>
+<li>对单个RDD基于key进行分组，如groupByKey, reduceByKey</li>
+<li>对两个RDD基于key进行join，如join</li>
+</ol>
 <h2>Create sparkContext<span class="absolute -mt-20" id="create-sparkcontext"></span>
     <a href="#create-sparkcontext" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
 </span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&#34;spark://localhost:7077&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;rdd_demos&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
@@ -1247,10 +1269,10 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
   </div>
 </div>
 <h2>Create RDD<span class="absolute -mt-20" id="create-rdd"></span>
-    <a href="#create-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>parallelize array<span class="absolute -mt-20" id="parallelize-array"></span>
-    <a href="#parallelize-array" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># parallelize array in memory to crete RDD</span>
-</span></span><span class="line"><span class="cl"><span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+    <a href="#create-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>1. parallelize array<span class="absolute -mt-20" id="1-parallelize-array"></span>
+    <a href="#1-parallelize-array" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># parallelize array in memory to crete RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1"># run in client</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span> <span class="c1"># run in server</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># This is an Action, return RDD to Driver</span>
 </span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># check the number of partitions of current RDD</span>
@@ -1270,12 +1292,231 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
     </button>
   </div>
 </div>
-<h3>load data from outside<span class="absolute -mt-20" id="load-data-from-outside"></span>
-    <a href="#load-data-from-outside" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>RDD Operations<span class="absolute -mt-20" id="rdd-operations"></span>
-    <a href="#rdd-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>transformation<span class="absolute -mt-20" id="transformation-1"></span>
-    <a href="#transformation-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>action<span class="absolute -mt-20" id="action-1"></span>
-    <a href="#action-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>RDD action on numeric data(description statistics)<span class="absolute -mt-20" id="rdd-action-on-numeric-datadescription-statistics"></span>
-    <a href="#rdd-action-on-numeric-datadescription-statistics" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Pair RDD Operations<span class="absolute -mt-20" id="pair-rdd-operations"></span>
+<h3>2. load data from outside<span class="absolute -mt-20" id="2-load-data-from-outside"></span>
+    <a href="#2-load-data-from-outside" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>txt file</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/workcount.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textfile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ol start="2">
+<li>json file</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">jsonFile</span> <span class="o">=</span> <span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/people.json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsonRDD</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">jsonFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsonRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python use json module to handle json file</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">jsonRDD</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># for d in result.collect():</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     print(d)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li><a href="https://www.jianshu.com/p/e33671341f0d" target="_blank" rel="noopener">spark通过textFile读取hdfs数据分区数量规则</a></li>
+<li><a href="https://blog.csdn.net/qq_39192827/article/details/97494565" target="_blank" rel="noopener">Spark：RDD数据分区数量总结(并行化集合parallelize与外部数据集textFile)</a></li>
+</ul>
+<h2>RDD Operations<span class="absolute -mt-20" id="rdd-operations"></span>
+    <a href="#rdd-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://www.cnblogs.com/abcdwxc/p/9867475.html" target="_blank" rel="noopener">Spark RDD 创建操作</a></li>
+</ul>
+<h3>transformation: RDD&ndash;&gt;RDD<span class="absolute -mt-20" id="transformation-rdd--rdd-1"></span>
+    <a href="#transformation-rdd--rdd-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have an RDD, including {1, 2, 3, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># first, create a RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># map</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd1</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [2, 3, 4, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># flatMap</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd2</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3, 2, 3, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># filter</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd3</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd3</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [2, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># distinct</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd4</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># sample: sample(withReplacement, fraction, seed)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># withReplacement param: 是否放回采样</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># fraction param: 抽取比例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># seed param: random seed(optional)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd5</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd5</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># takeSample: Action not Transformation</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample + take(2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd51</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">takeSample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">data_rdd51</span><span class="p">)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have two RDDs, {1, 2, 3, 3} and {3, 4, 5}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># first, create two RDDs</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">data2</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># union</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># similar to union all in mysql, not union in mysql</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3, 3, 3, 4, 5]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># intersection</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># subtract</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># cartesian</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">cartesian</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(1, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (1, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (1, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 5)]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># groupBy</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;black&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">,</span> <span class="s2">&#34;white&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;grey&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># [(4, &lt;pyspark.resultiterable.ResultIterable object at 0x7f95187af580&gt;), (5, &lt;pyspark.resultiterable.ResultIterable object at 0x7f95087b5c10&gt;)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">sorted</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">b</span><span class="p">])</span> <span class="c1"># [(4, [&#39;blue&#39;, &#39;grey&#39;]), (5, [&#39;black&#39;, &#39;green&#39;, &#39;white&#39;])]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>action<span class="absolute -mt-20" id="action-1"></span>
+    <a href="#action-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># create a RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">countByValue</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeSample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aggregate(zeroValue, seqOp, combOp)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RDD 当前的分区数是: &#34;</span><span class="p">,</span> <span class="n">rdd</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">seqOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 每个分区执行的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">combOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 各个分区结果最后聚集时使用的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seqOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">combOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">result1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">aggregate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result2</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([])</span><span class="o">.</span><span class="n">aggregate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-10"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>RDD action on numeric data(description statistics)<span class="absolute -mt-20" id="rdd-action-on-numeric-datadescription-statistics"></span>
+    <a href="#rdd-action-on-numeric-datadescription-statistics" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mean</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># variance</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">variance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample variance</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sampleVariance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># standard deviation</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">stdev</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample standard deviation</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sampleStdev</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Histogram reference: https://blog.csdn.net/hit0803107/article/details/52807485 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 1</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">histogram</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">20.9</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 2</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 通过调用stats()方法，返回一个StatsCounter对象</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-11"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Pair RDD Operations<span class="absolute -mt-20" id="pair-rdd-operations"></span>
     <a href="#pair-rdd-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>create Pair RDD<span class="absolute -mt-20" id="create-pair-rdd"></span>
     <a href="#create-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>transformation on Pair RDD<span class="absolute -mt-20" id="transformation-on-pair-rdd"></span>
     <a href="#transformation-on-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>RDD cache<span class="absolute -mt-20" id="rdd-cache"></span>
