@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Cpp">
 <meta itemprop="description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="2784">
+<meta itemprop="wordCount" content="2796">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cpp"/>
 <meta name="twitter:description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."/>
@@ -2222,7 +2222,11 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <h2>Comparator for sort vs map(or set)<span class="absolute -mt-20" id="comparator-for-sort-vs-mapor-set"></span>
-    <a href="#comparator-for-sort-vs-mapor-set" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>sort<span class="absolute -mt-20" id="sort"></span>
+    <a href="#comparator-for-sort-vs-mapor-set" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>sort</strong> uses object or <code>cmp</code></li>
+<li><strong>set</strong> or <strong>map</strong> use typename or <code>decltype(cmp)</code></li>
+</ul>
+<h3>sort<span class="absolute -mt-20" id="sort"></span>
     <a href="#sort" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-32"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Comparator2</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">  <span class="n">Comparator2</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span><span class="o">:</span> <span class="n">s_</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{}</span>

@@ -8382,7 +8382,11 @@ gtest_discover_tests(hello_test)&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opac
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2&gt;Comparator for sort vs map(or set)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;comparator-for-sort-vs-mapor-set&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#comparator-for-sort-vs-mapor-set&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;sort&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sort&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#comparator-for-sort-vs-mapor-set&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sort&lt;/strong&gt; uses object or &lt;code&gt;cmp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;set&lt;/strong&gt; or &lt;strong&gt;map&lt;/strong&gt; use typename or &lt;code&gt;decltype(cmp)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;sort&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sort&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#sort&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-32&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Comparator2&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;Comparator2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
