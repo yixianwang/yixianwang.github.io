@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spark Core">
 <meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
 <meta itemprop="dateModified" content="2023-12-03T19:43:27-05:00" />
-<meta itemprop="wordCount" content="1836">
+<meta itemprop="wordCount" content="2160">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark Core"/>
 <meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies narrow dependencies - 1 : 1 每个父RDD的分区都至多被一个子RDD的分区使用。一对一"/>
@@ -1493,9 +1493,10 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
     </button>
   </div>
 </div>
-<blockquote>
-<p>reduce is the special case of fold, fold is the special case of aggregate</p>
-</blockquote>
+<ul>
+<li><code>reduce</code> is the special case of <code>fold</code></li>
+<li><code>fold</code> is the special case of <code>aggregate</code></li>
+</ul>
 <h3>RDD action on numeric data(description statistics)<span class="absolute -mt-20" id="rdd-action-on-numeric-datadescription-statistics"></span>
     <a href="#rdd-action-on-numeric-datadescription-statistics" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
@@ -1602,7 +1603,11 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
   </div>
 </div>
 <h3>transformation on Pair RDD<span class="absolute -mt-20" id="transformation-on-pair-rdd"></span>
-    <a href="#transformation-on-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-16"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have a pair RDD [(1, 2), (3, 4), (3, 6)]</span>
+    <a href="#transformation-on-pair-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>reduceByKey</code> is special case of <code>aggregateByKey</code></li>
+<li><code>aggregateByKey</code> is special case of <code>combineByKey</code></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-16"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have a pair RDD [(1, 2), (3, 4), (3, 6)]</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Create Pair RDD</span>
 </span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
 </span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -1778,15 +1783,11 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 </span></span><span class="line"><span class="cl"><span class="c1"># ?????????????????????????????????????????????</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># define Sequential Operation and Combiner Operation</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">seq_op</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">accumulator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">element</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">accumulator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">accumulator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">comb_op</span><span class="p">(</span><span class="n">accumulator1</span><span class="p">,</span> <span class="n">accumulator2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">accumulator1</span> <span class="o">&gt;</span> <span class="n">accumulator2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">accumulator1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">accumulator2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">accumulator1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">accumulator2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">zero_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">aggr_rdd</span> <span class="o">=</span> <span class="n">student_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>\
 </span></span><span class="line"><span class="cl">                      <span class="o">.</span><span class="n">aggregateByKey</span><span class="p">(</span><span class="n">zero_val</span><span class="p">,</span> <span class="n">seq_op</span><span class="p">,</span> <span class="n">comb_op</span><span class="p">)</span>\
@@ -1811,12 +1812,89 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 <li>Cache is key to building iterative algorithms and fast iteractive queries in Spark.</li>
 </ul>
 <h3>approaches<span class="absolute -mt-20" id="approaches"></span>
-    <a href="#approaches" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Fault tolerance<span class="absolute -mt-20" id="fault-tolerance"></span>
+    <a href="#approaches" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>persist</li>
+<li>cache</li>
+</ol>
+<ul>
+<li>only after triggering <strong>actions</strong>, then current RDD will be cached in memory for later use</li>
+<li>cache invoke persist at last, the default storage level just a part in memory</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-22"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="cm">/** Persist this RDD with the default storage level (MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">def persist(): this.type = persist(StorageLevel.MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/** Persist this RDD with the default storage level (MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">def cache(): this.type = persist()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-22"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>There are many storage levels in Spark, storage level is defined in <strong>object StorageLevel</strong></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-23"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">StorageLevel</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">NONE</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">DISK_ONLY</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">DISK_ONLY_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_SER</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_SER_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_SER</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_SER_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">OFF_HEAP</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-23"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>Fault tolerance can recompute some failed partitions of RDD, not all partitions of all RDD</li>
+</ul>
+<h2>Fault tolerance<span class="absolute -mt-20" id="fault-tolerance"></span>
     <a href="#fault-tolerance" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>overview<span class="absolute -mt-20" id="overview-1"></span>
-    <a href="#overview-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>lineage mechanism<span class="absolute -mt-20" id="lineage-mechanism"></span>
-    <a href="#lineage-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>checkpoint mechanism<span class="absolute -mt-20" id="checkpoint-mechanism"></span>
-    <a href="#checkpoint-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Data Partitions<span class="absolute -mt-20" id="data-partitions"></span>
-    <a href="#data-partitions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>assign partitions when creating RDD<span class="absolute -mt-20" id="assign-partitions-when-creating-rdd"></span>
+    <a href="#overview-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>fault tolerance</strong>: use Lineage and Checkpoint</li>
+</ul>
+<h3>lineage mechanism<span class="absolute -mt-20" id="lineage-mechanism"></span>
+    <a href="#lineage-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li></li>
+</ul>
+<h3>checkpoint mechanism<span class="absolute -mt-20" id="checkpoint-mechanism"></span>
+    <a href="#checkpoint-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>There are two approaches:
+<ol>
+<li><strong>LocalRDDCheckpointData</strong>: temporarly saved in local disk and memory. It&rsquo;s fast, good for scenarios that lineage info needed to be deleted frequently(e.g. GraphX), can tolerate executor fail.</li>
+<li><strong>ReliableRDDCheckpointData</strong>: saved in reliable outside storage(e.g. HDFS), can tolerate driver fail. It&rsquo;s not fast as local, but it has the highest fault tolerance level.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>If the code doesn&rsquo;t setup checkpoint, it will use local mode checkpoint. If the path is setup, it will use reliable mode checkpoint.</p>
+</blockquote>
+<ul>
+<li>RDD&rsquo;s action triggering computation, then executing checkpoint.</li>
+<li>If task fails, it will load data from checkpoint to compute</li>
+</ul>
+<h2>Data Partitions<span class="absolute -mt-20" id="data-partitions"></span>
+    <a href="#data-partitions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>RDD is very large, it will be cutted into partitions saved in different nodes. This is where RDD come from.</li>
+</ul>
+<h3>assign partitions when creating RDD<span class="absolute -mt-20" id="assign-partitions-when-creating-rdd"></span>
     <a href="#assign-partitions-when-creating-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>assign partitions when transforming RDD<span class="absolute -mt-20" id="assign-partitions-when-transforming-rdd"></span>
     <a href="#assign-partitions-when-transforming-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>customize partition function<span class="absolute -mt-20" id="customize-partition-function"></span>
     <a href="#customize-partition-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Shared Variables<span class="absolute -mt-20" id="shared-variables"></span>
