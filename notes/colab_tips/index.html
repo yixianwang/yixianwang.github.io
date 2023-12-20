@@ -882,10 +882,9 @@ a) If you cloned the notebook and are using gdrive to store the data, you can on
 Seems like colab is popular, so I wanted to share maybe some useful tips that helped me streamline my setup/workflow:</p>
 <p>a) If you cloned the notebook and are using gdrive to store the data, you can only mount gdrive using the python package, which requires entering a new oauth code for each session; if you create a new notebook, it actually persists the mount between sessions. You can just copy the contents over - <a href="https://datascience.stackexchange.com/questions/64486/how-to-automatically-mount-my-google-drive-to-google-colab" target="_blank" rel="noopener">https://datascience.stackexchange.com/questions/64486/how-to-automatically-mount-my-google-drive-to-google-colab</a></p>
 <p>b) You can run this code in a cell to extend sessions (prevent timeouts); it also doesn&rsquo;t majorly use the CPU unnecessarily. Still, as this SO points out, it&rsquo;s not morally right to hog up a GPU/CPU if you&rsquo;re not using it. I use it when I&rsquo;m actively developing over ssh, but not running anything on the notebook.</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">
-import time
-
-while True: time.sleep(10)</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -897,15 +896,15 @@ while True: time.sleep(10)</code></pre><div class="opacity-0 transition group-ho
   </div>
 </div>
 <p>c) You can ssh into the machine; someone even made a package for that - <a href="https://pypi.org/project/colab-ssh/#description" target="_blank" rel="noopener">https://pypi.org/project/colab-ssh/#description</a>. I usually use ipdb to do REPL-driven development and explore the data, so this is really useful for me since I can&rsquo;t run this workload locally. Head&rsquo;s up - it does take a bit of setup, but if you persist the extra python packages and the authorized_hosts file, you can get it up and running for new sessions quickly.</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">import os
-import sys
-
-# set up persistent pip library path
-nb_path = &#39;/content/drive/My Drive/Colab Notebooks/pip&#39;
-!mkdir -p &#39;{nb_path}&#39;
-sys.path.insert(0, nb_path)
-!pip install --target=&#39;{nb_path}&#39; ipdb
-!pip install --target=&#39;{nb_path}&#39; colab_ssh --upgrade</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set up persistent pip library path</span>
+</span></span><span class="line"><span class="cl"><span class="n">nb_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/My Drive/Colab Notebooks/pip&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="s1">&#39;</span><span class="si">{nb_path}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{nb_path}</span><span class="s1">&#39;</span> <span class="n">ipdb</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{nb_path}</span><span class="s1">&#39;</span> <span class="n">colab_ssh</span> <span class="o">--</span><span class="n">upgrade</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -916,8 +915,8 @@ sys.path.insert(0, nb_path)
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">!ln -sr /content/drive/MyDrive/nlp-qa-finalproj/.ssh ~/
-!cat ~/.ssh/authorized_keys</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">ln</span> <span class="o">-</span><span class="n">sr</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">nlp</span><span class="o">-</span><span class="n">qa</span><span class="o">-</span><span class="n">finalproj</span><span class="o">/.</span><span class="n">ssh</span> <span class="o">~/</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">cat</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"

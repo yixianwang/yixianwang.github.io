@@ -1319,19 +1319,74 @@ dim3 blocks3D( 5, 5, 5 );</code></pre><div class="opacity-0 transition group-hov
   </div>
 </div>
 <h3>Constants<span class="absolute -mt-20" id="constants"></span>
-    <a href="#constants" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-13">argument	constants	description (Fortran letter)
-trans	CUBLAS_OP_N               	non-transposed (&#39;N&#39;)
-CUBLAS_OP_T               	transposed (&#39;T&#39;)
-CUBLAS_OP_C               	conjugate transposed (&#39;C&#39;)
- 
-uplo	CUBLAS_FILL_MODE_LOWER    	lower part filled (&#39;L&#39;)
-CUBLAS_FILL_MODE_UPPER    	upper part filled (&#39;U&#39;)
- 
-side	CUBLAS_SIDE_LEFT          	matrix on left (&#39;L&#39;)
-CUBLAS_SIDE_RIGHT         	matrix on right (&#39;R&#39;)
- 
-mode	CUBLAS_POINTER_MODE_HOST  	alpha and beta scalars passed on host
-CUBLAS_POINTER_MODE_DEVICE	alpha and beta scalars passed on device</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <a href="#constants" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">argument</th>
+<th style="text-align:left">constants</th>
+<th style="text-align:left">description (Fortran letter)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">trans</td>
+<td style="text-align:left">CUBLAS_OP_N</td>
+<td style="text-align:left">non-transposed (&lsquo;N&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_OP_T</td>
+<td style="text-align:left">transposed (&lsquo;T&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_OP_C</td>
+<td style="text-align:left">conjugate transposed (&lsquo;C&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">uplo</td>
+<td style="text-align:left">CUBLAS_FILL_MODE_LOWER</td>
+<td style="text-align:left">lower part filled (&lsquo;L&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_FILL_MODE_UPPER</td>
+<td style="text-align:left">upper part filled (&lsquo;U&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">side</td>
+<td style="text-align:left">CUBLAS_SIDE_LEFT</td>
+<td style="text-align:left">matrix on left (&lsquo;L&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_SIDE_RIGHT</td>
+<td style="text-align:left">matrix on right (&lsquo;R&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">mode</td>
+<td style="text-align:left">CUBLAS_POINTER_MODE_HOST</td>
+<td style="text-align:left">alpha and beta scalars passed on host</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_POINTER_MODE_DEVICE</td>
+<td style="text-align:left">alpha and beta scalars passed on device</td>
+</tr>
+</tbody>
+</table>
+<p>BLAS functions have cublas prefix and first letter of usual BLAS function name is capitalized. Arguments are the same as standard BLAS, with these exceptions:</p>
+<ul>
+<li>All functions add handle as first argument.</li>
+<li>All functions return cublasStatus_t error code.</li>
+<li>Constants alpha and beta are passed by pointer. All other scalars (n, incx, etc.) are bassed by value.</li>
+<li>Functions that return a value, such as ddot, add result as last argument, and save value to result.</li>
+<li>Constants are given in table above, instead of using characters.</li>
+</ul>
+<p>Examples:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cublasDdot</span> <span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span> <span class="p">);</span>  <span class="c1">// result = ddot( n, x, incx, y, incy );
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cublasDaxpy</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alpha</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span> <span class="p">);</span>   <span class="c1">// daxpy( n, alpha, x, incx, y, incy );
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1342,20 +1397,9 @@ CUBLAS_POINTER_MODE_DEVICE	alpha and beta scalars passed on device</code></pre><
     </button>
   </div>
 </div>
-<p>BLAS functions have cublas prefix and first letter of usual BLAS function name is capitalized. Arguments are the same as standard BLAS, with these exceptions:</p>
-<blockquote>
-<blockquote>
-<p>All functions add handle as first argument.
-All functions return cublasStatus_t error code.
-Constants alpha and beta are passed by pointer. All other scalars (n, incx, etc.) are bassed by value.
-Functions that return a value, such as ddot, add result as last argument, and save value to result.
-Constants are given in table above, instead of using characters.</p>
-</blockquote>
-</blockquote>
-<p>Examples:</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cublasDdot</span> <span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span> <span class="p">);</span>  <span class="c1">// result = ddot( n, x, incx, y, incy );
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cublasDaxpy</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alpha</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span> <span class="p">);</span>   <span class="c1">// daxpy( n, alpha, x, incx, y, incy );
-</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>Compiler<span class="absolute -mt-20" id="compiler"></span>
+    <a href="#compiler" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>nvcc, often found in <code>/usr/local/cuda/bin</code></p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-14">Defines __CUDACC__</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1366,120 +1410,265 @@ Constants are given in table above, instead of using characters.</p>
     </button>
   </div>
 </div>
-<h3>Compiler<span class="absolute -mt-20" id="compiler"></span>
-    <a href="#compiler" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>nvcc, often found in /usr/local/cuda/bin</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-15">Defines __CUDACC__</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-15"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
 <h4>Flags common with cc<span class="absolute -mt-20" id="flags-common-with-cc"></span>
-    <a href="#flags-common-with-cc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-16">Short flag	Long flag	Output or Description
--c	--compile	.o object file
--E	--preprocess	on standard output
--M	--generate-dependencies	on standard output
--o file	--output-file file
--I directory	--include-path directory	header search path
--L directory	--library-path directory	library search path
--l lib	--library lib	link with library
--lib		generate library
--shared		generate shared library
--pg	--profile	for gprof
--g level	--debug level
--G	--device-debug
--O level	--optimize level</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-16"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
+    <a href="#flags-common-with-cc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
+<thead>
+<tr>
+<th style="text-align:left">Short flag</th>
+<th style="text-align:left">Long flag</th>
+<th style="text-align:left">Output or Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-c</td>
+<td style="text-align:left">&ndash;compile</td>
+<td style="text-align:left">.o object file</td>
+</tr>
+<tr>
+<td style="text-align:left">-E</td>
+<td style="text-align:left">&ndash;preprocess</td>
+<td style="text-align:left">on standard output</td>
+</tr>
+<tr>
+<td style="text-align:left">-M</td>
+<td style="text-align:left">&ndash;generate-dependencies</td>
+<td style="text-align:left">on standard output</td>
+</tr>
+<tr>
+<td style="text-align:left">-o file</td>
+<td style="text-align:left">&ndash;output-file file</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-I directory</td>
+<td style="text-align:left">&ndash;include-path directory</td>
+<td style="text-align:left">header search path</td>
+</tr>
+<tr>
+<td style="text-align:left">-L directory</td>
+<td style="text-align:left">&ndash;library-path directory</td>
+<td style="text-align:left">library search path</td>
+</tr>
+<tr>
+<td style="text-align:left">-l lib</td>
+<td style="text-align:left">&ndash;library lib</td>
+<td style="text-align:left">link with library</td>
+</tr>
+<tr>
+<td style="text-align:left">-lib</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">generate library</td>
+</tr>
+<tr>
+<td style="text-align:left">-shared</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">generate shared library</td>
+</tr>
+<tr>
+<td style="text-align:left">-pg</td>
+<td style="text-align:left">&ndash;profile</td>
+<td style="text-align:left">for gprof</td>
+</tr>
+<tr>
+<td style="text-align:left">-g level</td>
+<td style="text-align:left">&ndash;debug level</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-G</td>
+<td style="text-align:left">&ndash;device-debug</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-O level</td>
+<td style="text-align:left">&ndash;optimize level</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 <h5>Undocumented (but in sample makefiles)<span class="absolute -mt-20" id="undocumented-but-in-sample-makefiles"></span>
-    <a href="#undocumented-but-in-sample-makefiles" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-17">-m32		compile 32-bit i386 host CPU code
--m64		compile 64-bit x86_64 host CPU code</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-17"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
+    <a href="#undocumented-but-in-sample-makefiles" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><table>
+<thead>
+<tr>
+<th style="text-align:left">-m32</th>
+<th style="text-align:left">compile 32-bit i386 host CPU code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-m64</td>
+<td style="text-align:left">compile 64-bit x86_64 host CPU code</td>
+</tr>
+</tbody>
+</table>
 <h4>Flags specific to nvcc<span class="absolute -mt-20" id="flags-specific-to-nvcc"></span>
-    <a href="#flags-specific-to-nvcc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-18">-v	list compilation commands as they are executed
--dryrun	list compilation commands, without executing
--keep	saves intermediate files (e.g., pre-processed) for debugging
--clean	removes output files (with same exact compiler options)
--arch=&lt;compute_xy&gt;	generate PTX for capability x.y
--code=&lt;sm_xy&gt;	generate binary for capability x.y, by default same as -arch
--gencode arch=...,code=...	same as -arch and -code, but may be repeated</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-18"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
+    <a href="#flags-specific-to-nvcc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
+<thead>
+<tr>
+<th style="text-align:left">-v</th>
+<th style="text-align:left">list compilation commands as they are executed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-dryrun</td>
+<td style="text-align:left">list compilation commands, without executing</td>
+</tr>
+<tr>
+<td style="text-align:left">-keep</td>
+<td style="text-align:left">saves intermediate files (e.g., pre-processed) for debugging</td>
+</tr>
+<tr>
+<td style="text-align:left">-clean</td>
+<td style="text-align:left">removes output files (with same exact compiler options)</td>
+</tr>
+<tr>
+<td style="text-align:left">-arch=&lt;compute_xy&gt;</td>
+<td style="text-align:left">generate PTX for capability x.y</td>
+</tr>
+<tr>
+<td style="text-align:left">-code=&lt;sm_xy&gt;</td>
+<td style="text-align:left">generate binary for capability x.y, by default same as -arch</td>
+</tr>
+<tr>
+<td style="text-align:left">-gencode arch=&hellip;,code=&hellip;</td>
+<td style="text-align:left">same as -arch and -code, but may be repeated</td>
+</tr>
+</tbody>
+</table>
 <h4>Argumenents for -arch and -code<span class="absolute -mt-20" id="argumenents-for--arch-and--code"></span>
     <a href="#argumenents-for--arch-and--code" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>It makes most sense (to me) to give -arch a virtual architecture and -code a real architecture, though both flags accept both virtual and real architectures (at times).</p>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-19">Virtual architecture	Real architecture	Features
-Tesla	compute_10	sm_10	Basic features
-compute_11	sm_11	&#43; atomic memory ops on global memory
-compute_12	sm_12	&#43; atomic memory ops on shared memory
-&#43; vote instructions
-compute_13	sm_13	&#43; double precision
-Fermi	compute_20	sm_20	&#43; Fermi</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-19"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:left">Virtual architecture</th>
+<th style="text-align:left">Real architecture</th>
+<th style="text-align:left">Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tesla</td>
+<td style="text-align:left">compute_10</td>
+<td style="text-align:left">sm_10</td>
+<td style="text-align:left">Basic features</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_11</td>
+<td style="text-align:left">sm_11</td>
+<td style="text-align:left">+ atomic memory ops on global memory</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_12</td>
+<td style="text-align:left">sm_12</td>
+<td style="text-align:left">+ atomic memory ops on shared memory</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">+ vote instructions</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_13</td>
+<td style="text-align:left">sm_13</td>
+<td style="text-align:left">+ double precision</td>
+</tr>
+<tr>
+<td>Fermi</td>
+<td style="text-align:left">compute_20</td>
+<td style="text-align:left">sm_20</td>
+<td style="text-align:left">+ Fermi</td>
+</tr>
+</tbody>
+</table>
 <h2>Some hardware constraints<span class="absolute -mt-20" id="some-hardware-constraints"></span>
-    <a href="#some-hardware-constraints" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-20">                              	1.x	  2.x
-max x- or y-dimension of block	512	  1024
-max z-dimension of block	      64	  64
-max threads per block	          512	  1024
-warp size	                      32	  32
-max blocks per MP	              8	    8
-max warps per MP	              32	  48
-max threads per MP	            1024	1536
-max 32-bit registers per MP	    16k	  32k
-max shared memory per MP	      16 KB	48 KB
-shared memory banks	            16	  32
-local memory per thread	        16 KB	512 KB
-const memory	                  64 KB	64 KB
-const cache	                    8 KB	8 KB
-texture cache	                  8 KB	8 KB</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-20"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
+    <a href="#some-hardware-constraints" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">1.x</th>
+<th style="text-align:left">2.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">max x- or y-dimension of block</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">1024</td>
+</tr>
+<tr>
+<td style="text-align:left">max z-dimension of block</td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">64</td>
+</tr>
+<tr>
+<td style="text-align:left">max threads per block</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">1024</td>
+</tr>
+<tr>
+<td style="text-align:left">warp size</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td style="text-align:left">max blocks per MP</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">max warps per MP</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">48</td>
+</tr>
+<tr>
+<td style="text-align:left">max threads per MP</td>
+<td style="text-align:left">1024</td>
+<td style="text-align:left">1536</td>
+</tr>
+<tr>
+<td style="text-align:left">max 32-bit registers per MP</td>
+<td style="text-align:left">16k</td>
+<td style="text-align:left">32k</td>
+</tr>
+<tr>
+<td style="text-align:left">max shared memory per MP</td>
+<td style="text-align:left">16 KB</td>
+<td style="text-align:left">48 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">shared memory banks</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td style="text-align:left">local memory per thread</td>
+<td style="text-align:left">16 KB</td>
+<td style="text-align:left">512 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">const memory</td>
+<td style="text-align:left">64 KB</td>
+<td style="text-align:left">64 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">const cache</td>
+<td style="text-align:left">8 KB</td>
+<td style="text-align:left">8 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">texture cache</td>
+<td style="text-align:left">8 KB</td>
+<td style="text-align:left">8 KB</td>
+</tr>
+</tbody>
+</table>
 
         </div>
         <div class="mt-16"></div>
