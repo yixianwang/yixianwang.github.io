@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Cpp">
 <meta itemprop="description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="3166">
+<meta itemprop="wordCount" content="3355">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cpp"/>
 <meta name="twitter:description" content="assert #include&lt;cassert&gt; assert((expression) &amp;&amp; &#34;msg&#34;) assert(expression); // cannot be std::assert(expression) try throw catch - error handling try { // do something that might throw an error throw std::invalid_argument(&#34;MyFunc argument too large.&#34;); } catch (const std::exception&amp; e) { // handle the error std::cout &lt;&lt; &#34;3333&#34; &lt;&lt; n &lt;&lt; std::endl; std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; // return -1; } gtest with cmake gtest helloworld step 1: mkdir my_project &amp;&amp; cd my_project step 2: CMakeLists."/>
@@ -547,6 +547,18 @@
                 href="#use-function-to-get-lambda-or-func-pointer"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >use function to get lambda or func pointer</a>
+            </li>
+          <li>
+              <a
+                href="#overload-less-comparator-for-priority-queue"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >overload less comparator for priority queue</a>
+            </li>
+          <li>
+              <a
+                href="#set-find-iterator-erase"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >set, find iterator, erase</a>
             </li>
           </ul>
   
@@ -1145,7 +1157,11 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#overload-less-comparator-for-priority-queue">overload less comparator for priority queue
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#overload-less-comparator-for-priority-queue">overload less comparator for priority queue
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#set-find-iterator-erase">set, find iterator, erase
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -2301,8 +2317,8 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h3>overload less comparator for priority queue<span class="absolute -mt-20" id="overload-less-comparator-for-priority-queue"></span>
-    <a href="#overload-less-comparator-for-priority-queue" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-35"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// leetcode 2353. Design a Food Rating System
+<h2>overload less comparator for priority queue<span class="absolute -mt-20" id="overload-less-comparator-for-priority-queue"></span>
+    <a href="#overload-less-comparator-for-priority-queue" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-35"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// leetcode 2353. Design a Food Rating System
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;gmock/gmock.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
@@ -2386,6 +2402,61 @@ gtest_discover_tests(hello_test)</code></pre><div class="opacity-0 transition gr
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-35"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>set, find iterator, erase<span class="absolute -mt-20" id="set-find-iterator-erase"></span>
+    <a href="#set-find-iterator-erase" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-36"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">FoodRatings</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Map food with its rating.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">foodRatingMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Map food with the cuisine it belongs to.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">foodCuisineMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Store all food of cuisine in set (to sort them on ratings/name)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// Set element -&gt; Pair: (-1 * foodRating, foodName)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;&gt;&gt;</span> <span class="n">cuisineFoodMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">FoodRatings</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">foods</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">cuisines</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">ratings</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">foods</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// Store &#39;rating&#39; and &#39;cuisine&#39; of current &#39;food&#39; in &#39;foodRatingMap&#39; and
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// &#39;foodCuisineMap&#39; maps.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">foodRatingMap</span><span class="p">[</span><span class="n">foods</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">foodCuisineMap</span><span class="p">[</span><span class="n">foods</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">cuisines</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// Insert the &#39;(-1 * rating, name)&#39; element in current cuisine&#39;s set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">cuisineFoodMap</span><span class="p">[</span><span class="n">cuisines</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">insert</span><span class="p">({</span><span class="o">-</span><span class="n">ratings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">foods</span><span class="p">[</span><span class="n">i</span><span class="p">]});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">changeRating</span><span class="p">(</span><span class="n">string</span> <span class="n">food</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newRating</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Fetch cuisine name for food.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">auto</span> <span class="n">cuisineName</span> <span class="o">=</span> <span class="n">foodCuisineMap</span><span class="p">[</span><span class="n">food</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Find and delete the element from the respective cuisine&#39;s set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">auto</span> <span class="n">oldElementIterator</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cuisineFoodMap</span><span class="p">[</span><span class="n">cuisineName</span><span class="p">].</span><span class="n">find</span><span class="p">({</span><span class="o">-</span><span class="n">foodRatingMap</span><span class="p">[</span><span class="n">food</span><span class="p">],</span> <span class="n">food</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cuisineFoodMap</span><span class="p">[</span><span class="n">cuisineName</span><span class="p">].</span><span class="n">erase</span><span class="p">(</span><span class="n">oldElementIterator</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Update food&#39;s rating in &#39;foodRating&#39; map.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">foodRatingMap</span><span class="p">[</span><span class="n">food</span><span class="p">]</span> <span class="o">=</span> <span class="n">newRating</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Insert the &#39;(-1 * new rating, name)&#39; element in respective cuisine&#39;s set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cuisineFoodMap</span><span class="p">[</span><span class="n">cuisineName</span><span class="p">].</span><span class="n">insert</span><span class="p">({</span><span class="o">-</span><span class="n">newRating</span><span class="p">,</span> <span class="n">food</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="nf">highestRated</span><span class="p">(</span><span class="n">string</span> <span class="n">cuisine</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">highestRated</span> <span class="o">=</span> <span class="o">*</span><span class="n">cuisineFoodMap</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Return name of the highest rated &#39;food&#39; of &#39;cuisine&#39;.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">highestRated</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-36"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
