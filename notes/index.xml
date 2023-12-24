@@ -9498,10 +9498,12 @@ dim3 blocks3D( 5, 5, 5 );&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 t
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;AUC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;auc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#auc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;0.5 &amp;lt; ROC &amp;lt; 0.7: Poor discrimination
-0.7 ≤ ROC &amp;lt; 0.8: Acceptable discrimination
-0.8 ≤ ROC &amp;lt; 0.9: Excellent discrimination
-ROC ≥ 0.9: Outstanding discrimination&lt;/p&gt;
+    &lt;a href=&#34;#auc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;0.5 &amp;lt; ROC &amp;lt; 0.7: Poor discrimination&lt;/li&gt;
+&lt;li&gt;0.7 ≤ ROC &amp;lt; 0.8: Acceptable discrimination&lt;/li&gt;
+&lt;li&gt;0.8 ≤ ROC &amp;lt; 0.9: Excellent discrimination&lt;/li&gt;
+&lt;li&gt;ROC ≥ 0.9: Outstanding discrimination&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Regularization&lt;span class=&#34;absolute -mt-20&#34; id=&#34;regularization&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#regularization&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Regularization is an approach to address over-fitting in ML.&lt;/li&gt;
