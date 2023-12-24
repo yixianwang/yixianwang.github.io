@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spark Core">
 <meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) with shuffle(internet connections between different machines) is wide dependency without shuffle is narrow dependency the number of stages is depended on the number of wide dependencies"><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
 <meta itemprop="dateModified" content="2023-12-03T19:43:27-05:00" />
-<meta itemprop="wordCount" content="2303">
+<meta itemprop="wordCount" content="2774">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark Core"/>
 <meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) with shuffle(internet connections between different machines) is wide dependency without shuffle is narrow dependency the number of stages is depended on the number of wide dependencies"/>
@@ -1003,6 +1003,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#examples">examples
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#fault-tolerance">Fault tolerance
         </a>
       </li>
@@ -1011,11 +1015,19 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lineage-mechanism">lineage mechanism
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lineage-mechanism-suit-for-narrow-dependency">lineage mechanism: suit for narrow dependency
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#checkpoint-mechanism">checkpoint mechanism
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#checkpoint-mechanism-suit-for-wide-dependency">checkpoint mechanism: suit for wide dependency
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#checkpoint-example">checkpoint example
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#difference-between-checkpoint-and-cache">difference between checkpoint and cache
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1064,6 +1076,22 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#shuffle">Shuffle
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#overview-3">overview
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-it-work">how it work
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#normal-mechanism">normal mechanism
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bypass-mechanism">bypass mechanism
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1877,14 +1905,38 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 </div>
 <ul>
 <li>Fault tolerance can recompute some failed partitions of RDD, not all partitions of all RDD</li>
+<li>partitions within a RDD are independent</li>
 </ul>
+<h3>examples<span class="absolute -mt-20" id="examples"></span>
+    <a href="#examples" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-24"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">StorageLevel</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;/xxxx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">persist</span><span class="p">(</span><span class="n">StorageLevel</span><span class="o">.</span><span class="n">MEMORY_AND_DISK</span><span class="p">)</span> <span class="c1"># set storage level</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span> <span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span> <span class="o">=</span> <span class="n">rdd3</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-24"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h2>Fault tolerance<span class="absolute -mt-20" id="fault-tolerance"></span>
-    <a href="#fault-tolerance" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>overview<span class="absolute -mt-20" id="overview-1"></span>
-    <a href="#overview-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><strong>fault tolerance</strong>: use Lineage and Checkpoint</li>
+    <a href="#fault-tolerance" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>mysql: bin_log日志文件（预写日志）</li>
+<li>hbase: wal(write ahead log: 预写日志)</li>
+<li>hdfs: 副本策略（3）</li>
 </ul>
-<h3>lineage mechanism<span class="absolute -mt-20" id="lineage-mechanism"></span>
-    <a href="#lineage-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>overview<span class="absolute -mt-20" id="overview-1"></span>
+    <a href="#overview-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>fault tolerance</strong> for spark: use Lineage and Checkpoint</li>
+</ul>
+<h3>lineage mechanism: suit for narrow dependency<span class="absolute -mt-20" id="lineage-mechanism-suit-for-narrow-dependency"></span>
+    <a href="#lineage-mechanism-suit-for-narrow-dependency" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>RDD&rsquo;s lineage records <strong>Coarse-grained</strong> specific data from Transformation operation. So when some partitions of a RDD lost data, it can reload or recompute from Lineage.</li>
 <li>This Coarse-grained data model limited use cases of Spark, so that Spark cannot use for high performance scenarios.</li>
 </ul>
@@ -1893,8 +1945,8 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 <li>narrow dependency: certain data of child RDD can be directly computed from certain data of parent RDD</li>
 <li>wide dependency: <strong>recompute all parents&rsquo; RDD</strong>, then after finished and hashing, recomputing children RDD. When we deal with long lineage, we need set appropriate checkpoint.</li>
 </ol>
-<h3>checkpoint mechanism<span class="absolute -mt-20" id="checkpoint-mechanism"></span>
-    <a href="#checkpoint-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>checkpoint mechanism: suit for wide dependency<span class="absolute -mt-20" id="checkpoint-mechanism-suit-for-wide-dependency"></span>
+    <a href="#checkpoint-mechanism-suit-for-wide-dependency" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>There are two approaches:
 <ol>
 <li><strong>LocalRDDCheckpointData</strong>: temporarly saved in local disk and memory. It&rsquo;s fast, good for scenarios that lineage info needed to be deleted frequently(e.g. GraphX), can tolerate executor fail.</li>
@@ -1909,22 +1961,181 @@ hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</code></pre><div class="opacity-0
 <li>RDD&rsquo;s action triggering computation, then executing checkpoint.</li>
 <li>If task fails, it will load data from checkpoint to compute</li>
 </ul>
+<h4>checkpoint example<span class="absolute -mt-20" id="checkpoint-example"></span>
+    <a href="#checkpoint-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-25"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&#34;spark://localhost:7077&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;rdd_demos&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span><span class="o">.</span><span class="n">setCheckpointDir</span><span class="p">(</span><span class="s1">&#39;hdfs://localhost:9000/spark/checkpoint&#39;</span><span class="p">)</span> <span class="c1"># set directory for saving</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">StorageLevel</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;/xxxx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">persist</span><span class="p">(</span><span class="n">StorageLevel</span><span class="o">.</span><span class="n">MEMORY_AND_DISK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span> <span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">()</span> <span class="c1"># set checkpoint</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd3</span><span class="o">.</span><span class="n">isCheckpointed</span><span class="p">())</span> <span class="c1"># check if RDD is set checkpoint</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd3</span><span class="o">.</span><span class="n">getCheckpointFile</span><span class="p">())</span> <span class="c1"># get the path of saved checkpoint, </span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span> <span class="o">=</span> <span class="n">rdd3</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-25"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-26"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># check hdfs if has rdd checkpoint</span>
+</span></span><span class="line"><span class="cl">./bin/hdfs dfs -cat /spark/checkpoint/a335287f-f7aa-408b-a767-0146faalefff/rdd-2/part-00000</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-26"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>difference between checkpoint and cache<span class="absolute -mt-20" id="difference-between-checkpoint-and-cache"></span>
+    <a href="#difference-between-checkpoint-and-cache" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>checkpoint will cut off the lineage, and save some data</li>
+<li>cache just save some data</li>
+</ul>
 <h2>Data Partitions<span class="absolute -mt-20" id="data-partitions"></span>
     <a href="#data-partitions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>RDD is very large, it will be cutted into partitions saved in different nodes. This is where RDD come from.</li>
+<li>
+<p>RDD is very large, it will be cutted into partitions saved in different nodes. This is where RDD come from.</p>
+</li>
+<li>
+<p>how to manually setup partitions:</p>
+<ol>
+<li>creating RDD: when executing <strong>textFile</strong> and <strong>parallelize</strong> methods, manually assign the number of partitions. e.g. <code>sc.textFile(path, partitionNum)</code></li>
+<li>get new RDD with transforming operation: directly executing <strong>repartition</strong></li>
+</ol>
+</li>
 </ul>
 <h3>assign partitions when creating RDD<span class="absolute -mt-20" id="assign-partitions-when-creating-rdd"></span>
-    <a href="#assign-partitions-when-creating-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>assign partitions when transforming RDD<span class="absolute -mt-20" id="assign-partitions-when-transforming-rdd"></span>
-    <a href="#assign-partitions-when-transforming-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>customize partition function<span class="absolute -mt-20" id="customize-partition-function"></span>
-    <a href="#customize-partition-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Shared Variables<span class="absolute -mt-20" id="shared-variables"></span>
+    <a href="#assign-partitions-when-creating-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-27"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd1</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span> <span class="c1"># rdd1的分区数量</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-27"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>assign partitions when transforming RDD<span class="absolute -mt-20" id="assign-partitions-when-transforming-rdd"></span>
+    <a href="#assign-partitions-when-transforming-rdd" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-28"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># as for new RDD from transforming, directly executing repartition to get new partitions</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># get rdd2 with transforming</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd2</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># repartition, get rdd3</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">()</span> <span class="c1"># the number of partitions of rdd3</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-28"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>customize partition function<span class="absolute -mt-20" id="customize-partition-function"></span>
+    <a href="#customize-partition-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-29"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pairs</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">repairs</span> <span class="o">=</span> <span class="n">pairs</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># 重新分区</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">repairs</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># customize partition function</span>
+</span></span><span class="line"><span class="cl"><span class="n">partitionedRDD</span> <span class="o">=</span> <span class="n">pairs</span><span class="o">.</span><span class="n">partitionBy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="c1"># use specific partition function</span>
+</span></span><span class="line"><span class="cl"><span class="n">partitionedRDD</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span> <span class="c1"># 持久化，以便后续操作重复使用partitioned,避免重复分区</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">partitionedRDD</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-29"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-30"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># for example: write to different files depending on the last digit of key</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># customized partition function</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">UsridPartitioner</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># simulate 5 partitions&#39; data</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># use the last digit of key, changing to 10 partitions, writing to 10 files</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>\
+</span></span><span class="line"><span class="cl">             <span class="o">.</span><span class="n">partitionBy</span><span class="p">(</span><span class="n">numPartitions</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">partitionfunc</span><span class="o">=</span><span class="n">UsridPartitioner</span><span class="p">)</span> <span class="c1"># we can also use lambda here</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># result.saveAsTextFile(&#34;/data/spark_demo/rdd/partition-output&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-30"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Shared Variables<span class="absolute -mt-20" id="shared-variables"></span>
     <a href="#shared-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>overview<span class="absolute -mt-20" id="overview-2"></span>
-    <a href="#overview-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>broadcast<span class="absolute -mt-20" id="broadcast"></span>
-    <a href="#broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>utilize broadcast<span class="absolute -mt-20" id="utilize-broadcast"></span>
-    <a href="#utilize-broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h4>update broadcast<span class="absolute -mt-20" id="update-broadcast"></span>
+    <a href="#overview-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>spark has many nodes(machines), and they are independent. spark automatically send referenced variables to each node through network, it&rsquo;s convinent but inefficient. So shared variables are necessary.</li>
+<li>spark provides two kinds of shared variable with limited type: <strong>broadcast</strong> and <strong>accumulator</strong></li>
+</ul>
+<h3>broadcast<span class="absolute -mt-20" id="broadcast"></span>
+    <a href="#broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>introduce a broadcast, give all nodes a readable value, instead of sending data through network and saving a copy. This improve the efficiency.</li>
+<li>approach:
+<ul>
+<li>use <code>broadcast()</code> within <code>sparkContext</code> to create broadcast.</li>
+<li>use <code>value</code> to get broadcast value</li>
+<li>use <code>unpersist()</code> to remove the broadcast</li>
+</ul>
+</li>
+</ul>
+<h4>utilize broadcast<span class="absolute -mt-20" id="utilize-broadcast"></span>
+    <a href="#utilize-broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-31"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">broads</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># create broadcast, it can be any type</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lists</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># create a list for testing</span>
+</span></span><span class="line"><span class="cl"><span class="n">listRDD</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="c1"># construct a RDD</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-31"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h4>update broadcast<span class="absolute -mt-20" id="update-broadcast"></span>
     <a href="#update-broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h4>release broadcast<span class="absolute -mt-20" id="release-broadcast"></span>
     <a href="#release-broadcast" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h3>accumulator<span class="absolute -mt-20" id="accumulator"></span>
     <a href="#accumulator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Shuffle<span class="absolute -mt-20" id="shuffle"></span>
-    <a href="#shuffle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
+    <a href="#shuffle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>overview<span class="absolute -mt-20" id="overview-3"></span>
+    <a href="#overview-3" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>how it work<span class="absolute -mt-20" id="how-it-work"></span>
+    <a href="#how-it-work" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>normal mechanism<span class="absolute -mt-20" id="normal-mechanism"></span>
+    <a href="#normal-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h4>bypass mechanism<span class="absolute -mt-20" id="bypass-mechanism"></span>
+    <a href="#bypass-mechanism" class="subheading-anchor" aria-label="Permalink for this section"></a></h4>
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
