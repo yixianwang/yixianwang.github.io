@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spark Core">
 <meta itemprop="description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) with shuffle(internet connections between different machines) is wide dependency without shuffle is narrow dependency the number of stages is depended on the number of wide dependencies"><meta itemprop="datePublished" content="2023-12-03T19:43:27-05:00" />
 <meta itemprop="dateModified" content="2023-12-03T19:43:27-05:00" />
-<meta itemprop="wordCount" content="3308">
+<meta itemprop="wordCount" content="3314">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spark Core"/>
 <meta name="twitter:description" content="RDD Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations transformation: RDD&ndash;&gt;RDD Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD&ndash;&gt;anything else Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip; collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) with shuffle(internet connections between different machines) is wide dependency without shuffle is narrow dependency the number of stages is depended on the number of wide dependencies"/>
@@ -337,6 +337,12 @@
                 href="#shuffle"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Shuffle</a>
+            </li>
+          <li>
+              <a
+                href="#optimize-performance"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Optimize performance</a>
             </li>
           </ul>
   
@@ -1096,6 +1102,10 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bypass-mechanism">bypass mechanism
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#optimize-performance">Optimize performance
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -2315,7 +2325,7 @@ splitSize = Math.max(17B, Math.min(94.5B, 128M)) = 94.5B</code></pre><div class=
 <p>shuffle map task 数量小于 <code>spark.shuffle.sort.bypassMergeThreshold</code>参数的值不是聚合类的shuffle算子(e.g. reduceByKey)</p>
 </li>
 <li>
-<p><a href="https://blog.csdn.net/chuanjiaoye5017/article/details/101012650" target="_blank" rel="noopener">Reference blog: shuffle</a>
+<p><a href="https://www.cnblogs.com/licheng/p/6687018.html" target="_blank" rel="noopener">Reference blog: shuffle</a>
 
     <img src="../images-spark/spark-core-5.png" alt="Mapreduce&Shuffle" loading="lazy" /></p>
 </li>
@@ -2333,6 +2343,13 @@ splitSize = Math.max(17B, Math.min(94.5B, 128M)) = 94.5B</code></pre><div class=
     <img src="../images-spark/spark-core-6.png" alt="Spill" loading="lazy" /></p>
 <ul>
 <li>Spill includes 输出、排序、溢写、合并</li>
+</ul>
+<p>
+    <img src="../images-spark/spark-core-7.png" alt="Spill-Collect" loading="lazy" /></p>
+<h2>Optimize performance<span class="absolute -mt-20" id="optimize-performance"></span>
+    <a href="#optimize-performance" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://www.cnblogs.com/shishanyuan/p/8454323.html" target="_blank" rel="noopener">Reference 1</a></li>
+<li><a href="https://www.cnblogs.com/shishanyuan/p/8454310.html" target="_blank" rel="noopener">Reference 2</a></li>
 </ul>
 
         </div>
