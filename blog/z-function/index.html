@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Z Algorithm">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-02-10T23:22:25-05:00" />
 <meta itemprop="dateModified" content="2024-02-10T23:22:25-05:00" />
-<meta itemprop="wordCount" content="441">
+<meta itemprop="wordCount" content="472">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Z Algorithm"/>
 <meta name="twitter:description" content=""/>
@@ -433,6 +433,14 @@
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cpp/"
+    
+  >C&#43;&#43;
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/colab_tips/"
     
   >Colab Tips
@@ -452,14 +460,6 @@
     href="/notes/conda/"
     
   >Conda
-    </a>
-              
-            </li><li class="flex flex-col gap-1 "><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/notes/cpp/"
-    
-  >Cpp
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -765,6 +765,9 @@
     <a href="#example-z-algo" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><a href="https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/description/" target="_blank" rel="noopener">Leetcode 3036. Number of Subarrays That Match a Pattern II</a></li>
 </ul>
+<blockquote>
+<p>the Z-function for a string <code>s</code> is an array where the ith element <code>z[i]</code> represents the length of the longest substring starting from <code>i</code> that is also a prefix of <code>s</code>.</p>
+</blockquote>
 <h2>Z function template<span class="absolute -mt-20" id="z-function-template"></span>
     <a href="#z-function-template" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">z_function</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
