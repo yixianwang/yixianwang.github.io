@@ -15,9 +15,9 @@
   <meta name="description" content="
 Partition Template
 Quick Sort
-Top K Split
-Top K Smallest
-Top K Largest
+Top K Split(Quick Selection): (n = k/1/n-k-1)
+Top Kth Smallest
+Top Kth Largest
 " />
 
   
@@ -26,9 +26,9 @@ Top K Largest
 <meta property="og:description" content="
 Partition Template
 Quick Sort
-Top K Split
-Top K Smallest
-Top K Largest
+Top K Split(Quick Selection): (n = k/1/n-k-1)
+Top Kth Smallest
+Top Kth Largest
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/blog/partition/" /><meta property="article:section" content="blog" />
@@ -39,20 +39,20 @@ Top K Largest
 <meta itemprop="description" content="
 Partition Template
 Quick Sort
-Top K Split
-Top K Smallest
-Top K Largest
+Top K Split(Quick Selection): (n = k/1/n-k-1)
+Top Kth Smallest
+Top Kth Largest
 "><meta itemprop="datePublished" content="2024-04-15T18:29:20-04:00" />
 <meta itemprop="dateModified" content="2024-04-15T18:29:20-04:00" />
-<meta itemprop="wordCount" content="491">
+<meta itemprop="wordCount" content="495">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Partition"/>
 <meta name="twitter:description" content="
 Partition Template
 Quick Sort
-Top K Split
-Top K Smallest
-Top K Largest
+Top K Split(Quick Selection): (n = k/1/n-k-1)
+Top Kth Smallest
+Top Kth Largest
 "/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -846,9 +846,9 @@ Top K Largest
           <ul>
 <li>Partition Template</li>
 <li>Quick Sort</li>
-<li>Top K Split</li>
-<li>Top K Smallest</li>
-<li>Top K Largest</li>
+<li>Top K Split(Quick Selection): (n = k/1/n-k-1)</li>
+<li>Top Kth Smallest</li>
+<li>Top Kth Largest</li>
 </ul>
 <h2>Partition Template<span class="absolute -mt-20" id="partition-template"></span>
     <a href="#partition-template" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">partition</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
