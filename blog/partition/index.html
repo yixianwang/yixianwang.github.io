@@ -44,7 +44,7 @@ Top Kth Smallest
 Top Kth Largest
 "><meta itemprop="datePublished" content="2024-04-15T18:29:20-04:00" />
 <meta itemprop="dateModified" content="2024-04-15T18:29:20-04:00" />
-<meta itemprop="wordCount" content="377">
+<meta itemprop="wordCount" content="380">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Partition"/>
 <meta name="twitter:description" content="
@@ -336,6 +336,14 @@ Top Kth Largest
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/a_del/"
+    
+  >A
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -899,7 +907,8 @@ Top Kth Largest
     <a href="#top-k-split" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>将快速排序改成快速选择，即我们希望寻找到一个位置，这个位置左边是<code>k</code>个比这个位置上的数更小的数，右边是<code>n - k - 1</code>个比该位置上的数大的数，我将它命名为<code>TopKSplit</code>，找到这个位置后停止迭代，完成了一次划分。</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">TopKSplit</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Quick Selection
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">TopKSplit</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// 寻找到第k个数停止递归，使得nums数组中index左边是前k个小的数，index右边是后面n-k个大的数
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
