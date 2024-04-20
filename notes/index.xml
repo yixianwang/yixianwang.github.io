@@ -12286,7 +12286,25 @@ git push origin main&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transi
       <description>
         
         
-        &lt;h2&gt;Interface&lt;span class=&#34;absolute -mt-20&#34; id=&#34;interface&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;Java Version&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java-version&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#java-version&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To check all java version: &lt;code&gt;/usr/libexec/java_home -V&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;and then select specific version of java within &lt;code&gt;.zshrc&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;for spark and hadoop: 1.8.0_391
+&lt;code&gt;export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_391)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;for sprint boot: 21.0.1
+&lt;code&gt;export JAVA_HOME=$(/usr/libexec/java_home -v 21.0.1)&lt;/code&gt;
+&lt;code&gt;export PATH=$PATH:$JAVA_HOME&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Interface&lt;span class=&#34;absolute -mt-20&#34; id=&#34;interface&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#interface&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Java接口(Interface)是一系列方法的声明，是一些方法特征的集合，一个接口只有方法的特征没有方法的实现，因此这些方法可以在不同的地方被不同的类实现，而这些实现可以具有不同的行为。打一个比方，接口好比一个戏中的角色，这个角色有一些特定的属性和操作，然后实现接口的类就好比扮演这个角色的人，一个角色可以由不同的人来扮演，而不同的演员之间除了扮演一个共同的角色之外，并不要求其它的共同之处。&lt;/p&gt;
 &lt;h3&gt;常用的Interface:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;常用的interface&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e7%9a%84interface&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Set&lt;span class=&#34;absolute -mt-20&#34; id=&#34;set&#34;&gt;&lt;/span&gt;
