@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Dijkstra">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-04-13T19:23:20-04:00" />
 <meta itemprop="dateModified" content="2024-04-13T19:23:20-04:00" />
-<meta itemprop="wordCount" content="253">
+<meta itemprop="wordCount" content="258">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dijkstra"/>
 <meta name="twitter:description" content=""/>
@@ -326,14 +326,6 @@
     href="/notes/cpp_comparator/"
     
   >C&#43;&#43; Comparator
-    </a>
-              
-            </li><li class="flex flex-col gap-1 "><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/notes/bf/"
-    
-  >BF
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -800,11 +792,11 @@
 </span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">done</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dis</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 可以提前结束吗
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ranges</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">dis</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// all done
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">ranges</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">dis</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="n">INT_MAX</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 有节点无法到达
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>

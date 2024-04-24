@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="133">
+<meta itemprop="wordCount" content="321">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -321,14 +321,6 @@
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/notes/bf/"
-    
-  >BF
-    </a>
-              
-            </li><li class="flex flex-col gap-1 "><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/cpp_inheritance/"
     
   >C&#43;&#43; Inheritance
@@ -413,6 +405,30 @@
                 href="#dependency-injection"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Dependency Injection</a>
+            </li>
+          <li>
+              <a
+                href="#springboot-controller"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >SpringBoot Controller</a>
+            </li>
+          <li>
+              <a
+                href="#springboot-file-upload--handlerinterceptor"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >SpringBoot File Upload &#43; HandlerInterceptor</a>
+            </li>
+          <li>
+              <a
+                href="#restful-service--swagger"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >RESTful service &#43; Swagger</a>
+            </li>
+          <li>
+              <a
+                href="#mybatis-plus"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Mybatis-Plus</a>
             </li>
           </ul>
   
@@ -783,13 +799,6 @@
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
-    href="/notes/bf/"
-    
-  >BF
-    </a></li>
-        <li class=""><a
-    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/cpp_inheritance/"
     
   >C&#43;&#43; Inheritance
@@ -1109,6 +1118,62 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-injection">Dependency Injection
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#springboot-controller">SpringBoot Controller
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#rounter">Rounter
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#method">Method
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#parameters">Parameters
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#springboot-file-upload--handlerinterceptor">SpringBoot File Upload + HandlerInterceptor
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#static-resources">Static Resources
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#file-upload">File Upload
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#handlerinterceptor">HandlerInterceptor
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#restful-service--swagger">RESTful service + Swagger
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#restful">Restful
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#swagger">Swagger
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mybatis-plus">Mybatis-Plus
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mybatis-plus-1">Mybatis-Plus
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mybatis-plus-crud-operation">Mybatis-Plus CRUD operation
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1171,7 +1236,140 @@
 <blockquote>
 <p>Spring container is <strong>injecting</strong> object for us</p>
 </blockquote>
+<h2>SpringBoot Controller<span class="absolute -mt-20" id="springboot-controller"></span>
+    <a href="#springboot-controller" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
+    <img src="../images-springboot/sb1.png" alt="MVC" loading="lazy" /></p>
+<h3>Rounter<span class="absolute -mt-20" id="rounter"></span>
+    <a href="#rounter" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>@RequestMapping</code>, on class or methods
+<ul>
+<li><code>value</code></li>
+<li><code>method</code></li>
+<li><code>consumes</code>, 请求的 Content-Type, i.e. application/json</li>
+<li><code>produces</code></li>
+<li><code>params, headers</code></li>
+</ul>
+</li>
+<li><code>*, **, ?</code></li>
+</ul>
+<h3>Method<span class="absolute -mt-20" id="method"></span>
+    <a href="#method" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>@RequestMapping(value = &quot;/getData&quot;, method = RequestMethod.GET)</code>
+<ul>
+<li><code>@GetMapping(&quot;/getData&quot;)</code> is same as above.</li>
+</ul>
+</li>
+</ul>
+<h3>Parameters<span class="absolute -mt-20" id="parameters"></span>
+    <a href="#parameters" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p><code>@RequestParam</code>, (from HTTP request body or url QueryString) when the names are matching, we can <strong>ignore</strong> this annotation</p>
+<ul>
+<li><code>public String getTest3(@RequestParam(value = &quot;nickname&quot;, required = false) String name) {}</code></li>
+</ul>
+</li>
+<li>
+<p><code>@PathVariable</code>, handle dynamic URL</p>
+</li>
+<li>
+<p><code>@RequestBody</code>, most use case is to handle data which is not <code>Content-Type: application/x-www-form-urlencoded</code>, i.e. <code>application/json</code>, <code>application/xml</code>, etc.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// i.e. @RequestBody
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/postTest4&#34;</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">postTest4</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// @RequestBody 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="s">&#34;Post request&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+</ul>
+<h2>SpringBoot File Upload + HandlerInterceptor<span class="absolute -mt-20" id="springboot-file-upload--handlerinterceptor"></span>
+    <a href="#springboot-file-upload--handlerinterceptor" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Static Resources<span class="absolute -mt-20" id="static-resources"></span>
+    <a href="#static-resources" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>define filter rule and static resource path</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">// application.properties
+spring.mvc.static-path-pattern=/static/**
+spring.web.resources.static-locations=classpath:/static/</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<p>filter rule is <code>/static/**</code>, static resource path is <code>classpath:/static/</code></p>
+</blockquote>
+<h3>File Upload<span class="absolute -mt-20" id="file-upload"></span>
+    <a href="#file-upload" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p><code>enctype</code> define how to encode form data before sending to server</p>
+</li>
+<li>
+<p><code>enctype = &quot;application/x-www-form-urlencoded&quot;</code> is default, then form data likes <code>key=value&amp;key=value</code></p>
+</li>
+<li>
+<p><code>enctype = &quot;multipart/form-data&quot;</code>
 
+    <img src="../images-springboot/sb1.png" alt="enctype=multipart/form-data" loading="lazy" /></p>
+</li>
+<li>
+<p>To update 1MB file limitation by SpringBoot built-in Tomcat</p>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">// application.properties
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>HandlerInterceptor<span class="absolute -mt-20" id="handlerinterceptor"></span>
+    <a href="#handlerinterceptor" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-springboot/sb3.png" alt="HandlerInterceptor" loading="lazy" />
+
+    <img src="../images-springboot/sb4.png" alt="HandlerInterceptor" loading="lazy" /></p>
+<h2>RESTful service + Swagger<span class="absolute -mt-20" id="restful-service--swagger"></span>
+    <a href="#restful-service--swagger" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Restful<span class="absolute -mt-20" id="restful"></span>
+    <a href="#restful" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-springboot/sb5.png" alt="Restful" loading="lazy" /></p>
+<h3>Swagger<span class="absolute -mt-20" id="swagger"></span>
+    <a href="#swagger" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>http://127.0.0.1:8080/swagger-ui.html</code>
+
+    <img src="../images-springboot/sb6.png" alt="Swagger1" loading="lazy" />
+
+    <img src="../images-springboot/sb7.png" alt="Swagger2" loading="lazy" />
+
+    <img src="../images-springboot/sb8.png" alt="Swagger3" loading="lazy" /></li>
+</ul>
+<h2>Mybatis-Plus<span class="absolute -mt-20" id="mybatis-plus"></span>
+    <a href="#mybatis-plus" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>ORM(Object Relational Mapping)</p>
+<h3>Mybatis-Plus<span class="absolute -mt-20" id="mybatis-plus-1"></span>
+    <a href="#mybatis-plus-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-springboot/sb9.png" alt="Mybatis" loading="lazy" />
+
+    <img src="../images-springboot/sb10.png" alt="Mybatis" loading="lazy" /></p>
+<h3>Mybatis-Plus CRUD operation<span class="absolute -mt-20" id="mybatis-plus-crud-operation"></span>
+    <a href="#mybatis-plus-crud-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
