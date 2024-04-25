@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="321">
+<meta itemprop="wordCount" content="413">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -1174,6 +1174,14 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mybatis-plus-crud-operation">Mybatis-Plus CRUD operation
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example">Example
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#searching-multiple-tables">Searching Multiple Tables
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1367,9 +1375,65 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
     <a href="#mybatis-plus-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
     <img src="../images-springboot/sb9.png" alt="Mybatis" loading="lazy" />
 
-    <img src="../images-springboot/sb10.png" alt="Mybatis" loading="lazy" /></p>
+    <img src="../images-springboot/sb10.png" alt="Mybatis" loading="lazy" />
+
+    <img src="../images-springboot/sb11.png" alt="Mybatis" loading="lazy" /></p>
 <h3>Mybatis-Plus CRUD operation<span class="absolute -mt-20" id="mybatis-plus-crud-operation"></span>
-    <a href="#mybatis-plus-crud-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+    <a href="#mybatis-plus-crud-operation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-springboot/sb12.png" alt="Mybatis" loading="lazy" />
+
+    <img src="../images-springboot/sb13.png" alt="Mybatis" loading="lazy" /></p>
+<h3>Example<span class="absolute -mt-20" id="example"></span>
+    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// mapper
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// UserMapper.java
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@Mapper</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span> <span class="c1">// User has to be same as table name within database
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// controller
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// UserController
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@RestController</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserController</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">@Autowired</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/user&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">List</span> <span class="nf">query</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">list</span><span class="o">;</span> <span class="c1">// automatically convert to json
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/user&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">save</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">user</span><span class="o">);</span> <span class="c1">// i is the number of rows inserted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s">&#34;successfully inserted&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s">&#34;insertation failed&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Searching Multiple Tables<span class="absolute -mt-20" id="searching-multiple-tables"></span>
+    <a href="#searching-multiple-tables" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
