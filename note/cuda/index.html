@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon shortcut" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
+
+  <title>CUDA – Yixian Wang</title>
+  <meta name="description" content="Which machine learning algorithms can be optimized with CUDA? CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) created by NVIDIA for utilizing their GPUs (Graphics Processing Units) to accelerate various computational tasks, including machine learning. Many machine learning algorithms can be optimized with CUDA to take advantage of GPU parallelism, which can significantly speed up training and inference. Here are some common machine learning algorithms that can benefit from CUDA optimization:" />
+
+  
+
+<meta property="og:title" content="CUDA" />
+<meta property="og:description" content="Which machine learning algorithms can be optimized with CUDA? CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) created by NVIDIA for utilizing their GPUs (Graphics Processing Units) to accelerate various computational tasks, including machine learning. Many machine learning algorithms can be optimized with CUDA to take advantage of GPU parallelism, which can significantly speed up training and inference. Here are some common machine learning algorithms that can benefit from CUDA optimization:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yixianwang.github.io/note/cuda/" /><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2023-10-24T03:10:46-04:00" />
+<meta property="article:modified_time" content="2023-10-24T03:10:46-04:00" />
+
+  <meta itemprop="name" content="CUDA">
+<meta itemprop="description" content="Which machine learning algorithms can be optimized with CUDA? CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) created by NVIDIA for utilizing their GPUs (Graphics Processing Units) to accelerate various computational tasks, including machine learning. Many machine learning algorithms can be optimized with CUDA to take advantage of GPU parallelism, which can significantly speed up training and inference. Here are some common machine learning algorithms that can benefit from CUDA optimization:"><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
+<meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
+<meta itemprop="wordCount" content="1896">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CUDA"/>
+<meta name="twitter:description" content="Which machine learning algorithms can be optimized with CUDA? CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) created by NVIDIA for utilizing their GPUs (Graphics Processing Units) to accelerate various computational tasks, including machine learning. Many machine learning algorithms can be optimized with CUDA to take advantage of GPU parallelism, which can significantly speed up training and inference. Here are some common machine learning algorithms that can benefit from CUDA optimization:"/>
+
+    <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
+    <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
+
+
+
+  <link href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" rel="stylesheet" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+
+
+
+  
+
+
+  <script>
+     
+    if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
+    }
+  </script>
+
+  
+</head>
+<body dir="ltr"><div class="nav-container sticky top-0 z-20 w-full bg-transparent print:hidden">
+  <div class="nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-dark shadow-[0_2px_4px_rgba(0,0,0,.02),0_1px_0_rgba(0,0,0,.06)] contrast-more:shadow-[0_0_0_1px_#000] dark:shadow-[0_-1px_0_rgba(255,255,255,.1)_inset] contrast-more:dark:shadow-[0_0_0_1px_#fff]"></div>
+
+  <nav class="mx-auto flex items-center justify-end gap-2 h-16 px-6 max-w-[90rem]">
+    <a class="flex items-center hover:opacity-75 ltr:mr-auto rtl:ml-auto" href="/">
+        <img class="block dark:hidden" src="/images/logo.svg" alt="Yixian Wang" height="20" width="20" />
+        <img class="hidden dark:block" src="/images/logo.svg" alt="Yixian Wang" height="20" width="20" />
+        <span class="mx-2 font-extrabold inline select-none" title="Yixian Wang">Yixian Wang</span>
+    </a><a
+            title="Home"
+            href="/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Home</span>
+          </a><a
+            title="Projects"
+            href="/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Projects</span>
+          </a><a
+            title="Blog"
+            href="/blog/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Blog</span>
+          </a><a
+            title="Notes"
+            href="/"
+            
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="text-center">Notes</span>
+          </a><div class="search-wrapper relative md:w-64">
+  <div class="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300 contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-dark placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="absolute my-1.5 select-none ltr:right-1.5 rtl:left-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 dark:bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 transition-opacity pointer-events-none hidden sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hidden border border-gray-200 bg-white text-gray-100 dark:border-neutral-800 dark:bg-neutral-900 absolute top-full z-20 mt-2 overflow-auto overscroll-contain rounded-xl py-2.5 shadow-xl max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] inset-x-0 ltr:md:left-auto rtl:md:right-auto contrast-more:border contrast-more:border-gray-900 contrast-more:dark:border-gray-50 w-screen min-h-[100px] max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+<a class="p-2 text-current" target="_blank" rel="noreferer" href="https://github.com/yixianwang" title="GitHub"><svg height=24 fill="currentColor" viewBox="3 3 18 18">
+  <path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path>
+</svg>
+<span class="sr-only">GitHub</span>
+          </a><button type="button" aria-label="Menu" class="hamburger-menu -mr-2 rounded p-2 active:bg-gray-400/20 md:hidden"><svg height=24 fill="none" viewBox="0 0 24 24" stroke="currentColor"><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8H20"></path></g><g><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16H20"></path></g></svg></button>
+  </nav>
+</div>
+
+  <div class='mx-auto flex max-w-screen-xl'>
+    <aside class="sidebar-container flex flex-col print:hidden md:top-16 md:shrink-0 md:w-64 md:self-start max-md:[transform:translate3d(0,-100%,0)] md:hidden xl:block">
+  
+  <div class="px-4 pt-4 md:hidden">
+    <div class="search-wrapper relative md:w-64">
+  <div class="relative flex items-center text-gray-900 contrast-more:text-gray-800 dark:text-gray-300 contrast-more:dark:text-gray-300">
+    <input
+      placeholder="Search..."
+      class="search-input block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05] dark:bg-gray-50/10 focus:bg-white dark:focus:bg-dark placeholder:text-gray-500 dark:placeholder:text-gray-400 contrast-more:border contrast-more:border-current"
+      type="search"
+      value=""
+      spellcheck="false"
+    />
+    <kbd
+      class="absolute my-1.5 select-none ltr:right-1.5 rtl:left-1.5 h-5 rounded bg-white px-1.5 font-mono text-[10px] font-medium text-gray-500 border dark:border-gray-100/20 dark:bg-dark/50 contrast-more:border-current contrast-more:text-current contrast-more:dark:border-current items-center gap-1 transition-opacity pointer-events-none hidden sm:flex"
+    >
+      CTRL K
+    </kbd>
+  </div>
+
+  <div>
+    <ul
+      class="search-results hextra-scrollbar hidden border border-gray-200 bg-white text-gray-100 dark:border-neutral-800 dark:bg-neutral-900 absolute top-full z-20 mt-2 overflow-auto overscroll-contain rounded-xl py-2.5 shadow-xl max-h-[min(calc(50vh-11rem-env(safe-area-inset-bottom)),400px)] md:max-h-[min(calc(100vh-5rem-env(safe-area-inset-bottom)),400px)] inset-x-0 ltr:md:left-auto rtl:md:right-auto contrast-more:border contrast-more:border-gray-900 contrast-more:dark:border-gray-50 w-screen min-h-[100px] max-w-[min(calc(100vw-2rem),calc(100%+20rem))]"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+  </div>
+</div>
+
+  </div>
+  <div class="hextra-scrollbar overflow-y-auto overflow-x-hidden p-4 grow md:h-[calc(100vh-var(--navbar-height)-var(--menu-height))]">
+    <ul class="flex flex-col gap-1 md:hidden">
+      
+      
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/"
+    
+  >Blog
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
+    </a><div class="pt-1 ltr:pr-0 overflow-hidden transition-all ease-in-out duration-200">
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/partition/"
+    
+  >Partition
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/dijkstra/"
+    
+  >Dijkstra
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/d_union_find/"
+    
+  >Union Find
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/z-function/"
+    
+  >Z Algorithm
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/sweep_line_algorithm/"
+    
+  >Sweep Line Algorithm
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/d_thread_communication/"
+    
+  >Draft: Inter-threads Communication
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/deadlock/"
+    
+  >Deadlock
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/thread_vs_process/"
+    
+  >Thread vs Process
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/d_monotonic_stack/"
+    
+  >Draft: Monotonic Stack
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/d_note_system/"
+    
+  >Draft: System Design
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/segment_tree/"
+    
+  >Segment Tree &amp; Binary Index Tree
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/dynamic_programming/"
+    
+  >Dynamic Programming
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/blog/note_recursion/"
+    
+  >Recursion
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/"
+    
+  >Notes
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
+    </a><div class="pt-1 ltr:pr-0 overflow-hidden transition-all ease-in-out duration-200">
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/latex/"
+    
+  >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/a_del/"
+    
+  >A
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/java_last_minute/"
+    
+  >Java Last Minute
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/cpp_const/"
+    
+  >C&#43;&#43; Const
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/cpp_comparator/"
+    
+  >C&#43;&#43; Comparator
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/cpp_inheritance/"
+    
+  >C&#43;&#43; Inheritance
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/templates/"
+    
+  >Templates
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/al_note/"
+    
+  >Algo Note
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/oop-python/"
+    
+  >OOP Python
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/oop-java/"
+    
+  >OOP Java
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/oop-cpp/"
+    
+  >OOP C&#43;&#43;
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/spring/"
+    
+  >Spring6
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/spring_boot/"
+    
+  >Spring Boot
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/poetry/"
+    
+  >Poetry
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/pytest/"
+    
+  >Pytest
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/spark-core/"
+    
+  >Spark Core
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/spark/"
+    
+  >Spark
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/cassandra/"
+    
+  >Cassandra
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/ccia_reading_note/"
+    
+  >[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/google_test/"
+    
+  >Google Test
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/docker/"
+    
+  >Docker
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/airflow/"
+    
+  >Airflow
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/template_pi/"
+    
+  >Template PI
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/sql/"
+    
+  >SQL
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/trie_techlead/"
+    
+  >Trie Techlead
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/aws_connection/"
+    
+  >AWS
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/colab_tips/"
+    
+  >Colab Tips
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/colab_upload/"
+    
+  >Colab Upload
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/conda/"
+    
+  >Conda
+    </a>
+              
+            </li><li class="flex flex-col gap-1 open"><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+    href="/note/cuda/"
+    
+  >CUDA
+    </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#which-machine-learning-algorithms-can-be-optimized-with-cuda"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Which machine learning algorithms can be optimized with CUDA?</a>
+            </li>
+          <li>
+              <a
+                href="#cuda-syntax"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >CUDA syntax</a>
+            </li>
+          <li>
+              <a
+                href="#some-hardware-constraints"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Some hardware constraints</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/ds/"
+    
+  >Data Science Knowledge
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/django/"
+    
+  >Django
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/git/"
+    
+  >Git
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/google_cloud/"
+    
+  >Google Cloud
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/hexo/"
+    
+  >Hexo
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/hugo/"
+    
+  >Hugo
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/java/"
+    
+  >Java
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/al_note_legacy/"
+    
+  >Legacy Algo Note
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/linear_algebra/"
+    
+  >Linear Algebra
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/ood/"
+    
+  >OOD
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/ood-solid/"
+    
+  >OOD SOLID
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/python/"
+    
+  >Python
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/python_script/"
+    
+  >Python Scripts
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/utils_notebook/"
+    
+  >Utils Notebook
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/note/vim/"
+    
+  >Vim
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg></span>
+    </a><div class="pt-1 ltr:pr-0 overflow-hidden transition-all ease-in-out duration-200">
+        <ul class='relative flex flex-col gap-1 before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] ltr:ml-3 ltr:pl-3 ltr:before:left-0 rtl:mr-3 rtl:pr-3 rtl:before:right-0 dark:before:bg-neutral-800'><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/android_business_management/"
+    
+  >Android App: Business Management &amp; Accountant
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/mpi_barnes_hut/"
+    
+  >Exploring Parallel Processes Programming with MPICH Simulating Barnes Hut Algorithm
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/go_tree_comparison/"
+    
+  >Exploring Concurrency Programming with Go
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/cuda_kmeans/"
+    
+  >Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/pthreads_prefix_sum/"
+    
+  >Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/supertuxkart/"
+    
+  >Draft: Self-driving SuperTuxKart with Pytorch
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/project/nlp_semantic_parsing_encoder_decoder/"
+    
+  >Semantic Parsing with Encoder-Decoder Models
+    </a>
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
+  
+  
+  <div class="md:hidden  sticky bottom-0 bg-white dark:bg-dark mx-4 py-4 shadow-[0_-12px_16px_#fff] flex items-center gap-2 dark:border-neutral-800 dark:shadow-[0_-12px_16px_#111] contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:shadow-none border-t" data-toggle-animation="show">
+      <div class="flex grow flex-col">
+        <button
+  title="Change theme"
+  data-theme="light"
+  class="theme-toggle group h-7 rounded-md px-2 text-left text-xs font-medium text-gray-600 transition-colors dark:text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-primary-100/5 dark:hover:text-gray-50"
+  type="button"
+  aria-label="Toggle Dark Mode"
+>
+  <div class="flex items-center gap-2 capitalize"><svg height=12 class="group-data-[theme=light]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg><span class="group-data-[theme=light]:hidden">Light</span><svg height=12 class="group-data-[theme=dark]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><span class="group-data-[theme=dark]:hidden">Dark</span></div>
+</button>
+
+      </div>
+    </div>
+</aside>
+    
+<nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#which-machine-learning-algorithms-can-be-optimized-with-cuda">Which machine learning algorithms can be optimized with CUDA?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#cuda-syntax">CUDA syntax
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#declaring-functions">Declaring functions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#declaring-variables">Declaring variables
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#types">Types
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#vector-types">Vector types
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pre-defined-variables">Pre-defined variables
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#kernel-invocation">Kernel invocation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#thread-management">Thread management
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#memory-management">Memory management
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#atomic-functions">Atomic functions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#warp-vote">Warp vote
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#timer">Timer
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#texture">Texture
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#low-level-driver-api">Low-level Driver API
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#cublas">cuBLAS
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#constants">Constants
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#compiler">Compiler
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#flags-common-with-cc">Flags common with cc
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#undocumented-but-in-sample-makefiles">Undocumented (but in sample makefiles)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#flags-specific-to-nvcc">Flags specific to nvcc
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#argumenents-for--arch-and--code">Argumenents for -arch and -code
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#some-hardware-constraints">Some hardware constraints
+        </a>
+      </li></ul>
+      <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
+        <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
+          <span>Scroll to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline ml-1 h-3.5 w-3.5 border rounded-full border-gray-500 hover:border-gray-900 dark:border-gray-400 dark:hover:border-gray-100 contrast-more:border-gray-800 contrast-more:dark:border-gray-50">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+        <br class="mt-1.5 text-sm" />
+        <h1 class="text-center mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">CUDA</h1>
+        <div class="mb-16"></div>
+        <div class="content">
+          <h2>Which machine learning algorithms can be optimized with CUDA?<span class="absolute -mt-20" id="which-machine-learning-algorithms-can-be-optimized-with-cuda"></span>
+    <a href="#which-machine-learning-algorithms-can-be-optimized-with-cuda" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) created by NVIDIA for utilizing their GPUs (Graphics Processing Units) to accelerate various computational tasks, including machine learning. Many machine learning algorithms can be optimized with CUDA to take advantage of GPU parallelism, which can significantly speed up training and inference. Here are some common machine learning algorithms that can benefit from CUDA optimization:</p>
+<ol>
+<li>
+<p><strong>Deep Learning Algorithms:</strong></p>
+<ol>
+<li><strong>Convolutional Neural Networks (CNNs):</strong> Used in image and video analysis, CNNs can be accelerated with CUDA for image recognition, object detection, and more.</li>
+<li><strong>Recurrent Neural Networks (RNNs):</strong> RNNs, especially in natural language processing tasks, can benefit from GPU acceleration.</li>
+</ol>
+</li>
+<li>
+<p><strong>Support Vector Machines (SVM):</strong> SVMs are used for classification and regression tasks. Training large SVMs can be time-consuming, and CUDA can speed up the process.</p>
+</li>
+<li>
+<p><strong>k-Nearest Neighbors (k-NN):</strong> CUDA can accelerate the distance calculations required in k-NN algorithms.</p>
+</li>
+<li>
+<p><strong>Random Forests:</strong> Implementations of random forests can be parallelized on GPUs for faster training.</p>
+</li>
+<li>
+<p><strong>Gradient Boosting Algorithms:</strong> Some gradient boosting libraries, like XGBoost and LightGBM, have GPU support to speed up boosting algorithms&rsquo; training.</p>
+</li>
+<li>
+<p><strong>Matrix Factorization:</strong> Algorithms like Singular Value Decomposition (SVD) and Alternating Least Squares (ALS) used in recommendation systems can benefit from GPU acceleration.</p>
+</li>
+<li>
+<p><strong>Clustering Algorithms:</strong> Algorithms like K-means clustering and DBSCAN can be optimized with CUDA to speed up clustering tasks on large datasets.</p>
+</li>
+<li>
+<p><strong>Principal Component Analysis (PCA):</strong> PCA, a dimensionality reduction technique, can be accelerated with CUDA when working with high-dimensional data.</p>
+</li>
+<li>
+<p><strong>Non-negative Matrix Factorization (NMF):</strong> NMF is used in various applications like topic modeling and image processing and can be accelerated using CUDA.</p>
+</li>
+<li>
+<p><strong>Ensemble Methods:</strong> Bagging and boosting techniques that involve multiple base models can be optimized with CUDA.</p>
+</li>
+<li>
+<p><strong>Anomaly Detection Algorithms:</strong> Algorithms for detecting anomalies in data, such as Isolation Forests, can benefit from GPU acceleration.</p>
+</li>
+<li>
+<p><strong>Neural Collaborative Filtering:</strong> Used in recommendation systems, this approach can be accelerated with CUDA to improve recommendation speed.</p>
+</li>
+</ol>
+<p>It&rsquo;s essential to note that not all machine learning algorithms can be effectively optimized with CUDA. The feasibility of GPU acceleration depends on several factors, including the specific algorithm, the dataset size, and the availability of GPU support in the machine learning libraries or frameworks you are using. Additionally, optimizing machine learning algorithms for CUDA may require expertise in GPU programming and the use of libraries like CUDA, cuDNN, and cuBLAS to take full advantage of the GPU&rsquo;s capabilities.</p>
+<h2>CUDA syntax<span class="absolute -mt-20" id="cuda-syntax"></span>
+    <a href="#cuda-syntax" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://icl.utk.edu/~mgates3/docs/cuda.html" target="_blank" rel="noopener">cuda syntax</a>
+Source code is in .cu files, which contain mixture of host (CPU) and device (GPU) code.</li>
+</ul>
+<h3>Declaring functions<span class="absolute -mt-20" id="declaring-functions"></span>
+    <a href="#declaring-functions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">__global__     	declares kernel, which is called on host and executed on device
+__device__     	declares device function, which is called and executed on device
+__host__       	declares host function, which is called and executed on host
+__noinline__   	to avoid inlining
+__forceinline__	to force inlining</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Declaring variables<span class="absolute -mt-20" id="declaring-variables"></span>
+    <a href="#declaring-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">__device__  	declares device variable in global memory, accessible from all threads, with lifetime of application
+__constant__	declares device variable in constant memory, accessible from all threads, with lifetime of application
+__shared__  	declares device varibale in block&#39;s shared memory, accessible from all threads within a block, with lifetime of block
+__restrict__	standard C definition that pointers are not aliased</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Types<span class="absolute -mt-20" id="types"></span>
+    <a href="#types" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Most routines return an error code of type cudaError_t.</p>
+<h3>Vector types<span class="absolute -mt-20" id="vector-types"></span>
+    <a href="#vector-types" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">char1, uchar1, short1, ushort1, int1, uint1, long1, ulong1, float1
+char2, uchar2, short2, ushort2, int2, uint2, long2, ulong2, float2
+char3, uchar3, short3, ushort3, int3, uint3, long3, ulong3, float3
+char4, uchar4, short4, ushort4, int4, uint4, long4, ulong4, float4
+
+longlong1, ulonglong1, double1
+longlong2, ulonglong2, double2
+
+dim3
+Components are accessible as variable.x,  variable.y,  variable.z,  variable.w. 
+Constructor is make_&lt;type&gt;( x, ... ), for example:
+float2 xx = make_float2( 1., 2. );
+dim3 can take 1, 2, or 3 argumetns:
+dim3 blocks1D( 5       );
+dim3 blocks2D( 5, 5    );
+dim3 blocks3D( 5, 5, 5 );</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Pre-defined variables<span class="absolute -mt-20" id="pre-defined-variables"></span>
+    <a href="#pre-defined-variables" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">dim3</span>  <span class="n">gridDim</span>  	<span class="n">dimensions</span> <span class="n">of</span> <span class="n">grid</span>
+</span></span><span class="line"><span class="cl"><span class="n">dim3</span>  <span class="n">blockDim</span> 	<span class="n">dimensions</span> <span class="n">of</span> <span class="n">block</span>
+</span></span><span class="line"><span class="cl"><span class="n">uint3</span> <span class="n">blockIdx</span> 	<span class="n">block</span> <span class="n">index</span> <span class="n">within</span> <span class="n">grid</span>
+</span></span><span class="line"><span class="cl"><span class="n">uint3</span> <span class="n">threadIdx</span>	<span class="kr">thread</span> <span class="n">index</span> <span class="n">within</span> <span class="n">block</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span>   <span class="n">warpSize</span> 	<span class="n">number</span> <span class="n">of</span> <span class="n">threads</span> <span class="n">in</span> <span class="n">warp</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Kernel invocation<span class="absolute -mt-20" id="kernel-invocation"></span>
+    <a href="#kernel-invocation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">__global__</span> <span class="kt">void</span> <span class="nf">kernel</span><span class="p">(</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dim3</span> <span class="nf">blocks</span><span class="p">(</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span> <span class="p">);</span>           <span class="c1">// cuda 1.x has 1D and 2D grids, cuda 2.x adds 3D grids
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">dim3</span> <span class="nf">threadsPerBlock</span><span class="p">(</span> <span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span> <span class="p">);</span>  <span class="c1">// cuda 1.x has 1D, 2D, and 3D blocks
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">kernel</span><span class="o">&lt;&lt;&lt;</span> <span class="n">blocks</span><span class="p">,</span> <span class="n">threadsPerBlock</span> <span class="o">&gt;&gt;&gt;</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Thread management<span class="absolute -mt-20" id="thread-management"></span>
+    <a href="#thread-management" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">__threadfence_block</span><span class="p">();</span> 	<span class="n">wait</span> <span class="n">until</span> <span class="n">memory</span> <span class="n">accesses</span> <span class="n">are</span> <span class="n">visible</span> <span class="n">to</span> <span class="n">block</span>
+</span></span><span class="line"><span class="cl"><span class="nf">__threadfence</span><span class="p">();</span>       	<span class="n">wait</span> <span class="n">until</span> <span class="n">memory</span> <span class="n">accesses</span> <span class="n">are</span> <span class="n">visible</span> <span class="n">to</span> <span class="n">block</span> <span class="n">and</span> <span class="n">device</span>
+</span></span><span class="line"><span class="cl"><span class="nf">__threadfence_system</span><span class="p">();</span>	<span class="n">wait</span> <span class="n">until</span> <span class="n">memory</span> <span class="n">accesses</span> <span class="n">are</span> <span class="n">visible</span> <span class="n">to</span> <span class="n">block</span> <span class="n">and</span> <span class="n">device</span> <span class="n">and</span> <span class="nf">host</span> <span class="p">(</span><span class="mf">2.</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">__syncthreads</span><span class="p">();</span>       	<span class="n">wait</span> <span class="n">until</span> <span class="n">all</span> <span class="n">threads</span> <span class="n">reach</span> <span class="n">sync</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Memory management<span class="absolute -mt-20" id="memory-management"></span>
+    <a href="#memory-management" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">__device__</span> <span class="kt">float</span><span class="o">*</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaMalloc</span><span class="p">(</span> <span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">pointer</span><span class="p">,</span> <span class="n">size</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaFree</span><span class="p">(</span> <span class="n">pointer</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">__constant__</span> <span class="kt">float</span> <span class="n">dev_data</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">host_data</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaMemcpyToSymbol</span>  <span class="p">(</span> <span class="n">dev_data</span><span class="p">,</span>  <span class="n">host_data</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">host_data</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// dev_data  = host_data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cudaMemcpyFromSymbol</span><span class="p">(</span> <span class="n">host_data</span><span class="p">,</span> <span class="n">dev_data</span><span class="p">,</span>  <span class="k">sizeof</span><span class="p">(</span><span class="n">host_data</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// host_data = dev_data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// direction is one of cudaMemcpyHostToDevice or cudaMemcpyDeviceToHost
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cudaMemcpy</span>     <span class="p">(</span> <span class="n">dst_pointer</span><span class="p">,</span> <span class="n">src_pointer</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">direction</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaMemcpyAsync</span><span class="p">(</span> <span class="n">dst_pointer</span><span class="p">,</span> <span class="n">src_pointer</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// using column-wise notation
+</span></span></span><span class="line"><span class="cl"><span class="c1">// (the CUDA docs describe it for images; a “row” there equals a matrix column)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// _bytes indicates arguments that must be specified in bytes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cudaMemcpy2D</span>     <span class="p">(</span> <span class="n">A_dst</span><span class="p">,</span> <span class="n">lda_bytes</span><span class="p">,</span> <span class="n">B_src</span><span class="p">,</span> <span class="n">ldb_bytes</span><span class="p">,</span> <span class="n">m_bytes</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">direction</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaMemcpy2DAsync</span><span class="p">(</span> <span class="n">A_dst</span><span class="p">,</span> <span class="n">lda_bytes</span><span class="p">,</span> <span class="n">B_src</span><span class="p">,</span> <span class="n">ldb_bytes</span><span class="p">,</span> <span class="n">m_bytes</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// cublas makes copies easier for matrices, e.g., less use of sizeof
+</span></span></span><span class="line"><span class="cl"><span class="c1">// copy x =&gt; y
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cublasSetVector</span>     <span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">x_src_host</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y_dst_dev</span><span class="p">,</span>  <span class="n">incy</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetVector</span>     <span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">x_src_dev</span><span class="p">,</span>  <span class="n">incx</span><span class="p">,</span> <span class="n">y_dst_host</span><span class="p">,</span> <span class="n">incy</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasSetVectorAsync</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">x_src_host</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y_dst_dev</span><span class="p">,</span>  <span class="n">incy</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetVectorAsync</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">x_src_dev</span><span class="p">,</span>  <span class="n">incx</span><span class="p">,</span> <span class="n">y_dst_host</span><span class="p">,</span> <span class="n">incy</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// copy A =&gt; B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cublasSetMatrix</span>     <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">A_src_host</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">B_dst_dev</span><span class="p">,</span>  <span class="n">ldb</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetMatrix</span>     <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">A_src_dev</span><span class="p">,</span>  <span class="n">lda</span><span class="p">,</span> <span class="n">B_dst_host</span><span class="p">,</span> <span class="n">ldb</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasSetMatrixAsync</span><span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">A_src_host</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">B_dst_dev</span><span class="p">,</span>  <span class="n">ldb</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetMatrixAsync</span><span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">elemSize</span><span class="p">,</span> <span class="n">A_src_dev</span><span class="p">,</span>  <span class="n">lda</span><span class="p">,</span> <span class="n">B_dst_host</span><span class="p">,</span> <span class="n">ldb</span><span class="p">,</span> <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Also</span><span class="p">,</span> <span class="n">malloc</span> <span class="n">and</span> <span class="n">free</span> <span class="n">work</span> <span class="n">inside</span> <span class="n">a</span> <span class="n">kernel</span> <span class="p">(</span><span class="mf">2.</span><span class="n">x</span><span class="p">),</span> <span class="n">but</span> <span class="n">memory</span> <span class="n">allocated</span> <span class="n">in</span> <span class="n">a</span> <span class="n">kernel</span> <span class="n">must</span> <span class="n">be</span> <span class="n">deallocated</span> <span class="n">in</span> <span class="n">a</span> <span class="n">kernel</span> <span class="p">(</span><span class="n">not</span> <span class="n">the</span> <span class="n">host</span><span class="p">).</span> <span class="n">It</span> <span class="n">can</span> <span class="n">be</span> <span class="n">freed</span> <span class="n">in</span> <span class="n">a</span> <span class="n">different</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">though</span><span class="p">.</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Atomic functions<span class="absolute -mt-20" id="atomic-functions"></span>
+    <a href="#atomic-functions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">old</span> <span class="o">=</span> <span class="n">atomicAdd</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr += value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicSub</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr –= value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicExch</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr  = value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">old</span> <span class="o">=</span> <span class="n">atomicMin</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr = min( old, value )
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicMax</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr = max( old, value )
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// increment up to value, then reset to 0  
+</span></span></span><span class="line"><span class="cl"><span class="c1">// decrement down to 0, then reset to value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicInc</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr = ((old &gt;= value) ? 0 : old+1 )
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicDec</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr = ((old == 0) or (old &gt; val) ? val : old–1 )
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">old</span> <span class="o">=</span> <span class="n">atomicAnd</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr &amp;= value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicOr</span>  <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr |= value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicXor</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr ^= value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// compare-and-store
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">old</span> <span class="o">=</span> <span class="n">atomicCAS</span> <span class="p">(</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="n">compare</span><span class="p">,</span> <span class="n">value</span> <span class="p">);</span>  <span class="c1">// old = *addr;  *addr = ((old == compare) ? value : old)
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Warp vote<span class="absolute -mt-20" id="warp-vote"></span>
+    <a href="#warp-vote" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">__all</span>   <span class="p">(</span> <span class="n">predicate</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">__any</span>   <span class="p">(</span> <span class="n">predicate</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">__ballot</span><span class="p">(</span> <span class="n">predicate</span> <span class="p">);</span>  <span class="c1">// nth thread sets nth bit to predicate
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Timer<span class="absolute -mt-20" id="timer"></span>
+    <a href="#timer" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>wall clock cycle counter</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">clock_t</span> <span class="nf">clock</span><span class="p">();</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Texture<span class="absolute -mt-20" id="texture"></span>
+    <a href="#texture" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>can also return float2 or float4, depending on texRef.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// integer index
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">float</span> <span class="nf">tex1Dfetch</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">ix</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// float index
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">float</span> <span class="nf">tex1D</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">x</span>       <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">tex2D</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>    <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">tex3D</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">tex1DLayered</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">x</span>    <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">tex2DLayered</span><span class="p">(</span> <span class="n">texRef</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-10"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Low-level Driver API<span class="absolute -mt-20" id="low-level-driver-api"></span>
+    <a href="#low-level-driver-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cuda.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">CUdevice</span> <span class="n">dev</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">CUdevprop</span> <span class="n">properties</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">size_t</span> <span class="n">bytes</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cuInit</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>  <span class="c1">// takes flags for future use
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cuDeviceGetCount</span>         <span class="p">(</span> <span class="o">&amp;</span><span class="n">cnt</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cuDeviceGet</span>              <span class="p">(</span> <span class="o">&amp;</span><span class="n">dev</span><span class="p">,</span> <span class="n">index</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cuDeviceGetName</span>          <span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">dev</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cuDeviceComputeCapability</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">major</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">minor</span><span class="p">,</span>     <span class="n">dev</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cuDeviceTotalMem</span>         <span class="p">(</span> <span class="o">&amp;</span><span class="n">bytes</span><span class="p">,</span>             <span class="n">dev</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cuDeviceGetProperties</span>    <span class="p">(</span> <span class="o">&amp;</span><span class="n">properties</span><span class="p">,</span>        <span class="n">dev</span> <span class="p">);</span>  <span class="c1">// max threads, etc.
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-11"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>cuBLAS<span class="absolute -mt-20" id="cublas"></span>
+    <a href="#cublas" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>Matrices are column-major. Indices are 1-based; this affects result of i<t>amax and i<t>amin.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cublas_v2.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasHandle_t</span> <span class="n">handle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cudaStream_t</span>   <span class="n">stream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cublasCreate</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">handle</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasDestroy</span><span class="p">(</span> <span class="n">handle</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetVersion</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">version</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasSetStream</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span>  <span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetStream</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">stream</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasSetPointerMode</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span>  <span class="n">mode</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cublasGetPointerMode</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mode</span> <span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-12"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Constants<span class="absolute -mt-20" id="constants"></span>
+    <a href="#constants" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">argument</th>
+<th style="text-align:left">constants</th>
+<th style="text-align:left">description (Fortran letter)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">trans</td>
+<td style="text-align:left">CUBLAS_OP_N</td>
+<td style="text-align:left">non-transposed (&lsquo;N&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_OP_T</td>
+<td style="text-align:left">transposed (&lsquo;T&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_OP_C</td>
+<td style="text-align:left">conjugate transposed (&lsquo;C&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">uplo</td>
+<td style="text-align:left">CUBLAS_FILL_MODE_LOWER</td>
+<td style="text-align:left">lower part filled (&lsquo;L&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_FILL_MODE_UPPER</td>
+<td style="text-align:left">upper part filled (&lsquo;U&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">side</td>
+<td style="text-align:left">CUBLAS_SIDE_LEFT</td>
+<td style="text-align:left">matrix on left (&lsquo;L&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_SIDE_RIGHT</td>
+<td style="text-align:left">matrix on right (&lsquo;R&rsquo;)</td>
+</tr>
+<tr>
+<td style="text-align:left">mode</td>
+<td style="text-align:left">CUBLAS_POINTER_MODE_HOST</td>
+<td style="text-align:left">alpha and beta scalars passed on host</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">CUBLAS_POINTER_MODE_DEVICE</td>
+<td style="text-align:left">alpha and beta scalars passed on device</td>
+</tr>
+</tbody>
+</table>
+<p>BLAS functions have cublas prefix and first letter of usual BLAS function name is capitalized. Arguments are the same as standard BLAS, with these exceptions:</p>
+<ul>
+<li>All functions add handle as first argument.</li>
+<li>All functions return cublasStatus_t error code.</li>
+<li>Constants alpha and beta are passed by pointer. All other scalars (n, incx, etc.) are bassed by value.</li>
+<li>Functions that return a value, such as ddot, add result as last argument, and save value to result.</li>
+<li>Constants are given in table above, instead of using characters.</li>
+</ul>
+<p>Examples:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cublasDdot</span> <span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span> <span class="p">);</span>  <span class="c1">// result = ddot( n, x, incx, y, incy );
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cublasDaxpy</span><span class="p">(</span> <span class="n">handle</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">alpha</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">incy</span> <span class="p">);</span>   <span class="c1">// daxpy( n, alpha, x, incx, y, incy );
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-13"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Compiler<span class="absolute -mt-20" id="compiler"></span>
+    <a href="#compiler" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>nvcc, often found in <code>/usr/local/cuda/bin</code></p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-14">Defines __CUDACC__</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-14"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h4>Flags common with cc<span class="absolute -mt-20" id="flags-common-with-cc"></span>
+    <a href="#flags-common-with-cc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
+<thead>
+<tr>
+<th style="text-align:left">Short flag</th>
+<th style="text-align:left">Long flag</th>
+<th style="text-align:left">Output or Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-c</td>
+<td style="text-align:left">&ndash;compile</td>
+<td style="text-align:left">.o object file</td>
+</tr>
+<tr>
+<td style="text-align:left">-E</td>
+<td style="text-align:left">&ndash;preprocess</td>
+<td style="text-align:left">on standard output</td>
+</tr>
+<tr>
+<td style="text-align:left">-M</td>
+<td style="text-align:left">&ndash;generate-dependencies</td>
+<td style="text-align:left">on standard output</td>
+</tr>
+<tr>
+<td style="text-align:left">-o file</td>
+<td style="text-align:left">&ndash;output-file file</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-I directory</td>
+<td style="text-align:left">&ndash;include-path directory</td>
+<td style="text-align:left">header search path</td>
+</tr>
+<tr>
+<td style="text-align:left">-L directory</td>
+<td style="text-align:left">&ndash;library-path directory</td>
+<td style="text-align:left">library search path</td>
+</tr>
+<tr>
+<td style="text-align:left">-l lib</td>
+<td style="text-align:left">&ndash;library lib</td>
+<td style="text-align:left">link with library</td>
+</tr>
+<tr>
+<td style="text-align:left">-lib</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">generate library</td>
+</tr>
+<tr>
+<td style="text-align:left">-shared</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">generate shared library</td>
+</tr>
+<tr>
+<td style="text-align:left">-pg</td>
+<td style="text-align:left">&ndash;profile</td>
+<td style="text-align:left">for gprof</td>
+</tr>
+<tr>
+<td style="text-align:left">-g level</td>
+<td style="text-align:left">&ndash;debug level</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-G</td>
+<td style="text-align:left">&ndash;device-debug</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-O level</td>
+<td style="text-align:left">&ndash;optimize level</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h5>Undocumented (but in sample makefiles)<span class="absolute -mt-20" id="undocumented-but-in-sample-makefiles"></span>
+    <a href="#undocumented-but-in-sample-makefiles" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><table>
+<thead>
+<tr>
+<th style="text-align:left">-m32</th>
+<th style="text-align:left">compile 32-bit i386 host CPU code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-m64</td>
+<td style="text-align:left">compile 64-bit x86_64 host CPU code</td>
+</tr>
+</tbody>
+</table>
+<h4>Flags specific to nvcc<span class="absolute -mt-20" id="flags-specific-to-nvcc"></span>
+    <a href="#flags-specific-to-nvcc" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><table>
+<thead>
+<tr>
+<th style="text-align:left">-v</th>
+<th style="text-align:left">list compilation commands as they are executed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-dryrun</td>
+<td style="text-align:left">list compilation commands, without executing</td>
+</tr>
+<tr>
+<td style="text-align:left">-keep</td>
+<td style="text-align:left">saves intermediate files (e.g., pre-processed) for debugging</td>
+</tr>
+<tr>
+<td style="text-align:left">-clean</td>
+<td style="text-align:left">removes output files (with same exact compiler options)</td>
+</tr>
+<tr>
+<td style="text-align:left">-arch=&lt;compute_xy&gt;</td>
+<td style="text-align:left">generate PTX for capability x.y</td>
+</tr>
+<tr>
+<td style="text-align:left">-code=&lt;sm_xy&gt;</td>
+<td style="text-align:left">generate binary for capability x.y, by default same as -arch</td>
+</tr>
+<tr>
+<td style="text-align:left">-gencode arch=&hellip;,code=&hellip;</td>
+<td style="text-align:left">same as -arch and -code, but may be repeated</td>
+</tr>
+</tbody>
+</table>
+<h4>Argumenents for -arch and -code<span class="absolute -mt-20" id="argumenents-for--arch-and--code"></span>
+    <a href="#argumenents-for--arch-and--code" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>It makes most sense (to me) to give -arch a virtual architecture and -code a real architecture, though both flags accept both virtual and real architectures (at times).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:left">Virtual architecture</th>
+<th style="text-align:left">Real architecture</th>
+<th style="text-align:left">Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tesla</td>
+<td style="text-align:left">compute_10</td>
+<td style="text-align:left">sm_10</td>
+<td style="text-align:left">Basic features</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_11</td>
+<td style="text-align:left">sm_11</td>
+<td style="text-align:left">+ atomic memory ops on global memory</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_12</td>
+<td style="text-align:left">sm_12</td>
+<td style="text-align:left">+ atomic memory ops on shared memory</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">+ vote instructions</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">compute_13</td>
+<td style="text-align:left">sm_13</td>
+<td style="text-align:left">+ double precision</td>
+</tr>
+<tr>
+<td>Fermi</td>
+<td style="text-align:left">compute_20</td>
+<td style="text-align:left">sm_20</td>
+<td style="text-align:left">+ Fermi</td>
+</tr>
+</tbody>
+</table>
+<h2>Some hardware constraints<span class="absolute -mt-20" id="some-hardware-constraints"></span>
+    <a href="#some-hardware-constraints" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">1.x</th>
+<th style="text-align:left">2.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">max x- or y-dimension of block</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">1024</td>
+</tr>
+<tr>
+<td style="text-align:left">max z-dimension of block</td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">64</td>
+</tr>
+<tr>
+<td style="text-align:left">max threads per block</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">1024</td>
+</tr>
+<tr>
+<td style="text-align:left">warp size</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td style="text-align:left">max blocks per MP</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">max warps per MP</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">48</td>
+</tr>
+<tr>
+<td style="text-align:left">max threads per MP</td>
+<td style="text-align:left">1024</td>
+<td style="text-align:left">1536</td>
+</tr>
+<tr>
+<td style="text-align:left">max 32-bit registers per MP</td>
+<td style="text-align:left">16k</td>
+<td style="text-align:left">32k</td>
+</tr>
+<tr>
+<td style="text-align:left">max shared memory per MP</td>
+<td style="text-align:left">16 KB</td>
+<td style="text-align:left">48 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">shared memory banks</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">32</td>
+</tr>
+<tr>
+<td style="text-align:left">local memory per thread</td>
+<td style="text-align:left">16 KB</td>
+<td style="text-align:left">512 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">const memory</td>
+<td style="text-align:left">64 KB</td>
+<td style="text-align:left">64 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">const cache</td>
+<td style="text-align:left">8 KB</td>
+<td style="text-align:left">8 KB</td>
+</tr>
+<tr>
+<td style="text-align:left">texture cache</td>
+<td style="text-align:left">8 KB</td>
+<td style="text-align:left">8 KB</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="mt-16"></div>
+        
+      </main>
+    </article>
+  </div>
+
+      <footer class="hextra-footer bg-gray-100 pb-[env(safe-area-inset-bottom)] dark:bg-neutral-900 print:bg-transparent">
+    <div class='mx-auto flex gap-2 py-2 px-4 max-w-screen-xl'><button
+  title="Change theme"
+  data-theme="light"
+  class="theme-toggle group h-7 rounded-md px-2 text-left text-xs font-medium text-gray-600 transition-colors dark:text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-primary-100/5 dark:hover:text-gray-50"
+  type="button"
+  aria-label="Toggle Dark Mode"
+>
+  <div class="flex items-center gap-2 capitalize"><svg height=12 class="group-data-[theme=light]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg><span class="group-data-[theme=light]:hidden">Light</span><svg height=12 class="group-data-[theme=dark]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><span class="group-data-[theme=dark]:hidden">Dark</span></div>
+</button>
+</div>
+  <hr class="dark:border-neutral-800" />
+  <div
+    class='max-w-screen-xl mx-auto flex justify-center py-12 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)] text-gray-600 dark:text-gray-400 md:justify-start'
+  >
+    <div class="flex w-full flex-col items-center sm:items-start"><div class="font-semibold"><a class="flex text-sm items-center gap-1 text-current" target="_blank" rel="noopener noreferrer" title="Hextra GitHub Homepage" href="https://github.com/imfing/hextra">
+    <span
+      >Powered by Hextra<svg height=1em class="inline-block ml-1 align-text-bottom" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="m 105.50024,22.224647 c -9.59169,-5.537563 -21.40871,-5.537563 -31.000093,0 L 39.054693,42.689119 C 29.463353,48.226675 23.55484,58.460531 23.55484,69.535642 v 40.928918 c 0,11.07542 5.908513,21.3092 15.499853,26.84652 l 35.445453,20.46446 c 9.591313,5.53732 21.408404,5.53732 31.000094,0 l 35.44507,-20.46446 c 9.59131,-5.53732 15.49985,-15.7711 15.49985,-26.84652 V 69.535642 c 0,-11.075111 -5.90854,-21.308967 -15.49985,-26.846523 z M 34.112797,85.737639 c -1.384445,2.397827 -1.384445,5.352099 0,7.749927 l 24.781554,42.922974 c 1.38437,2.39783 3.942853,3.87496 6.711592,3.87496 h 49.563107 c 2.76905,0 5.3273,-1.47713 6.71144,-3.87496 l 24.78194,-42.922974 c 1.38414,-2.397828 1.38414,-5.3521 0,-7.749927 L 121.88049,42.814746 c -1.38414,-2.397828 -3.94239,-3.874964 -6.71144,-3.874964 H 65.605944 c -2.768739,0 -5.327223,1.477059 -6.711592,3.874964 z" style="stroke-width:0.774993" /></svg></span>
+  </a></div>
+    </div>
+  </div>
+</footer>
+    
+  </body>
+  <script defer src="/js/main.min.f23221a8e57adcb5aa6d050e2100d1c595ff19e697545505940d1c1f002de248.js" integrity="sha256-8jIhqOV63LWqbQUOIQDRxZX/GeaXVFUFlA0cHwAt4kg="></script>
+
+<script defer src="/lib/flexsearch/flexsearch.bundle.min.0425860527cc9968f9f049421c7a56b39327d475e2e3a8f550416be3a9134327.js" integrity="sha256-BCWGBSfMmWj58ElCHHpWs5Mn1HXi46j1UEFr46kTQyc="></script>
+  <script defer src="/en.search.min.9afdc7c586c6f971dd94df10b989f10faaf38e5702571fd8cfc9ff9135c2d495.js" integrity="sha256-mv3HxYbG&#43;XHdlN8QuYnxD6rzjlcCVx/Yz8n/kTXC1JU="></script>
+
+
+</html>
