@@ -14140,50 +14140,6 @@ return 0;
     </item>
     
     <item>
-      <title>OOD SOLID</title>
-      <link>https://yixianwang.github.io/notes/ood-solid/</link>
-      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/ood-solid/</guid>
-      <description>
-        
-        
-        &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design#single-responsibility-principle&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;SOLID&lt;span class=&#34;absolute -mt-20&#34; id=&#34;solid&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#solid&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;S - Single-responsiblity Principle
-&lt;blockquote&gt;
-&lt;p&gt;A class should have one and only one reason to change, meaning that a class should have only one job.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;O - Open-closed Principle
-&lt;blockquote&gt;
-&lt;p&gt;Objects or entities should be open for extension but closed for modification.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;L - Liskov Substitution Principle
-&lt;blockquote&gt;
-&lt;p&gt;Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;I - Interface Segregation Principle
-&lt;blockquote&gt;
-&lt;p&gt;A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;D - Dependency Inversion Principle
-&lt;blockquote&gt;
-&lt;p&gt;Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Python</title>
       <link>https://yixianwang.github.io/notes/python/</link>
       <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
