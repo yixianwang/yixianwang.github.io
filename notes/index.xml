@@ -91,6 +91,119 @@
     </item>
     
     <item>
+      <title>SOLID</title>
+      <link>https://yixianwang.github.io/notes/solid/</link>
+      <pubDate>Mon, 29 Apr 2024 20:09:27 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/solid/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;S: Single-responsibility Principle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;O: Open-closed Principle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;L: Liskov Substitution Principle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I: Interface Segregation Principle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D: Dependency Inversion Principle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/350291336&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reference&lt;/a&gt;
+
+    &lt;img src=&#34;../images-solid/solid.jpg&#34; alt=&#34;images&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;S -  Single-responsibility Principle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;s----single-responsibility-principle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#s----single-responsibility-principle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DEFINE&lt;/strong&gt;: The interface responsibility should be single and not take on too many responsibilities.&lt;/li&gt;
+&lt;li&gt;Applies to interfaces, classes, and methods.&lt;/li&gt;
+&lt;li&gt;The focus of the single responsibility principle lies in the division of responsibilities, which is often not static and needs to be determined based on the actual situation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PROS&lt;/strong&gt;: It can reduce class complexity, clarify responsibilities between classes, improve code readability, and make it easier to maintain.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CONS&lt;/strong&gt;: The knowledge and skills required of technicians are high, and sometimes it is difficult to distinguish between responsibilities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;O - Open-closed Principle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;o---open-closed-principle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#o---open-closed-principle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DEFINE&lt;/strong&gt;: when someone else wants to modify the software function, he cannot modify our original code and can only add new code to achieve the purpose of modifying the software function.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EXAMPLE&lt;/strong&gt;: we should can only create a new class to implement interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;L - Liskov Substitution Principle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;l---liskov-substitution-principle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#l---liskov-substitution-principle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DEFINE&lt;/strong&gt;: For users, where the parent class can be used, its subclasses can also be used, and the expected results are consistent.&lt;/li&gt;
+&lt;li&gt;It not only refers to the syntax level consistency, but also includes the implementation consistency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;I - Interface Segregation Principle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;i---interface-segregation-principle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#i---interface-segregation-principle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DEFINE&lt;/strong&gt;: Don&amp;rsquo;t throw a large and comprehensive interface to users, but separate the interface that each user cares about.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;D - Dependency Inversion Principle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;d---dependency-inversion-principle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#d---dependency-inversion-principle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;It is recommended that users rely on an abstract class or interface instead of relying on a implementation.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://yixianwang.github.io/notes/aws/</link>
+      <pubDate>Mon, 29 Apr 2024 15:12:10 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/aws/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Global Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;global-services&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#global-services&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Identity and Access Management (IAM)&lt;/li&gt;
+&lt;li&gt;Route 53 (DNS service)&lt;/li&gt;
+&lt;li&gt;CloudFront (Content Delivery Network)&lt;/li&gt;
+&lt;li&gt;WAF (Web Application Firewall)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Region-scoped&lt;span class=&#34;absolute -mt-20&#34; id=&#34;region-scoped&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#region-scoped&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Amazon EC2 (Infrastructure as a Service)
+&lt;ul&gt;
+&lt;li&gt;Renting virtual machines (EC2)&lt;/li&gt;
+&lt;li&gt;Storing data on virtual drives (EBS)&lt;/li&gt;
+&lt;li&gt;Elastic File System (EFS)&lt;/li&gt;
+&lt;li&gt;Distributing load across machines (ELB)&lt;/li&gt;
+&lt;li&gt;Scaling the services using an auto-scaling group (ASG)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Elastic Beanstalk (Platform as a Service)&lt;/li&gt;
+&lt;li&gt;Lambda (Function as a Service)&lt;/li&gt;
+&lt;li&gt;Rekognition (Software as a Service)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;IAM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iam&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;which aws
+aws --version
+
+aws configure
+
+aws iam list-users&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-0&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>A</title>
       <link>https://yixianwang.github.io/notes/a_del/</link>
       <pubDate>Tue, 16 Apr 2024 01:58:31 -0400</pubDate>
@@ -6736,7 +6849,7 @@ spring.web.resources.static-locations=classpath:/static/&lt;/code&gt;&lt;/pre&gt
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;enctype = &amp;quot;multipart/form-data&amp;quot;&lt;/code&gt;
 
-    &lt;img src=&#34;../images-springboot/sb1.png&#34; alt=&#34;enctype=multipart/form-data&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images-springboot/sb2.png&#34; alt=&#34;enctype=multipart/form-data&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;To update 1MB file limitation by SpringBoot built-in Tomcat&lt;/p&gt;
