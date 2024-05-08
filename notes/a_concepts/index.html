@@ -11,25 +11,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Spark – Yixian Wang</title>
-  <meta name="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ResourceManager(RM), NodeManager(NM), ApplicationMaster(AM), Container YARN: only NM can start AM and Container Standalone: master, worder, driver, executor Standalone: only worker can start driver and executor Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process" />
+  <title>A Concepts – Yixian Wang</title>
+  <meta name="description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value." />
 
   
 
-<meta property="og:title" content="Spark" />
-<meta property="og:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ResourceManager(RM), NodeManager(NM), ApplicationMaster(AM), Container YARN: only NM can start AM and Container Standalone: master, worder, driver, executor Standalone: only worker can start driver and executor Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process" />
+<meta property="og:title" content="A Concepts" />
+<meta property="og:description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/spark/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2023-12-01T00:32:23-05:00" />
-<meta property="article:modified_time" content="2023-12-01T00:32:23-05:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/a_concepts/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-04-30T18:58:08-04:00" />
+<meta property="article:modified_time" content="2024-04-30T18:58:08-04:00" />
 
-  <meta itemprop="name" content="Spark">
-<meta itemprop="description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ResourceManager(RM), NodeManager(NM), ApplicationMaster(AM), Container YARN: only NM can start AM and Container Standalone: master, worder, driver, executor Standalone: only worker can start driver and executor Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process"><meta itemprop="datePublished" content="2023-12-01T00:32:23-05:00" />
-<meta itemprop="dateModified" content="2023-12-01T00:32:23-05:00" />
-<meta itemprop="wordCount" content="632">
+  <meta itemprop="name" content="A Concepts">
+<meta itemprop="description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
+<meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
+<meta itemprop="wordCount" content="136">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Spark"/>
-<meta name="twitter:description" content="Basics application &gt; job &gt; state &gt; task cluser manager: scheduling spark applications. e.g. yarn/mesos masater &amp;&amp; worker master: RM(ResourceManager in YARN) worker: NM(NodeManager in YARN) executor: Container in YARN driver: running in spark, including DAGScheduler &amp;&amp; TaskScheduler combine operations and form DAG(directed acyclic graph) break down job into stages similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling DAGScheduler: split job into stages TaskScheduler: similar to AM, responsible for applying resources and scheduling YARN: ResourceManager(RM), NodeManager(NM), ApplicationMaster(AM), Container YARN: only NM can start AM and Container Standalone: master, worder, driver, executor Standalone: only worker can start driver and executor Operating Mode local/local-cluster/standalone/yarn/mesos local driver &#43; executor, running in one process"/>
+<meta name="twitter:title" content="A Concepts"/>
+<meta name="twitter:description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -286,13 +286,28 @@
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/a_concepts/"
     
   >A Concepts
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#java-passed-by-value-or-reference"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Java passed by Value or Reference</a>
+            </li>
+          <li>
+              <a
+                href="#data-structures"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Data Structures</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -430,52 +445,13 @@
   >Spark Core
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/spark/"
     
   >Spark
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#basics"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Basics</a>
-            </li>
-          <li>
-              <a
-                href="#operating-mode"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Operating Mode</a>
-            </li>
-          <li>
-              <a
-                href="#sparksession--sparkcontext"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >SparkSession &amp;amp;&amp;amp; sparkContext</a>
-            </li>
-          <li>
-              <a
-                href="#for-test-in-local-open-jupyter-notbook-with-pyspark-built-in-spark-and-sc"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >For Test in Local: open Jupyter notbook with pyspark built-in spark and sc</a>
-            </li>
-          <li>
-              <a
-                href="#examples"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Examples</a>
-            </li>
-          <li>
-              <a
-                href="#history-server-setup"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >history server setup</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -772,9 +748,9 @@
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/a_concepts/"
     
   >A Concepts
@@ -898,9 +874,9 @@
     
   >Spark Core
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/spark/"
     
   >Spark
@@ -1118,47 +1094,19 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#basics">Basics
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-passed-by-value-or-reference">Java passed by Value or Reference
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#operating-mode">Operating Mode
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#data-structures">Data Structures
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#local">local
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#collection-vs-collections">Collection vs Collections
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#local-cluster">local-cluster
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#standalone">standalone
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#yarn-and-mesossimilar-to-yarn">yarn and mesos(similar to yarn)
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#sparksession--sparkcontext">SparkSession &amp;&amp; sparkContext
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#for-test-in-local-open-jupyter-notbook-with-pyspark-built-in-spark-and-sc">For Test in Local: open Jupyter notbook with pyspark built-in spark and sc
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#examples">Examples
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#read-from-hdfs">read from HDFS
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#history-server-setup">history server setup
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#comparison-between-any-pair-of-data-structures">Comparison between any pair of data structures
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1178,486 +1126,44 @@
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Spark</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">A Concepts</div>
 </div>
 
         <div class="content">
-          <h1>Spark</h1>
-          <h2>Basics<span class="absolute -mt-20" id="basics"></span>
-    <a href="#basics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>application &gt; job &gt; state &gt; task</li>
-<li>cluser manager: scheduling spark applications. e.g. yarn/mesos
-<ul>
-<li>masater &amp;&amp; worker
-<ul>
-<li>master: RM(ResourceManager in YARN)</li>
-<li>worker: NM(NodeManager in YARN)</li>
+          <h1>A Concepts</h1>
+          <h2>Java passed by Value or Reference<span class="absolute -mt-20" id="java-passed-by-value-or-reference"></span>
+    <a href="#java-passed-by-value-or-reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>In Java, there are two kinds of data type, <strong>Primitive</strong> data types and <strong>Non-primitive</strong> data types.</li>
+<li>For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value.</li>
+<li>For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array.</li>
+<li>In conclusion all data types in Java are passed by value.</li>
 </ul>
-</li>
-<li>executor: Container in YARN</li>
+<h2>Data Structures<span class="absolute -mt-20" id="data-structures"></span>
+    <a href="#data-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>Map</strong> is not in <strong>Collection</strong> framework. That&rsquo;s why we cannot directly iterate key-value pairs within any Map implementation.</li>
 </ul>
-</li>
-<li>driver:
-<ul>
-<li>running in spark, including DAGScheduler &amp;&amp; TaskScheduler</li>
-<li>combine operations and form DAG(directed acyclic graph)</li>
-<li>break down job into stages</li>
-<li>similar to ApplicationMaster(AM) in YARN, responsible for applying resources and scheduling</li>
-<li>DAGScheduler:
-<ul>
-<li>split job into stages</li>
+<h3>Collection vs Collections<span class="absolute -mt-20" id="collection-vs-collections"></span>
+    <a href="#collection-vs-collections" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>Collection</strong> framework is for data structures.</li>
+<li><strong>Collections</strong> is a class. That class contains lots of static methods including reverse/sort. That can help us manipulate our data structures including arrays.</li>
 </ul>
-</li>
-<li>TaskScheduler:
-<ul>
-<li>similar to AM, responsible for applying resources and scheduling</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>YARN: ResourceManager(RM), NodeManager(NM), ApplicationMaster(AM), Container</li>
-<li>YARN: only NM can start AM and Container</li>
-<li>Standalone: master, worder, driver, executor</li>
-<li>Standalone: only worker can start driver and executor
+<h3>Comparison between any pair of data structures<span class="absolute -mt-20" id="comparison-between-any-pair-of-data-structures"></span>
+    <a href="#comparison-between-any-pair-of-data-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/1.png" alt="ds1" loading="lazy" />
 
-    <img src="../images-spark/spark-1.svg" alt="spark-1" loading="lazy" />
-
-    <img src="../images-spark/spark-4.png" alt="spark-4" loading="lazy" />
-
-    <img src="../images-spark/spark-3.png" alt="spark-3" loading="lazy" />
-
-    <img src="../images-spark/spark-2.png" alt="spark-2" loading="lazy" /></li>
-</ul>
-<h2>Operating Mode<span class="absolute -mt-20" id="operating-mode"></span>
-    <a href="#operating-mode" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>local/local-cluster/standalone/yarn/mesos</li>
-</ul>
-<h3>local<span class="absolute -mt-20" id="local"></span>
-    <a href="#local" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>
-<p>driver + executor, running in one process</p>
-</li>
-<li>
-<p><code>pyspark</code> use <code>local[*]</code> by default</p>
-<ul>
-<li>local: one executor</li>
-<li>local[K]: K executors, K threads</li>
-<li>local[*]: the number of cpu executors</li>
-</ul>
-</li>
-<li>
-<p>change mode with <code>pyspark --master</code></p>
-</li>
-<li>
-<p>with <code>jps</code> to check procsses</p>
-</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/pyspark --master <span class="nb">local</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># or</span>
-</span></span><span class="line"><span class="cl">bin/spark-submit examples/src/main/python/pi.py <span class="m">10</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-0"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h3>local-cluster<span class="absolute -mt-20" id="local-cluster"></span>
-    <a href="#local-cluster" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>driver + master + worker, running in one process</li>
-<li>each worker has multiple executors, each executor start one new process</li>
-<li><code>pyspark --master local-cluster[x, y, z]</code>
-<ul>
-<li>x: the number of executors</li>
-<li>y, z: each executor has y cores(actually threads) and z memory size(MB)</li>
-</ul>
-</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/pyspark --master <span class="s2">&#34;local-cluster[2, 2, 1024]&#34;</span> <span class="c1"># commont out pyspark setup in .zshrc</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># or</span>
-</span></span><span class="line"><span class="cl">bin/spark-submit --master <span class="s2">&#34;local-cluster[2, 2, 1024]&#34;</span> examples/src/main/python/pi.py <span class="m">10</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-1"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h3>standalone<span class="absolute -mt-20" id="standalone"></span>
-    <a href="#standalone" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>written by spark, similar to RM of YARN</li>
-<li>driver/master/worker/executor all have their own process</li>
-<li>Setup:
-<ul>
-<li><code>spark-env.sh.template</code></li>
-<li><code>spark-default.conf.template</code></li>
-<li>Note: SparkSubmitArguments reads in order:
-<ul>
-<li>[pyspark-options] or [spark-submit-options], [conf/spark-default.conf], [conf/spark-env.sh]</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Setup workers:
-<ol>
-<li>modify <code>conf/slaves</code> file</li>
-<li>sync the setup of work1 and work2</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp -r /opt/module/spark-3.5.0-bin-hadoop3/ worker1:/opt/module/spark-3.5.0-bin-hadoop3
-</span></span><span class="line"><span class="cl">scp -r /opt/module/spark-3.5.0-bin-hadoop3/ worker2:/opt/module/spark-3.5.0-bin-hadoop3</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-2"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>Start:
-<ol>
-<li>Start spark</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sbin/start-all.sh</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-3"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<ol start="2">
-<li>Start process</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>start-all.sh<span class="o">]</span> 
-</span></span><span class="line"><span class="cl">-&gt; load <span class="o">[</span>spark-config.sh<span class="o">]</span> 
-</span></span><span class="line"><span class="cl">-&gt; run <span class="o">[</span>start-master.sh<span class="o">]</span> and <span class="o">[</span>start-slaves.sh<span class="o">]</span>
-</span></span><span class="line"><span class="cl">-&gt; load <span class="o">[</span>spark-config.sh<span class="o">]</span> and <span class="o">[</span>spark-env.sh<span class="o">]</span>
-</span></span><span class="line"><span class="cl">-&gt; run <span class="o">[</span>spark-daemon.sh<span class="o">]</span>
-</span></span><span class="line"><span class="cl">-&gt; run <span class="o">[</span>spark-class.sh<span class="o">]</span> or <span class="o">([</span>spark-submit.sh<span class="o">]</span> -&gt; <span class="o">[</span>spark-class.sh<span class="o">])</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-4"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>Test:
-<ul>
-<li>On each machine, use <code>jps</code> to check process of master and slaves</li>
-<li>Entry master&rsquo;s WEBUI: 8080</li>
-<li>run <code>pyspark</code>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/pyspark --master spark://localhost:7077</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-5"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>run <code>spark-submit</code>
-<blockquote>
-<p>must assign <code>--master</code> for standalone, otherwise it will be local</p>
-</blockquote>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/spark-submit --master spark://localhost:7077 examples/src/main/python/pi.py <span class="m">10</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-6"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-</ul>
-</li>
-<li>Kill:
-<ul>
-<li><code>jps</code></li>
-<li><code>kill 00000</code></li>
-</ul>
-</li>
-</ul>
-<h3>yarn and mesos(similar to yarn)<span class="absolute -mt-20" id="yarn-and-mesossimilar-to-yarn"></span>
-    <a href="#yarn-and-mesossimilar-to-yarn" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
-<p>start <code>yarn</code> and <code>hdfs</code> in hadoop, then spark-submit
-with yarn, we don&rsquo;t need to start spark</p>
-</blockquote>
-<ul>
-<li><strong>yarn-client</strong> and <strong>yarn-cluster</strong></li>
-<li>Setup:
-<ul>
-<li><code>spark-env.sh.template</code> rename to <code>spark-env.sh</code></li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">HADOOP_CONF_DIR=/...../hadoop-3.3.6/etc/hadoop
-or
-YARN_CONF_DIR=/home/yixianwang/hadoop/etc/hadoop</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-7"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>Start:
-<ul>
-<li>in <code>hadoop</code> folder, run the following</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sbin/hadoop-daemon.sh start namenode
-</span></span><span class="line"><span class="cl">sbin/hadoop-daemon.sh start datenode
-</span></span><span class="line"><span class="cl">sbin/yarn-daemon.sh start resourcemanager
-</span></span><span class="line"><span class="cl">sbin/yarn-daemon.sh start nodemanager
-</span></span><span class="line"><span class="cl"><span class="c1"># or directly</span>
-</span></span><span class="line"><span class="cl">sbin/start-all.sh</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-8"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>Test:
-<blockquote>
-<p><code>netstat -an|grep LISTEN</code></p>
-</blockquote>
-<ol>
-<li>On each machine, use <code>jps</code> to check process of RM and NM</li>
-<li>Entry master&rsquo;s WEBUI: 8088</li>
-<li>running: yarn-client</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/spark-submit --master yarn examples/src/main/python/pi.py <span class="m">10</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-9"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<blockquote>
-<p>Note: <code>--deploy-mode</code> default is client, start <strong>driver</strong> from client, we can browse logs from client</p>
-</blockquote>
-<ol start="4">
-<li>running: yarn-cluster</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/spark-submit --master yarn --deploy-mode cluster examples/src/main/python/pi.py <span class="m">10</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-10"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<blockquote>
-<p>Note: if <code>--deploy-mode</code> is cluster, start <strong>driver</strong> from master of cluster, we have to use history server to browse logs</p>
-</blockquote>
-</li>
-</ul>
-<h2>SparkSession &amp;&amp; sparkContext<span class="absolute -mt-20" id="sparksession--sparkcontext"></span>
-    <a href="#sparksession--sparkcontext" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>spark sql, start with SparkSession</li>
-<li>spark core, start with sparkContext</li>
-</ul>
-<h2>For Test in Local: open Jupyter notbook with pyspark built-in spark and sc<span class="absolute -mt-20" id="for-test-in-local-open-jupyter-notbook-with-pyspark-built-in-spark-and-sc"></span>
-    <a href="#for-test-in-local-open-jupyter-notbook-with-pyspark-built-in-spark-and-sc" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># .zshrc</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span>jupyter-lab
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span>/opt/module/spark-3.5.0-bin-hadoop3/tutu</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-11"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h2>Examples<span class="absolute -mt-20" id="examples"></span>
-    <a href="#examples" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># after setting up, pyspark has built-in spark and sc, and can open jupyter-lab</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># for local test with jupyter</span>
-</span></span><span class="line"><span class="cl">pyspark</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-12"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># file and counts are RDDs</span>
-</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/wordcount.txt&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>\
-</span></span><span class="line"><span class="cl">             <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span> <span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>\
-</span></span><span class="line"><span class="cl">             <span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">counts</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># collect before saving</span>
-</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="o">.</span><span class="n">saveAsTextFile</span><span class="p">(</span><span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/result&#34;</span><span class="p">)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-13"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h3>read from HDFS<span class="absolute -mt-20" id="read-from-hdfs"></span>
-    <a href="#read-from-hdfs" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>Start HDFS:</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sbin/hadoop-daemon.sh start namenode
-</span></span><span class="line"><span class="cl">sbin/hadoop-daemon.sh start datanode</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-14"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<ul>
-<li>Upload file</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-15"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># create 1 -level folder</span>
-</span></span><span class="line"><span class="cl">bin/hdfs dfs -mkdir /spark
-</span></span><span class="line"><span class="cl"><span class="c1"># create 2 -level folder</span>
-</span></span><span class="line"><span class="cl">bin/hdfs dfs -mkdir -p /spark/history</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-15"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-16"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/hdfs dfs -rm -r /folder_need_to_remove</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-16"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h2>history server setup<span class="absolute -mt-20" id="history-server-setup"></span>
-    <a href="#history-server-setup" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
-<li>
-<p>Setup</p>
-<ol>
-<li>setup <code>spark-defaults.conf</code></li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-17"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># spark-defaults.conf</span>
-</span></span><span class="line"><span class="cl">spark.eventLog.enabled   <span class="nb">true</span>        
-</span></span><span class="line"><span class="cl">spark.eventLog.compress  <span class="nb">true</span>
-</span></span><span class="line"><span class="cl">spark.eventLog.dir       hdfs://localhost:9000/spark/history        </span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-17"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<ol start="2">
-<li>create history foler in hdfs</li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-18"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/hdfs dfs -mkdir -p /spark/history</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-18"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<ol start="3">
-<li>setup <code>spark-env.sh</code></li>
-</ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-19"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">SPARK_HISTORY_OPTS</span><span class="o">=</span><span class="s2">&#34;-Dspark.history.ui.port=18080 -Dspark.history.retainedApplications=3 -Dspark.history.fs.logDirectory=hdfs://localhost:9000/spark/history -Dspark.history.fs.cleaner.interval=1d -Dspark.history.fs.cleaner.maxAge=2d&#34;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-19"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-</li>
-<li>
-<p>Run</p>
-<ol>
-<li>start hdfs</li>
-<li>mkdir hdfs folder</li>
-<li>start historyserver <code>start-history-server.sh</code></li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p><code>tail -10f filename</code> realtime checking</p>
-</blockquote>
+    <img src="../images-a/2.png" alt="ds2" loading="lazy" /></p>
 
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/spark-core/"
-        title="Spark Core"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Spark Core</a><a
-        href="/notes/cassandra/"
-        title="Cassandra"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/solid/"
+        title="SOLID"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Cassandra<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >SOLID<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
