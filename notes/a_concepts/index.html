@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>A Concepts – Yixian Wang</title>
-  <meta name="description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value." />
+  <meta name="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
 
   
 
 <meta property="og:title" content="A Concepts" />
-<meta property="og:description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value." />
+<meta property="og:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/a_concepts/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-04-30T18:58:08-04:00" />
 <meta property="article:modified_time" content="2024-04-30T18:58:08-04:00" />
 
   <meta itemprop="name" content="A Concepts">
-<meta itemprop="description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
+<meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="136">
+<meta itemprop="wordCount" content="1228">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Concepts"/>
-<meta name="twitter:description" content="Java passed by Value or Reference In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array. In conclusion all data types in Java are passed by value."/>
+<meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -296,15 +296,165 @@
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
               <a
-                href="#java-passed-by-value-or-reference"
+                href="#java-is-passed-by-value-or-reference"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Java passed by Value or Reference</a>
+              >Java is passed by Value or Reference?</a>
+            </li>
+          <li>
+              <a
+                href="#static-keyword"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >static keyword</a>
+            </li>
+          <li>
+              <a
+                href="#hashmap-workflow"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Hashmap workflow</a>
+            </li>
+          <li>
+              <a
+                href="#how-many-access-modifiers"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >How many access modifiers?</a>
+            </li>
+          <li>
+              <a
+                href="#pros-and-cons-of-static"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Pros and Cons of static</a>
+            </li>
+          <li>
+              <a
+                href="#diff-map-and-set-can-we-have-duplicate-keys-in-map"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Diff map and set. Can we have duplicate keys in map</a>
+            </li>
+          <li>
+              <a
+                href="#given-a-series-data-how-to-detect-duplicate-data-and-skip-it"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Given a series data, how to detect duplicate data and skip it?</a>
+            </li>
+          <li>
+              <a
+                href="#comparable-vs-comparator"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Comparable vs Comparator</a>
+            </li>
+          <li>
+              <a
+                href="#how-gc-works--gc-generation"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >How GC works / GC generation</a>
+            </li>
+          <li>
+              <a
+                href="#generics-in-java-what-is-it-why-we-need-it"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Generics in Java, what is it, why we need it?</a>
+            </li>
+          <li>
+              <a
+                href="#type-erasing-in-java-about-generics"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Type erasing in Java, about generics</a>
+            </li>
+          <li>
+              <a
+                href="#whatwhy-generic"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >what/why generic</a>
+            </li>
+          <li>
+              <a
+                href="#how-to-handle-exceptions"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >How to handle exceptions</a>
+            </li>
+          <li>
+              <a
+                href="#checked-vs-unchecked-exception"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Checked vs Unchecked exception</a>
+            </li>
+          <li>
+              <a
+                href="#threadpool-%e7%9a%84-coding"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Threadpool 的 coding</a>
+            </li>
+          <li>
+              <a
+                href="#multi-threading-concepts-and-coding"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Multi-threading concepts and coding</a>
+            </li>
+          <li>
+              <a
+                href="#abstract-final-static"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >abstract, final, static</a>
+            </li>
+          <li>
+              <a
+                href="#jvm"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >JVM</a>
             </li>
           <li>
               <a
                 href="#data-structures"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Data Structures</a>
+            </li>
+          <li>
+              <a
+                href="#java-flight-recorder"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Java Flight Recorder</a>
+            </li>
+          <li>
+              <a
+                href="#generic-data-type"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Generic Data type</a>
+            </li>
+          <li>
+              <a
+                href="#why-we-wanna-have-it"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Why we wanna have it?</a>
+            </li>
+          <li>
+              <a
+                href="#design-patterns"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Design Patterns</a>
+            </li>
+          <li>
+              <a
+                href="#http-status-codes"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >HTTP status codes</a>
+            </li>
+          <li>
+              <a
+                href="#bean-scope"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Bean Scope</a>
+            </li>
+          <li>
+              <a
+                href="#inversion-of-control"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Inversion of Control</a>
+            </li>
+          <li>
+              <a
+                href="#dependency-injections"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Dependency Injections</a>
             </li>
           </ul>
   
@@ -1094,7 +1244,79 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-passed-by-value-or-reference">Java passed by Value or Reference
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-is-passed-by-value-or-reference">Java is passed by Value or Reference?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#static-keyword">static keyword
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#hashmap-workflow">Hashmap workflow
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-many-access-modifiers">How many access modifiers?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pros-and-cons-of-static">Pros and Cons of static
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#diff-map-and-set-can-we-have-duplicate-keys-in-map">Diff map and set. Can we have duplicate keys in map
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#given-a-series-data-how-to-detect-duplicate-data-and-skip-it">Given a series data, how to detect duplicate data and skip it?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#comparable-vs-comparator">Comparable vs Comparator
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-gc-works--gc-generation">How GC works / GC generation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#generics-in-java-what-is-it-why-we-need-it">Generics in Java, what is it, why we need it?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#type-erasing-in-java-about-generics">Type erasing in Java, about generics
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#whatwhy-generic">what/why generic
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-to-handle-exceptions">How to handle exceptions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#checked-vs-unchecked-exception">Checked vs Unchecked exception
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#threadpool-%e7%9a%84-coding">Threadpool 的 coding
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#multi-threading-concepts-and-coding">Multi-threading concepts and coding
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#abstract-final-static">abstract, final, static
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#singleton-vs-immutable-class">singleton vs immutable class
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#jvm">JVM
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1107,6 +1329,46 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#comparison-between-any-pair-of-data-structures">Comparison between any pair of data structures
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-flight-recorder">Java Flight Recorder
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#generic-data-type">Generic Data type
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#why-we-wanna-have-it">Why we wanna have it?
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#design-patterns">Design Patterns
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#singleton">Singleton
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http-status-codes">HTTP status codes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bean-scope">Bean Scope
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#choose-appropriate-scope">Choose Appropriate Scope
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#inversion-of-control">Inversion of Control
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-injections">Dependency Injections
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1131,12 +1393,165 @@
 
         <div class="content">
           <h1>A Concepts</h1>
-          <h2>Java passed by Value or Reference<span class="absolute -mt-20" id="java-passed-by-value-or-reference"></span>
-    <a href="#java-passed-by-value-or-reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+          <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">
+static block?
+
+singleton vs immutable class
+
+abstract: class, method
+final: class, method, variable
+static: inner class, method, variable
+
+jvm:
+method area(after java 8, meta space): static, class template
+heap: objects
+vm stack: references and method
+native(c/c&#43;&#43;) method stack: old api within jam
+
+
+jconsole
+IntelliJ profiler
+java flight recorder(since java 11 is free)
+spring actuator
+
+ArrayList&lt;? extends Staff&gt;  list = new ArrayList();
+
+confluence page-&gt;
+	service 00 
+				-&gt; 000
+
+bytestream(8 bits), characterstream(16 bits)
+fileinputstream
+fileread
+
+lambda function type name
+
+functional interface with static
+
+virtual thread !!!!!         loom project
+
+persons.stream(); vs persons.parallelStream();
+
+method reference
+
+traditional thread: use thread pool
+
+thread pool vs virtual thread
+
+threadFactory
+
+synchronized method
+synchronized static method
+
+callable futureTask.get block the thread vs completableFuture
+
+volatile : 2:38 visibility only not thread safety
+
+CAS 
+
+is that necessary to set accessible back to false for those private members
+
+
+//////////////////
+osi model, 7 layers vs tcp/ip model
+200 1 2 4
+307 8
+400 1 3 4
+500 
+
+session/ cookies
+	sticky session, weighted/ round robin
+
+/// day 2
+- Bean scope
+  - singleton(default)
+  - prototype
+  - request
+  - session
+  - application
+  - websocket
+
+- types of DI(pros and cons)
+  - constructor based DI
+  - settrer based DI
+  - filed based DI
+
+- Bean Life Cycle
+  - </code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Java is passed by Value or Reference?<span class="absolute -mt-20" id="java-is-passed-by-value-or-reference"></span>
+    <a href="#java-is-passed-by-value-or-reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>In Java, there are two kinds of data type, <strong>Primitive</strong> data types and <strong>Non-primitive</strong> data types.</li>
 <li>For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value.</li>
 <li>For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array.</li>
 <li>In conclusion all data types in Java are passed by value.</li>
+</ul>
+<h2>static keyword<span class="absolute -mt-20" id="static-keyword"></span>
+    <a href="#static-keyword" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Hashmap workflow<span class="absolute -mt-20" id="hashmap-workflow"></span>
+    <a href="#hashmap-workflow" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Internally, Hashmap is an array of linkedList.</li>
+<li></li>
+</ul>
+<h2>How many access modifiers?<span class="absolute -mt-20" id="how-many-access-modifiers"></span>
+    <a href="#how-many-access-modifiers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>public: visible in all classes in all packages</li>
+<li>protected: visible to all classes in the same package or classes in other packages that are a subclass</li>
+<li>default: visible to all classes in the same package</li>
+<li>private: visible only in the same class</li>
+</ul>
+<h2>Pros and Cons of static<span class="absolute -mt-20" id="pros-and-cons-of-static"></span>
+    <a href="#pros-and-cons-of-static" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Diff map and set. Can we have duplicate keys in map<span class="absolute -mt-20" id="diff-map-and-set-can-we-have-duplicate-keys-in-map"></span>
+    <a href="#diff-map-and-set-can-we-have-duplicate-keys-in-map" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Given a series data, how to detect duplicate data and skip it?<span class="absolute -mt-20" id="given-a-series-data-how-to-detect-duplicate-data-and-skip-it"></span>
+    <a href="#given-a-series-data-how-to-detect-duplicate-data-and-skip-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Comparable vs Comparator<span class="absolute -mt-20" id="comparable-vs-comparator"></span>
+    <a href="#comparable-vs-comparator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>How GC works / GC generation<span class="absolute -mt-20" id="how-gc-works--gc-generation"></span>
+    <a href="#how-gc-works--gc-generation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>When Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program. Eventually, some objects will no longer be needed. The garbage collector finds these unused objects and deletes them to free up memory.</p>
+</li>
+<li>
+<p>A generational garbage collector collects the short-lived objects more frequently than the longer lived ones. Short-lived objects are stored in the first generation, generation 0. The longer-lived objects are pushed into the higher generations, 1 or 2. The garbage collector works more frequently in the lower generations than in the higher ones.</p>
+</li>
+<li>
+<p>When an object is first created, it is put into generation 0. When the generation 0 is filled up, the garbage collector is invoked. The objects that survive the garbage collection in the first generation are promoted onto the next higher generation, generation 1. The objects that survive garbage collection in generation 1 are promoted onto the next and the highest generation, generation 2. This algorithm works efficiently for garbage collection of objects, as it is fast.</p>
+</li>
+</ul>
+<h2>Generics in Java, what is it, why we need it?<span class="absolute -mt-20" id="generics-in-java-what-is-it-why-we-need-it"></span>
+    <a href="#generics-in-java-what-is-it-why-we-need-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Type erasing in Java, about generics<span class="absolute -mt-20" id="type-erasing-in-java-about-generics"></span>
+    <a href="#type-erasing-in-java-about-generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>what/why generic<span class="absolute -mt-20" id="whatwhy-generic"></span>
+    <a href="#whatwhy-generic" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>How to handle exceptions<span class="absolute -mt-20" id="how-to-handle-exceptions"></span>
+    <a href="#how-to-handle-exceptions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Checked vs Unchecked exception<span class="absolute -mt-20" id="checked-vs-unchecked-exception"></span>
+    <a href="#checked-vs-unchecked-exception" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Threadpool 的 coding<span class="absolute -mt-20" id="threadpool-的-coding"></span>
+    <a href="#threadpool-%e7%9a%84-coding" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Multi-threading concepts and coding<span class="absolute -mt-20" id="multi-threading-concepts-and-coding"></span>
+    <a href="#multi-threading-concepts-and-coding" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>abstract, final, static<span class="absolute -mt-20" id="abstract-final-static"></span>
+    <a href="#abstract-final-static" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">abstract: class, method
+final: class, method, variable
+static: inner class, method, variable, static block</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>singleton vs immutable class<span class="absolute -mt-20" id="singleton-vs-immutable-class"></span>
+    <a href="#singleton-vs-immutable-class" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>JVM<span class="absolute -mt-20" id="jvm"></span>
+    <a href="#jvm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>method area(after java 8, meta space): static, class template</li>
+<li>heap: objects</li>
+<li>vm stack: references and method</li>
+<li>native(c/c++) method stack: old api within jam</li>
 </ul>
 <h2>Data Structures<span class="absolute -mt-20" id="data-structures"></span>
     <a href="#data-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -1152,6 +1567,113 @@
     <img src="../images-a/1.png" alt="ds1" loading="lazy" />
 
     <img src="../images-a/2.png" alt="ds2" loading="lazy" /></p>
+<h2>Java Flight Recorder<span class="absolute -mt-20" id="java-flight-recorder"></span>
+    <a href="#java-flight-recorder" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>It&rsquo;s a place that we can monitor our Java application. To check if there is any bottleneck for our web application regarding to the hardware and resources.</p>
+</li>
+<li>
+<p>java Flight Recorder(since java 11 is free)</p>
+</li>
+<li>
+<p>jconsole</p>
+</li>
+<li>
+<p>IntelliJ profiler</p>
+</li>
+<li>
+<p>Spring Actuator</p>
+</li>
+</ul>
+<h2>Generic Data type<span class="absolute -mt-20" id="generic-data-type"></span>
+    <a href="#generic-data-type" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<h2>Why we wanna have it?<span class="absolute -mt-20" id="why-we-wanna-have-it"></span>
+    <a href="#why-we-wanna-have-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2></li>
+</ul>
+<h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
+    <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
+    <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>A singleton class means only one object can be created from the class.</li>
+</ul>
+<h2>HTTP status codes<span class="absolute -mt-20" id="http-status-codes"></span>
+    <a href="#http-status-codes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">200 OK -- the request succeeded.
+201 Created -- the request succeeded, and a new resource was created as a result.
+202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
+204 No Content -- the request succeeded, but that the client doesn&#39;t need to navigate away from its current page.
+
+307 Temporary Redirect -- the resource requested has been temporarily moved to the URL given by the Location headers.
+308 Permanent Redirect -- the resource requested has been definitively moved to the URL given by the Location headers.
+
+400 Bad Request -- the server cannot or will not process the request due to client error.
+401 Unauthorized -- the request has not been completed because it lacks valid authentication credentials.
+403 Forbidden -- the server understands the request but refuses to authorize it.
+404 Not Found -- the server cannot find the requested resource.
+
+500 Internal Server Error -- the server has encountered a situation it does not know how to handle.</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Bean Scope<span class="absolute -mt-20" id="bean-scope"></span>
+    <a href="#bean-scope" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li>Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
+<li>Prototype. The Ioc container creates a new instance of the bean every time it is requested.</li>
+</ol>
+<blockquote>
+<p>Only valid in the context of a Spring Web ApplicationContext.</p>
+</blockquote>
+<ol start="3">
+<li>Request. A new instance of the bean is created for <strong>each HTTP request</strong>.</li>
+<li>Session. A new instance of the bean is created for <strong>each HTTP session</strong>.</li>
+<li>Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.</li>
+<li>WebSocket. Similar to session scope, but designed for WebSocket-based interactions.</li>
+</ol>
+<h3>Choose Appropriate Scope<span class="absolute -mt-20" id="choose-appropriate-scope"></span>
+    <a href="#choose-appropriate-scope" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Singleton is suitable for stateless beans or beans that are expensive to create.</li>
+<li>Prototype is useful for stateful beans or beans that need to maintain their state separately.</li>
+<li>Request, Session, and Application scopes are suitable for beans that hold web-related state information and need to be scoped accordingly.</li>
+</ul>
+<h2>Inversion of Control<span class="absolute -mt-20" id="inversion-of-control"></span>
+    <a href="#inversion-of-control" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>It is a principle which <strong>transfer the control of the objects</strong> to a container or framework.</li>
+</ul>
+<h2>Dependency Injections<span class="absolute -mt-20" id="dependency-injections"></span>
+    <a href="#dependency-injections" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li>Constructor Injection: for <strong>mandatory dependencies</strong> so that our bean is ready to use when it is first time called.</li>
+</ol>
+<ul>
+<li>pros:
+<ul>
+<li>All required dependencies are available at initialization time.</li>
+<li>it&rsquo;s the only way for us to create immutable dependencies. It can avoid NullPointerException.</li>
+<li>it also simplifies unit test.</li>
+<li>Preventing errors in Tests</li>
+</ul>
+</li>
+<li>cons:</li>
+</ul>
+<ol start="2">
+<li>Setter Injection: only for <strong>optional dependencies</strong> to avoid <strong>circular dependencies</strong>.</li>
+</ol>
+<ul>
+<li>pros:</li>
+<li>cons:</li>
+</ul>
+<ol start="3">
+<li>Filed Injection:</li>
+</ol>
+<ul>
+<li>pros:</li>
+<li>cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired</li>
+</ul>
 
         </div>
         <div class="mt-16"></div>
