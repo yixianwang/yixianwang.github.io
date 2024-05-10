@@ -120,7 +120,7 @@ IntelliJ profiler
 java flight recorder(since java 11 is free)
 spring actuator
 
-ArrayList&amp;lt;? extends Staff&amp;gt;  list = new ArrayList();
+ArrayList&amp;lt;? extends Staff&amp;gt; list = new ArrayList();
 
 confluence page-&amp;gt;
 	service 00 
@@ -183,7 +183,26 @@ session/ cookies
   - filed based DI
 
 - Bean Life Cycle
-  - &lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+  - 
+
+/// day 3
+- AOP
+  - Aspect
+  - Advice
+  - Joinpoint
+  - Pointcut
+  - Target
+- AOP usages: 
+  - crud operation(get, put, delete, post)
+  - method special
+    @ABC
+    method_special();
+  - ...
+
+- Spring MVC
+  - explain the work flow
+- Springboot
+  - pros: autoconfigration, &lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
@@ -205,7 +224,6 @@ session/ cookies
     &lt;a href=&#34;#static-keyword&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Hashmap workflow&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hashmap-workflow&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hashmap-workflow&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Internally, Hashmap is an array of linkedList.&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;How many access modifiers?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-many-access-modifiers&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#how-many-access-modifiers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -218,7 +236,17 @@ session/ cookies
     &lt;a href=&#34;#pros-and-cons-of-static&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Diff map and set. Can we have duplicate keys in map&lt;span class=&#34;absolute -mt-20&#34; id=&#34;diff-map-and-set-can-we-have-duplicate-keys-in-map&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#diff-map-and-set-can-we-have-duplicate-keys-in-map&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Given a series data, how to detect duplicate data and skip it?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;given-a-series-data-how-to-detect-duplicate-data-and-skip-it&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#given-a-series-data-how-to-detect-duplicate-data-and-skip-it&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Comparable vs Comparator&lt;span class=&#34;absolute -mt-20&#34; id=&#34;comparable-vs-comparator&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#comparable-vs-comparator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;How GC works / GC generation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-gc-works--gc-generation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#comparable-vs-comparator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;First, they are both functional interface, annotated with &lt;code&gt;@FunctionalInterface&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Comparable has one method &lt;code&gt;compareTo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Comparator has one method &lt;code&gt;compare&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Comparable is used to define the natural ordering of objects within the class itself.&lt;/li&gt;
+&lt;li&gt;Comparator is used for external comparison logic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;How GC works / GC generation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-gc-works--gc-generation&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#how-gc-works--gc-generation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;When Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program. Eventually, some objects will no longer be needed. The garbage collector finds these unused objects and deletes them to free up memory.&lt;/p&gt;
@@ -259,6 +287,28 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;li&gt;vm stack: references and method&lt;/li&gt;
 &lt;li&gt;native(c/c++) method stack: old api within jam&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;ClassLoader&lt;span class=&#34;absolute -mt-20&#34; id=&#34;classloader&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#classloader&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Three types of classLoader
+&lt;ul&gt;
+&lt;li&gt;Bootstrap ClassLoader: to load the first pure java ClassLoader&lt;/li&gt;
+&lt;li&gt;Extension ClassLoader: to load extensions of core java from jdk extension library&lt;/li&gt;
+&lt;li&gt;System/Application ClassLoader: to load application type classes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Class class&lt;span class=&#34;absolute -mt-20&#34; id=&#34;class-class&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#class-class&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;It is used to describe the meta info inside a class.&lt;/li&gt;
+&lt;li&gt;When a class is loaded from ClassLoader, one object of Class class will be created.&lt;/li&gt;
+&lt;li&gt;With that object, we can call &lt;code&gt;getClass()&lt;/code&gt; method or &lt;code&gt;.class&lt;/code&gt; field to get the instance of the Class class.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Reflection API&lt;span class=&#34;absolute -mt-20&#34; id=&#34;reflection-api&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#reflection-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Give us the ability that during the runtime, we can inspect and modify classes, methods, and fields dynamically.&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s not necessary to know everything about an object or class at compile time, instead we can discover them during the runtime.&lt;/li&gt;
+&lt;li&gt;Reflection API is powerful, but there are some performance considerations. Generally speaking, it&amp;rsquo;s slower than direct method calls, because it has overhead involves runtime type checking and method invocations. So in some performance-critical scenarios, we should not use Reflection API.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Data Structures&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data-structures&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#data-structures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Map&lt;/strong&gt; is not in &lt;strong&gt;Collection&lt;/strong&gt; framework. That&amp;rsquo;s why we cannot directly iterate key-value pairs within any Map implementation.&lt;/li&gt;
@@ -279,7 +329,7 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;p&gt;It&amp;rsquo;s a place that we can monitor our Java application. To check if there is any bottleneck for our web application regarding to the hardware and resources.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;java Flight Recorder(since java 11 is free)&lt;/p&gt;
+&lt;p&gt;Java Flight Recorder(since java 11 is free)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;jconsole&lt;/p&gt;
@@ -293,16 +343,80 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;/ul&gt;
 &lt;h2&gt;Generic Data type&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generic-data-type&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#generic-data-type&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;h2&gt;Why we wanna have it?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-wanna-have-it&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#why-we-wanna-have-it&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;Why: it gives us the ability that to make classes and methods more flexible and reusable by allowing them to operate on various types. It also provides compile-time type safety.&lt;/li&gt;
+&lt;li&gt;How:
+&lt;ul&gt;
+&lt;li&gt;type bounds: there are two types of bounds: upper bound(&lt;code&gt;extends&lt;/code&gt;, &amp;lt;), lower bound(&lt;code&gt;super&lt;/code&gt;, &amp;gt;=)&lt;/li&gt;
+&lt;li&gt;wildcard generics: it has greater flexibility, and it can also be bounded with those extends and super keyword.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Design Patterns&lt;span class=&#34;absolute -mt-20&#34; id=&#34;design-patterns&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#design-patterns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Singleton&lt;span class=&#34;absolute -mt-20&#34; id=&#34;singleton&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#singleton&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;A singleton class means only one object can be created from the class.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://refactoring.guru/design-patterns/singleton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;there is only one object we can create from the class.&lt;/li&gt;
+&lt;li&gt;pros:
+&lt;ul&gt;
+&lt;li&gt;singleton can work like a global variable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;HTTP status codes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-status-codes&#34;&gt;&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;cons:
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s hard to do a unit test.&lt;/li&gt;
+&lt;li&gt;it needs special treatment in multi-threading programming&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Simple Factory&lt;span class=&#34;absolute -mt-20&#34; id=&#34;simple-factory&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#simple-factory&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://refactoring.guru/design-patterns/factory-comparison&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;there is a creation method with some parameters. with those parameters we can choose which class to use for instantiating the object.&lt;/li&gt;
+&lt;li&gt;pros:
+&lt;ul&gt;
+&lt;li&gt;it makes the code loosely coupled.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cons:
+&lt;ul&gt;
+&lt;li&gt;over time, the methods might become too big. in this case, we need to convert the simple factory design pattern into &lt;strong&gt;Factory Method&lt;/strong&gt;, to introduce some subclasses to handle this situation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Builder&lt;span class=&#34;absolute -mt-20&#34; id=&#34;builder&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#builder&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;is used to simplify the process of building a complex object.&lt;/li&gt;
+&lt;li&gt;pros:
+&lt;ul&gt;
+&lt;li&gt;we can construct object step by step, and reuse the construction codes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cons:
+&lt;ul&gt;
+&lt;li&gt;it would have many extra codes like having many extra classes and methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Builder vs Factory&lt;span class=&#34;absolute -mt-20&#34; id=&#34;builder-vs-factory&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#builder-vs-factory&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Factory design pattern hides the process of object creation. Users just ask for what they need.&lt;/li&gt;
+&lt;li&gt;Builder design pattern allow users to know what is set for the object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Proxy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;proxy&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#proxy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;In practice, the proxy has the same interface as a service, which makes it interchangeable with a real object when passed to a client.&lt;/li&gt;
+&lt;li&gt;There are two types of proxy: the static proxy and the dynamic proxy.&lt;/li&gt;
+&lt;li&gt;The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&amp;rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Java8 new features&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java8-new-features&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#java8-new-features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Functional interface&lt;span class=&#34;absolute -mt-20&#34; id=&#34;functional-interface&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#functional-interface&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a kind of interface that has only 1 abstract method.&lt;/li&gt;
+&lt;li&gt;it can have multiple default methods and static methods.&lt;/li&gt;
+&lt;li&gt;i.e. Runnable, Callable, Comparator, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Lambda&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lambda&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lambda&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;HTTP status codes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-status-codes&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#http-status-codes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;200 OK -- the request succeeded.
 201 Created -- the request succeeded, and a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
@@ -380,6 +494,106 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;li&gt;pros:&lt;/li&gt;
 &lt;li&gt;cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;3 Layers: Controller, Service, Dao&lt;span class=&#34;absolute -mt-20&#34; id=&#34;3-layers-controller-service-dao&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-layers-controller-service-dao&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Mock&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;The difference between HashMap and HashTable&lt;span class=&#34;absolute -mt-20&#34; id=&#34;the-difference-between-hashmap-and-hashtable&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-difference-between-hashmap-and-hashtable&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Regarding to Thread Safety
+&lt;ul&gt;
+&lt;li&gt;HashTable is synchronized, so it&amp;rsquo;s thread-safe.&lt;/li&gt;
+&lt;li&gt;HashMap is not synchronized by default, so it&amp;rsquo;s not thread-safe. But we can use &lt;code&gt;synchronizedMap()&lt;/code&gt; method to create a synchronized wrapper around it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Regarding to Performance
+&lt;ul&gt;
+&lt;li&gt;HashMap has better performance than HashTable, because HashTable is synchronized, it has some overhead.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Regarding to Null keys and values:
+&lt;ul&gt;
+&lt;li&gt;HashTable doesn&amp;rsquo;t support any null key or null value.&lt;/li&gt;
+&lt;li&gt;HashMap support both null key and null value. And the null key will put at index 0.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Regarding to Iteration
+&lt;ul&gt;
+&lt;li&gt;We cannot iterate both of them during modification in another thread.&lt;/li&gt;
+&lt;li&gt;Even with HashTable is thread-safe, we cannot do that.&lt;/li&gt;
+&lt;li&gt;So we should find a way to make sure, during the iteration, there will not modification happen anywhere.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Exceptions that we are familiar with&lt;span class=&#34;absolute -mt-20&#34; id=&#34;exceptions-that-we-are-familiar-with&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#exceptions-that-we-are-familiar-with&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Checked Exceptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it means they will be checked at compile-time.&lt;/li&gt;
+&lt;li&gt;we must handle it in our code. either with &lt;code&gt;try-catch&lt;/code&gt; block or throw its responsibility to up the call stack some universe place.&lt;/li&gt;
+&lt;li&gt;i.e. IOException, SQLException, FileNotFoundException&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UnChecked Exceptions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s runtime exception. The handling is optional, if we don&amp;rsquo;t handle it, it will propagate up the call stack until get caught or causing the program terminate.&lt;/li&gt;
+&lt;li&gt;i.e. IndexOutOfBoundException, NullPointerException, ArithmeticException&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Java 8 new features&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java-8-new-features&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#java-8-new-features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Functional Interface&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a kind of interface that has only 1 abstract method.&lt;/li&gt;
+&lt;li&gt;it can have multiple default methods and static methods.&lt;/li&gt;
+&lt;li&gt;i.e. Runnable, Callable, Comparator, Comparable, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lambda expressions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s just method without a name&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Method Reference&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a way to let us create a reference to a method without invoking it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stream API&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s let java can program in a way just like other functional programming language.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional Class&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s just warp the original object, to handle the situation like null reference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CompletableFuture&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;In SpringBoot, the difference between Controller and RestController annotation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;in-springboot-the-difference-between-controller-and-restcontroller-annotation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#in-springboot-the-difference-between-controller-and-restcontroller-annotation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Bean Scopes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;bean-scopes&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bean-scopes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.&lt;/li&gt;
+&lt;li&gt;Prototype. The Ioc container creates a new instance of the bean every time it is requested.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Only valid in the context of a Spring Web ApplicationContext.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Request. A new instance of the bean is created for &lt;strong&gt;each HTTP request&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Session. A new instance of the bean is created for &lt;strong&gt;each HTTP session&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.&lt;/li&gt;
+&lt;li&gt;WebSocket. Similar to session scope, but designed for WebSocket-based interactions.&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>

@@ -26,7 +26,7 @@
   <meta itemprop="name" content="A Concepts">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="1228">
+<meta itemprop="wordCount" content="2215">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Concepts"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -404,6 +404,24 @@
             </li>
           <li>
               <a
+                href="#classloader"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >ClassLoader</a>
+            </li>
+          <li>
+              <a
+                href="#class-class"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Class class</a>
+            </li>
+          <li>
+              <a
+                href="#reflection-api"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Reflection API</a>
+            </li>
+          <li>
+              <a
                 href="#data-structures"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Data Structures</a>
@@ -422,15 +440,15 @@
             </li>
           <li>
               <a
-                href="#why-we-wanna-have-it"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Why we wanna have it?</a>
-            </li>
-          <li>
-              <a
                 href="#design-patterns"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Design Patterns</a>
+            </li>
+          <li>
+              <a
+                href="#java8-new-features"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Java8 new features</a>
             </li>
           <li>
               <a
@@ -455,6 +473,18 @@
                 href="#dependency-injections"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Dependency Injections</a>
+            </li>
+          <li>
+              <a
+                href="#3-layers-controller-service-dao"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >3 Layers: Controller, Service, Dao</a>
+            </li>
+          <li>
+              <a
+                href="#mock"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Mock</a>
             </li>
           </ul>
   
@@ -1320,6 +1350,18 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#classloader">ClassLoader
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#class-class">Class class
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#reflection-api">Reflection API
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#data-structures">Data Structures
         </a>
       </li>
@@ -1340,15 +1382,39 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#why-we-wanna-have-it">Why we wanna have it?
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#design-patterns">Design Patterns
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#singleton">Singleton
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#simple-factory">Simple Factory
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#builder">Builder
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#builder-vs-factory">Builder vs Factory
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#proxy">Proxy
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java8-new-features">Java8 new features
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#functional-interface">Functional interface
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lambda">Lambda
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1369,6 +1435,34 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-injections">Dependency Injections
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-layers-controller-service-dao">3 Layers: Controller, Service, Dao
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mock">Mock
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#the-difference-between-hashmap-and-hashtable">The difference between HashMap and HashTable
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exceptions-that-we-are-familiar-with">Exceptions that we are familiar with
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-8-new-features">Java 8 new features
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#in-springboot-the-difference-between-controller-and-restcontroller-annotation">In SpringBoot, the difference between Controller and RestController annotation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bean-scopes">Bean Scopes
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1414,7 +1508,7 @@ IntelliJ profiler
 java flight recorder(since java 11 is free)
 spring actuator
 
-ArrayList&lt;? extends Staff&gt;  list = new ArrayList();
+ArrayList&lt;? extends Staff&gt; list = new ArrayList();
 
 confluence page-&gt;
 	service 00 
@@ -1477,7 +1571,26 @@ session/ cookies
   - filed based DI
 
 - Bean Life Cycle
-  - </code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+  - 
+
+/// day 3
+- AOP
+  - Aspect
+  - Advice
+  - Joinpoint
+  - Pointcut
+  - Target
+- AOP usages: 
+  - crud operation(get, put, delete, post)
+  - method special
+    @ABC
+    method_special();
+  - ...
+
+- Spring MVC
+  - explain the work flow
+- Springboot
+  - pros: autoconfigration, </code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1499,7 +1612,6 @@ session/ cookies
     <a href="#static-keyword" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Hashmap workflow<span class="absolute -mt-20" id="hashmap-workflow"></span>
     <a href="#hashmap-workflow" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Internally, Hashmap is an array of linkedList.</li>
-<li></li>
 </ul>
 <h2>How many access modifiers?<span class="absolute -mt-20" id="how-many-access-modifiers"></span>
     <a href="#how-many-access-modifiers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -1512,7 +1624,17 @@ session/ cookies
     <a href="#pros-and-cons-of-static" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Diff map and set. Can we have duplicate keys in map<span class="absolute -mt-20" id="diff-map-and-set-can-we-have-duplicate-keys-in-map"></span>
     <a href="#diff-map-and-set-can-we-have-duplicate-keys-in-map" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Given a series data, how to detect duplicate data and skip it?<span class="absolute -mt-20" id="given-a-series-data-how-to-detect-duplicate-data-and-skip-it"></span>
     <a href="#given-a-series-data-how-to-detect-duplicate-data-and-skip-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Comparable vs Comparator<span class="absolute -mt-20" id="comparable-vs-comparator"></span>
-    <a href="#comparable-vs-comparator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>How GC works / GC generation<span class="absolute -mt-20" id="how-gc-works--gc-generation"></span>
+    <a href="#comparable-vs-comparator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>First, they are both functional interface, annotated with <code>@FunctionalInterface</code>
+<ul>
+<li>Comparable has one method <code>compareTo</code></li>
+<li>Comparator has one method <code>compare</code></li>
+</ul>
+</li>
+<li>Comparable is used to define the natural ordering of objects within the class itself.</li>
+<li>Comparator is used for external comparison logic.</li>
+</ul>
+<h2>How GC works / GC generation<span class="absolute -mt-20" id="how-gc-works--gc-generation"></span>
     <a href="#how-gc-works--gc-generation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>
 <p>When Java programs run on the JVM, objects are created on the heap, which is a portion of memory dedicated to the program. Eventually, some objects will no longer be needed. The garbage collector finds these unused objects and deletes them to free up memory.</p>
@@ -1553,6 +1675,28 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>vm stack: references and method</li>
 <li>native(c/c++) method stack: old api within jam</li>
 </ul>
+<h2>ClassLoader<span class="absolute -mt-20" id="classloader"></span>
+    <a href="#classloader" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Three types of classLoader
+<ul>
+<li>Bootstrap ClassLoader: to load the first pure java ClassLoader</li>
+<li>Extension ClassLoader: to load extensions of core java from jdk extension library</li>
+<li>System/Application ClassLoader: to load application type classes</li>
+</ul>
+</li>
+</ul>
+<h2>Class class<span class="absolute -mt-20" id="class-class"></span>
+    <a href="#class-class" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>It is used to describe the meta info inside a class.</li>
+<li>When a class is loaded from ClassLoader, one object of Class class will be created.</li>
+<li>With that object, we can call <code>getClass()</code> method or <code>.class</code> field to get the instance of the Class class.</li>
+</ul>
+<h2>Reflection API<span class="absolute -mt-20" id="reflection-api"></span>
+    <a href="#reflection-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Give us the ability that during the runtime, we can inspect and modify classes, methods, and fields dynamically.</li>
+<li>It&rsquo;s not necessary to know everything about an object or class at compile time, instead we can discover them during the runtime.</li>
+<li>Reflection API is powerful, but there are some performance considerations. Generally speaking, it&rsquo;s slower than direct method calls, because it has overhead involves runtime type checking and method invocations. So in some performance-critical scenarios, we should not use Reflection API.</li>
+</ul>
 <h2>Data Structures<span class="absolute -mt-20" id="data-structures"></span>
     <a href="#data-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li><strong>Map</strong> is not in <strong>Collection</strong> framework. That&rsquo;s why we cannot directly iterate key-value pairs within any Map implementation.</li>
@@ -1573,7 +1717,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <p>It&rsquo;s a place that we can monitor our Java application. To check if there is any bottleneck for our web application regarding to the hardware and resources.</p>
 </li>
 <li>
-<p>java Flight Recorder(since java 11 is free)</p>
+<p>Java Flight Recorder(since java 11 is free)</p>
 </li>
 <li>
 <p>jconsole</p>
@@ -1587,16 +1731,80 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 </ul>
 <h2>Generic Data type<span class="absolute -mt-20" id="generic-data-type"></span>
     <a href="#generic-data-type" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>
-<h2>Why we wanna have it?<span class="absolute -mt-20" id="why-we-wanna-have-it"></span>
-    <a href="#why-we-wanna-have-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2></li>
+<li>Why: it gives us the ability that to make classes and methods more flexible and reusable by allowing them to operate on various types. It also provides compile-time type safety.</li>
+<li>How:
+<ul>
+<li>type bounds: there are two types of bounds: upper bound(<code>extends</code>, &lt;), lower bound(<code>super</code>, &gt;=)</li>
+<li>wildcard generics: it has greater flexibility, and it can also be bounded with those extends and super keyword.</li>
+</ul>
+</li>
 </ul>
 <h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
     <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
     <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>A singleton class means only one object can be created from the class.</li>
+<li><a href="https://refactoring.guru/design-patterns/singleton" target="_blank" rel="noopener">reference</a></li>
+<li>there is only one object we can create from the class.</li>
+<li>pros:
+<ul>
+<li>singleton can work like a global variable</li>
 </ul>
-<h2>HTTP status codes<span class="absolute -mt-20" id="http-status-codes"></span>
+</li>
+<li>cons:
+<ul>
+<li>it&rsquo;s hard to do a unit test.</li>
+<li>it needs special treatment in multi-threading programming</li>
+</ul>
+</li>
+</ul>
+<h3>Simple Factory<span class="absolute -mt-20" id="simple-factory"></span>
+    <a href="#simple-factory" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><a href="https://refactoring.guru/design-patterns/factory-comparison" target="_blank" rel="noopener">reference</a></li>
+<li>there is a creation method with some parameters. with those parameters we can choose which class to use for instantiating the object.</li>
+<li>pros:
+<ul>
+<li>it makes the code loosely coupled.</li>
+</ul>
+</li>
+<li>cons:
+<ul>
+<li>over time, the methods might become too big. in this case, we need to convert the simple factory design pattern into <strong>Factory Method</strong>, to introduce some subclasses to handle this situation.</li>
+</ul>
+</li>
+</ul>
+<h3>Builder<span class="absolute -mt-20" id="builder"></span>
+    <a href="#builder" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>is used to simplify the process of building a complex object.</li>
+<li>pros:
+<ul>
+<li>we can construct object step by step, and reuse the construction codes.</li>
+</ul>
+</li>
+<li>cons:
+<ul>
+<li>it would have many extra codes like having many extra classes and methods</li>
+</ul>
+</li>
+</ul>
+<h4>Builder vs Factory<span class="absolute -mt-20" id="builder-vs-factory"></span>
+    <a href="#builder-vs-factory" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>Factory design pattern hides the process of object creation. Users just ask for what they need.</li>
+<li>Builder design pattern allow users to know what is set for the object.</li>
+</ul>
+<h3>Proxy<span class="absolute -mt-20" id="proxy"></span>
+    <a href="#proxy" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>In practice, the proxy has the same interface as a service, which makes it interchangeable with a real object when passed to a client.</li>
+<li>There are two types of proxy: the static proxy and the dynamic proxy.</li>
+<li>The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.</li>
+</ul>
+<h2>Java8 new features<span class="absolute -mt-20" id="java8-new-features"></span>
+    <a href="#java8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Functional interface<span class="absolute -mt-20" id="functional-interface"></span>
+    <a href="#functional-interface" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>it&rsquo;s a kind of interface that has only 1 abstract method.</li>
+<li>it can have multiple default methods and static methods.</li>
+<li>i.e. Runnable, Callable, Comparator, etc.</li>
+</ul>
+<h3>Lambda<span class="absolute -mt-20" id="lambda"></span>
+    <a href="#lambda" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>HTTP status codes<span class="absolute -mt-20" id="http-status-codes"></span>
     <a href="#http-status-codes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">200 OK -- the request succeeded.
 201 Created -- the request succeeded, and a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
@@ -1674,6 +1882,106 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>pros:</li>
 <li>cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired</li>
 </ul>
+<h2>3 Layers: Controller, Service, Dao<span class="absolute -mt-20" id="3-layers-controller-service-dao"></span>
+    <a href="#3-layers-controller-service-dao" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Mock<span class="absolute -mt-20" id="mock"></span>
+    <a href="#mock" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>The difference between HashMap and HashTable<span class="absolute -mt-20" id="the-difference-between-hashmap-and-hashtable"></span>
+    <a href="#the-difference-between-hashmap-and-hashtable" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Regarding to Thread Safety
+<ul>
+<li>HashTable is synchronized, so it&rsquo;s thread-safe.</li>
+<li>HashMap is not synchronized by default, so it&rsquo;s not thread-safe. But we can use <code>synchronizedMap()</code> method to create a synchronized wrapper around it.</li>
+</ul>
+</li>
+<li>Regarding to Performance
+<ul>
+<li>HashMap has better performance than HashTable, because HashTable is synchronized, it has some overhead.</li>
+</ul>
+</li>
+<li>Regarding to Null keys and values:
+<ul>
+<li>HashTable doesn&rsquo;t support any null key or null value.</li>
+<li>HashMap support both null key and null value. And the null key will put at index 0.</li>
+</ul>
+</li>
+<li>Regarding to Iteration
+<ul>
+<li>We cannot iterate both of them during modification in another thread.</li>
+<li>Even with HashTable is thread-safe, we cannot do that.</li>
+<li>So we should find a way to make sure, during the iteration, there will not modification happen anywhere.</li>
+</ul>
+</li>
+</ul>
+<h3>Exceptions that we are familiar with<span class="absolute -mt-20" id="exceptions-that-we-are-familiar-with"></span>
+    <a href="#exceptions-that-we-are-familiar-with" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>Checked Exceptions:</p>
+<ul>
+<li>it means they will be checked at compile-time.</li>
+<li>we must handle it in our code. either with <code>try-catch</code> block or throw its responsibility to up the call stack some universe place.</li>
+<li>i.e. IOException, SQLException, FileNotFoundException</li>
+</ul>
+</li>
+<li>
+<p>UnChecked Exceptions</p>
+<ul>
+<li>it&rsquo;s runtime exception. The handling is optional, if we don&rsquo;t handle it, it will propagate up the call stack until get caught or causing the program terminate.</li>
+<li>i.e. IndexOutOfBoundException, NullPointerException, ArithmeticException</li>
+</ul>
+</li>
+</ul>
+<h3>Java 8 new features<span class="absolute -mt-20" id="java-8-new-features"></span>
+    <a href="#java-8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>Functional Interface</p>
+<ul>
+<li>it&rsquo;s a kind of interface that has only 1 abstract method.</li>
+<li>it can have multiple default methods and static methods.</li>
+<li>i.e. Runnable, Callable, Comparator, Comparable, etc.</li>
+</ul>
+</li>
+<li>
+<p>Lambda expressions</p>
+<ul>
+<li>it&rsquo;s just method without a name</li>
+</ul>
+</li>
+<li>
+<p>Method Reference</p>
+<ul>
+<li>it&rsquo;s a way to let us create a reference to a method without invoking it.</li>
+</ul>
+</li>
+<li>
+<p>Stream API</p>
+<ul>
+<li>It&rsquo;s let java can program in a way just like other functional programming language.</li>
+</ul>
+</li>
+<li>
+<p>Optional Class</p>
+<ul>
+<li>it&rsquo;s just warp the original object, to handle the situation like null reference</li>
+</ul>
+</li>
+<li>
+<p>CompletableFuture</p>
+</li>
+</ul>
+<h3>In SpringBoot, the difference between Controller and RestController annotation<span class="absolute -mt-20" id="in-springboot-the-difference-between-controller-and-restcontroller-annotation"></span>
+    <a href="#in-springboot-the-difference-between-controller-and-restcontroller-annotation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Bean Scopes<span class="absolute -mt-20" id="bean-scopes"></span>
+    <a href="#bean-scopes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
+<li>Prototype. The Ioc container creates a new instance of the bean every time it is requested.</li>
+</ol>
+<blockquote>
+<p>Only valid in the context of a Spring Web ApplicationContext.</p>
+</blockquote>
+<ol start="3">
+<li>Request. A new instance of the bean is created for <strong>each HTTP request</strong>.</li>
+<li>Session. A new instance of the bean is created for <strong>each HTTP session</strong>.</li>
+<li>Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.</li>
+<li>WebSocket. Similar to session scope, but designed for WebSocket-based interactions.</li>
+</ol>
 
         </div>
         <div class="mt-16"></div>
