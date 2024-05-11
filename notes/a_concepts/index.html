@@ -26,7 +26,7 @@
   <meta itemprop="name" content="A Concepts">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="2388">
+<meta itemprop="wordCount" content="2746">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Concepts"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -446,9 +446,15 @@
             </li>
           <li>
               <a
-                href="#java8-new-features"
+                href="#osi-model-vs-tcpip-model"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Java8 new features</a>
+              >OSI model vs TCP/IP model</a>
+            </li>
+          <li>
+              <a
+                href="#http-methods"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >HTTP methods</a>
             </li>
           <li>
               <a
@@ -497,6 +503,18 @@
                 href="#handle-exception-in-springboot"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Handle Exception in SpringBoot</a>
+            </li>
+          <li>
+              <a
+                href="#how-spring-does-validation"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >How Spring does Validation</a>
+            </li>
+          <li>
+              <a
+                href="#documentation"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Documentation</a>
             </li>
           <li>
               <a
@@ -1424,15 +1442,27 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java8-new-features">Java8 new features
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#osi-model-vs-tcpip-model">OSI model vs TCP/IP model
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#functional-interface">Functional interface
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#osi-model">OSI model
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lambda">Lambda
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcpip">TCP/IP
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcp-udp-within-transport-layer">TCP, UDP within Transport Layer
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http">HTTP
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http-methods">HTTP methods
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1477,6 +1507,18 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#handle-exception-in-springboot">Handle Exception in SpringBoot
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-spring-does-validation">How Spring does Validation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#documentation">Documentation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#swagger">Swagger
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1834,24 +1876,172 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>There are two types of proxy: the static proxy and the dynamic proxy.</li>
 <li>The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.</li>
 </ul>
-<h2>Java8 new features<span class="absolute -mt-20" id="java8-new-features"></span>
-    <a href="#java8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Functional interface<span class="absolute -mt-20" id="functional-interface"></span>
-    <a href="#functional-interface" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>it&rsquo;s a kind of interface that has only 1 abstract method.</li>
-<li>it can have multiple default methods and static methods.</li>
-<li>i.e. Runnable, Callable, Comparator, etc.</li>
+<h2>OSI model vs TCP/IP model<span class="absolute -mt-20" id="osi-model-vs-tcpip-model"></span>
+    <a href="#osi-model-vs-tcpip-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>OSI model<span class="absolute -mt-20" id="osi-model"></span>
+    <a href="#osi-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>7 layers architecture: Physical / Data Link / Network / Transport / Session / Presentation / Application</li>
+<li>a typical modern network architecture</li>
+<li>As a developer, we will only focus on the top layer called <strong>Application Layer</strong>
+<ul>
+<li>including HTTP, FTP, SSH, DNS, etc.</li>
 </ul>
-<h3>Lambda<span class="absolute -mt-20" id="lambda"></span>
-    <a href="#lambda" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>HTTP status codes<span class="absolute -mt-20" id="http-status-codes"></span>
-    <a href="#http-status-codes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">200 OK -- the request succeeded.
-201 Created -- the request succeeded, and a new resource was created as a result.
+</li>
+</ul>
+<h3>TCP/IP<span class="absolute -mt-20" id="tcpip"></span>
+    <a href="#tcpip" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>a simplified version network architecture</li>
+<li>4 layers architecture: Network Access Layer[1,2] / Network / Transport / Application[5,6,7]</li>
+</ul>
+<h3>TCP, UDP within Transport Layer<span class="absolute -mt-20" id="tcp-udp-within-transport-layer"></span>
+    <a href="#tcp-udp-within-transport-layer" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>divides the data in to many packets</p>
+</li>
+<li>
+<p>within the packet of TCP, has <code>Sequence Number</code></p>
+</li>
+<li>
+<p>within the packet of UDP, no <code>Sequence Number</code></p>
+</li>
+<li>
+<p>TCP is more secure, i.e. email</p>
+</li>
+<li>
+<p>UDP is faster, i.e. zoom meeting</p>
+</li>
+<li>
+<p>TCP <strong>4 way handshake process</strong> is more secure than <strong>3 way handshake process</strong></p>
+</li>
+</ul>
+<h3>HTTP<span class="absolute -mt-20" id="http"></span>
+    <a href="#http" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>a protocol in the Application Layer</p>
+</li>
+<li>
+<p>HTTP Request</p>
+<ul>
+<li>Request Message Header
+<ul>
+<li>Request Line
+<ul>
+<li>http methods(get, post, &hellip;)</li>
+<li>file address</li>
+<li>http version</li>
+</ul>
+</li>
+<li>Request Headers
+<ul>
+<li>some key-value pairs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>a blank line</li>
+<li>Request Message Body(normally is a json file, but can be anything)</li>
+</ul>
+</li>
+<li>
+<p>HTTP Response</p>
+<ul>
+<li>Response Message Header
+<ul>
+<li>Status Line
+<ul>
+<li>http version</li>
+<li>http status code</li>
+</ul>
+</li>
+<li>Response Headers
+<ul>
+<li>some key-value pairs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>a blank line</li>
+<li>Response Message Body(normally is a json file, but can be anything)</li>
+</ul>
+</li>
+</ul>
+<h2>HTTP methods<span class="absolute -mt-20" id="http-methods"></span>
+    <a href="#http-methods" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Safe: the http method does not change the state of the server, does not changing on the server side.</li>
+<li>Indempotent: two or more same requests are made to backend, and it will have the same effect.</li>
+<li>Cacheable: the browser caches some data for some http methods by default. (we can setup with <code>cache-control</code>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>Safe</th>
+<th>Indempotent</th>
+<th>Cacheable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>read</td>
+</tr>
+<tr>
+<td>Put</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>whole update</td>
+</tr>
+<tr>
+<td>Post</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>create</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>remove</td>
+</tr>
+<tr>
+<td>Patch</td>
+<td>no</td>
+<td>no(or yes)</td>
+<td>no</td>
+<td>patch update</td>
+</tr>
+<tr>
+<td>headoptions/ trace/ connect</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>HTTP status codes<span class="absolute -mt-20" id="http-status-codes"></span>
+    <a href="#http-status-codes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>1xx: informational codes</li>
+<li>2xx: success codes</li>
+<li>3xx: redirection codes</li>
+<li>4xx: client error codes</li>
+<li>5xx: server error codes</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">200 OK -- the request has been successfully sent to the backend.
+201 Created -- a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
-204 No Content -- the request succeeded, but that the client doesn&#39;t need to navigate away from its current page.
+204 No Content -- the request succeeded, but that the client doesn&#39;t need to navigate away from its current page. i.e. submitted some data with put method, the frontend doesn&#39;t need to be changed.
 
-307 Temporary Redirect -- the resource requested has been temporarily moved to the URL given by the Location headers.
-308 Permanent Redirect -- the resource requested has been definitively moved to the URL given by the Location headers.
+307 Temporary Redirect -- i.e. the primary website doesn&#39;t work due to some bug or maintenance, we need to redirect to backup server.
+308 Permanent Redirect -- i.e. sometimes the old URL won&#39;t use anymore, we wanna keep our customers.
 
-400 Bad Request -- the server cannot or will not process the request due to client error.
+400 Bad Request -- the server cannot understand the request, because some invalid syntax or invalid parameters.
 401 Unauthorized -- the request has not been completed because it lacks valid authentication credentials.
 403 Forbidden -- the server understands the request but refuses to authorize it.
 404 Not Found -- the server cannot find the requested resource.
@@ -1987,6 +2177,46 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <h2>Handle Exception in SpringBoot<span class="absolute -mt-20" id="handle-exception-in-springboot"></span>
     <a href="#handle-exception-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
     <img src="../images-a/3.png" alt="3" loading="lazy" /></p>
+<ul>
+<li><code>@ExceptionHandler</code> within class, is <strong>local</strong> <code>@ExceptionHandler</code>.</li>
+<li><code>@ControllerAdvice</code> class with <code>@ExceptionHandler</code>, is <strong>global</strong> <code>@ExceptionHandler</code>.</li>
+<li>Is Exception annotated by <code>@ResponseStatus</code>? <code>ResponseStatusExceptionResolver</code> class : <code>DefaultHandlerExceptionResolver</code> class;</li>
+</ul>
+<h2>How Spring does Validation<span class="absolute -mt-20" id="how-spring-does-validation"></span>
+    <a href="#how-spring-does-validation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>put <code>@Validated</code> within parameters of controller</li>
+<li>put the following annotation on pojo</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">@Validated
+
+@NotNull
+@NotEmpty
+@Min
+@Max
+@Pattern
+@Email
+...</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Documentation<span class="absolute -mt-20" id="documentation"></span>
+    <a href="#documentation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Swagger<span class="absolute -mt-20" id="swagger"></span>
+    <a href="#swagger" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>it&rsquo;s a documentation framework
+<ul>
+<li>it will collection info from project</li>
+<li>then generate a website</li>
+<li>show all the API created by the backend</li>
+</ul>
+</li>
+</ul>
 <h2>Questions in Mock interview<span class="absolute -mt-20" id="questions-in-mock-interview"></span>
     <a href="#questions-in-mock-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>The difference between HashMap and HashTable<span class="absolute -mt-20" id="the-difference-between-hashmap-and-hashtable"></span>
     <a href="#the-difference-between-hashmap-and-hashtable" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>

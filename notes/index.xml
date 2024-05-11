@@ -408,24 +408,172 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;li&gt;There are two types of proxy: the static proxy and the dynamic proxy.&lt;/li&gt;
 &lt;li&gt;The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&amp;rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Java8 new features&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java8-new-features&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#java8-new-features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Functional interface&lt;span class=&#34;absolute -mt-20&#34; id=&#34;functional-interface&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#functional-interface&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;it&amp;rsquo;s a kind of interface that has only 1 abstract method.&lt;/li&gt;
-&lt;li&gt;it can have multiple default methods and static methods.&lt;/li&gt;
-&lt;li&gt;i.e. Runnable, Callable, Comparator, etc.&lt;/li&gt;
+&lt;h2&gt;OSI model vs TCP/IP model&lt;span class=&#34;absolute -mt-20&#34; id=&#34;osi-model-vs-tcpip-model&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#osi-model-vs-tcpip-model&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OSI model&lt;span class=&#34;absolute -mt-20&#34; id=&#34;osi-model&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#osi-model&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;7 layers architecture: Physical / Data Link / Network / Transport / Session / Presentation / Application&lt;/li&gt;
+&lt;li&gt;a typical modern network architecture&lt;/li&gt;
+&lt;li&gt;As a developer, we will only focus on the top layer called &lt;strong&gt;Application Layer&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;including HTTP, FTP, SSH, DNS, etc.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Lambda&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lambda&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#lambda&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;HTTP status codes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-status-codes&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#http-status-codes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;200 OK -- the request succeeded.
-201 Created -- the request succeeded, and a new resource was created as a result.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;TCP/IP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tcpip&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#tcpip&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;a simplified version network architecture&lt;/li&gt;
+&lt;li&gt;4 layers architecture: Network Access Layer[1,2] / Network / Transport / Application[5,6,7]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;TCP, UDP within Transport Layer&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tcp-udp-within-transport-layer&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#tcp-udp-within-transport-layer&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;divides the data in to many packets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;within the packet of TCP, has &lt;code&gt;Sequence Number&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;within the packet of UDP, no &lt;code&gt;Sequence Number&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TCP is more secure, i.e. email&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UDP is faster, i.e. zoom meeting&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TCP &lt;strong&gt;4 way handshake process&lt;/strong&gt; is more secure than &lt;strong&gt;3 way handshake process&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;HTTP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#http&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;a protocol in the Application Layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP Request&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Request Message Header
+&lt;ul&gt;
+&lt;li&gt;Request Line
+&lt;ul&gt;
+&lt;li&gt;http methods(get, post, &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;file address&lt;/li&gt;
+&lt;li&gt;http version&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Request Headers
+&lt;ul&gt;
+&lt;li&gt;some key-value pairs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;a blank line&lt;/li&gt;
+&lt;li&gt;Request Message Body(normally is a json file, but can be anything)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP Response&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Response Message Header
+&lt;ul&gt;
+&lt;li&gt;Status Line
+&lt;ul&gt;
+&lt;li&gt;http version&lt;/li&gt;
+&lt;li&gt;http status code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Response Headers
+&lt;ul&gt;
+&lt;li&gt;some key-value pairs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;a blank line&lt;/li&gt;
+&lt;li&gt;Response Message Body(normally is a json file, but can be anything)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;HTTP methods&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-methods&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#http-methods&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Safe: the http method does not change the state of the server, does not changing on the server side.&lt;/li&gt;
+&lt;li&gt;Indempotent: two or more same requests are made to backend, and it will have the same effect.&lt;/li&gt;
+&lt;li&gt;Cacheable: the browser caches some data for some http methods by default. (we can setup with &lt;code&gt;cache-control&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Methods&lt;/th&gt;
+&lt;th&gt;Safe&lt;/th&gt;
+&lt;th&gt;Indempotent&lt;/th&gt;
+&lt;th&gt;Cacheable&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Get&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;read&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Put&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;whole update&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Post&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;create&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Delete&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;remove&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Patch&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;no(or yes)&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;patch update&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;headoptions/ trace/ connect&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;HTTP status codes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-status-codes&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#http-status-codes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1xx: informational codes&lt;/li&gt;
+&lt;li&gt;2xx: success codes&lt;/li&gt;
+&lt;li&gt;3xx: redirection codes&lt;/li&gt;
+&lt;li&gt;4xx: client error codes&lt;/li&gt;
+&lt;li&gt;5xx: server error codes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;200 OK -- the request has been successfully sent to the backend.
+201 Created -- a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
-204 No Content -- the request succeeded, but that the client doesn&amp;#39;t need to navigate away from its current page.
+204 No Content -- the request succeeded, but that the client doesn&amp;#39;t need to navigate away from its current page. i.e. submitted some data with put method, the frontend doesn&amp;#39;t need to be changed.
 
-307 Temporary Redirect -- the resource requested has been temporarily moved to the URL given by the Location headers.
-308 Permanent Redirect -- the resource requested has been definitively moved to the URL given by the Location headers.
+307 Temporary Redirect -- i.e. the primary website doesn&amp;#39;t work due to some bug or maintenance, we need to redirect to backup server.
+308 Permanent Redirect -- i.e. sometimes the old URL won&amp;#39;t use anymore, we wanna keep our customers.
 
-400 Bad Request -- the server cannot or will not process the request due to client error.
+400 Bad Request -- the server cannot understand the request, because some invalid syntax or invalid parameters.
 401 Unauthorized -- the request has not been completed because it lacks valid authentication credentials.
 403 Forbidden -- the server understands the request but refuses to authorize it.
 404 Not Found -- the server cannot find the requested resource.
@@ -561,6 +709,46 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;h2&gt;Handle Exception in SpringBoot&lt;span class=&#34;absolute -mt-20&#34; id=&#34;handle-exception-in-springboot&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#handle-exception-in-springboot&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;
     &lt;img src=&#34;../images-a/3.png&#34; alt=&#34;3&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@ExceptionHandler&lt;/code&gt; within class, is &lt;strong&gt;local&lt;/strong&gt; &lt;code&gt;@ExceptionHandler&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@ControllerAdvice&lt;/code&gt; class with &lt;code&gt;@ExceptionHandler&lt;/code&gt;, is &lt;strong&gt;global&lt;/strong&gt; &lt;code&gt;@ExceptionHandler&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Is Exception annotated by &lt;code&gt;@ResponseStatus&lt;/code&gt;? &lt;code&gt;ResponseStatusExceptionResolver&lt;/code&gt; class : &lt;code&gt;DefaultHandlerExceptionResolver&lt;/code&gt; class;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;How Spring does Validation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-spring-does-validation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-spring-does-validation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;put &lt;code&gt;@Validated&lt;/code&gt; within parameters of controller&lt;/li&gt;
+&lt;li&gt;put the following annotation on pojo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-4&#34;&gt;@Validated
+
+@NotNull
+@NotEmpty
+@Min
+@Max
+@Pattern
+@Email
+...&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-4&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Documentation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;documentation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#documentation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Swagger&lt;span class=&#34;absolute -mt-20&#34; id=&#34;swagger&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swagger&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a documentation framework
+&lt;ul&gt;
+&lt;li&gt;it will collection info from project&lt;/li&gt;
+&lt;li&gt;then generate a website&lt;/li&gt;
+&lt;li&gt;show all the API created by the backend&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Questions in Mock interview&lt;span class=&#34;absolute -mt-20&#34; id=&#34;questions-in-mock-interview&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#questions-in-mock-interview&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;The difference between HashMap and HashTable&lt;span class=&#34;absolute -mt-20&#34; id=&#34;the-difference-between-hashmap-and-hashtable&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#the-difference-between-hashmap-and-hashtable&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
