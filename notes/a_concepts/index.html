@@ -26,7 +26,7 @@
   <meta itemprop="name" content="A Concepts">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="2746">
+<meta itemprop="wordCount" content="2898">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Concepts"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -446,9 +446,21 @@
             </li>
           <li>
               <a
-                href="#osi-model-vs-tcpip-model"
+                href="#osi-model-vs-tcpip-modelwont-be-asked-during-the-interview"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >OSI model vs TCP/IP model</a>
+              >OSI model vs TCP/IP model(won&amp;rsquo;t be asked during the interview)</a>
+            </li>
+          <li>
+              <a
+                href="#tcp-udp-within-transport-layer"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >TCP, UDP within Transport Layer</a>
+            </li>
+          <li>
+              <a
+                href="#http"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >HTTP</a>
             </li>
           <li>
               <a
@@ -461,6 +473,24 @@
                 href="#http-status-codes"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >HTTP status codes</a>
+            </li>
+          <li>
+              <a
+                href="#session-and-cookies-wont-be-asked-during-the-interview"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Session and Cookies (won&amp;rsquo;t be asked during the interview)</a>
+            </li>
+          <li>
+              <a
+                href="#java-web-architecture"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Java Web Architecture</a>
+            </li>
+          <li>
+              <a
+                href="#three-layer-architecture-web-application-three-layer-architecture"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Three Layer Architecture (Web Application Three Layer Architecture)</a>
             </li>
           <li>
               <a
@@ -1442,7 +1472,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#osi-model-vs-tcpip-model">OSI model vs TCP/IP model
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#osi-model-vs-tcpip-modelwont-be-asked-during-the-interview">OSI model vs TCP/IP model(won&rsquo;t be asked during the interview)
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1450,15 +1480,15 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcpip">TCP/IP
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcpip-model">TCP/IP model
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcp-udp-within-transport-layer">TCP, UDP within Transport Layer
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tcp-udp-within-transport-layer">TCP, UDP within Transport Layer
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http">HTTP
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http">HTTP
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1467,6 +1497,22 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#http-status-codes">HTTP status codes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#session-and-cookies-wont-be-asked-during-the-interview">Session and Cookies (won&rsquo;t be asked during the interview)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-web-architecture">Java Web Architecture
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#backend-web-servercontainer">Backend Web Server/Container
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#three-layer-architecture-web-application-three-layer-architecture">Three Layer Architecture (Web Application Three Layer Architecture)
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1876,8 +1922,8 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>There are two types of proxy: the static proxy and the dynamic proxy.</li>
 <li>The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.</li>
 </ul>
-<h2>OSI model vs TCP/IP model<span class="absolute -mt-20" id="osi-model-vs-tcpip-model"></span>
-    <a href="#osi-model-vs-tcpip-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>OSI model<span class="absolute -mt-20" id="osi-model"></span>
+<h2>OSI model vs TCP/IP model(won&rsquo;t be asked during the interview)<span class="absolute -mt-20" id="osi-model-vs-tcpip-modelwont-be-asked-during-the-interview"></span>
+    <a href="#osi-model-vs-tcpip-modelwont-be-asked-during-the-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>OSI model<span class="absolute -mt-20" id="osi-model"></span>
     <a href="#osi-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>7 layers architecture: Physical / Data Link / Network / Transport / Session / Presentation / Application</li>
 <li>a typical modern network architecture</li>
@@ -1887,13 +1933,13 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 </ul>
 </li>
 </ul>
-<h3>TCP/IP<span class="absolute -mt-20" id="tcpip"></span>
-    <a href="#tcpip" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>TCP/IP model<span class="absolute -mt-20" id="tcpip-model"></span>
+    <a href="#tcpip-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>a simplified version network architecture</li>
 <li>4 layers architecture: Network Access Layer[1,2] / Network / Transport / Application[5,6,7]</li>
 </ul>
-<h3>TCP, UDP within Transport Layer<span class="absolute -mt-20" id="tcp-udp-within-transport-layer"></span>
-    <a href="#tcp-udp-within-transport-layer" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h2>TCP, UDP within Transport Layer<span class="absolute -mt-20" id="tcp-udp-within-transport-layer"></span>
+    <a href="#tcp-udp-within-transport-layer" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>
 <p>divides the data in to many packets</p>
 </li>
@@ -1913,8 +1959,8 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <p>TCP <strong>4 way handshake process</strong> is more secure than <strong>3 way handshake process</strong></p>
 </li>
 </ul>
-<h3>HTTP<span class="absolute -mt-20" id="http"></span>
-    <a href="#http" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h2>HTTP<span class="absolute -mt-20" id="http"></span>
+    <a href="#http" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>
 <p>a protocol in the Application Layer</p>
 </li>
@@ -2057,6 +2103,39 @@ static: inner class, method, variable, static block</code></pre><div class="opac
     </button>
   </div>
 </div>
+<h2>Session and Cookies (won&rsquo;t be asked during the interview)<span class="absolute -mt-20" id="session-and-cookies-wont-be-asked-during-the-interview"></span>
+    <a href="#session-and-cookies-wont-be-asked-during-the-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Cookies is a piece of data stored on the browser on the client side.</li>
+<li>Every session has sessionID stored on the server side, is used to store some user info.</li>
+<li>Cookies is generated by the session, all the requests and responses will take Cookies.</li>
+</ul>
+<h2>Java Web Architecture<span class="absolute -mt-20" id="java-web-architecture"></span>
+    <a href="#java-web-architecture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Web Components(servlet, JSP): a unit can handle specific logic.
+
+    <img src="../images-a/4.png" alt="4" loading="lazy" /></li>
+</ul>
+<h3>Backend Web Server/Container<span class="absolute -mt-20" id="backend-web-servercontainer"></span>
+    <a href="#backend-web-servercontainer" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<p><strong>Web server</strong> is software. <strong>Server</strong> is hardware. Web server is running on the server to host the Application to handle the request.</p>
+</blockquote>
+<ul>
+<li>Tomcat</li>
+<li>JBoss</li>
+<li>WebLogic</li>
+<li>TomEE</li>
+<li>WebSphere</li>
+</ul>
+<h2>Three Layer Architecture (Web Application Three Layer Architecture)<span class="absolute -mt-20" id="three-layer-architecture-web-application-three-layer-architecture"></span>
+    <a href="#three-layer-architecture-web-application-three-layer-architecture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>MVC design pattern</li>
+<li>Controller : handle http request</li>
+<li>Service : business logic, some computation</li>
+<li>Dao(Repository) : data access object layer, is used to connect to DB</li>
+</ul>
+<blockquote>
+<p>the underlying technology behind Spring Data JPA is Hibernate. the underlying technology behind the Hibernate is JDBC.</p>
+</blockquote>
 <h2>Bean Scope<span class="absolute -mt-20" id="bean-scope"></span>
     <a href="#bean-scope" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
 <li>Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
