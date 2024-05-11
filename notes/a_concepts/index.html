@@ -26,7 +26,7 @@
   <meta itemprop="name" content="A Concepts">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="2215">
+<meta itemprop="wordCount" content="2388">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Concepts"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -476,15 +476,33 @@
             </li>
           <li>
               <a
-                href="#3-layers-controller-service-dao"
+                href="#3-layers"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >3 Layers: Controller, Service, Dao</a>
+              >3 Layers</a>
             </li>
           <li>
               <a
-                href="#mock"
+                href="#pojo"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Mock</a>
+              >Pojo</a>
+            </li>
+          <li>
+              <a
+                href="#h2-database"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >h2 database</a>
+            </li>
+          <li>
+              <a
+                href="#handle-exception-in-springboot"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Handle Exception in SpringBoot</a>
+            </li>
+          <li>
+              <a
+                href="#questions-in-mock-interview"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Questions in Mock interview</a>
             </li>
           </ul>
   
@@ -1438,11 +1456,31 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-layers-controller-service-dao">3 Layers: Controller, Service, Dao
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#springboot-advantages">SpringBoot Advantages
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mock">Mock
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#annotations-in-springboot">Annotations in SpringBoot
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-layers">3 Layers
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pojo">Pojo
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#h2-database">h2 database
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#handle-exception-in-springboot">Handle Exception in SpringBoot
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#questions-in-mock-interview">Questions in Mock interview
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1882,9 +1920,75 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>pros:</li>
 <li>cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired</li>
 </ul>
-<h2>3 Layers: Controller, Service, Dao<span class="absolute -mt-20" id="3-layers-controller-service-dao"></span>
-    <a href="#3-layers-controller-service-dao" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Mock<span class="absolute -mt-20" id="mock"></span>
-    <a href="#mock" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>The difference between HashMap and HashTable<span class="absolute -mt-20" id="the-difference-between-hashmap-and-hashtable"></span>
+<h3>SpringBoot Advantages<span class="absolute -mt-20" id="springboot-advantages"></span>
+    <a href="#springboot-advantages" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>auto configuration</li>
+<li>starter</li>
+<li>embedded Tomcat</li>
+<li>Spring Actuator</li>
+<li>@SpringBootApplication</li>
+</ul>
+<h3>Annotations in SpringBoot<span class="absolute -mt-20" id="annotations-in-springboot"></span>
+    <a href="#annotations-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">@Controller
+@RestController
+  - @RestController contains @Controller and @RespondBody.
+  - if we only use @Controller to Controller class, we also have to add @RespondBody manually.
+
+@Service
+
+@Repository
+@RequestMapping
+@GetMapping
+@PutMapping
+@DeleteMapping
+@PostMapping
+
+@Component
+@Bean
+
+@ResponseBody: java object -&gt; json
+@RequestBody: json -&gt; java object
+
+// used to retrieve the data from URL
+@PathVariable
+  - is used to retrieve the parameter before the question mark
+  - i.e. http://.../api/users/12
+@RequestParam
+  - is used to retrieve the parameters after the question mark
+  - we can specify if some parameters are required or not, we can also give them defaultValue
+  - i.e. http://.../api/users/?pageNo=2&amp;rows=10</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>3 Layers<span class="absolute -mt-20" id="3-layers"></span>
+    <a href="#3-layers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Controller, Service, Dao</li>
+</ul>
+<h2>Pojo<span class="absolute -mt-20" id="pojo"></span>
+    <a href="#pojo" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Plain Old Java Object</li>
+<li>it&rsquo;s a type of java object that is not tied to any specific framwork.</li>
+<li>it&rsquo;s simple and lightweight.</li>
+<li>it just includes some fields, constructor, setter and getter methods.</li>
+</ul>
+<h2>h2 database<span class="absolute -mt-20" id="h2-database"></span>
+    <a href="#h2-database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>it&rsquo;s a in-memory relational database</li>
+<li>it&rsquo;s useful for development and testing.</li>
+<li>once we close the application, the data will lost.</li>
+</ul>
+<h2>Handle Exception in SpringBoot<span class="absolute -mt-20" id="handle-exception-in-springboot"></span>
+    <a href="#handle-exception-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
+    <img src="../images-a/3.png" alt="3" loading="lazy" /></p>
+<h2>Questions in Mock interview<span class="absolute -mt-20" id="questions-in-mock-interview"></span>
+    <a href="#questions-in-mock-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>The difference between HashMap and HashTable<span class="absolute -mt-20" id="the-difference-between-hashmap-and-hashtable"></span>
     <a href="#the-difference-between-hashmap-and-hashtable" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>Regarding to Thread Safety
 <ul>
