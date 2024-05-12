@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="5003">
+<meta itemprop="wordCount" content="5082">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -497,6 +497,12 @@
                 href="#iostream"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >IOStream</a>
+            </li>
+          <li>
+              <a
+                href="#multithreading"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Multithreading</a>
             </li>
           <li>
               <a
@@ -1602,6 +1608,26 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#virtual-thread-is-the-future">virtual thread is the future
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-8-new-features">Java 8 new features
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#multithreading">Multithreading
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#thread-life-cycle">Thread Life Cycle
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#threadpoolor-executorservice">ThreadPool(or ExecutorService)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#design-patterns">Design Patterns
         </a>
       </li>
@@ -1790,7 +1816,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-8-new-features">Java 8 new features
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-8-new-features-1">Java 8 new features
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -2001,6 +2027,10 @@ session/ cookies
 <p>When an object is first created, it is put into generation 0. When the generation 0 is filled up, the garbage collector is invoked. The objects that survive the garbage collection in the first generation are promoted onto the next higher generation, generation 1. The objects that survive garbage collection in generation 1 are promoted onto the next and the highest generation, generation 2. This algorithm works efficiently for garbage collection of objects, as it is fast.</p>
 </li>
 </ul>
+<p>
+    <img src="../images-a/48.png" alt="48" loading="lazy" /></p>
+<p>
+    <img src="../images-a/49.png" alt="49" loading="lazy" /></p>
 <h2>Generics in Java, what is it, why we need it?<span class="absolute -mt-20" id="generics-in-java-what-is-it-why-we-need-it"></span>
     <a href="#generics-in-java-what-is-it-why-we-need-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Type erasing in Java, about generics<span class="absolute -mt-20" id="type-erasing-in-java-about-generics"></span>
     <a href="#type-erasing-in-java-about-generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>what/why generic<span class="absolute -mt-20" id="whatwhy-generic"></span>
@@ -2309,6 +2339,156 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 </ul>
 <p>
     <img src="../images-a/38.png" alt="38" loading="lazy" /></p>
+<h3>virtual thread is the future<span class="absolute -mt-20" id="virtual-thread-is-the-future"></span>
+    <a href="#virtual-thread-is-the-future" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/43.png" alt="43" loading="lazy" /></p>
+<h3>Java 8 new features<span class="absolute -mt-20" id="java-8-new-features"></span>
+    <a href="#java-8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Lambda expressions
+<ul>
+<li>it&rsquo;s just method without a name</li>
+<li>it&rsquo;s passing a function as annoymous object into Java program.</li>
+<li>it&rsquo;s just a annoynous method wrapped up with an annoynoms object. That&rsquo;s the object is the actually the thing we passed to our Java program.</li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/39.png" alt="39" loading="lazy" /></p>
+<ul>
+<li>Functional Interface
+<ul>
+<li>
+<p>it&rsquo;s a kind of interface that has only 1 abstract method.</p>
+</li>
+<li>
+<p>it can have multiple default methods and multiple static methods.</p>
+<ul>
+<li>
+<p>when use default methods:</p>
+<ul>
+<li>when this functional interface has been implemented by different classes and later we need to use it as a common function for each every those classes.</li>
+</ul>
+</li>
+<li>
+<p>when use static methods:</p>
+<ul>
+<li>when we don&rsquo;t want instantiate anything, any object. Or if we don&rsquo;t want this default method to be override, then we can use static method rather than default method to define this common behavior.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>i.e. Runnable, Callable, Comparator, Comparable, etc.</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>There are four major functional interface introduced in Java 8</p>
+</blockquote>
+<ul>
+<li>Consumer<T></li>
+<li>Supplier<T></li>
+<li>Function<T></li>
+<li>Predicate<T></li>
+</ul>
+<p>
+    <img src="../images-a/40.png" alt="40" loading="lazy" /></p>
+<p>
+    <img src="../images-a/41.png" alt="41" loading="lazy" /></p>
+<ul>
+<li>Stream API
+<ul>
+<li>It&rsquo;s let java can program in a way just like other functional programming language.
+
+    <img src="../images-a/42.png" alt="42" loading="lazy" /></li>
+<li>Two types of stream:
+<ul>
+<li>finite stream
+<ul>
+<li>normal <code>stream()</code></li>
+<li><code>parallelStream()</code></li>
+</ul>
+</li>
+<li>infinite stream
+<ul>
+<li><code>iterate(0, t -&gt; t + 2).limit(10).forEach(System.out::println)</code></li>
+<li><code>generate(Math::random).limit(10).forEach(System.out::println)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Two types of operations
+<ul>
+<li>intermediate operations</li>
+<li>terminal operations</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>it will keep original data intact.</p>
+</blockquote>
+<p>
+    <img src="../images-a/45.png" alt="45" loading="lazy" /></p>
+<ul>
+<li>Method Reference
+<ul>
+<li>is a further utilization of Lambda Expression. which is also a functional interface.</li>
+<li>it is trying to have a simplicity of the object and methods relationship that we can have. and return that into functional interface. with that functional interface will help us to  write stream API through functional style programming.</li>
+<li>The only thing we cannot reference is <strong>abstract method</strong>, as long as the method has a method body, that means we can refer to it.</li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/44.png" alt="44" loading="lazy" /></p>
+<ul>
+<li>
+<p>Optional Class</p>
+<ul>
+<li>it can help to handle NullPointerExceptions</li>
+<li>it&rsquo;s just warp the original object, to handle the situation like null reference</li>
+</ul>
+</li>
+<li>
+<p>CompletableFuture</p>
+</li>
+</ul>
+<h2>Multithreading<span class="absolute -mt-20" id="multithreading"></span>
+    <a href="#multithreading" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
+    <img src="../images-a/46.png" alt="46" loading="lazy" /></p>
+<ul>
+<li>
+<p>when we are talking about traditional thread, we should always use thread pool.</p>
+</li>
+<li>
+<p>virtual thread is good and is the future, but it&rsquo;s not available for old java versions.</p>
+</li>
+<li>
+<p>the first two ways to create new thread cannot throw any Exceptions, and no return for run method.</p>
+</li>
+<li>
+<p>the third one can have return data types and also can throw Exceptions.
+
+    <img src="../images-a/47.png" alt="47" loading="lazy" /></p>
+</li>
+</ul>
+<blockquote>
+<p>we can set priority for each thread from 1(least significant) - 10(most significant)</p>
+</blockquote>
+<h3>Thread Life Cycle<span class="absolute -mt-20" id="thread-life-cycle"></span>
+    <a href="#thread-life-cycle" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>NEW</li>
+<li>RUNNABLE</li>
+<li>BLOCKED</li>
+<li>WAITING</li>
+<li>TIMED_WAITING</li>
+<li>TERMINATED</li>
+</ul>
+<h3>ThreadPool(or ExecutorService)<span class="absolute -mt-20" id="threadpoolor-executorservice"></span>
+    <a href="#threadpoolor-executorservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/50.png" alt="50" loading="lazy" /></p>
 <h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
     <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
     <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
@@ -3048,82 +3228,9 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </ul>
 </li>
 </ul>
-<h3>Java 8 new features<span class="absolute -mt-20" id="java-8-new-features"></span>
-    <a href="#java-8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>Functional Interface
-<ul>
-<li>
-<p>it&rsquo;s a kind of interface that has only 1 abstract method.</p>
-</li>
-<li>
-<p>it can have multiple default methods and multiple static methods.</p>
-<ul>
-<li>
-<p>when use default methods:</p>
-<ul>
-<li>when this functional interface has been implemented by different classes and later we need to use it as a common function for each every those classes.</li>
-</ul>
-</li>
-<li>
-<p>when use static methods:</p>
-<ul>
-<li>when we don&rsquo;t want instantiate anything, any object. Or if we don&rsquo;t want this default method to be override, then we can use static method rather than default method to define this common behavior.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>i.e. Runnable, Callable, Comparator, Comparable, etc.</p>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>There are four major functional interface introduced in Java 8</p>
-</blockquote>
-<ul>
-<li>Consumer<T></li>
-<li>Supplier<T></li>
-<li>Function<T></li>
-<li>Predicate<T></li>
-</ul>
-<p>
-    <img src="../images-a/40.png" alt="40" loading="lazy" /></p>
-<p>
-    <img src="../images-a/41.png" alt="41" loading="lazy" /></p>
-<ul>
-<li>Lambda expressions
-<ul>
-<li>it&rsquo;s just method without a name</li>
-<li>it&rsquo;s passing a function as annoymous object into Java program.</li>
-<li>it&rsquo;s just a annoynous method wrapped up with an annoynoms object. That&rsquo;s the object is the actually the thing we passed to our Java program.</li>
-</ul>
-</li>
-</ul>
-<p>
-    <img src="../images-a/39.png" alt="39" loading="lazy" /></p>
-<ul>
-<li>
-<p>Method Reference</p>
-<ul>
-<li>it&rsquo;s a way to let us create a reference to a method without invoking it.</li>
-</ul>
-</li>
-<li>
-<p>Stream API</p>
-<ul>
-<li>It&rsquo;s let java can program in a way just like other functional programming language.</li>
-</ul>
-</li>
-<li>
-<p>Optional Class</p>
-<ul>
-<li>it&rsquo;s just warp the original object, to handle the situation like null reference</li>
-</ul>
-</li>
-<li>
-<p>CompletableFuture</p>
-</li>
+<h3>Java 8 new features<span class="absolute -mt-20" id="java-8-new-features-1"></span>
+    <a href="#java-8-new-features-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>above</li>
 </ul>
 <h3>In SpringBoot, the difference between Controller and RestController annotation<span class="absolute -mt-20" id="in-springboot-the-difference-between-controller-and-restcontroller-annotation"></span>
     <a href="#in-springboot-the-difference-between-controller-and-restcontroller-annotation" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
@@ -3131,19 +3238,9 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>if we only use @Controller to Controller class, we also have to add @RespondBody manually.</li>
 </ul>
 <h3>Bean Scopes<span class="absolute -mt-20" id="bean-scopes"></span>
-    <a href="#bean-scopes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
-<li>Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
-<li>Prototype. The Ioc container creates a new instance of the bean every time it is requested.</li>
-</ol>
-<blockquote>
-<p>Only valid in the context of a Spring Web ApplicationContext.</p>
-</blockquote>
-<ol start="3">
-<li>Request. A new instance of the bean is created for <strong>each HTTP request</strong>.</li>
-<li>Session. A new instance of the bean is created for <strong>each HTTP session</strong>.</li>
-<li>Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.</li>
-<li>WebSocket. Similar to session scope, but designed for WebSocket-based interactions.</li>
-</ol>
+    <a href="#bean-scopes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>above</li>
+</ul>
 
         </div>
         <div class="mt-16"></div>
