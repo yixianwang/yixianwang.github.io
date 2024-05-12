@@ -11,24 +11,24 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Antra Java Concepts Cheat Sheet – Yixian Wang</title>
+  <title>Antra Training Concepts Cheat Sheet – Yixian Wang</title>
   <meta name="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
 
   
 
-<meta property="og:title" content="Antra Java Concepts Cheat Sheet" />
+<meta property="og:title" content="Antra Training Concepts Cheat Sheet" />
 <meta property="og:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/a_concepts/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-04-30T18:58:08-04:00" />
 <meta property="article:modified_time" content="2024-04-30T18:58:08-04:00" />
 
-  <meta itemprop="name" content="Antra Java Concepts Cheat Sheet">
+  <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="2918">
+<meta itemprop="wordCount" content="3686">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Antra Java Concepts Cheat Sheet"/>
+<meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -291,7 +291,7 @@
       sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/a_concepts/"
     
-  >Antra Java Concepts Cheat Sheet
+  >Antra Training Concepts Cheat Sheet
     </a>
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
@@ -494,21 +494,51 @@
             </li>
           <li>
               <a
+                href="#mavengradle"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Maven/Gradle</a>
+            </li>
+          <li>
+              <a
+                href="#spring-ioc-inversion-of-control"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Spring IoC: Inversion of Control</a>
+            </li>
+          <li>
+              <a
+                href="#dependency-injection"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Dependency Injection</a>
+            </li>
+          <li>
+              <a
                 href="#bean-scope"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Bean Scope</a>
             </li>
           <li>
               <a
-                href="#inversion-of-control"
+                href="#types-of-dependency-injections"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Inversion of Control</a>
+              >Types of Dependency Injections</a>
             </li>
           <li>
               <a
-                href="#dependency-injections"
+                href="#bean-life-cycle"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Dependency Injections</a>
+              >Bean Life Cycle</a>
+            </li>
+          <li>
+              <a
+                href="#aop"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >AOP</a>
+            </li>
+          <li>
+              <a
+                href="#spring-mvc"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Spring MVC</a>
             </li>
           <li>
               <a
@@ -999,7 +1029,7 @@
       sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/a_concepts/"
     
-  >Antra Java Concepts Cheat Sheet
+  >Antra Training Concepts Cheat Sheet
     </a></li>
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1516,6 +1546,34 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mavengradle">Maven/Gradle
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#maven-folder-structure">Maven folder structure
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#types-of-repositories-in-maven">Types of Repositories in Maven
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#maven-life-cycle">Maven Life Cycle
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#jar-vs-war">.jar vs .war
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#spring-ioc-inversion-of-control">Spring IoC: Inversion of Control
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-injection">Dependency Injection
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bean-scope">Bean Scope
         </a>
       </li>
@@ -1524,11 +1582,31 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#inversion-of-control">Inversion of Control
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#types-of-dependency-injections">Types of Dependency Injections
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-injections">Dependency Injections
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#bean-life-cycle">Bean Life Cycle
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#aop">AOP
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#usage-of-aop">Usage of AOP
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#termsbasic-components-of-aop">Terms(basic components of AOP)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#some-default-annotations">Some Default Annotations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#aop-workflow-in-spring">AOP workflow in Spring
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1537,6 +1615,14 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#annotations-in-springboot">Annotations in SpringBoot
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#spring-mvc">Spring MVC
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#flow-of-spring-mvc">Flow of Spring MVC
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1608,11 +1694,11 @@
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Antra Java Concepts Cheat Sheet</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Antra Training Concepts Cheat Sheet</div>
 </div>
 
         <div class="content">
-          <h1>Antra Java Concepts Cheat Sheet</h1>
+          <h1>Antra Training Concepts Cheat Sheet</h1>
           <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">static block?
 
 singleton vs immutable class
@@ -2135,32 +2221,135 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <blockquote>
 <p>the underlying technology behind Spring Data JPA is Hibernate. the underlying technology behind the Hibernate is JDBC.</p>
 </blockquote>
+<p>
+    <img src="../images-a/5.png" alt="5" loading="lazy" />
+
+    <img src="../images-a/6.png" alt="6" loading="lazy" />
+
+    <img src="../images-a/7.png" alt="7" loading="lazy" /></p>
+<h2>Maven/Gradle<span class="absolute -mt-20" id="mavengradle"></span>
+    <a href="#mavengradle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>project management tool</li>
+</ul>
+<h3>Maven folder structure<span class="absolute -mt-20" id="maven-folder-structure"></span>
+    <a href="#maven-folder-structure" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/8.png" alt="8" loading="lazy" /></p>
+<h3>Types of Repositories in Maven<span class="absolute -mt-20" id="types-of-repositories-in-maven"></span>
+    <a href="#types-of-repositories-in-maven" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Local Repository
+<ul>
+<li>~/.m2</li>
+</ul>
+</li>
+<li>Remote Repository
+<ul>
+<li>Central Repository</li>
+<li>Customized Remote Repository</li>
+</ul>
+</li>
+</ul>
+<h3>Maven Life Cycle<span class="absolute -mt-20" id="maven-life-cycle"></span>
+    <a href="#maven-life-cycle" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>clean: clean cached data, cached dependencies.</li>
+<li>validate: check if necessary info is available.</li>
+<li>compile: compile the project.</li>
+<li>test: run all tests within test folder.</li>
+<li>package: we can package the project into jar or war.</li>
+<li>verify: check whether our code satisfy some criteria.</li>
+<li>install: install the project to local as dependency for other projects.</li>
+</ul>
+<h3>.jar vs .war<span class="absolute -mt-20" id="jar-vs-war"></span>
+    <a href="#jar-vs-war" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>jar file contains the embedded server like tomcat, whereas war file doesn&rsquo;t.</li>
+</ul>
+<h2>Spring IoC: Inversion of Control<span class="absolute -mt-20" id="spring-ioc-inversion-of-control"></span>
+    <a href="#spring-ioc-inversion-of-control" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>We transfer the control of the object to the container of framework, which is <code>ApplicationContext</code>.</li>
+<li><code>ApplicationContext</code> helps us manage all beans life cycle.</li>
+</ul>
+<p>
+    <img src="../images-a/9.png" alt="9" loading="lazy" /></p>
+<ul>
+<li>It is a principle which <strong>transfer the control of the objects</strong> to a container or framework.</li>
+</ul>
+<h2>Dependency Injection<span class="absolute -mt-20" id="dependency-injection"></span>
+    <a href="#dependency-injection" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>We can inject the object into another object.</li>
+</ul>
+<p>
+    <img src="../images-a/10.png" alt="10" loading="lazy" />
+
+    <img src="../images-a/11.png" alt="11" loading="lazy" />
+
+    <img src="../images-a/12.png" alt="12" loading="lazy" />
+
+    <img src="../images-a/13.png" alt="13" loading="lazy" />
+
+    <img src="../images-a/14.png" alt="14" loading="lazy" /></p>
 <h2>Bean Scope<span class="absolute -mt-20" id="bean-scope"></span>
     <a href="#bean-scope" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
-<li>Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
-<li>Prototype. The Ioc container creates a new instance of the bean every time it is requested.</li>
+<li>Singleton(default).</li>
 </ol>
+<ul>
+<li>The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.</li>
+<li>Use Case: When you want to share a single instance of a bean across the entire application.</li>
+<li>Example: Configuration beans, controller beans, service beans, DAO beans, Logger beans, Utility beans.</li>
+</ul>
+<ol start="2">
+<li>Prototype.</li>
+</ol>
+<ul>
+<li>Use Case: When you want to create a new instance of a bean every time it is requested.</li>
+<li>Example: Request-scoped beans in web applications, Prototype beans for stateful objects, Objects with complex initialization logic.</li>
+</ul>
 <blockquote>
 <p>Only valid in the context of a Spring Web ApplicationContext.</p>
 </blockquote>
 <ol start="3">
-<li>Request. A new instance of the bean is created for <strong>each HTTP request</strong>.</li>
-<li>Session. A new instance of the bean is created for <strong>each HTTP session</strong>.</li>
-<li>Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.</li>
-<li>WebSocket. Similar to session scope, but designed for WebSocket-based interactions.</li>
+<li>Request.</li>
 </ol>
+<ul>
+<li>Use Case: When you want to create a new instance of a bean for <strong>each HTTP request</strong> in a web application.</li>
+<li>Example: Controllers, Form objects, View helpers, Request-specific data objects.</li>
+</ul>
+<ol start="4">
+<li>Session.</li>
+</ol>
+<ul>
+<li>Use Case: When you want to create a single instance of a bean for <strong>each user session</strong> in a web application.</li>
+<li>Example: User session beans, Shopping cart beans, User preferences beans, User authentication beans.</li>
+</ul>
+<ol start="5">
+<li>Application.</li>
+</ol>
+<ul>
+<li>A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.</li>
+<li>Use Case: When you want to create a single instance of a bean for the entire web application context.</li>
+<li>Example: Application-wide configuration beans, Global caching beans, Shared resources across multiple sessions.</li>
+</ul>
+<ol start="6">
+<li>WebSocket.</li>
+</ol>
+<ul>
+<li>Similar to session scope, but designed for WebSocket-based interactions.</li>
+<li>Use Case: When you want to create a single instance of a bean for each WebSocket connection.</li>
+<li>Example: WebSocket handlers, Session-specific WebSocket state beans.</li>
+</ul>
+<ol start="7">
+<li>Custom Scopes.</li>
+</ol>
+<ul>
+<li>Use Case: When none of the built-in scopes meet your requirements, you can create custom scopes.</li>
+<li>Example: Tenant-specific beans, Conversation-scoped beans, Batch job-scoped beans.</li>
+</ul>
 <h3>Choose Appropriate Scope<span class="absolute -mt-20" id="choose-appropriate-scope"></span>
     <a href="#choose-appropriate-scope" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>Singleton is suitable for stateless beans or beans that are expensive to create.</li>
 <li>Prototype is useful for stateful beans or beans that need to maintain their state separately.</li>
 <li>Request, Session, and Application scopes are suitable for beans that hold web-related state information and need to be scoped accordingly.</li>
 </ul>
-<h2>Inversion of Control<span class="absolute -mt-20" id="inversion-of-control"></span>
-    <a href="#inversion-of-control" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>It is a principle which <strong>transfer the control of the objects</strong> to a container or framework.</li>
-</ul>
-<h2>Dependency Injections<span class="absolute -mt-20" id="dependency-injections"></span>
-    <a href="#dependency-injections" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<h2>Types of Dependency Injections<span class="absolute -mt-20" id="types-of-dependency-injections"></span>
+    <a href="#types-of-dependency-injections" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
 <li>Constructor Injection: for <strong>mandatory dependencies</strong> so that our bean is ready to use when it is first time called.</li>
 </ol>
 <ul>
@@ -2187,6 +2376,94 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <ul>
 <li>pros:</li>
 <li>cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired</li>
+</ul>
+<h2>Bean Life Cycle<span class="absolute -mt-20" id="bean-life-cycle"></span>
+    <a href="#bean-life-cycle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>@PostConstruct</code></li>
+<li><code>@PreDestroy</code>
+
+    <img src="../images-a/15.png" alt="15" loading="lazy" /></li>
+</ul>
+<h2>AOP<span class="absolute -mt-20" id="aop"></span>
+    <a href="#aop" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>it enables us to monitor the methods, monitor the class, monitor everything without touching the service or some other classes.</li>
+</ul>
+<h3>Usage of AOP<span class="absolute -mt-20" id="usage-of-aop"></span>
+    <a href="#usage-of-aop" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>log something</li>
+<li>Audit the crud operations from http request(get, put, post, delete)</li>
+<li>monitor some special method, like once the method was invoked, use AOP to send email to the admin.</li>
+<li>Caching</li>
+<li>Transaction</li>
+<li>Security</li>
+</ul>
+<h3>Terms(basic components of AOP)<span class="absolute -mt-20" id="termsbasic-components-of-aop"></span>
+    <a href="#termsbasic-components-of-aop" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>Aspect</p>
+<ul>
+<li>An aspect is a modular unit of cross-cutting concerns in AOP.</li>
+<li>It encapsulates behaviors (advice) that are applied to multiple join points in the application.</li>
+<li>Examples of aspects include logging, security, transaction management, and error handling.</li>
+</ul>
+</li>
+<li>
+<p>Advice: Advice is the action taken by an aspect at a particular <strong>Join Point</strong> during the execution of a program.</p>
+<ul>
+<li>before advice: Executed before a method invocation.</li>
+<li>after advice
+<ul>
+<li><code>@AfterReturning</code>: Executed after a method returns successfully.</li>
+<li><code>@AfterThrowing</code>: Executed after a method throws an exception.</li>
+<li><code>@After(Finally)</code>: Executed regardless of the method outcome.</li>
+</ul>
+</li>
+<li>around advice: Wraps a method invocation and controls its execution.</li>
+</ul>
+</li>
+<li>
+<p>Join Point: A join point is a specific point in the execution of a program where an aspect can be applied.</p>
+<ul>
+<li>Examples of join points include method invocations, method executions, field access, object instantiation, and exception handling.</li>
+</ul>
+</li>
+<li>
+<p>Point Cut: a expression to find where to inject our AOP logic</p>
+<ul>
+<li><code>@PointCut(&quot;execution(* com.example.aop.springaop.*.*.*(..))&quot;)</code> first star means any return.</li>
+<li><code>@PointCut(&quot;within(com.example.aop.springaop..*)&quot;)</code></li>
+<li><code>@PointCut(&quot;this(com.example.aop.springaop.service.ClassName)&quot;)</code> to find class</li>
+<li><code>@PointCut(&quot;@annotation(com.example.aop.springaop.annotation.CutomAnnotation)&quot;)</code> to find method</li>
+</ul>
+</li>
+<li>
+<p>Target:</p>
+<ul>
+<li>The <strong>target object</strong> is the object being advised by one or more <strong>aspects</strong>.</li>
+<li>It is the object whose methods are intercepted by <strong>advice</strong> during method invocation.</li>
+</ul>
+</li>
+</ul>
+<h3>Some Default Annotations<span class="absolute -mt-20" id="some-default-annotations"></span>
+    <a href="#some-default-annotations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>@Cacheable</code>: is used to annotate methods to indicate that the results of method invocations can be cached.</li>
+<li><code>@Transactional</code>: is used to annotate methods or classes to indicate that they are transactional.
+<ul>
+<li>It is commonly used to ensure data consistency and integrity by managing database transactions declaratively.</li>
+</ul>
+</li>
+<li><code>@Secured</code>: is used to specify method-level security constraints.
+<ul>
+<li>When applied to a method, Spring Security ensures that only users with the specified roles/authorities are allowed to execute the method.</li>
+</ul>
+</li>
+</ul>
+<h3>AOP workflow in Spring<span class="absolute -mt-20" id="aop-workflow-in-spring"></span>
+    <a href="#aop-workflow-in-spring" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>underlying logic of AOP is Reflection</li>
+<li>Dynamic Proxy -&gt; Reflection
+
+    <img src="../images-a/16.png" alt="16" loading="lazy" /></li>
 </ul>
 <h3>SpringBoot Advantages<span class="absolute -mt-20" id="springboot-advantages"></span>
     <a href="#springboot-advantages" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
@@ -2224,7 +2501,41 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 @RequestParam
   - is used to retrieve the parameters after the question mark
   - we can specify if some parameters are required or not, we can also give them defaultValue
-  - i.e. http://.../api/users/?pageNo=2&amp;rows=10</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+  - i.e. http://.../api/users/?pageNo=2&amp;rows=10
+
+@GenerateValue(strategy = GenerationType.AUTO)
+
+@Aspect
+
+@PointCut(&#34;...&#34;)
+public void loggingPointCut() {}
+
+@Before(&#34;loggingPointCut()&#34;)
+public void before(JointPoint joinPoint) {
+  log.info(&#34;...&#34; &#43; joinPoint.getSignature());
+}
+
+@AfterReturning(value = &#34;execution(* com.....)&#34;, returning = &#34;employee&#34;)
+public void after(JointPoint joinPoint, Employee employee) {
+  lof.info(&#34;...&#34; &#43; employee);
+}
+@AfterThrowing(value = &#34;execution(* com.....)&#34;, throwing = &#34;e&#34;)
+public void after(JointPoint joinPoint, Exception e) {
+  lof.info(&#34;...&#34; &#43; e.getMessage());
+}
+
+@Around(&#34;loggingPointCut()&#34;)
+public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+  log.info(&#34;...&#34; &#43; joinPoint.getArgs()[0]);
+  Object object = joinPoint.proceed();
+
+  if (object instanceof Employee) {
+    log.info(&#34;...&#34; &#43; joinPoint.getArgs()[0]);
+  } else if (object instanceof Department) {
+    log.info(&#34;...&#34; &#43; joinPoint.getArgs()[0]);
+  }
+  return object;
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -2235,6 +2546,16 @@ static: inner class, method, variable, static block</code></pre><div class="opac
     </button>
   </div>
 </div>
+<h2>Spring MVC<span class="absolute -mt-20" id="spring-mvc"></span>
+    <a href="#spring-mvc" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Spring MVC is based on MVC design pattern, provides much convenience comparing to Spring</li>
+<li>Doesn&rsquo;t provide any embedded server, whereas SpringBoot does(Tomcat).</li>
+</ul>
+<h3>Flow of Spring MVC<span class="absolute -mt-20" id="flow-of-spring-mvc"></span>
+    <a href="#flow-of-spring-mvc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/18.png" alt="18" loading="lazy" /></p>
+<p>
+    <img src="../images-a/17.png" alt="17" loading="lazy" /></p>
 <h2>3 Layers<span class="absolute -mt-20" id="3-layers"></span>
     <a href="#3-layers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Controller, Service, Dao</li>

@@ -91,7 +91,7 @@
     </item>
     
     <item>
-      <title>Antra Java Concepts Cheat Sheet</title>
+      <title>Antra Training Concepts Cheat Sheet</title>
       <link>https://yixianwang.github.io/notes/a_concepts/</link>
       <pubDate>Tue, 30 Apr 2024 18:58:08 -0400</pubDate>
       
@@ -621,32 +621,135 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;blockquote&gt;
 &lt;p&gt;the underlying technology behind Spring Data JPA is Hibernate. the underlying technology behind the Hibernate is JDBC.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/5.png&#34; alt=&#34;5&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/6.png&#34; alt=&#34;6&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/7.png&#34; alt=&#34;7&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;Maven/Gradle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mavengradle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mavengradle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;project management tool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Maven folder structure&lt;span class=&#34;absolute -mt-20&#34; id=&#34;maven-folder-structure&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#maven-folder-structure&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/8.png&#34; alt=&#34;8&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;Types of Repositories in Maven&lt;span class=&#34;absolute -mt-20&#34; id=&#34;types-of-repositories-in-maven&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#types-of-repositories-in-maven&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Local Repository
+&lt;ul&gt;
+&lt;li&gt;~/.m2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Remote Repository
+&lt;ul&gt;
+&lt;li&gt;Central Repository&lt;/li&gt;
+&lt;li&gt;Customized Remote Repository&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Maven Life Cycle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;maven-life-cycle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#maven-life-cycle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;clean: clean cached data, cached dependencies.&lt;/li&gt;
+&lt;li&gt;validate: check if necessary info is available.&lt;/li&gt;
+&lt;li&gt;compile: compile the project.&lt;/li&gt;
+&lt;li&gt;test: run all tests within test folder.&lt;/li&gt;
+&lt;li&gt;package: we can package the project into jar or war.&lt;/li&gt;
+&lt;li&gt;verify: check whether our code satisfy some criteria.&lt;/li&gt;
+&lt;li&gt;install: install the project to local as dependency for other projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;.jar vs .war&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jar-vs-war&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#jar-vs-war&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;jar file contains the embedded server like tomcat, whereas war file doesn&amp;rsquo;t.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Spring IoC: Inversion of Control&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-ioc-inversion-of-control&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#spring-ioc-inversion-of-control&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;We transfer the control of the object to the container of framework, which is &lt;code&gt;ApplicationContext&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ApplicationContext&lt;/code&gt; helps us manage all beans life cycle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/9.png&#34; alt=&#34;9&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a principle which &lt;strong&gt;transfer the control of the objects&lt;/strong&gt; to a container or framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Dependency Injection&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dependency-injection&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dependency-injection&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;We can inject the object into another object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/10.png&#34; alt=&#34;10&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/11.png&#34; alt=&#34;11&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/12.png&#34; alt=&#34;12&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/13.png&#34; alt=&#34;13&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/14.png&#34; alt=&#34;14&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h2&gt;Bean Scope&lt;span class=&#34;absolute -mt-20&#34; id=&#34;bean-scope&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#bean-scope&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Singleton(default). The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.&lt;/li&gt;
-&lt;li&gt;Prototype. The Ioc container creates a new instance of the bean every time it is requested.&lt;/li&gt;
+&lt;li&gt;Singleton(default).&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The IoC container creates only one instance of the bean, and reuses it whenever that bean is requested. This is the default cope in Spring.&lt;/li&gt;
+&lt;li&gt;Use Case: When you want to share a single instance of a bean across the entire application.&lt;/li&gt;
+&lt;li&gt;Example: Configuration beans, controller beans, service beans, DAO beans, Logger beans, Utility beans.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Prototype.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Case: When you want to create a new instance of a bean every time it is requested.&lt;/li&gt;
+&lt;li&gt;Example: Request-scoped beans in web applications, Prototype beans for stateful objects, Objects with complex initialization logic.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Only valid in the context of a Spring Web ApplicationContext.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Request. A new instance of the bean is created for &lt;strong&gt;each HTTP request&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Session. A new instance of the bean is created for &lt;strong&gt;each HTTP session&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Application. A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.&lt;/li&gt;
-&lt;li&gt;WebSocket. Similar to session scope, but designed for WebSocket-based interactions.&lt;/li&gt;
+&lt;li&gt;Request.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Case: When you want to create a new instance of a bean for &lt;strong&gt;each HTTP request&lt;/strong&gt; in a web application.&lt;/li&gt;
+&lt;li&gt;Example: Controllers, Form objects, View helpers, Request-specific data objects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Session.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Case: When you want to create a single instance of a bean for &lt;strong&gt;each user session&lt;/strong&gt; in a web application.&lt;/li&gt;
+&lt;li&gt;Example: User session beans, Shopping cart beans, User preferences beans, User authentication beans.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Application.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A single instance of the bean is created for the entire web application context. This means all requests and sessions share the same instance of the bean.&lt;/li&gt;
+&lt;li&gt;Use Case: When you want to create a single instance of a bean for the entire web application context.&lt;/li&gt;
+&lt;li&gt;Example: Application-wide configuration beans, Global caching beans, Shared resources across multiple sessions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;WebSocket.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Similar to session scope, but designed for WebSocket-based interactions.&lt;/li&gt;
+&lt;li&gt;Use Case: When you want to create a single instance of a bean for each WebSocket connection.&lt;/li&gt;
+&lt;li&gt;Example: WebSocket handlers, Session-specific WebSocket state beans.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;Custom Scopes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Case: When none of the built-in scopes meet your requirements, you can create custom scopes.&lt;/li&gt;
+&lt;li&gt;Example: Tenant-specific beans, Conversation-scoped beans, Batch job-scoped beans.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Choose Appropriate Scope&lt;span class=&#34;absolute -mt-20&#34; id=&#34;choose-appropriate-scope&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#choose-appropriate-scope&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Singleton is suitable for stateless beans or beans that are expensive to create.&lt;/li&gt;
 &lt;li&gt;Prototype is useful for stateful beans or beans that need to maintain their state separately.&lt;/li&gt;
 &lt;li&gt;Request, Session, and Application scopes are suitable for beans that hold web-related state information and need to be scoped accordingly.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Inversion of Control&lt;span class=&#34;absolute -mt-20&#34; id=&#34;inversion-of-control&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#inversion-of-control&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;It is a principle which &lt;strong&gt;transfer the control of the objects&lt;/strong&gt; to a container or framework.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Dependency Injections&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dependency-injections&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#dependency-injections&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;h2&gt;Types of Dependency Injections&lt;span class=&#34;absolute -mt-20&#34; id=&#34;types-of-dependency-injections&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#types-of-dependency-injections&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Constructor Injection: for &lt;strong&gt;mandatory dependencies&lt;/strong&gt; so that our bean is ready to use when it is first time called.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
@@ -673,6 +776,94 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;ul&gt;
 &lt;li&gt;pros:&lt;/li&gt;
 &lt;li&gt;cons: it makes headache to test, so how do you test that without bring up spring context or using some type of reflection utilities to inject that. It can be done but it gives us a big headache when we do a private field in Autowired&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Bean Life Cycle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;bean-life-cycle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bean-life-cycle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@PostConstruct&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@PreDestroy&lt;/code&gt;
+
+    &lt;img src=&#34;../images-a/15.png&#34; alt=&#34;15&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;AOP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;aop&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#aop&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;it enables us to monitor the methods, monitor the class, monitor everything without touching the service or some other classes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Usage of AOP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;usage-of-aop&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#usage-of-aop&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;log something&lt;/li&gt;
+&lt;li&gt;Audit the crud operations from http request(get, put, post, delete)&lt;/li&gt;
+&lt;li&gt;monitor some special method, like once the method was invoked, use AOP to send email to the admin.&lt;/li&gt;
+&lt;li&gt;Caching&lt;/li&gt;
+&lt;li&gt;Transaction&lt;/li&gt;
+&lt;li&gt;Security&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Terms(basic components of AOP)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;termsbasic-components-of-aop&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#termsbasic-components-of-aop&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Aspect&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An aspect is a modular unit of cross-cutting concerns in AOP.&lt;/li&gt;
+&lt;li&gt;It encapsulates behaviors (advice) that are applied to multiple join points in the application.&lt;/li&gt;
+&lt;li&gt;Examples of aspects include logging, security, transaction management, and error handling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Advice: Advice is the action taken by an aspect at a particular &lt;strong&gt;Join Point&lt;/strong&gt; during the execution of a program.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;before advice: Executed before a method invocation.&lt;/li&gt;
+&lt;li&gt;after advice
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@AfterReturning&lt;/code&gt;: Executed after a method returns successfully.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@AfterThrowing&lt;/code&gt;: Executed after a method throws an exception.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@After(Finally)&lt;/code&gt;: Executed regardless of the method outcome.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;around advice: Wraps a method invocation and controls its execution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Join Point: A join point is a specific point in the execution of a program where an aspect can be applied.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Examples of join points include method invocations, method executions, field access, object instantiation, and exception handling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Point Cut: a expression to find where to inject our AOP logic&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@PointCut(&amp;quot;execution(* com.example.aop.springaop.*.*.*(..))&amp;quot;)&lt;/code&gt; first star means any return.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@PointCut(&amp;quot;within(com.example.aop.springaop..*)&amp;quot;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@PointCut(&amp;quot;this(com.example.aop.springaop.service.ClassName)&amp;quot;)&lt;/code&gt; to find class&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@PointCut(&amp;quot;@annotation(com.example.aop.springaop.annotation.CutomAnnotation)&amp;quot;)&lt;/code&gt; to find method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Target:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;target object&lt;/strong&gt; is the object being advised by one or more &lt;strong&gt;aspects&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It is the object whose methods are intercepted by &lt;strong&gt;advice&lt;/strong&gt; during method invocation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Some Default Annotations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;some-default-annotations&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#some-default-annotations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@Cacheable&lt;/code&gt;: is used to annotate methods to indicate that the results of method invocations can be cached.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Transactional&lt;/code&gt;: is used to annotate methods or classes to indicate that they are transactional.
+&lt;ul&gt;
+&lt;li&gt;It is commonly used to ensure data consistency and integrity by managing database transactions declaratively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Secured&lt;/code&gt;: is used to specify method-level security constraints.
+&lt;ul&gt;
+&lt;li&gt;When applied to a method, Spring Security ensures that only users with the specified roles/authorities are allowed to execute the method.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;AOP workflow in Spring&lt;span class=&#34;absolute -mt-20&#34; id=&#34;aop-workflow-in-spring&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#aop-workflow-in-spring&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;underlying logic of AOP is Reflection&lt;/li&gt;
+&lt;li&gt;Dynamic Proxy -&amp;gt; Reflection
+
+    &lt;img src=&#34;../images-a/16.png&#34; alt=&#34;16&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;SpringBoot Advantages&lt;span class=&#34;absolute -mt-20&#34; id=&#34;springboot-advantages&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#springboot-advantages&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
@@ -710,7 +901,41 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 @RequestParam
   - is used to retrieve the parameters after the question mark
   - we can specify if some parameters are required or not, we can also give them defaultValue
-  - i.e. http://.../api/users/?pageNo=2&amp;amp;rows=10&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+  - i.e. http://.../api/users/?pageNo=2&amp;amp;rows=10
+
+@GenerateValue(strategy = GenerationType.AUTO)
+
+@Aspect
+
+@PointCut(&amp;#34;...&amp;#34;)
+public void loggingPointCut() {}
+
+@Before(&amp;#34;loggingPointCut()&amp;#34;)
+public void before(JointPoint joinPoint) {
+  log.info(&amp;#34;...&amp;#34; &amp;#43; joinPoint.getSignature());
+}
+
+@AfterReturning(value = &amp;#34;execution(* com.....)&amp;#34;, returning = &amp;#34;employee&amp;#34;)
+public void after(JointPoint joinPoint, Employee employee) {
+  lof.info(&amp;#34;...&amp;#34; &amp;#43; employee);
+}
+@AfterThrowing(value = &amp;#34;execution(* com.....)&amp;#34;, throwing = &amp;#34;e&amp;#34;)
+public void after(JointPoint joinPoint, Exception e) {
+  lof.info(&amp;#34;...&amp;#34; &amp;#43; e.getMessage());
+}
+
+@Around(&amp;#34;loggingPointCut()&amp;#34;)
+public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+  log.info(&amp;#34;...&amp;#34; &amp;#43; joinPoint.getArgs()[0]);
+  Object object = joinPoint.proceed();
+
+  if (object instanceof Employee) {
+    log.info(&amp;#34;...&amp;#34; &amp;#43; joinPoint.getArgs()[0]);
+  } else if (object instanceof Department) {
+    log.info(&amp;#34;...&amp;#34; &amp;#43; joinPoint.getArgs()[0]);
+  }
+  return object;
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
@@ -721,6 +946,16 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;h2&gt;Spring MVC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-mvc&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#spring-mvc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Spring MVC is based on MVC design pattern, provides much convenience comparing to Spring&lt;/li&gt;
+&lt;li&gt;Doesn&amp;rsquo;t provide any embedded server, whereas SpringBoot does(Tomcat).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Flow of Spring MVC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;flow-of-spring-mvc&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#flow-of-spring-mvc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/18.png&#34; alt=&#34;18&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/17.png&#34; alt=&#34;17&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h2&gt;3 Layers&lt;span class=&#34;absolute -mt-20&#34; id=&#34;3-layers&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#3-layers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Controller, Service, Dao&lt;/li&gt;
