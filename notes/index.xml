@@ -212,17 +212,29 @@ session/ cookies
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;h2&gt;Java is passed by Value or Reference?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java-is-passed-by-value-or-reference&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Core Java interview questions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;core-java-interview-questions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#core-java-interview-questions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Java is passed by Value or Reference?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java-is-passed-by-value-or-reference&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#java-is-passed-by-value-or-reference&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;In Java, there are two kinds of data type, &lt;strong&gt;Primitive&lt;/strong&gt; data types and &lt;strong&gt;Non-primitive&lt;/strong&gt; data types.&lt;/li&gt;
 &lt;li&gt;For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value.&lt;/li&gt;
 &lt;li&gt;For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array.&lt;/li&gt;
 &lt;li&gt;In conclusion all data types in Java are passed by value.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;static keyword&lt;span class=&#34;absolute -mt-20&#34; id=&#34;static-keyword&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#static-keyword&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Hashmap workflow&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hashmap-workflow&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;static keyword(within 5 sentences)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;static-keywordwithin-5-sentences&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#static-keywordwithin-5-sentences&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;we have four places to put static keyword on.(class, method, variable, block)&lt;/li&gt;
+&lt;li&gt;For having static keyword on method, variable scope is to ensure that they can share just by class template.&lt;/li&gt;
+&lt;li&gt;what &lt;strong&gt;SCOPES&lt;/strong&gt; we can access static elements.
+&lt;ul&gt;
+&lt;li&gt;we cannot override static method&lt;/li&gt;
+&lt;li&gt;static class cannot called by non-static method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Hashmap workflow&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hashmap-workflow&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hashmap-workflow&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Internally, Hashmap is an array of linkedList.&lt;/li&gt;
+&lt;li&gt;Each of the key-value pairs is passed into the hashCode method first, the key is going to pass as the input and generate values. With hashing result key-value pair is put in one of the place in the array, which is called bucket head. When there is any of hash code collision happened, then that&amp;rsquo;s the reason why we need to override equals and hashCode methods. And when hash collision happened, then we are going to check if the two keys are exactly the same then we upate the value. If they are don&amp;rsquo;t, that means there is a hash collision, where we are going to attach the same key at the same bucket head, which that&amp;rsquo;s the reason why we need the LinkedList to handle hash collision. Because the search in LinkedList is going to be linearly grows regarding to the time complexity. That&amp;rsquo;s why we need LinkedList to auto turning into Red-Black tree for later search time efficiency.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;How many access modifiers?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-many-access-modifiers&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#how-many-access-modifiers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -231,9 +243,17 @@ session/ cookies
 &lt;li&gt;default: visible to all classes in the same package&lt;/li&gt;
 &lt;li&gt;private: visible only in the same class&lt;/li&gt;
 &lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The purpose of having access modifies is to ensure that we can do encapsulation implementation for our OOP program in Java.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Pros and Cons of static&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pros-and-cons-of-static&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#pros-and-cons-of-static&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Diff map and set. Can we have duplicate keys in map&lt;span class=&#34;absolute -mt-20&#34; id=&#34;diff-map-and-set-can-we-have-duplicate-keys-in-map&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#diff-map-and-set-can-we-have-duplicate-keys-in-map&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Given a series data, how to detect duplicate data and skip it?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;given-a-series-data-how-to-detect-duplicate-data-and-skip-it&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#diff-map-and-set-can-we-have-duplicate-keys-in-map&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;set is part of Collection interface, where as map is not part of Collection interface&lt;/li&gt;
+&lt;li&gt;map is storing two dimension data, set is storing one dimension data.&lt;/li&gt;
+&lt;li&gt;The HashSet is actually implemented by the HashMap in Java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Given a series data, how to detect duplicate data and skip it?&lt;span class=&#34;absolute -mt-20&#34; id=&#34;given-a-series-data-how-to-detect-duplicate-data-and-skip-it&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#given-a-series-data-how-to-detect-duplicate-data-and-skip-it&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Comparable vs Comparator&lt;span class=&#34;absolute -mt-20&#34; id=&#34;comparable-vs-comparator&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#comparable-vs-comparator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;First, they are both functional interface, annotated with &lt;code&gt;@FunctionalInterface&lt;/code&gt;
@@ -279,20 +299,72 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3&gt;singleton vs immutable class&lt;span class=&#34;absolute -mt-20&#34; id=&#34;singleton-vs-immutable-class&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#singleton-vs-immutable-class&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;JVM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jvm&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#jvm&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;method area(after java 8, meta space): static, class template&lt;/li&gt;
-&lt;li&gt;heap: objects&lt;/li&gt;
-&lt;li&gt;vm stack: references and method&lt;/li&gt;
-&lt;li&gt;native(c/c++) method stack: old api within jam&lt;/li&gt;
+    &lt;a href=&#34;#singleton-vs-immutable-class&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;keywords&lt;span class=&#34;absolute -mt-20&#34; id=&#34;keywords&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#keywords&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/29.png&#34; alt=&#34;29&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;Sort methods&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sort-methods&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sort-methods&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/30.png&#34; alt=&#34;30&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;JDK and JRE&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jdk-and-jre&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#jdk-and-jre&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;JDK = JRE + DEV tools (Javac Compiler etc.)&lt;/li&gt;
+&lt;li&gt;JRE = JVM + Java SE standard library
+
+    &lt;img src=&#34;../images-a/21.png&#34; alt=&#34;21&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;ClassLoader&lt;span class=&#34;absolute -mt-20&#34; id=&#34;classloader&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;JVM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jvm&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#jvm&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Method Area(since java 8, meta space(replaced perm generation)): class template, static elements
+&lt;ul&gt;
+&lt;li&gt;Method Area is a standard, it keeps storing class templates&lt;/li&gt;
+&lt;li&gt;Meta space can resize JVM, once the memory space is all used up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;VM stack: references and method
+&lt;ul&gt;
+&lt;li&gt;within stack, each thread be assign a private area within stack, everything within this area are only visible for that thread, unless we use &lt;code&gt;volatile&lt;/code&gt; keyword.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Heap: objects
+&lt;ul&gt;
+&lt;li&gt;all the threads are able to access.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Program Counter Register:
+&lt;ul&gt;
+&lt;li&gt;persist return tracker, allows each method stack know when to return where&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Native Method stack:
+&lt;ul&gt;
+&lt;li&gt;a place contains all legacy c/c++ APIs&lt;/li&gt;
+&lt;li&gt;anything decorated with &lt;code&gt;native&lt;/code&gt; keyword is a method, that implements with either c or c++ storing in Native Method stack within JVM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;JVM memory model&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jvm-memory-model&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#jvm-memory-model&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/20.png&#34; alt=&#34;20&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;What&amp;rsquo;s the result from the code1&lt;span class=&#34;absolute -mt-20&#34; id=&#34;whats-the-result-from-the-code1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#whats-the-result-from-the-code1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Green Black
+&lt;ul&gt;
+&lt;li&gt;line 70 first
+
+    &lt;img src=&#34;../images-a/22.png&#34; alt=&#34;22&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;the diff between RunOutOfMemory and OverStackFlow Exceptions in JVM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;ClassLoader&lt;span class=&#34;absolute -mt-20&#34; id=&#34;classloader&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#classloader&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Three types of classLoader
 &lt;ul&gt;
 &lt;li&gt;Bootstrap ClassLoader: to load the first pure java ClassLoader&lt;/li&gt;
 &lt;li&gt;Extension ClassLoader: to load extensions of core java from jdk extension library&lt;/li&gt;
-&lt;li&gt;System/Application ClassLoader: to load application type classes&lt;/li&gt;
+&lt;li&gt;System/Application ClassLoader: to load application type classes
+
+    &lt;img src=&#34;../images-a/25.png&#34; alt=&#34;25&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -316,6 +388,19 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
     &lt;a href=&#34;#collection-vs-collections&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; framework is for data structures.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Collections&lt;/strong&gt; is a class. That class contains lots of static methods including reverse/sort. That can help us manipulate our data structures including arrays.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;what&amp;rsquo;s the result from the code2&lt;span class=&#34;absolute -mt-20&#34; id=&#34;whats-the-result-from-the-code2&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#whats-the-result-from-the-code2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Person inherited from Object&lt;/li&gt;
+&lt;li&gt;if we don&amp;rsquo;t override hashCode method, it&amp;rsquo;s basically comparing based on References.
+
+    &lt;img src=&#34;../images-a/23.png&#34; alt=&#34;23&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/24.png&#34; alt=&#34;24&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;HashSet&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hashset&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hashset&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;if we check HashSet implementation, HashSet is actually implemented by HashMap. But only this HashMap doesn&amp;rsquo;t have any value, but only with the key. That&amp;rsquo;s the default one.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Comparison between any pair of data structures&lt;span class=&#34;absolute -mt-20&#34; id=&#34;comparison-between-any-pair-of-data-structures&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#comparison-between-any-pair-of-data-structures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
@@ -349,7 +434,157 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;li&gt;wildcard generics: it has greater flexibility, and it can also be bounded with those extends and super keyword.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;i.e. &lt;code&gt;ArrayList&amp;lt;? super String&amp;gt; list = new ArrayList();&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Enum&lt;span class=&#34;absolute -mt-20&#34; id=&#34;enum&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#enum&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a structure that contains some default values.&lt;/li&gt;
+&lt;li&gt;i.e. some of constant values. like Days, Months, Weeks, etc.&lt;/li&gt;
+&lt;li&gt;enum can implement interfaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;enum Day {
+  SUNDAY, MONDAY,
+  FRIDAY
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/28.png&#34; alt=&#34;28&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/27.png&#34; alt=&#34;27&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;without Enum&lt;span class=&#34;absolute -mt-20&#34; id=&#34;without-enum&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#without-enum&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/26.png&#34; alt=&#34;26&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;Annotations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;annotations&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#annotations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;There are two types so annotation in Java: Normal annotation and Meta annotation.
+&lt;ul&gt;
+&lt;li&gt;Meta annotatios like parents or ancestors for decorating all the other annotations you can have in Java program.&lt;/li&gt;
+&lt;li&gt;There are only four meta annotations since Java 8.
+&lt;ul&gt;
+&lt;li&gt;Retention: (means how long) it describes when this annotation is playing in Java program
+&lt;ul&gt;
+&lt;li&gt;SOURCE: after convert the annotation into the .class file, the annotation is going to be invalid.&lt;/li&gt;
+&lt;li&gt;CLASS (default): still valid with the .class file, after we loaded with ClassLoader, in the runtime, that annotation is not working anymore&lt;/li&gt;
+&lt;li&gt;RUNTIME: this annotation, starting from the .java file, compile to the .class, loading with the ClassLoader into JVM, until program is end. It keeps playing a role in our Java program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Target: (means where) where can we put the annotation on
+&lt;ul&gt;
+&lt;li&gt;Type&lt;/li&gt;
+&lt;li&gt;FILED&lt;/li&gt;
+&lt;li&gt;METHOD&lt;/li&gt;
+&lt;li&gt;PARAMETER&lt;/li&gt;
+&lt;li&gt;CONSTRUCTOR&lt;/li&gt;
+&lt;li&gt;LOCAL_VARIABLE&lt;/li&gt;
+&lt;li&gt;ANNOTATION_TYPE&lt;/li&gt;
+&lt;li&gt;PACKAGE&lt;/li&gt;
+&lt;li&gt;TYPE_PARAMETER&lt;/li&gt;
+&lt;li&gt;TYPE_USE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Documented: define if it is documented&lt;/li&gt;
+&lt;li&gt;Inherited: define if this annotation can inherit from parent to the child
+
+    &lt;img src=&#34;../images-a/31.png&#34; alt=&#34;31&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/32.png&#34; alt=&#34;32&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;Exception Handling&lt;span class=&#34;absolute -mt-20&#34; id=&#34;exception-handling&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#exception-handling&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;if it&amp;rsquo;s checked exception, we have to extend from Exception class&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;if it&amp;rsquo;s unchecked exception, we need to extend from RuntimeException class&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Confluence Page:  a private library each company can have, they are going to share some of those common knowledge for web application on that page&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;service(first 2 numbers) to codeNumber
+&lt;ul&gt;
+&lt;li&gt;instagram 10
+&lt;ul&gt;
+&lt;li&gt;-&amp;gt; 01 login exceptions&lt;/li&gt;
+&lt;li&gt;-&amp;gt; 02 picture uploading exceptions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;facebook  20&lt;/li&gt;
+&lt;li&gt;heel      30&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;i.e. 10-001 is the error code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;when we trying to customize our Exceptions, we need to ensure &lt;strong&gt;what the type of exceptions it is(extends Exception or extends RuntimeException)&lt;/strong&gt;, then &lt;strong&gt;what kind of infomation that we need to pass(those public methods)&lt;/strong&gt;, last &lt;strong&gt;messages and error code&lt;/strong&gt; are traditional ones that almost every customize exceptions can have.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/33.png&#34; alt=&#34;33&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;Inheritance in Exceptions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;inheritance-in-exceptions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#inheritance-in-exceptions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;the child class can only have same or narrower scope.
+&lt;ul&gt;
+&lt;li&gt;i.e. parent throws &lt;code&gt;Exception&lt;/code&gt;, child should throws &lt;code&gt;Exception(same) or IOException(narrower)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/34.png&#34; alt=&#34;34&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;IOStream&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iostream&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iostream&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;There are two dimensions:
+&lt;ol&gt;
+&lt;li&gt;whether the stream is IN or OUT, that&amp;rsquo;s we have in and out as direction&lt;/li&gt;
+&lt;li&gt;based on the minimum unit to transfer the characters or file, we have either the Byte(8 bits, ByteStream) as the minimum unit or Character(two Bytes, 16 bits, CharacterStream)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FileInputStream&lt;/code&gt;, reading file in 8 bits each time&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FileoutputStream&lt;/code&gt;, writing from JVM RAM to hard disk in 8 bits each time&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FileReader&lt;/code&gt;, reading file from hard disk to JVM in 16 bits each time&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FileWriter&lt;/code&gt;, writing file from JVM to hard disk in 16 bits each time&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CharArrayReader&lt;/code&gt;, writing file from JVM to hard disk in 16 bits each time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/35.png&#34; alt=&#34;35&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pay attention to &lt;code&gt;Bufffered&lt;/code&gt; ones. They are just wrapping up the normal I/O Stream. It&amp;rsquo;s trying to do increase the communication speed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT_BUFFER_SIZE = 8192&lt;/code&gt; bytes, everytime with buffered we have 8 mb into JVM, instead of 1 byte or 2 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/36.png&#34; alt=&#34;36&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;In real practice example&lt;span class=&#34;absolute -mt-20&#34; id=&#34;in-real-practice-example&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#in-real-practice-example&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Due to &lt;code&gt;AutoCloseable&lt;/code&gt; is inheritened by buffered streams.
+&lt;ul&gt;
+&lt;li&gt;means once we turn off the wrapper buffer stream, it will also turn off the inside&lt;/li&gt;
+&lt;li&gt;so we just need to close the buffered one, the inside will close automatically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/37.png&#34; alt=&#34;37&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Another good thing about &lt;code&gt;AutoCloseable&lt;/code&gt; interface, is that once we implement that we can use &lt;code&gt;try-with-resource&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/38.png&#34; alt=&#34;38&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h2&gt;Design Patterns&lt;span class=&#34;absolute -mt-20&#34; id=&#34;design-patterns&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#design-patterns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Singleton&lt;span class=&#34;absolute -mt-20&#34; id=&#34;singleton&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#singleton&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
@@ -564,7 +799,7 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;li&gt;4xx: client error codes&lt;/li&gt;
 &lt;li&gt;5xx: server error codes&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;200 OK -- the request has been successfully sent to the backend.
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;200 OK -- the request has been successfully sent to the backend.
 201 Created -- a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
 204 No Content -- the request succeeded, but that the client doesn&amp;#39;t need to navigate away from its current page. i.e. submitted some data with put method, the frontend doesn&amp;#39;t need to be changed.
@@ -581,7 +816,7 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-2&#34;
+      data-clipboard-target=&#34;#code-block-3&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -887,7 +1122,7 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Annotations in SpringBoot&lt;span class=&#34;absolute -mt-20&#34; id=&#34;annotations-in-springboot&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#annotations-in-springboot&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;@Controller
+    &lt;a href=&#34;#annotations-in-springboot&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-4&#34;&gt;@Controller
 @RestController
   - @RestController contains @Controller and @RespondBody.
   - if we only use @Controller to Controller class, we also have to add @RespondBody manually.
@@ -956,7 +1191,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-3&#34;
+      data-clipboard-target=&#34;#code-block-4&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -1013,7 +1248,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;put &lt;code&gt;@Validated&lt;/code&gt; within parameters of controller&lt;/li&gt;
 &lt;li&gt;put the following annotation on pojo&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-4&#34;&gt;@Validated
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-5&#34;&gt;@Validated
 
 @NotNull
 @NotEmpty
@@ -1025,7 +1260,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-4&#34;
+      data-clipboard-target=&#34;#code-block-5&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -1091,20 +1326,59 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/ul&gt;
 &lt;h3&gt;Java 8 new features&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java-8-new-features&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#java-8-new-features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Functional Interface&lt;/p&gt;
+&lt;li&gt;Functional Interface
 &lt;ul&gt;
-&lt;li&gt;it&amp;rsquo;s a kind of interface that has only 1 abstract method.&lt;/li&gt;
-&lt;li&gt;it can have multiple default methods and static methods.&lt;/li&gt;
-&lt;li&gt;i.e. Runnable, Callable, Comparator, Comparable, etc.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it&amp;rsquo;s a kind of interface that has only 1 abstract method.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it can have multiple default methods and multiple static methods.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;when use default methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;when this functional interface has been implemented by different classes and later we need to use it as a common function for each every those classes.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Lambda expressions&lt;/p&gt;
+&lt;p&gt;when use static methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;when we don&amp;rsquo;t want instantiate anything, any object. Or if we don&amp;rsquo;t want this default method to be override, then we can use static method rather than default method to define this common behavior.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;i.e. Runnable, Callable, Comparator, Comparable, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are four major functional interface introduced in Java 8&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Consumer&lt;T&gt;&lt;/li&gt;
+&lt;li&gt;Supplier&lt;T&gt;&lt;/li&gt;
+&lt;li&gt;Function&lt;T&gt;&lt;/li&gt;
+&lt;li&gt;Predicate&lt;T&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/40.png&#34; alt=&#34;40&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/41.png&#34; alt=&#34;41&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lambda expressions
 &lt;ul&gt;
 &lt;li&gt;it&amp;rsquo;s just method without a name&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s passing a function as annoymous object into Java program.&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s just a annoynous method wrapped up with an annoynoms object. That&amp;rsquo;s the object is the actually the thing we passed to our Java program.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/39.png&#34; alt=&#34;39&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Method Reference&lt;/p&gt;
 &lt;ul&gt;

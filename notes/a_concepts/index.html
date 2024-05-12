@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="3857">
+<meta itemprop="wordCount" content="5003">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -296,15 +296,21 @@
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
               <a
+                href="#core-java-interview-questions"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Core Java interview questions</a>
+            </li>
+          <li>
+              <a
                 href="#java-is-passed-by-value-or-reference"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Java is passed by Value or Reference?</a>
             </li>
           <li>
               <a
-                href="#static-keyword"
+                href="#static-keywordwithin-5-sentences"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >static keyword</a>
+              >static keyword(within 5 sentences)</a>
             </li>
           <li>
               <a
@@ -398,9 +404,39 @@
             </li>
           <li>
               <a
+                href="#keywords"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >keywords</a>
+            </li>
+          <li>
+              <a
+                href="#sort-methods"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Sort methods</a>
+            </li>
+          <li>
+              <a
+                href="#jdk-and-jre"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >JDK and JRE</a>
+            </li>
+          <li>
+              <a
                 href="#jvm"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >JVM</a>
+            </li>
+          <li>
+              <a
+                href="#whats-the-result-from-the-code1"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >What&amp;rsquo;s the result from the code1</a>
+            </li>
+          <li>
+              <a
+                href="#the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >the diff between RunOutOfMemory and OverStackFlow Exceptions in JVM</a>
             </li>
           <li>
               <a
@@ -437,6 +473,30 @@
                 href="#generic-data-type"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Generic Data type</a>
+            </li>
+          <li>
+              <a
+                href="#enum"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Enum</a>
+            </li>
+          <li>
+              <a
+                href="#annotations"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Annotations</a>
+            </li>
+          <li>
+              <a
+                href="#exception-handling"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Exception Handling</a>
+            </li>
+          <li>
+              <a
+                href="#iostream"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >IOStream</a>
             </li>
           <li>
               <a
@@ -1370,11 +1430,15 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#core-java-interview-questions">Core Java interview questions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-is-passed-by-value-or-reference">Java is passed by Value or Reference?
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#static-keyword">static keyword
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#static-keywordwithin-5-sentences">static keyword(within 5 sentences)
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1442,7 +1506,31 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#keywords">keywords
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#sort-methods">Sort methods
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#jdk-and-jre">JDK and JRE
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#jvm">JVM
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#jvm-memory-model">JVM memory model
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#whats-the-result-from-the-code1">What&rsquo;s the result from the code1
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm">the diff between RunOutOfMemory and OverStackFlow Exceptions in JVM
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1466,6 +1554,14 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#whats-the-result-from-the-code2">what&rsquo;s the result from the code2
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#hashset">HashSet
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#comparison-between-any-pair-of-data-structures">Comparison between any pair of data structures
         </a>
       </li>
@@ -1475,6 +1571,34 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#generic-data-type">Generic Data type
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#enum">Enum
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#without-enum">without Enum
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#annotations">Annotations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exception-handling">Exception Handling
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#inheritance-in-exceptions">Inheritance in Exceptions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#iostream">IOStream
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#in-real-practice-example">In real practice example
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -1812,17 +1936,29 @@ session/ cookies
     </button>
   </div>
 </div>
-<h2>Java is passed by Value or Reference?<span class="absolute -mt-20" id="java-is-passed-by-value-or-reference"></span>
+<h2>Core Java interview questions<span class="absolute -mt-20" id="core-java-interview-questions"></span>
+    <a href="#core-java-interview-questions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Java is passed by Value or Reference?<span class="absolute -mt-20" id="java-is-passed-by-value-or-reference"></span>
     <a href="#java-is-passed-by-value-or-reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>In Java, there are two kinds of data type, <strong>Primitive</strong> data types and <strong>Non-primitive</strong> data types.</li>
 <li>For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value.</li>
 <li>For non-primitive types, they are also passed by value, the value here is actually the memory address of the object. e.g. annotation, class, interface, enum, array.</li>
 <li>In conclusion all data types in Java are passed by value.</li>
 </ul>
-<h2>static keyword<span class="absolute -mt-20" id="static-keyword"></span>
-    <a href="#static-keyword" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Hashmap workflow<span class="absolute -mt-20" id="hashmap-workflow"></span>
+<h2>static keyword(within 5 sentences)<span class="absolute -mt-20" id="static-keywordwithin-5-sentences"></span>
+    <a href="#static-keywordwithin-5-sentences" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>we have four places to put static keyword on.(class, method, variable, block)</li>
+<li>For having static keyword on method, variable scope is to ensure that they can share just by class template.</li>
+<li>what <strong>SCOPES</strong> we can access static elements.
+<ul>
+<li>we cannot override static method</li>
+<li>static class cannot called by non-static method</li>
+</ul>
+</li>
+</ul>
+<h2>Hashmap workflow<span class="absolute -mt-20" id="hashmap-workflow"></span>
     <a href="#hashmap-workflow" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Internally, Hashmap is an array of linkedList.</li>
+<li>Each of the key-value pairs is passed into the hashCode method first, the key is going to pass as the input and generate values. With hashing result key-value pair is put in one of the place in the array, which is called bucket head. When there is any of hash code collision happened, then that&rsquo;s the reason why we need to override equals and hashCode methods. And when hash collision happened, then we are going to check if the two keys are exactly the same then we upate the value. If they are don&rsquo;t, that means there is a hash collision, where we are going to attach the same key at the same bucket head, which that&rsquo;s the reason why we need the LinkedList to handle hash collision. Because the search in LinkedList is going to be linearly grows regarding to the time complexity. That&rsquo;s why we need LinkedList to auto turning into Red-Black tree for later search time efficiency.</li>
 </ul>
 <h2>How many access modifiers?<span class="absolute -mt-20" id="how-many-access-modifiers"></span>
     <a href="#how-many-access-modifiers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -1831,9 +1967,17 @@ session/ cookies
 <li>default: visible to all classes in the same package</li>
 <li>private: visible only in the same class</li>
 </ul>
+<blockquote>
+<p>The purpose of having access modifies is to ensure that we can do encapsulation implementation for our OOP program in Java.</p>
+</blockquote>
 <h2>Pros and Cons of static<span class="absolute -mt-20" id="pros-and-cons-of-static"></span>
     <a href="#pros-and-cons-of-static" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Diff map and set. Can we have duplicate keys in map<span class="absolute -mt-20" id="diff-map-and-set-can-we-have-duplicate-keys-in-map"></span>
-    <a href="#diff-map-and-set-can-we-have-duplicate-keys-in-map" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Given a series data, how to detect duplicate data and skip it?<span class="absolute -mt-20" id="given-a-series-data-how-to-detect-duplicate-data-and-skip-it"></span>
+    <a href="#diff-map-and-set-can-we-have-duplicate-keys-in-map" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>set is part of Collection interface, where as map is not part of Collection interface</li>
+<li>map is storing two dimension data, set is storing one dimension data.</li>
+<li>The HashSet is actually implemented by the HashMap in Java</li>
+</ul>
+<h2>Given a series data, how to detect duplicate data and skip it?<span class="absolute -mt-20" id="given-a-series-data-how-to-detect-duplicate-data-and-skip-it"></span>
     <a href="#given-a-series-data-how-to-detect-duplicate-data-and-skip-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Comparable vs Comparator<span class="absolute -mt-20" id="comparable-vs-comparator"></span>
     <a href="#comparable-vs-comparator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>First, they are both functional interface, annotated with <code>@FunctionalInterface</code>
@@ -1879,20 +2023,72 @@ static: inner class, method, variable, static block</code></pre><div class="opac
   </div>
 </div>
 <h3>singleton vs immutable class<span class="absolute -mt-20" id="singleton-vs-immutable-class"></span>
-    <a href="#singleton-vs-immutable-class" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>JVM<span class="absolute -mt-20" id="jvm"></span>
-    <a href="#jvm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>method area(after java 8, meta space): static, class template</li>
-<li>heap: objects</li>
-<li>vm stack: references and method</li>
-<li>native(c/c++) method stack: old api within jam</li>
+    <a href="#singleton-vs-immutable-class" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>keywords<span class="absolute -mt-20" id="keywords"></span>
+    <a href="#keywords" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
+    <img src="../images-a/29.png" alt="29" loading="lazy" /></p>
+<h2>Sort methods<span class="absolute -mt-20" id="sort-methods"></span>
+    <a href="#sort-methods" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>
+    <img src="../images-a/30.png" alt="30" loading="lazy" /></p>
+<h2>JDK and JRE<span class="absolute -mt-20" id="jdk-and-jre"></span>
+    <a href="#jdk-and-jre" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>JDK = JRE + DEV tools (Javac Compiler etc.)</li>
+<li>JRE = JVM + Java SE standard library
+
+    <img src="../images-a/21.png" alt="21" loading="lazy" /></li>
 </ul>
-<h2>ClassLoader<span class="absolute -mt-20" id="classloader"></span>
+<h2>JVM<span class="absolute -mt-20" id="jvm"></span>
+    <a href="#jvm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Method Area(since java 8, meta space(replaced perm generation)): class template, static elements
+<ul>
+<li>Method Area is a standard, it keeps storing class templates</li>
+<li>Meta space can resize JVM, once the memory space is all used up.</li>
+</ul>
+</li>
+<li>VM stack: references and method
+<ul>
+<li>within stack, each thread be assign a private area within stack, everything within this area are only visible for that thread, unless we use <code>volatile</code> keyword.</li>
+</ul>
+</li>
+<li>Heap: objects
+<ul>
+<li>all the threads are able to access.</li>
+</ul>
+</li>
+<li>Program Counter Register:
+<ul>
+<li>persist return tracker, allows each method stack know when to return where</li>
+</ul>
+</li>
+<li>Native Method stack:
+<ul>
+<li>a place contains all legacy c/c++ APIs</li>
+<li>anything decorated with <code>native</code> keyword is a method, that implements with either c or c++ storing in Native Method stack within JVM.</li>
+</ul>
+</li>
+</ul>
+<h3>JVM memory model<span class="absolute -mt-20" id="jvm-memory-model"></span>
+    <a href="#jvm-memory-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/20.png" alt="20" loading="lazy" /></p>
+<h2>What&rsquo;s the result from the code1<span class="absolute -mt-20" id="whats-the-result-from-the-code1"></span>
+    <a href="#whats-the-result-from-the-code1" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Green Black
+<ul>
+<li>line 70 first
+
+    <img src="../images-a/22.png" alt="22" loading="lazy" /></li>
+</ul>
+</li>
+</ul>
+<h2>the diff between RunOutOfMemory and OverStackFlow Exceptions in JVM<span class="absolute -mt-20" id="the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm"></span>
+    <a href="#the-diff-between-runoutofmemory-and-overstackflow-exceptions-in-jvm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>ClassLoader<span class="absolute -mt-20" id="classloader"></span>
     <a href="#classloader" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Three types of classLoader
 <ul>
 <li>Bootstrap ClassLoader: to load the first pure java ClassLoader</li>
 <li>Extension ClassLoader: to load extensions of core java from jdk extension library</li>
-<li>System/Application ClassLoader: to load application type classes</li>
+<li>System/Application ClassLoader: to load application type classes
+
+    <img src="../images-a/25.png" alt="25" loading="lazy" /></li>
 </ul>
 </li>
 </ul>
@@ -1916,6 +2112,19 @@ static: inner class, method, variable, static block</code></pre><div class="opac
     <a href="#collection-vs-collections" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><strong>Collection</strong> framework is for data structures.</li>
 <li><strong>Collections</strong> is a class. That class contains lots of static methods including reverse/sort. That can help us manipulate our data structures including arrays.</li>
+</ul>
+<h3>what&rsquo;s the result from the code2<span class="absolute -mt-20" id="whats-the-result-from-the-code2"></span>
+    <a href="#whats-the-result-from-the-code2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Person inherited from Object</li>
+<li>if we don&rsquo;t override hashCode method, it&rsquo;s basically comparing based on References.
+
+    <img src="../images-a/23.png" alt="23" loading="lazy" />
+
+    <img src="../images-a/24.png" alt="24" loading="lazy" /></li>
+</ul>
+<h3>HashSet<span class="absolute -mt-20" id="hashset"></span>
+    <a href="#hashset" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>if we check HashSet implementation, HashSet is actually implemented by HashMap. But only this HashMap doesn&rsquo;t have any value, but only with the key. That&rsquo;s the default one.</li>
 </ul>
 <h3>Comparison between any pair of data structures<span class="absolute -mt-20" id="comparison-between-any-pair-of-data-structures"></span>
     <a href="#comparison-between-any-pair-of-data-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
@@ -1949,7 +2158,157 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>wildcard generics: it has greater flexibility, and it can also be bounded with those extends and super keyword.</li>
 </ul>
 </li>
+<li>i.e. <code>ArrayList&lt;? super String&gt; list = new ArrayList();</code></li>
 </ul>
+<h2>Enum<span class="absolute -mt-20" id="enum"></span>
+    <a href="#enum" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>it&rsquo;s a structure that contains some default values.</li>
+<li>i.e. some of constant values. like Days, Months, Weeks, etc.</li>
+<li>enum can implement interfaces</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">enum Day {
+  SUNDAY, MONDAY,
+  FRIDAY
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>
+    <img src="../images-a/28.png" alt="28" loading="lazy" />
+
+    <img src="../images-a/27.png" alt="27" loading="lazy" /></p>
+<h3>without Enum<span class="absolute -mt-20" id="without-enum"></span>
+    <a href="#without-enum" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/26.png" alt="26" loading="lazy" /></p>
+<h2>Annotations<span class="absolute -mt-20" id="annotations"></span>
+    <a href="#annotations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>There are two types so annotation in Java: Normal annotation and Meta annotation.
+<ul>
+<li>Meta annotatios like parents or ancestors for decorating all the other annotations you can have in Java program.</li>
+<li>There are only four meta annotations since Java 8.
+<ul>
+<li>Retention: (means how long) it describes when this annotation is playing in Java program
+<ul>
+<li>SOURCE: after convert the annotation into the .class file, the annotation is going to be invalid.</li>
+<li>CLASS (default): still valid with the .class file, after we loaded with ClassLoader, in the runtime, that annotation is not working anymore</li>
+<li>RUNTIME: this annotation, starting from the .java file, compile to the .class, loading with the ClassLoader into JVM, until program is end. It keeps playing a role in our Java program</li>
+</ul>
+</li>
+<li>Target: (means where) where can we put the annotation on
+<ul>
+<li>Type</li>
+<li>FILED</li>
+<li>METHOD</li>
+<li>PARAMETER</li>
+<li>CONSTRUCTOR</li>
+<li>LOCAL_VARIABLE</li>
+<li>ANNOTATION_TYPE</li>
+<li>PACKAGE</li>
+<li>TYPE_PARAMETER</li>
+<li>TYPE_USE</li>
+</ul>
+</li>
+<li>Documented: define if it is documented</li>
+<li>Inherited: define if this annotation can inherit from parent to the child
+
+    <img src="../images-a/31.png" alt="31" loading="lazy" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/32.png" alt="32" loading="lazy" /></p>
+<h2>Exception Handling<span class="absolute -mt-20" id="exception-handling"></span>
+    <a href="#exception-handling" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>if it&rsquo;s checked exception, we have to extend from Exception class</p>
+</li>
+<li>
+<p>if it&rsquo;s unchecked exception, we need to extend from RuntimeException class</p>
+</li>
+<li>
+<p>Confluence Page:  a private library each company can have, they are going to share some of those common knowledge for web application on that page</p>
+<ul>
+<li>service(first 2 numbers) to codeNumber
+<ul>
+<li>instagram 10
+<ul>
+<li>-&gt; 01 login exceptions</li>
+<li>-&gt; 02 picture uploading exceptions</li>
+</ul>
+</li>
+<li>facebook  20</li>
+<li>heel      30</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>i.e. 10-001 is the error code</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>when we trying to customize our Exceptions, we need to ensure <strong>what the type of exceptions it is(extends Exception or extends RuntimeException)</strong>, then <strong>what kind of infomation that we need to pass(those public methods)</strong>, last <strong>messages and error code</strong> are traditional ones that almost every customize exceptions can have.</p>
+</blockquote>
+<p>
+    <img src="../images-a/33.png" alt="33" loading="lazy" /></p>
+<h3>Inheritance in Exceptions<span class="absolute -mt-20" id="inheritance-in-exceptions"></span>
+    <a href="#inheritance-in-exceptions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>the child class can only have same or narrower scope.
+<ul>
+<li>i.e. parent throws <code>Exception</code>, child should throws <code>Exception(same) or IOException(narrower)</code></li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/34.png" alt="34" loading="lazy" /></p>
+<h2>IOStream<span class="absolute -mt-20" id="iostream"></span>
+    <a href="#iostream" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>There are two dimensions:
+<ol>
+<li>whether the stream is IN or OUT, that&rsquo;s we have in and out as direction</li>
+<li>based on the minimum unit to transfer the characters or file, we have either the Byte(8 bits, ByteStream) as the minimum unit or Character(two Bytes, 16 bits, CharacterStream)</li>
+</ol>
+</li>
+<li><code>FileInputStream</code>, reading file in 8 bits each time</li>
+<li><code>FileoutputStream</code>, writing from JVM RAM to hard disk in 8 bits each time</li>
+<li><code>FileReader</code>, reading file from hard disk to JVM in 16 bits each time</li>
+<li><code>FileWriter</code>, writing file from JVM to hard disk in 16 bits each time</li>
+<li><code>CharArrayReader</code>, writing file from JVM to hard disk in 16 bits each time</li>
+</ul>
+<p>
+    <img src="../images-a/35.png" alt="35" loading="lazy" /></p>
+<blockquote>
+<p>pay attention to <code>Bufffered</code> ones. They are just wrapping up the normal I/O Stream. It&rsquo;s trying to do increase the communication speed.</p>
+</blockquote>
+<ul>
+<li><code>DEFAULT_BUFFER_SIZE = 8192</code> bytes, everytime with buffered we have 8 mb into JVM, instead of 1 byte or 2 bytes.</li>
+</ul>
+<p>
+    <img src="../images-a/36.png" alt="36" loading="lazy" /></p>
+<h3>In real practice example<span class="absolute -mt-20" id="in-real-practice-example"></span>
+    <a href="#in-real-practice-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Due to <code>AutoCloseable</code> is inheritened by buffered streams.
+<ul>
+<li>means once we turn off the wrapper buffer stream, it will also turn off the inside</li>
+<li>so we just need to close the buffered one, the inside will close automatically.</li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/37.png" alt="37" loading="lazy" /></p>
+<ul>
+<li>Another good thing about <code>AutoCloseable</code> interface, is that once we implement that we can use <code>try-with-resource</code></li>
+</ul>
+<p>
+    <img src="../images-a/38.png" alt="38" loading="lazy" /></p>
 <h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
     <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
     <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
@@ -2164,7 +2523,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>4xx: client error codes</li>
 <li>5xx: server error codes</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">200 OK -- the request has been successfully sent to the backend.
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">200 OK -- the request has been successfully sent to the backend.
 201 Created -- a new resource was created as a result.
 202 Accepted -- the request has been accepted for processing, but the processing has not been completed.
 204 No Content -- the request succeeded, but that the client doesn&#39;t need to navigate away from its current page. i.e. submitted some data with put method, the frontend doesn&#39;t need to be changed.
@@ -2181,7 +2540,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-2"
+      data-clipboard-target="#code-block-3"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -2487,7 +2846,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 </li>
 </ul>
 <h3>Annotations in SpringBoot<span class="absolute -mt-20" id="annotations-in-springboot"></span>
-    <a href="#annotations-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">@Controller
+    <a href="#annotations-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">@Controller
 @RestController
   - @RestController contains @Controller and @RespondBody.
   - if we only use @Controller to Controller class, we also have to add @RespondBody manually.
@@ -2556,7 +2915,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-3"
+      data-clipboard-target="#code-block-4"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -2613,7 +2972,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>put <code>@Validated</code> within parameters of controller</li>
 <li>put the following annotation on pojo</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">@Validated
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">@Validated
 
 @NotNull
 @NotEmpty
@@ -2625,7 +2984,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-4"
+      data-clipboard-target="#code-block-5"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -2691,20 +3050,59 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </ul>
 <h3>Java 8 new features<span class="absolute -mt-20" id="java-8-new-features"></span>
     <a href="#java-8-new-features" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>
-<p>Functional Interface</p>
+<li>Functional Interface
 <ul>
-<li>it&rsquo;s a kind of interface that has only 1 abstract method.</li>
-<li>it can have multiple default methods and static methods.</li>
-<li>i.e. Runnable, Callable, Comparator, Comparable, etc.</li>
+<li>
+<p>it&rsquo;s a kind of interface that has only 1 abstract method.</p>
+</li>
+<li>
+<p>it can have multiple default methods and multiple static methods.</p>
+<ul>
+<li>
+<p>when use default methods:</p>
+<ul>
+<li>when this functional interface has been implemented by different classes and later we need to use it as a common function for each every those classes.</li>
 </ul>
 </li>
 <li>
-<p>Lambda expressions</p>
+<p>when use static methods:</p>
+<ul>
+<li>when we don&rsquo;t want instantiate anything, any object. Or if we don&rsquo;t want this default method to be override, then we can use static method rather than default method to define this common behavior.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>i.e. Runnable, Callable, Comparator, Comparable, etc.</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>There are four major functional interface introduced in Java 8</p>
+</blockquote>
+<ul>
+<li>Consumer<T></li>
+<li>Supplier<T></li>
+<li>Function<T></li>
+<li>Predicate<T></li>
+</ul>
+<p>
+    <img src="../images-a/40.png" alt="40" loading="lazy" /></p>
+<p>
+    <img src="../images-a/41.png" alt="41" loading="lazy" /></p>
+<ul>
+<li>Lambda expressions
 <ul>
 <li>it&rsquo;s just method without a name</li>
+<li>it&rsquo;s passing a function as annoymous object into Java program.</li>
+<li>it&rsquo;s just a annoynous method wrapped up with an annoynoms object. That&rsquo;s the object is the actually the thing we passed to our Java program.</li>
 </ul>
 </li>
+</ul>
+<p>
+    <img src="../images-a/39.png" alt="39" loading="lazy" /></p>
+<ul>
 <li>
 <p>Method Reference</p>
 <ul>
