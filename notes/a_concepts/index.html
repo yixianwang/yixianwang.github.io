@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="3686">
+<meta itemprop="wordCount" content="3857">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -2467,11 +2467,24 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 </ul>
 <h3>SpringBoot Advantages<span class="absolute -mt-20" id="springboot-advantages"></span>
     <a href="#springboot-advantages" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>auto configuration</li>
-<li>starter</li>
+<li>auto configuration:
+<ul>
+<li>to overwrite default configurations with <code>application.properties</code> file</li>
+</ul>
+</li>
+<li>starter
+<ul>
+<li><code>starter</code> dependencies integrated many useful dependencies for us.</li>
+<li>In <code>pom.xml</code> file, it handles dependency version management and add dependency</li>
+</ul>
+</li>
 <li>embedded Tomcat</li>
 <li>Spring Actuator</li>
-<li>@SpringBootApplication</li>
+<li><code>@SpringBootApplication</code>
+<ul>
+<li>includes <code>@SpringBootConfiguration</code> + <code>@EnableAutoConfiguration</code> + <code>@ComponentScan</code> &hellip;.</li>
+</ul>
+</li>
 </ul>
 <h3>Annotations in SpringBoot<span class="absolute -mt-20" id="annotations-in-springboot"></span>
     <a href="#annotations-in-springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">@Controller
@@ -2480,6 +2493,10 @@ static: inner class, method, variable, static block</code></pre><div class="opac
   - if we only use @Controller to Controller class, we also have to add @RespondBody manually.
 
 @Service
+
+// the following two are same
+@RequestMapping(value = &#34;/user/{id}&#34;, method = RequestMethod.PUT)
+@PutMapping(&#34;/user/id&#34;)
 
 @Repository
 @RequestMapping
@@ -2552,7 +2569,17 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>Doesn&rsquo;t provide any embedded server, whereas SpringBoot does(Tomcat).</li>
 </ul>
 <h3>Flow of Spring MVC<span class="absolute -mt-20" id="flow-of-spring-mvc"></span>
-    <a href="#flow-of-spring-mvc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <a href="#flow-of-spring-mvc" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li><strong>DispatcherServlet</strong> is used to intercept all requests.</li>
+<li>send requests to <strong>HandlerMapping</strong> to choose Handler, find Controller</li>
+<li><strong>Controller</strong> will go through Business Logic (Service(business logic) -&gt; Repository(Data Access) -&gt; Database), then return the result(<strong>ModelAndView Object</strong>) to <strong>DispatcherServlet</strong></li>
+<li>The <strong>DispatcherServlet</strong> consults its list of <strong>ViewResolver</strong> beans to determine which view should be rendered.</li>
+<li><strong>ViewResolver</strong> implementations map logical view names to actual view templates (JSP, Thymeleaf, FreeMarker, etc.).</li>
+<li>Once the view template is identified, the <strong>DispatcherServlet</strong> delegates the rendering of the view to the appropriate <strong>ViewResolver</strong>.</li>
+<li>The <strong>ViewResolver</strong> renders the view template, populating it with data from the model (if any), and generates the final HTML or other content.</li>
+<li>Finally, the <strong>DispatcherServlet</strong> sends the generated response (HTML, JSON, XML, etc.) back to the client that initiated the request.</li>
+</ol>
+<p>
     <img src="../images-a/18.png" alt="18" loading="lazy" /></p>
 <p>
     <img src="../images-a/17.png" alt="17" loading="lazy" /></p>

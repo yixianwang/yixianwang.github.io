@@ -867,11 +867,24 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;/ul&gt;
 &lt;h3&gt;SpringBoot Advantages&lt;span class=&#34;absolute -mt-20&#34; id=&#34;springboot-advantages&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#springboot-advantages&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;auto configuration&lt;/li&gt;
-&lt;li&gt;starter&lt;/li&gt;
+&lt;li&gt;auto configuration:
+&lt;ul&gt;
+&lt;li&gt;to overwrite default configurations with &lt;code&gt;application.properties&lt;/code&gt; file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;starter
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;starter&lt;/code&gt; dependencies integrated many useful dependencies for us.&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;pom.xml&lt;/code&gt; file, it handles dependency version management and add dependency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;embedded Tomcat&lt;/li&gt;
 &lt;li&gt;Spring Actuator&lt;/li&gt;
-&lt;li&gt;@SpringBootApplication&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@SpringBootApplication&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;includes &lt;code&gt;@SpringBootConfiguration&lt;/code&gt; + &lt;code&gt;@EnableAutoConfiguration&lt;/code&gt; + &lt;code&gt;@ComponentScan&lt;/code&gt; &amp;hellip;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Annotations in SpringBoot&lt;span class=&#34;absolute -mt-20&#34; id=&#34;annotations-in-springboot&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#annotations-in-springboot&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;@Controller
@@ -880,6 +893,10 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
   - if we only use @Controller to Controller class, we also have to add @RespondBody manually.
 
 @Service
+
+// the following two are same
+@RequestMapping(value = &amp;#34;/user/{id}&amp;#34;, method = RequestMethod.PUT)
+@PutMapping(&amp;#34;/user/id&amp;#34;)
 
 @Repository
 @RequestMapping
@@ -952,7 +969,17 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;Doesn&amp;rsquo;t provide any embedded server, whereas SpringBoot does(Tomcat).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Flow of Spring MVC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;flow-of-spring-mvc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#flow-of-spring-mvc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;a href=&#34;#flow-of-spring-mvc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;DispatcherServlet&lt;/strong&gt; is used to intercept all requests.&lt;/li&gt;
+&lt;li&gt;send requests to &lt;strong&gt;HandlerMapping&lt;/strong&gt; to choose Handler, find Controller&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Controller&lt;/strong&gt; will go through Business Logic (Service(business logic) -&amp;gt; Repository(Data Access) -&amp;gt; Database), then return the result(&lt;strong&gt;ModelAndView Object&lt;/strong&gt;) to &lt;strong&gt;DispatcherServlet&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;DispatcherServlet&lt;/strong&gt; consults its list of &lt;strong&gt;ViewResolver&lt;/strong&gt; beans to determine which view should be rendered.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ViewResolver&lt;/strong&gt; implementations map logical view names to actual view templates (JSP, Thymeleaf, FreeMarker, etc.).&lt;/li&gt;
+&lt;li&gt;Once the view template is identified, the &lt;strong&gt;DispatcherServlet&lt;/strong&gt; delegates the rendering of the view to the appropriate &lt;strong&gt;ViewResolver&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;ViewResolver&lt;/strong&gt; renders the view template, populating it with data from the model (if any), and generates the final HTML or other content.&lt;/li&gt;
+&lt;li&gt;Finally, the &lt;strong&gt;DispatcherServlet&lt;/strong&gt; sends the generated response (HTML, JSON, XML, etc.) back to the client that initiated the request.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
     &lt;img src=&#34;../images-a/18.png&#34; alt=&#34;18&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;
     &lt;img src=&#34;../images-a/17.png&#34; alt=&#34;17&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
