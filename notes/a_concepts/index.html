@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="5082">
+<meta itemprop="wordCount" content="5555">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -503,6 +503,30 @@
                 href="#multithreading"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Multithreading</a>
+            </li>
+          <li>
+              <a
+                href="#lockor-monitor"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Lock(or Monitor)</a>
+            </li>
+          <li>
+              <a
+                href="#callable-vs-completablefuture"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Callable vs CompletableFuture!!!</a>
+            </li>
+          <li>
+              <a
+                href="#volatile-keyword-visibility-only"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >volatile keyword: visibility only</a>
+            </li>
+          <li>
+              <a
+                href="#cas-compare-and-swap"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >CAS: Compare and Swap</a>
             </li>
           <li>
               <a
@@ -1628,6 +1652,50 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lockor-monitor">Lock(or Monitor)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#data-type-built-in-lock">data type built-in lock
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lock-with-synchronized-keyword">lock with synchronized keyword
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lock-interface-implementations">Lock interface implementations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#avoid">Avoid!!!
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dead-locks">Dead Locks
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#callable-vs-completablefuture">Callable vs CompletableFuture!!!
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#volatile-keyword-visibility-only">volatile keyword: visibility only
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#cas-compare-and-swap">CAS: Compare and Swap
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#cas-vs-lock">CAS vs Lock
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#atomicreference-is-going-to-create-aba-problems">AtomicReference is going to create ABA problems
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#design-patterns">Design Patterns
         </a>
       </li>
@@ -2489,6 +2557,125 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <h3>ThreadPool(or ExecutorService)<span class="absolute -mt-20" id="threadpoolor-executorservice"></span>
     <a href="#threadpoolor-executorservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
     <img src="../images-a/50.png" alt="50" loading="lazy" /></p>
+<h2>Lock(or Monitor)<span class="absolute -mt-20" id="lockor-monitor"></span>
+    <a href="#lockor-monitor" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>critical section: we have some threads, those threads are going to manipulate some common resources.</li>
+</ul>
+<p>
+    <img src="../images-a/51.png" alt="51" loading="lazy" /></p>
+<h3>data type built-in lock<span class="absolute -mt-20" id="data-type-built-in-lock"></span>
+    <a href="#data-type-built-in-lock" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-a/52.png" alt="52" loading="lazy" /></p>
+<h3>lock with synchronized keyword<span class="absolute -mt-20" id="lock-with-synchronized-keyword"></span>
+    <a href="#lock-with-synchronized-keyword" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>can be applied to method scope and synchronized block</li>
+</ul>
+<h3>Lock interface implementations<span class="absolute -mt-20" id="lock-interface-implementations"></span>
+    <a href="#lock-interface-implementations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Lock is an interface, its implementation including <code>ReentrantLock</code>, <code>Condition</code>, <code>ReadWriteLock</code> comparing to <code>synchronized</code> keyword.</li>
+<li>when we use it
+<ul>
+<li>if we want to ensure the execution of the thread order is exactly the way that I want. I need to use <code>ReentrantLock</code> and <code>Condition</code>.</li>
+</ul>
+</li>
+</ul>
+<p>
+    <img src="../images-a/53.png" alt="53" loading="lazy" /></p>
+<h3>Avoid!!!<span class="absolute -mt-20" id="avoid"></span>
+    <a href="#avoid" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<p>be careful when use <code>synchronized</code> and <code>static</code></p>
+</blockquote>
+<ul>
+<li>
+<p>class template lock: means any of those static methods are locked with the same lock.</p>
+<ul>
+<li>because static element is saved in method area in JVM, it&rsquo;s a class template lock.
+
+    <img src="../images-a/54.png" alt="54" loading="lazy" /></li>
+</ul>
+</li>
+<li>
+<p>the following is not thread safe</p>
+<ul>
+<li>the first <code>synchronized</code> keyword without static is on the object lock.</li>
+<li>the second <code>synchronized</code> keyword with static is on the class template lock.
+
+    <img src="../images-a/55.png" alt="55" loading="lazy" /></li>
+</ul>
+</li>
+</ul>
+<h3>Dead Locks<span class="absolute -mt-20" id="dead-locks"></span>
+    <a href="#dead-locks" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>caused by adding lock in wrong orders</li>
+<li>how to avoid: no matter the order we add the lock, we should have the exact the same order to release the lock.</li>
+</ul>
+<h2>Callable vs CompletableFuture!!!<span class="absolute -mt-20" id="callable-vs-completablefuture"></span>
+    <a href="#callable-vs-completablefuture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>For Callable, every time we call the <code>get</code> api from the FutureTask, it&rsquo;s going to block the main thread.</li>
+<li>For CompletableFuture, we gonna have a callback.
+<ul>
+<li>And CompletableFuture can be chained. it means the callback will trigger another task, so on so forth. when everything is done, the main thread will come back and get the result. then continue to running.</li>
+</ul>
+</li>
+<li>Cons for CompletableFuture, it&rsquo;s hard to handle Exceptions all over the place.</li>
+</ul>
+<p>
+    <img src="../images-a/56.png" alt="56" loading="lazy" />
+
+    <img src="../images-a/57.png" alt="57" loading="lazy" />
+
+    <img src="../images-a/58.png" alt="58" loading="lazy" />
+
+    <img src="../images-a/59.png" alt="59" loading="lazy" />
+
+    <img src="../images-a/60.png" alt="60" loading="lazy" />
+
+    <img src="../images-a/61.png" alt="61" loading="lazy" /></p>
+<h2>volatile keyword: visibility only<span class="absolute -mt-20" id="volatile-keyword-visibility-only"></span>
+    <a href="#volatile-keyword-visibility-only" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>anything decorated with volatile, means it&rsquo;s visible in between those threads.</li>
+<li>volatile element will put in main memory.</li>
+<li>it&rsquo;s not thread safe. it just ensure <strong>visibility</strong> every time each thread will get the latest from the main memory.</li>
+<li>it also ensures <strong>the instructions are not reordered(in assembly code)</strong>.</li>
+<li>Usage: when we have a singleton design pattern, and we wanna singleton design pattern thread safe. And at the moment we need to add the volatile keyword on that singleton object reference.</li>
+</ul>
+<h2>CAS: Compare and Swap<span class="absolute -mt-20" id="cas-compare-and-swap"></span>
+    <a href="#cas-compare-and-swap" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>it&rsquo;s another mechanism to ensure the thread-safety.</p>
+</li>
+<li>
+<p>it&rsquo;s special that it doesn&rsquo;t contain any lock.</p>
+<ul>
+<li>it uses self-spinning mechanism to ensure that object value or any of those common resource value is going to be upgraded with the correct version.
+
+    <img src="../images-a/62.png" alt="62" loading="lazy" /></li>
+</ul>
+</li>
+<li>
+<p>i.e. AtomicInteger</p>
+</li>
+</ul>
+<p>
+    <img src="../images-a/63.png" alt="63" loading="lazy" /></p>
+<ul>
+<li>i.e. AtomicReference
+
+    <img src="../images-a/64.png" alt="64" loading="lazy" /></li>
+</ul>
+<h3>CAS vs Lock<span class="absolute -mt-20" id="cas-vs-lock"></span>
+    <a href="#cas-vs-lock" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>comparing the performance regarding to the while loop and lock.</li>
+<li>the nature of the computation(something like keep back and forth) then it suit for CAS. However, if it takes very long time to back to the original state, we should use lock.</li>
+</ol>
+<h3>AtomicReference is going to create ABA problems<span class="absolute -mt-20" id="atomicreference-is-going-to-create-aba-problems"></span>
+    <a href="#atomicreference-is-going-to-create-aba-problems" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><strong>AtomicStampedReference</strong> is going to solve that.
+<ul>
+<li>how: it&rsquo;s instead of just checking the value, it also creates a tag for each of the value(so, instead of checking the values, we also checking the versions).</li>
+</ul>
+</li>
+</ul>
 <h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
     <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
     <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>

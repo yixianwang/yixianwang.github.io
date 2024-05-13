@@ -739,6 +739,125 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;h3&gt;ThreadPool(or ExecutorService)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;threadpoolor-executorservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#threadpoolor-executorservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
     &lt;img src=&#34;../images-a/50.png&#34; alt=&#34;50&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;Lock(or Monitor)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lockor-monitor&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lockor-monitor&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;critical section: we have some threads, those threads are going to manipulate some common resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/51.png&#34; alt=&#34;51&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;data type built-in lock&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data-type-built-in-lock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#data-type-built-in-lock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
+    &lt;img src=&#34;../images-a/52.png&#34; alt=&#34;52&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;lock with synchronized keyword&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lock-with-synchronized-keyword&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lock-with-synchronized-keyword&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;can be applied to method scope and synchronized block&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Lock interface implementations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lock-interface-implementations&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lock-interface-implementations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Lock is an interface, its implementation including &lt;code&gt;ReentrantLock&lt;/code&gt;, &lt;code&gt;Condition&lt;/code&gt;, &lt;code&gt;ReadWriteLock&lt;/code&gt; comparing to &lt;code&gt;synchronized&lt;/code&gt; keyword.&lt;/li&gt;
+&lt;li&gt;when we use it
+&lt;ul&gt;
+&lt;li&gt;if we want to ensure the execution of the thread order is exactly the way that I want. I need to use &lt;code&gt;ReentrantLock&lt;/code&gt; and &lt;code&gt;Condition&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/53.png&#34; alt=&#34;53&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;Avoid!!!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;avoid&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#avoid&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;be careful when use &lt;code&gt;synchronized&lt;/code&gt; and &lt;code&gt;static&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;class template lock: means any of those static methods are locked with the same lock.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;because static element is saved in method area in JVM, it&amp;rsquo;s a class template lock.
+
+    &lt;img src=&#34;../images-a/54.png&#34; alt=&#34;54&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the following is not thread safe&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the first &lt;code&gt;synchronized&lt;/code&gt; keyword without static is on the object lock.&lt;/li&gt;
+&lt;li&gt;the second &lt;code&gt;synchronized&lt;/code&gt; keyword with static is on the class template lock.
+
+    &lt;img src=&#34;../images-a/55.png&#34; alt=&#34;55&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dead Locks&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dead-locks&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dead-locks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;caused by adding lock in wrong orders&lt;/li&gt;
+&lt;li&gt;how to avoid: no matter the order we add the lock, we should have the exact the same order to release the lock.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Callable vs CompletableFuture!!!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;callable-vs-completablefuture&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#callable-vs-completablefuture&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;For Callable, every time we call the &lt;code&gt;get&lt;/code&gt; api from the FutureTask, it&amp;rsquo;s going to block the main thread.&lt;/li&gt;
+&lt;li&gt;For CompletableFuture, we gonna have a callback.
+&lt;ul&gt;
+&lt;li&gt;And CompletableFuture can be chained. it means the callback will trigger another task, so on so forth. when everything is done, the main thread will come back and get the result. then continue to running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cons for CompletableFuture, it&amp;rsquo;s hard to handle Exceptions all over the place.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/56.png&#34; alt=&#34;56&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/57.png&#34; alt=&#34;57&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/58.png&#34; alt=&#34;58&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/59.png&#34; alt=&#34;59&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/60.png&#34; alt=&#34;60&#34; loading=&#34;lazy&#34; /&gt;
+
+    &lt;img src=&#34;../images-a/61.png&#34; alt=&#34;61&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;volatile keyword: visibility only&lt;span class=&#34;absolute -mt-20&#34; id=&#34;volatile-keyword-visibility-only&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#volatile-keyword-visibility-only&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;anything decorated with volatile, means it&amp;rsquo;s visible in between those threads.&lt;/li&gt;
+&lt;li&gt;volatile element will put in main memory.&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s not thread safe. it just ensure &lt;strong&gt;visibility&lt;/strong&gt; every time each thread will get the latest from the main memory.&lt;/li&gt;
+&lt;li&gt;it also ensures &lt;strong&gt;the instructions are not reordered(in assembly code)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Usage: when we have a singleton design pattern, and we wanna singleton design pattern thread safe. And at the moment we need to add the volatile keyword on that singleton object reference.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;CAS: Compare and Swap&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cas-compare-and-swap&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cas-compare-and-swap&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;it&amp;rsquo;s another mechanism to ensure the thread-safety.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it&amp;rsquo;s special that it doesn&amp;rsquo;t contain any lock.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it uses self-spinning mechanism to ensure that object value or any of those common resource value is going to be upgraded with the correct version.
+
+    &lt;img src=&#34;../images-a/62.png&#34; alt=&#34;62&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;i.e. AtomicInteger&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-a/63.png&#34; alt=&#34;63&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;i.e. AtomicReference
+
+    &lt;img src=&#34;../images-a/64.png&#34; alt=&#34;64&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;CAS vs Lock&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cas-vs-lock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cas-vs-lock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;comparing the performance regarding to the while loop and lock.&lt;/li&gt;
+&lt;li&gt;the nature of the computation(something like keep back and forth) then it suit for CAS. However, if it takes very long time to back to the original state, we should use lock.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;AtomicReference is going to create ABA problems&lt;span class=&#34;absolute -mt-20&#34; id=&#34;atomicreference-is-going-to-create-aba-problems&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#atomicreference-is-going-to-create-aba-problems&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AtomicStampedReference&lt;/strong&gt; is going to solve that.
+&lt;ul&gt;
+&lt;li&gt;how: it&amp;rsquo;s instead of just checking the value, it also creates a tag for each of the value(so, instead of checking the values, we also checking the versions).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Design Patterns&lt;span class=&#34;absolute -mt-20&#34; id=&#34;design-patterns&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#design-patterns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Singleton&lt;span class=&#34;absolute -mt-20&#34; id=&#34;singleton&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#singleton&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
