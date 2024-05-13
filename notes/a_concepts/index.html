@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="5555">
+<meta itemprop="wordCount" content="5578">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
@@ -1696,6 +1696,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#practices">practices
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#design-patterns">Design Patterns
         </a>
       </li>
@@ -1717,6 +1721,14 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#proxy">Proxy
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#adaptors">Adaptors
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#observers">Observers
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -2675,9 +2687,18 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>how: it&rsquo;s instead of just checking the value, it also creates a tag for each of the value(so, instead of checking the values, we also checking the versions).</li>
 </ul>
 </li>
+<li>it allows us to tracking if there is a ABA problem or not.</li>
+</ul>
+<h3>practices<span class="absolute -mt-20" id="practices"></span>
+    <a href="#practices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>5,5,5,10,10,10,15,15,15</li>
+<li>5,10,15,5,10,15,5,10,15</li>
 </ul>
 <h2>Design Patterns<span class="absolute -mt-20" id="design-patterns"></span>
-    <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
+    <a href="#design-patterns" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>what/why/where to use/how to use</li>
+</ul>
+<h3>Singleton<span class="absolute -mt-20" id="singleton"></span>
     <a href="#singleton" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><a href="https://refactoring.guru/design-patterns/singleton" target="_blank" rel="noopener">reference</a></li>
 <li>there is only one object we can create from the class.</li>
@@ -2733,7 +2754,9 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <li>There are two types of proxy: the static proxy and the dynamic proxy.</li>
 <li>The static proxy requires developer to know the target class in advance, whereas the dynamic proxy doesn&rsquo;t, because the proxy class can be dynamically created by JVM during the runtime.</li>
 </ul>
-<h2>OSI model vs TCP/IP model(won&rsquo;t be asked during the interview)<span class="absolute -mt-20" id="osi-model-vs-tcpip-modelwont-be-asked-during-the-interview"></span>
+<h3>Adaptors<span class="absolute -mt-20" id="adaptors"></span>
+    <a href="#adaptors" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Observers<span class="absolute -mt-20" id="observers"></span>
+    <a href="#observers" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>OSI model vs TCP/IP model(won&rsquo;t be asked during the interview)<span class="absolute -mt-20" id="osi-model-vs-tcpip-modelwont-be-asked-during-the-interview"></span>
     <a href="#osi-model-vs-tcpip-modelwont-be-asked-during-the-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>OSI model<span class="absolute -mt-20" id="osi-model"></span>
     <a href="#osi-model" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>7 layers architecture: Physical / Data Link / Network / Transport / Session / Presentation / Application</li>
