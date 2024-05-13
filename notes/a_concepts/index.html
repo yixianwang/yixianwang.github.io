@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Antra Training Concepts Cheat Sheet – Yixian Wang</title>
-  <meta name="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
+  <meta name="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object." />
 
   
 
 <meta property="og:title" content="Antra Training Concepts Cheat Sheet" />
-<meta property="og:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !" />
+<meta property="og:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/a_concepts/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-04-30T18:58:08-04:00" />
 <meta property="article:modified_time" content="2024-04-30T18:58:08-04:00" />
 
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
-<meta itemprop="description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
+<meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="5578">
+<meta itemprop="wordCount" content="5340">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
-<meta name="twitter:description" content="static block? singleton vs immutable class abstract: class, method final: class, method, variable static: inner class, method, variable jvm: method area(after java 8, meta space): static, class template heap: objects vm stack: references and method native(c/c&#43;&#43;) method stack: old api within jam jconsole IntelliJ profiler java flight recorder(since java 11 is free) spring actuator ArrayList&lt;? extends Staff&gt; list = new ArrayList(); confluence page-&gt; service 00 -&gt; 000 bytestream(8 bits), characterstream(16 bits) fileinputstream fileread lambda function type name functional interface with static virtual thread !"/>
+<meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -295,6 +295,12 @@
     </a>
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#quicknotes"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >QuickNotes</a>
+            </li>
+          <li>
               <a
                 href="#core-java-interview-questions"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
@@ -1460,6 +1466,10 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#quicknotes">QuickNotes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#core-java-interview-questions">Core Java interview questions
         </a>
       </li>
@@ -1929,109 +1939,10 @@
 
         <div class="content">
           <h1>Antra Training Concepts Cheat Sheet</h1>
-          <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">static block?
+          <h2>QuickNotes<span class="absolute -mt-20" id="quicknotes"></span>
+    <a href="#quicknotes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">singleton vs immutable class
 
-singleton vs immutable class
-
-abstract: class, method
-final: class, method, variable
-static: inner class, method, variable
-
-jvm:
-method area(after java 8, meta space): static, class template
-heap: objects
-vm stack: references and method
-native(c/c&#43;&#43;) method stack: old api within jam
-
-
-jconsole
-IntelliJ profiler
-java flight recorder(since java 11 is free)
-spring actuator
-
-ArrayList&lt;? extends Staff&gt; list = new ArrayList();
-
-confluence page-&gt;
-	service 00 
-				-&gt; 000
-
-bytestream(8 bits), characterstream(16 bits)
-fileinputstream
-fileread
-
-lambda function type name
-
-functional interface with static
-
-virtual thread !!!!!         loom project
-
-persons.stream(); vs persons.parallelStream();
-
-method reference
-
-traditional thread: use thread pool
-
-thread pool vs virtual thread
-
-threadFactory
-
-synchronized method
-synchronized static method
-
-callable futureTask.get block the thread vs completableFuture
-
-volatile : 2:38 visibility only not thread safety
-
-CAS 
-
-is that necessary to set accessible back to false for those private members
-
-
-//////////////////
-osi model, 7 layers vs tcp/ip model
-200 1 2 4
-307 8
-400 1 3 4
-500 
-
-session/ cookies
-	sticky session, weighted/ round robin
-
-/// day 2
-- Bean scope
-  - singleton(default)
-  - prototype
-  - request
-  - session
-  - application
-  - websocket
-
-- types of DI(pros and cons)
-  - constructor based DI
-  - settrer based DI
-  - filed based DI
-
-- Bean Life Cycle
-  - 
-
-/// day 3
-- AOP
-  - Aspect
-  - Advice
-  - Joinpoint
-  - Pointcut
-  - Target
-- AOP usages: 
-  - crud operation(get, put, delete, post)
-  - method special
-    @ABC
-    method_special();
-  - ...
-
-- Spring MVC
-  - explain the work flow
-- Springboot
-  - pros: autoconfigration, </code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+functional interface with static</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
