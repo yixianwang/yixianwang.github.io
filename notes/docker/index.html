@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Docker – Yixian Wang</title>
-  <meta name="description" content="&ndash;helpdocker --help anything install brew install docker --cask docker run --rm hello-world Create a docker container: long version container docker container create ### docker container create hello-world:linux # Does not start containers list container we have created docker ps docker ps --all start container docker container start DockerID log Approach 1 docker logs *** # with first three characters of DockerID Approach 2: even if the container already started docker container start --attach *** Create a docker container: short version docker run hello-world:linux docker run = docker container create &#43; docker container start &#43; docker container attach" />
+  <meta name="description" content="1. &ndash;help docker --help anything 2. install brew install docker --cask docker run --rm hello-world 3. Create a docker container: long version 3.1 container docker container create ### docker container create hello-world:linux # Does not start containers 3.2 list container we have created docker ps docker ps --all 3.3 start container docker container start DockerID 3.4 log 3.4.1 Approach 1 docker logs *** # with first three characters of DockerID 3." />
 
   
 
 <meta property="og:title" content="Docker" />
-<meta property="og:description" content="&ndash;helpdocker --help anything install brew install docker --cask docker run --rm hello-world Create a docker container: long version container docker container create ### docker container create hello-world:linux # Does not start containers list container we have created docker ps docker ps --all start container docker container start DockerID log Approach 1 docker logs *** # with first three characters of DockerID Approach 2: even if the container already started docker container start --attach *** Create a docker container: short version docker run hello-world:linux docker run = docker container create &#43; docker container start &#43; docker container attach" />
+<meta property="og:description" content="1. &ndash;help docker --help anything 2. install brew install docker --cask docker run --rm hello-world 3. Create a docker container: long version 3.1 container docker container create ### docker container create hello-world:linux # Does not start containers 3.2 list container we have created docker ps docker ps --all 3.3 start container docker container start DockerID 3.4 log 3.4.1 Approach 1 docker logs *** # with first three characters of DockerID 3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/docker/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-11-09T01:33:02-05:00" />
 <meta property="article:modified_time" content="2023-11-09T01:33:02-05:00" />
 
   <meta itemprop="name" content="Docker">
-<meta itemprop="description" content="&ndash;helpdocker --help anything install brew install docker --cask docker run --rm hello-world Create a docker container: long version container docker container create ### docker container create hello-world:linux # Does not start containers list container we have created docker ps docker ps --all start container docker container start DockerID log Approach 1 docker logs *** # with first three characters of DockerID Approach 2: even if the container already started docker container start --attach *** Create a docker container: short version docker run hello-world:linux docker run = docker container create &#43; docker container start &#43; docker container attach"><meta itemprop="datePublished" content="2023-11-09T01:33:02-05:00" />
+<meta itemprop="description" content="1. &ndash;help docker --help anything 2. install brew install docker --cask docker run --rm hello-world 3. Create a docker container: long version 3.1 container docker container create ### docker container create hello-world:linux # Does not start containers 3.2 list container we have created docker ps docker ps --all 3.3 start container docker container start DockerID 3.4 log 3.4.1 Approach 1 docker logs *** # with first three characters of DockerID 3."><meta itemprop="datePublished" content="2023-11-09T01:33:02-05:00" />
 <meta itemprop="dateModified" content="2023-11-09T01:33:02-05:00" />
-<meta itemprop="wordCount" content="1406">
+<meta itemprop="wordCount" content="1470">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker"/>
-<meta name="twitter:description" content="&ndash;helpdocker --help anything install brew install docker --cask docker run --rm hello-world Create a docker container: long version container docker container create ### docker container create hello-world:linux # Does not start containers list container we have created docker ps docker ps --all start container docker container start DockerID log Approach 1 docker logs *** # with first three characters of DockerID Approach 2: even if the container already started docker container start --attach *** Create a docker container: short version docker run hello-world:linux docker run = docker container create &#43; docker container start &#43; docker container attach"/>
+<meta name="twitter:description" content="1. &ndash;help docker --help anything 2. install brew install docker --cask docker run --rm hello-world 3. Create a docker container: long version 3.1 container docker container create ### docker container create hello-world:linux # Does not start containers 3.2 list container we have created docker ps docker ps --all 3.3 start container docker container start DockerID 3.4 log 3.4.1 Approach 1 docker logs *** # with first three characters of DockerID 3."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -472,99 +472,105 @@
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
               <a
-                href="#install"
+                href="#1---help"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >install</a>
+              >1. &amp;ndash;help</a>
             </li>
           <li>
               <a
-                href="#create-a-docker-container-long-version"
+                href="#2-install"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Create a docker container: long version</a>
+              >2. install</a>
             </li>
           <li>
               <a
-                href="#create-a-docker-container-short-version"
+                href="#3-create-a-docker-container-long-version"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Create a docker container: short version</a>
+              >3. Create a docker container: long version</a>
             </li>
           <li>
               <a
-                href="#create-a-docker-container-from-dockerfiles"
+                href="#4-create-a-docker-container-short-version"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Create a Docker Container from Dockerfiles</a>
+              >4. Create a docker container: short version</a>
             </li>
           <li>
               <a
-                href="#stop-and-removing-the-container"
+                href="#5-create-a-docker-container-from-dockerfiles"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Stop and removing the container</a>
+              >5. Create a Docker Container from Dockerfiles</a>
             </li>
           <li>
               <a
-                href="#remove-images"
+                href="#6-stop-and-removing-the-container"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Remove images</a>
+              >6. Stop and removing the container</a>
             </li>
           <li>
               <a
-                href="#binding-ports-to-our-container"
+                href="#7-remove-images"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Binding ports to our container</a>
+              >7. Remove images</a>
             </li>
           <li>
               <a
-                href="#saving-data-from-containers"
+                href="#8-binding-ports-to-our-container"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Saving data from containers</a>
+              >8. Binding ports to our container</a>
             </li>
           <li>
               <a
-                href="#docker-hub"
+                href="#9-saving-data-from-containers"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Docker Hub</a>
+              >9. Saving data from containers</a>
             </li>
           <li>
               <a
-                href="#challenge--solution-nginx"
+                href="#10-docker-hub"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Challenge &amp;amp; Solution: NGINX</a>
+              >10. Docker Hub</a>
             </li>
           <li>
               <a
-                href="#create-more-containers"
+                href="#11-challenge--solution-nginx"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Create more containers</a>
+              >11. Challenge &amp;amp; Solution: NGINX</a>
             </li>
           <li>
               <a
-                href="#make-container-faster"
+                href="#12-create-more-containers"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Make container faster</a>
+              >12. Create more containers</a>
             </li>
           <li>
               <a
-                href="#challenge--solution-fix-broken-container"
+                href="#13-make-container-faster"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Challenge &amp;amp; Solution: Fix broken container</a>
+              >13. Make container faster</a>
             </li>
           <li>
               <a
-                href="#best-practice"
+                href="#14-challenge--solution-fix-broken-container"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Best Practice</a>
+              >14. Challenge &amp;amp; Solution: Fix broken container</a>
             </li>
           <li>
               <a
-                href="#docker-compose"
+                href="#15-best-practice"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Docker Compose</a>
+              >15. Best Practice</a>
             </li>
           <li>
               <a
-                href="#kubernetes"
+                href="#16-docker-compose"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Kubernetes</a>
+              >16. Docker Compose</a>
+            </li>
+          <li>
+              <a
+                href="#17-kubernetes"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >17. Kubernetes</a>
             </li>
           </ul>
   
@@ -1178,251 +1184,255 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#install">install
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#1---help">1. &ndash;help
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-a-docker-container-long-version">Create a docker container: long version
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#2-install">2. install
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#container">container
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-create-a-docker-container-long-version">3. Create a docker container: long version
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#list-container-we-have-created">list container we have created
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#31-container">3.1 container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#start-container">start container
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#32-list-container-we-have-created">3.2 list container we have created
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#log">log
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#33-start-container">3.3 start container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-1">Approach 1
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#34-log">3.4 log
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-2-even-if-the-container-already-started">Approach 2: even if the container already started
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#341-approach-1">3.4.1 Approach 1
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-a-docker-container-short-version">Create a docker container: short version
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#342-approach-2-even-if-the-container-already-started">3.4.2 Approach 2: even if the container already started
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-ps-to-get-ids-for-containers-started-with-the-docker-run">use ps to get IDs for containers started with the docker run
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#4-create-a-docker-container-short-version">4. Create a docker container: short version
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#also-can-use-log">also can use log
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#41-use-ps-to-get-ids-for-containers-started-with-the-docker-run">4.1 use ps to get IDs for containers started with the docker run
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-a-docker-container-from-dockerfiles">Create a Docker Container from Dockerfiles
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#42-also-can-use-log">4.2 also can use log
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercies-files--03_05">Exercies Files &gt; <code>03_05</code>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5-create-a-docker-container-from-dockerfiles">5. Create a Docker Container from Dockerfiles
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#from">FROM
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#51-exercies-files--03_05">5.1 Exercies Files &gt; <code>03_05</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#label">LABEL
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#511-from">5.1.1 FROM
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#user">USER
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#512-label">5.1.2 LABEL
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#copy">COPY
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#513-user">5.1.3 USER
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#run">RUN
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#514-copy">5.1.4 COPY
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#user-1">USER
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#515-run">5.1.5 RUN
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#entrypoint">ENTRYPOINT
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#516-user">5.1.6 USER
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercies-files--03_05-1">Exercies Files &gt; <code>03_05</code>
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#517-entrypoint">5.1.7 ENTRYPOINT
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#turn-dockerfile-into-a-docker-image-and-start-our-container-from-it">turn Dockerfile into a Docker image, and start our container from it
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#52-exercies-files--03_05">5.2 Exercies Files &gt; <code>03_05</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#-t---tag-list">-t, &ndash;tag list
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#521-turn-dockerfile-into-a-docker-image-and-start-our-container-from-it">5.2.1 turn Dockerfile into a Docker image, and start our container from it
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#-f---file-string">-f, &ndash;file string
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5211--t---tag-list">5.2.1.1 -t, &ndash;tag list
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#after-providing-options-we-need-to-tell-docker-where-its-context-is">after providing options, we need to tell docker where its context is
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5212--f---file-string">5.2.1.2 -f, &ndash;file string
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image">after image has been sucessfully built and tagged, we are ready to run a container from that image
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5213-after-providing-options-we-need-to-tell-docker-where-its-context-is">5.2.1.3 after providing options, we need to tell docker where its context is
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercies-files--03_06">Exercies Files &gt; <code>03_06</code>
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5214-after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image">5.2.1.4 after image has been sucessfully built and tagged, we are ready to run a container from that image
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#serverdockerfile">server.Dockerfile
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#53-exercies-files--03_06">5.3 Exercies Files &gt; <code>03_06</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#copy-1">COPY
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#531-serverdockerfile">5.3.1 server.Dockerfile
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#build-and-start-a-container">build and start a container
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#532-copy">5.3.2 COPY
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#stop-the-container">stop the container
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#533-build-and-start-a-container">5.3.3 build and start a container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-a-container-from-the-image">create a container from the image
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#534-stop-the-container">5.3.4 stop the container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#run-additional-commands">run additional commands
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#535-create-a-container-from-the-image">5.3.5 create a container from the image
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-terminal">docker terminal
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#536-run-additional-commands">5.3.6 run additional commands
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#stop-and-removing-the-container">Stop and removing the container
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#537-docker-terminal">5.3.7 docker terminal
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#remove-images">Remove images
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#6-stop-and-removing-the-container">6. Stop and removing the container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#binding-ports-to-our-container">Binding ports to our container
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#7-remove-images">7. Remove images
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercise-files--03_08">Exercise Files &gt; <code>03_08</code>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#8-binding-ports-to-our-container">8. Binding ports to our container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#build-image-from-dockerfile">build image from dockerfile
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#81-exercise-files--03_08">8.1 Exercise Files &gt; <code>03_08</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#start-a-container-with-docker-run-and-background-it-with--d">start a container with docker run and background it with -d
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#811-build-image-from-dockerfile">8.1.1 build image from dockerfile
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#name-container">name container
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#812-start-a-container-with-docker-run-and-background-it-with--d">8.1.2 start a container with docker run and background it with -d
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#logs-with-name-of-container">logs with name of container
+        <a class="ltr:pl-12 rtl:pr-12 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#8121-name-container">8.1.2.1 name container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#stop-and-remove-container-at-the-same-time-with-the-name-of-container">stop and remove container at the same time, with the name of container
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#813-logs-with-name-of-container">8.1.3 logs with name of container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#map-some-ports">map some ports
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#814-stop-and-remove-container-at-the-same-time-with-the-name-of-container">8.1.4 stop and remove container at the same time, with the name of container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#saving-data-from-containers">Saving data from containers
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#815-map-some-ports">8.1.5 map some ports
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercise-files--03_08-1">Exercise Files &gt; <code>03_08</code>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#9-saving-data-from-containers">9. Saving data from containers
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#trivial-example">trivial example
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#91-exercise-files--03_08">9.1 Exercise Files &gt; <code>03_08</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#map-folderor-map-file-file-must-be-exist-with--v---volume">map folder(or map file, !!!file must be exist) with -v, &ndash;volume
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#911-trivial-example">9.1.1 trivial example
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-hub">Docker Hub
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#912-map-folderor-map-file-file-must-be-exist-with--v---volume">9.1.2 map folder(or map file, !!!file must be exist) with -v, &ndash;volume
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#exercise-files--03_08-2">Exercise Files &gt; <code>03_08</code>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#10-docker-hub">10. Docker Hub
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#log-in-to-docker-hub-form-docker-cli">log in to Docker Hub form Docker CLI
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#101-exercise-files--03_08">10.1 Exercise Files &gt; <code>03_08</code>
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pushing-our-web-server-into-docker-hub">pushing our-web-server into Docker Hub
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#102-log-in-to-docker-hub-form-docker-cli">10.2 log in to Docker Hub form Docker CLI
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#challenge--solution-nginx">Challenge &amp; Solution: NGINX
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#103-pushing-our-web-server-into-docker-hub">10.3 pushing our-web-server into Docker Hub
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-more-containers">Create more containers
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#11-challenge--solution-nginx">11. Challenge &amp; Solution: NGINX
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#make-container-faster">Make container faster
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#12-create-more-containers">12. Create more containers
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-top">Docker top
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#13-make-container-faster">13. Make container faster
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-inspect">Docker inspect
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#131-docker-top">13.1 Docker top
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#challenge--solution-fix-broken-container">Challenge &amp; Solution: Fix broken container
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#132-docker-inspect">13.2 Docker inspect
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#solution">Solution:
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#14-challenge--solution-fix-broken-container">14. Challenge &amp; Solution: Fix broken container
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#best-practice">Best Practice
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#141-solution">14.1 Solution:
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-compose">Docker Compose
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#15-best-practice">15. Best Practice
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#kubernetes">Kubernetes
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#16-docker-compose">16. Docker Compose
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#17-kubernetes">17. Kubernetes
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1447,7 +1457,8 @@
 
         <div class="content">
           <h1>Docker</h1>
-          <h1>&ndash;help</h1><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">docker --help anything</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+          <h2>1. &ndash;help<span class="absolute -mt-20" id="1---help"></span>
+    <a href="#1---help" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">docker --help anything</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1458,8 +1469,8 @@
     </button>
   </div>
 </div>
-<h2>install<span class="absolute -mt-20" id="install"></span>
-    <a href="#install" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">brew install docker --cask
+<h2>2. install<span class="absolute -mt-20" id="2-install"></span>
+    <a href="#2-install" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">brew install docker --cask
 docker run --rm hello-world</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1471,9 +1482,9 @@ docker run --rm hello-world</code></pre><div class="opacity-0 transition group-h
     </button>
   </div>
 </div>
-<h2>Create a docker container: long version<span class="absolute -mt-20" id="create-a-docker-container-long-version"></span>
-    <a href="#create-a-docker-container-long-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>container<span class="absolute -mt-20" id="container"></span>
-    <a href="#container" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">docker container create ###
+<h2>3. Create a docker container: long version<span class="absolute -mt-20" id="3-create-a-docker-container-long-version"></span>
+    <a href="#3-create-a-docker-container-long-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>3.1 container<span class="absolute -mt-20" id="31-container"></span>
+    <a href="#31-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">docker container create ###
 docker container create hello-world:linux # Does not start containers</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1485,8 +1496,8 @@ docker container create hello-world:linux # Does not start containers</code></pr
     </button>
   </div>
 </div>
-<h3>list container we have created<span class="absolute -mt-20" id="list-container-we-have-created"></span>
-    <a href="#list-container-we-have-created" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">docker ps
+<h3>3.2 list container we have created<span class="absolute -mt-20" id="32-list-container-we-have-created"></span>
+    <a href="#32-list-container-we-have-created" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">docker ps
 docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1498,8 +1509,8 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h3>start container<span class="absolute -mt-20" id="start-container"></span>
-    <a href="#start-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">docker container start DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>3.3 start container<span class="absolute -mt-20" id="33-start-container"></span>
+    <a href="#33-start-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">docker container start DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1510,9 +1521,9 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h3>log<span class="absolute -mt-20" id="log"></span>
-    <a href="#log" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Approach 1<span class="absolute -mt-20" id="approach-1"></span>
-    <a href="#approach-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">docker logs *** # with first three characters of DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>3.4 log<span class="absolute -mt-20" id="34-log"></span>
+    <a href="#34-log" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>3.4.1 Approach 1<span class="absolute -mt-20" id="341-approach-1"></span>
+    <a href="#341-approach-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">docker logs *** # with first three characters of DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1523,8 +1534,8 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h4>Approach 2: even if the container already started<span class="absolute -mt-20" id="approach-2-even-if-the-container-already-started"></span>
-    <a href="#approach-2-even-if-the-container-already-started" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-6">docker container start --attach ***</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>3.4.2 Approach 2: even if the container already started<span class="absolute -mt-20" id="342-approach-2-even-if-the-container-already-started"></span>
+    <a href="#342-approach-2-even-if-the-container-already-started" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-6">docker container start --attach ***</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1535,8 +1546,8 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h2>Create a docker container: short version<span class="absolute -mt-20" id="create-a-docker-container-short-version"></span>
-    <a href="#create-a-docker-container-short-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">docker run hello-world:linux</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>4. Create a docker container: short version<span class="absolute -mt-20" id="4-create-a-docker-container-short-version"></span>
+    <a href="#4-create-a-docker-container-short-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">docker run hello-world:linux</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1550,8 +1561,8 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
 <blockquote>
 <p><code>docker run</code> = <code>docker container create</code> + <code>docker container start</code> + <code>docker container attach</code></p>
 </blockquote>
-<h3>use ps to get IDs for containers started with the docker run<span class="absolute -mt-20" id="use-ps-to-get-ids-for-containers-started-with-the-docker-run"></span>
-    <a href="#use-ps-to-get-ids-for-containers-started-with-the-docker-run" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-8">docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>4.1 use ps to get IDs for containers started with the docker run<span class="absolute -mt-20" id="41-use-ps-to-get-ids-for-containers-started-with-the-docker-run"></span>
+    <a href="#41-use-ps-to-get-ids-for-containers-started-with-the-docker-run" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-8">docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1562,8 +1573,8 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h3>also can use log<span class="absolute -mt-20" id="also-can-use-log"></span>
-    <a href="#also-can-use-log" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-9">docer logs *** # with first three characters of DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>4.2 also can use log<span class="absolute -mt-20" id="42-also-can-use-log"></span>
+    <a href="#42-also-can-use-log" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-9">docer logs *** # with first three characters of DockerID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1574,9 +1585,9 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h2>Create a Docker Container from Dockerfiles<span class="absolute -mt-20" id="create-a-docker-container-from-dockerfiles"></span>
-    <a href="#create-a-docker-container-from-dockerfiles" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Exercies Files &gt; <code>03_05</code><span class="absolute -mt-20" id="exercies-files--03_05"></span>
-    <a href="#exercies-files--03_05" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-10">vim Dockerfile</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>5. Create a Docker Container from Dockerfiles<span class="absolute -mt-20" id="5-create-a-docker-container-from-dockerfiles"></span>
+    <a href="#5-create-a-docker-container-from-dockerfiles" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>5.1 Exercies Files &gt; <code>03_05</code><span class="absolute -mt-20" id="51-exercies-files--03_05"></span>
+    <a href="#51-exercies-files--03_05" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-10">vim Dockerfile</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1587,33 +1598,33 @@ docker ps --all</code></pre><div class="opacity-0 transition group-hover/code:op
     </button>
   </div>
 </div>
-<h4>FROM<span class="absolute -mt-20" id="from"></span>
-    <a href="#from" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker which existing Docker image to base your Docker image off.
+<h4>5.1.1 FROM<span class="absolute -mt-20" id="511-from"></span>
+    <a href="#511-from" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker which existing Docker image to base your Docker image off.
 This can be any existing image, either local or from the internet.
 By default, Docker will try to get this image from Docker Hub if it&rsquo;s not already on your machine.</p>
-<h4>LABEL<span class="absolute -mt-20" id="label"></span>
-    <a href="#label" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Some images will contain a <strong>label</strong> adding additional data like the maintainer of this image.</p>
-<h4>USER<span class="absolute -mt-20" id="user"></span>
-    <a href="#user" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker which user to use for any Docker file commands underneath it.</p>
+<h4>5.1.2 LABEL<span class="absolute -mt-20" id="512-label"></span>
+    <a href="#512-label" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Some images will contain a <strong>label</strong> adding additional data like the maintainer of this image.</p>
+<h4>5.1.3 USER<span class="absolute -mt-20" id="513-user"></span>
+    <a href="#513-user" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker which user to use for any Docker file commands underneath it.</p>
 <p>By default, Docker will use the <code>root user</code> to execute commands.
 Since most security teams do not like this, the <code>USER</code> keyword is useful in changing a user that your app runs as to one that is less powerful, like &ldquo;nobody&rdquo; for example <code>USER nobody</code>.</p>
-<h4>COPY<span class="absolute -mt-20" id="copy"></span>
-    <a href="#copy" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Copies files from a directory provided to the Docker build command to the container image.
+<h4>5.1.4 COPY<span class="absolute -mt-20" id="514-copy"></span>
+    <a href="#514-copy" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Copies files from a directory provided to the Docker build command to the container image.
 The directory provided to Docker build is called <code>context</code>.
 The <code>context</code> is usually your working directory, but it does not have to be.</p>
-<h4>RUN<span class="absolute -mt-20" id="run"></span>
-    <a href="#run" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Run statements are commands that customize our image.
+<h4>5.1.5 RUN<span class="absolute -mt-20" id="515-run"></span>
+    <a href="#515-run" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Run statements are commands that customize our image.
 This is a great place to install additional software, or configure files needed by your application.</p>
-<h4>USER<span class="absolute -mt-20" id="user-1"></span>
-    <a href="#user-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Uses <code>USER nobody</code> to set the default users for containers created from this image to the powerless <code>nobody</code> user.
+<h4>5.1.6 USER<span class="absolute -mt-20" id="516-user"></span>
+    <a href="#516-user" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Uses <code>USER nobody</code> to set the default users for containers created from this image to the powerless <code>nobody</code> user.
 This ensure that we cannot break out of the container, and potentialy change important files on our host.</p>
-<h4>ENTRYPOINT<span class="absolute -mt-20" id="entrypoint"></span>
-    <a href="#entrypoint" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker what command containers created from this image should run.
+<h4>5.1.7 ENTRYPOINT<span class="absolute -mt-20" id="517-entrypoint"></span>
+    <a href="#517-entrypoint" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Tells Docker what command containers created from this image should run.
 We can also use the <code>CMD</code> command to do this, though there are differences.
 <code>CMD command can be used as well</code></p>
-<h3>Exercies Files &gt; <code>03_05</code><span class="absolute -mt-20" id="exercies-files--03_05-1"></span>
-    <a href="#exercies-files--03_05-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>turn Dockerfile into a Docker image, and start our container from it<span class="absolute -mt-20" id="turn-dockerfile-into-a-docker-image-and-start-our-container-from-it"></span>
-    <a href="#turn-dockerfile-into-a-docker-image-and-start-our-container-from-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-11">docker build --help</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>5.2 Exercies Files &gt; <code>03_05</code><span class="absolute -mt-20" id="52-exercies-files--03_05"></span>
+    <a href="#52-exercies-files--03_05" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>5.2.1 turn Dockerfile into a Docker image, and start our container from it<span class="absolute -mt-20" id="521-turn-dockerfile-into-a-docker-image-and-start-our-container-from-it"></span>
+    <a href="#521-turn-dockerfile-into-a-docker-image-and-start-our-container-from-it" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-11">docker build --help</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1624,8 +1635,8 @@ We can also use the <code>CMD</code> command to do this, though there are differ
     </button>
   </div>
 </div>
-<h5>-t, &ndash;tag list<span class="absolute -mt-20" id="-t---tag-list"></span>
-    <a href="#-t---tag-list" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>Just like containers, every Docker image has an ID.
+<h5>5.2.1.1 -t, &ndash;tag list<span class="absolute -mt-20" id="5211--t---tag-list"></span>
+    <a href="#5211--t---tag-list" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>Just like containers, every Docker image has an ID.
 This option associates a convenient name with that ID.
 This way, we don&rsquo;t have to remember the image ID whenever we use it.</p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-12">docker build -t our-first-image</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -1639,8 +1650,8 @@ This way, we don&rsquo;t have to remember the image ID whenever we use it.</p>
     </button>
   </div>
 </div>
-<h5>-f, &ndash;file string<span class="absolute -mt-20" id="-f---file-string"></span>
-    <a href="#-f---file-string" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>Dockerfile looks for a file called <code>Dockerfile</code> by default.
+<h5>5.2.1.2 -f, &ndash;file string<span class="absolute -mt-20" id="5212--f---file-string"></span>
+    <a href="#5212--f---file-string" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>Dockerfile looks for a file called <code>Dockerfile</code> by default.
 Since this is what our dockerfile is actually called, we don&rsquo;t need to change anything.
 However, if our dockerfile were called something else, we need to provide <code>-f, --file</code> options as well.</p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-13">docker build -t our-first-image --file app.Dockerfile</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -1654,8 +1665,8 @@ However, if our dockerfile were called something else, we need to provide <code>
     </button>
   </div>
 </div>
-<h5>after providing options, we need to tell docker where its context is<span class="absolute -mt-20" id="after-providing-options-we-need-to-tell-docker-where-its-context-is"></span>
-    <a href="#after-providing-options-we-need-to-tell-docker-where-its-context-is" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>context is simply the folder containing files that docker will include in our image.
+<h5>5.2.1.3 after providing options, we need to tell docker where its context is<span class="absolute -mt-20" id="5213-after-providing-options-we-need-to-tell-docker-where-its-context-is"></span>
+    <a href="#5213-after-providing-options-we-need-to-tell-docker-where-its-context-is" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><p>context is simply the folder containing files that docker will include in our image.
 Since the <code>ENTRYPOINT</code> is in your working directory already, we can simply put a period here.</p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-14">docker build -t our-first-image .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -1680,8 +1691,8 @@ Since the <code>ENTRYPOINT</code> is in your working directory already, we can s
     </button>
   </div>
 </div>
-<h5>after image has been sucessfully built and tagged, we are ready to run a container from that image<span class="absolute -mt-20" id="after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image"></span>
-    <a href="#after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-16">docker run our-first-image</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h5>5.2.1.4 after image has been sucessfully built and tagged, we are ready to run a container from that image<span class="absolute -mt-20" id="5214-after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image"></span>
+    <a href="#5214-after-image-has-been-sucessfully-built-and-tagged-we-are-ready-to-run-a-container-from-that-image" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-16">docker run our-first-image</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1692,15 +1703,15 @@ Since the <code>ENTRYPOINT</code> is in your working directory already, we can s
     </button>
   </div>
 </div>
-<h3>Exercies Files &gt; <code>03_06</code><span class="absolute -mt-20" id="exercies-files--03_06"></span>
-    <a href="#exercies-files--03_06" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<h3>5.3 Exercies Files &gt; <code>03_06</code><span class="absolute -mt-20" id="53-exercies-files--03_06"></span>
+    <a href="#53-exercies-files--03_06" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
 <p>We can also run containers that do not immediately exit after <code>ENTRYPOINT</code> command, like servers for example</p>
 </blockquote>
-<h4>server.Dockerfile<span class="absolute -mt-20" id="serverdockerfile"></span>
-    <a href="#serverdockerfile" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h4>COPY<span class="absolute -mt-20" id="copy-1"></span>
-    <a href="#copy-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Copying a file called <code>server.bash</code> instead of <code>entrypoint.bash</code></p>
-<h4>build and start a container<span class="absolute -mt-20" id="build-and-start-a-container"></span>
-    <a href="#build-and-start-a-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-17">docker build --file server.Dockerfile --tag our-first-server .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>5.3.1 server.Dockerfile<span class="absolute -mt-20" id="531-serverdockerfile"></span>
+    <a href="#531-serverdockerfile" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h4>5.3.2 COPY<span class="absolute -mt-20" id="532-copy"></span>
+    <a href="#532-copy" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Copying a file called <code>server.bash</code> instead of <code>entrypoint.bash</code></p>
+<h4>5.3.3 build and start a container<span class="absolute -mt-20" id="533-build-and-start-a-container"></span>
+    <a href="#533-build-and-start-a-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-17">docker build --file server.Dockerfile --tag our-first-server .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1711,8 +1722,8 @@ Since the <code>ENTRYPOINT</code> is in your working directory already, we can s
     </button>
   </div>
 </div>
-<h4>stop the container<span class="absolute -mt-20" id="stop-the-container"></span>
-    <a href="#stop-the-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-18">docker run our-first-server # not prefered
+<h4>5.3.4 stop the container<span class="absolute -mt-20" id="534-stop-the-container"></span>
+    <a href="#534-stop-the-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-18">docker run our-first-server # not prefered
 docker ps
 docker kill ****</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -1725,8 +1736,8 @@ docker kill ****</code></pre><div class="opacity-0 transition group-hover/code:o
     </button>
   </div>
 </div>
-<h4>create a container from the image<span class="absolute -mt-20" id="create-a-container-from-the-image"></span>
-    <a href="#create-a-container-from-the-image" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Create and starts the container, but doesn&rsquo;t attach my terminal to it.</p>
+<h4>5.3.5 create a container from the image<span class="absolute -mt-20" id="535-create-a-container-from-the-image"></span>
+    <a href="#535-create-a-container-from-the-image" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Create and starts the container, but doesn&rsquo;t attach my terminal to it.</p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-19">docker run -d our-server # run in background
 docker ps # to prove our docker is running</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -1739,8 +1750,8 @@ docker ps # to prove our docker is running</code></pre><div class="opacity-0 tra
     </button>
   </div>
 </div>
-<h4>run additional commands<span class="absolute -mt-20" id="run-additional-commands"></span>
-    <a href="#run-additional-commands" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Use docker exec to run additional commands from this container.
+<h4>5.3.6 run additional commands<span class="absolute -mt-20" id="536-run-additional-commands"></span>
+    <a href="#536-run-additional-commands" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><p>Use docker exec to run additional commands from this container.
 This can be helpful while troubleshooting problems or testing images created by your application&rsquo;s Dockerfile.
 e.g. use date command to get the time from this container</p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-20">docker exec *** date</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -1754,8 +1765,8 @@ e.g. use date command to get the time from this container</p>
     </button>
   </div>
 </div>
-<h4>docker terminal<span class="absolute -mt-20" id="docker-terminal"></span>
-    <a href="#docker-terminal" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-21">docker exec --interactive --tty *** bash</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>5.3.7 docker terminal<span class="absolute -mt-20" id="537-docker-terminal"></span>
+    <a href="#537-docker-terminal" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-21">docker exec --interactive --tty *** bash</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1766,8 +1777,8 @@ e.g. use date command to get the time from this container</p>
     </button>
   </div>
 </div>
-<h2>Stop and removing the container<span class="absolute -mt-20" id="stop-and-removing-the-container"></span>
-    <a href="#stop-and-removing-the-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-22">docker stop ID # quit
+<h2>6. Stop and removing the container<span class="absolute -mt-20" id="6-stop-and-removing-the-container"></span>
+    <a href="#6-stop-and-removing-the-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-22">docker stop ID # quit
 docker stop ID -t 0 # force quit
 docker rm ID</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -1792,8 +1803,8 @@ docker ps -aq | xargs docker rm</code></pre><div class="opacity-0 transition gro
     </button>
   </div>
 </div>
-<h2>Remove images<span class="absolute -mt-20" id="remove-images"></span>
-    <a href="#remove-images" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-24">docker images # list all images
+<h2>7. Remove images<span class="absolute -mt-20" id="7-remove-images"></span>
+    <a href="#7-remove-images" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-24">docker images # list all images
 docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1805,10 +1816,10 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h2>Binding ports to our container<span class="absolute -mt-20" id="binding-ports-to-our-container"></span>
-    <a href="#binding-ports-to-our-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="exercise-files--03_08"></span>
-    <a href="#exercise-files--03_08" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>build image from dockerfile<span class="absolute -mt-20" id="build-image-from-dockerfile"></span>
-    <a href="#build-image-from-dockerfile" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-25">docker build -t our-web-server -f web-server.Dockerfile .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>8. Binding ports to our container<span class="absolute -mt-20" id="8-binding-ports-to-our-container"></span>
+    <a href="#8-binding-ports-to-our-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>8.1 Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="81-exercise-files--03_08"></span>
+    <a href="#81-exercise-files--03_08" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>8.1.1 build image from dockerfile<span class="absolute -mt-20" id="811-build-image-from-dockerfile"></span>
+    <a href="#811-build-image-from-dockerfile" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-25">docker build -t our-web-server -f web-server.Dockerfile .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1819,8 +1830,8 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h4>start a container with docker run and background it with -d<span class="absolute -mt-20" id="start-a-container-with-docker-run-and-background-it-with--d"></span>
-    <a href="#start-a-container-with-docker-run-and-background-it-with--d" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-26">docker run -d our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>8.1.2 start a container with docker run and background it with -d<span class="absolute -mt-20" id="812-start-a-container-with-docker-run-and-background-it-with--d"></span>
+    <a href="#812-start-a-container-with-docker-run-and-background-it-with--d" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-26">docker run -d our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1831,8 +1842,8 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h5>name container<span class="absolute -mt-20" id="name-container"></span>
-    <a href="#name-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-27">docker run -d --name our-web-server our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h5>8.1.2.1 name container<span class="absolute -mt-20" id="8121-name-container"></span>
+    <a href="#8121-name-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h5><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-27">docker run -d --name our-web-server our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1843,8 +1854,8 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h4>logs with name of container<span class="absolute -mt-20" id="logs-with-name-of-container"></span>
-    <a href="#logs-with-name-of-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-28">docker logs our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>8.1.3 logs with name of container<span class="absolute -mt-20" id="813-logs-with-name-of-container"></span>
+    <a href="#813-logs-with-name-of-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-28">docker logs our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1856,8 +1867,8 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
   </div>
 </div>
 <p>it doens&rsquo;t work then we need to stop and remove the container at the same time</p>
-<h4>stop and remove container at the same time, with the name of container<span class="absolute -mt-20" id="stop-and-remove-container-at-the-same-time-with-the-name-of-container"></span>
-    <a href="#stop-and-remove-container-at-the-same-time-with-the-name-of-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-29">docker rm -f our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>8.1.4 stop and remove container at the same time, with the name of container<span class="absolute -mt-20" id="814-stop-and-remove-container-at-the-same-time-with-the-name-of-container"></span>
+    <a href="#814-stop-and-remove-container-at-the-same-time-with-the-name-of-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-29">docker rm -f our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1868,8 +1879,8 @@ docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition gr
     </button>
   </div>
 </div>
-<h4>map some ports<span class="absolute -mt-20" id="map-some-ports"></span>
-    <a href="#map-some-ports" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-30">                                   outside : inside
+<h4>8.1.5 map some ports<span class="absolute -mt-20" id="815-map-some-ports"></span>
+    <a href="#815-map-some-ports" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-30">                                   outside : inside
 docker run -d --name our-web-server -p 5001:5000 our-web-server</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1881,10 +1892,10 @@ docker run -d --name our-web-server -p 5001:5000 our-web-server</code></pre><div
     </button>
   </div>
 </div>
-<h2>Saving data from containers<span class="absolute -mt-20" id="saving-data-from-containers"></span>
-    <a href="#saving-data-from-containers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="exercise-files--03_08-1"></span>
-    <a href="#exercise-files--03_08-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>trivial example<span class="absolute -mt-20" id="trivial-example"></span>
-    <a href="#trivial-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-31">docker run --rm --entrypoint sh ubuntu -c &#34;echo &#39;Hello there.&#39; &gt; /tmp/file &amp;&amp; cat /tmp/file&#34;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>9. Saving data from containers<span class="absolute -mt-20" id="9-saving-data-from-containers"></span>
+    <a href="#9-saving-data-from-containers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>9.1 Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="91-exercise-files--03_08"></span>
+    <a href="#91-exercise-files--03_08" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>9.1.1 trivial example<span class="absolute -mt-20" id="911-trivial-example"></span>
+    <a href="#911-trivial-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-31">docker run --rm --entrypoint sh ubuntu -c &#34;echo &#39;Hello there.&#39; &gt; /tmp/file &amp;&amp; cat /tmp/file&#34;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1895,8 +1906,8 @@ docker run -d --name our-web-server -p 5001:5000 our-web-server</code></pre><div
     </button>
   </div>
 </div>
-<h4>map folder(or map file, !!!file must be exist) with -v, &ndash;volume<span class="absolute -mt-20" id="map-folderor-map-file-file-must-be-exist-with--v---volume"></span>
-    <a href="#map-folderor-map-file-file-must-be-exist-with--v---volume" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-32">docker run --rm --entrypoint sh -v /tmp/container:/tmp ubuntu -c &#34;echo &#39;Hello there.&#39; &gt; /tmp/file &amp;&amp; cat /tmp/file&#34;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h4>9.1.2 map folder(or map file, !!!file must be exist) with -v, &ndash;volume<span class="absolute -mt-20" id="912-map-folderor-map-file-file-must-be-exist-with--v---volume"></span>
+    <a href="#912-map-folderor-map-file-file-must-be-exist-with--v---volume" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-32">docker run --rm --entrypoint sh -v /tmp/container:/tmp ubuntu -c &#34;echo &#39;Hello there.&#39; &gt; /tmp/file &amp;&amp; cat /tmp/file&#34;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1907,10 +1918,10 @@ docker run -d --name our-web-server -p 5001:5000 our-web-server</code></pre><div
     </button>
   </div>
 </div>
-<h2>Docker Hub<span class="absolute -mt-20" id="docker-hub"></span>
-    <a href="#docker-hub" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="exercise-files--03_08-2"></span>
-    <a href="#exercise-files--03_08-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>log in to Docker Hub form Docker CLI<span class="absolute -mt-20" id="log-in-to-docker-hub-form-docker-cli"></span>
-    <a href="#log-in-to-docker-hub-form-docker-cli" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-33">docker login</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>10. Docker Hub<span class="absolute -mt-20" id="10-docker-hub"></span>
+    <a href="#10-docker-hub" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>10.1 Exercise Files &gt; <code>03_08</code><span class="absolute -mt-20" id="101-exercise-files--03_08"></span>
+    <a href="#101-exercise-files--03_08" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>10.2 log in to Docker Hub form Docker CLI<span class="absolute -mt-20" id="102-log-in-to-docker-hub-form-docker-cli"></span>
+    <a href="#102-log-in-to-docker-hub-form-docker-cli" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-33">docker login</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1921,8 +1932,8 @@ docker run -d --name our-web-server -p 5001:5000 our-web-server</code></pre><div
     </button>
   </div>
 </div>
-<h3>pushing our-web-server into Docker Hub<span class="absolute -mt-20" id="pushing-our-web-server-into-docker-hub"></span>
-    <a href="#pushing-our-web-server-into-docker-hub" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>10.3 pushing our-web-server into Docker Hub<span class="absolute -mt-20" id="103-pushing-our-web-server-into-docker-hub"></span>
+    <a href="#103-pushing-our-web-server-into-docker-hub" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>Tell docker that this image is going to be pushed into a registry: We need to rename the image, so that it contains our username.</li>
 </ul>
 <blockquote>
@@ -1940,8 +1951,8 @@ docker push mrtutu/our-web-server:0.0.1</code></pre><div class="opacity-0 transi
     </button>
   </div>
 </div>
-<h2>Challenge &amp; Solution: NGINX<span class="absolute -mt-20" id="challenge--solution-nginx"></span>
-    <a href="#challenge--solution-nginx" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
+<h2>11. Challenge &amp; Solution: NGINX<span class="absolute -mt-20" id="11-challenge--solution-nginx"></span>
+    <a href="#11-challenge--solution-nginx" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
 <p>Exercise Files &gt; <code>03_14_before</code></p>
 </blockquote>
 <ul>
@@ -1964,8 +1975,8 @@ docker ps -a</code></pre><div class="opacity-0 transition group-hover/code:opaci
     </button>
   </div>
 </div>
-<h2>Create more containers<span class="absolute -mt-20" id="create-more-containers"></span>
-    <a href="#create-more-containers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<h2>12. Create more containers<span class="absolute -mt-20" id="12-create-more-containers"></span>
+    <a href="#12-create-more-containers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
 <li>remove images</li>
 </ol>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-36">docker rmi tagname1 tagname2 ...</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -1993,8 +2004,8 @@ docker ps -a</code></pre><div class="opacity-0 transition group-hover/code:opaci
     </button>
   </div>
 </div>
-<h2>Make container faster<span class="absolute -mt-20" id="make-container-faster"></span>
-    <a href="#make-container-faster" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-38">docker run --name=alpine --entrypoint=sleep -d alpine infinity</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>13. Make container faster<span class="absolute -mt-20" id="13-make-container-faster"></span>
+    <a href="#13-make-container-faster" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-38">docker run --name=alpine --entrypoint=sleep -d alpine infinity</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -2020,8 +2031,8 @@ docker exec -i -t alpine sh</code></pre><div class="opacity-0 transition group-h
     </button>
   </div>
 </div>
-<h3>Docker top<span class="absolute -mt-20" id="docker-top"></span>
-    <a href="#docker-top" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>13.1 Docker top<span class="absolute -mt-20" id="131-docker-top"></span>
+    <a href="#131-docker-top" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>shows what&rsquo;s running inside of the container without having to exec into it</li>
 </ul>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-40">docker exec -d alpine sleep infinity
@@ -2037,8 +2048,8 @@ docker exec -d alpine sleep infinity</code></pre><div class="opacity-0 transitio
     </button>
   </div>
 </div>
-<h3>Docker inspect<span class="absolute -mt-20" id="docker-inspect"></span>
-    <a href="#docker-inspect" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h3>13.2 Docker inspect<span class="absolute -mt-20" id="132-docker-inspect"></span>
+    <a href="#132-docker-inspect" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>show you advanced information about a container that&rsquo;s running in JSON format</li>
 </ul>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-41">docker inspect alpine | less</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
@@ -2052,8 +2063,8 @@ docker exec -d alpine sleep infinity</code></pre><div class="opacity-0 transitio
     </button>
   </div>
 </div>
-<h2>Challenge &amp; Solution: Fix broken container<span class="absolute -mt-20" id="challenge--solution-fix-broken-container"></span>
-    <a href="#challenge--solution-fix-broken-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
+<h2>14. Challenge &amp; Solution: Fix broken container<span class="absolute -mt-20" id="14-challenge--solution-fix-broken-container"></span>
+    <a href="#14-challenge--solution-fix-broken-container" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
 <p>Exercise File &gt; <code>04_03_before</code></p>
 </blockquote>
 <ul>
@@ -2070,8 +2081,8 @@ docker exec -d alpine sleep infinity</code></pre><div class="opacity-0 transitio
 <p>Hint2: use <code>docker ps</code> and <code>docker rm</code> in another terminal if ours hangs.</p>
 </li>
 </ul>
-<h3>Solution:<span class="absolute -mt-20" id="solution"></span>
-    <a href="#solution" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-42">docker build -t app .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>14.1 Solution:<span class="absolute -mt-20" id="141-solution"></span>
+    <a href="#141-solution" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-42">docker build -t app .</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -2139,19 +2150,19 @@ docker run -it --name=app_container app</code></pre><div class="opacity-0 transi
     </button>
   </div>
 </div>
-<h2>Best Practice<span class="absolute -mt-20" id="best-practice"></span>
-    <a href="#best-practice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<h2>15. Best Practice<span class="absolute -mt-20" id="15-best-practice"></span>
+    <a href="#15-best-practice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
 <li>Use: verifeid image or image scanner(Clair, Trivy, Dagda)</li>
 <li>Avoid latest: use v1.0.1</li>
 <li>Use non-root users: &ndash;user flag: <code>docker run --rm --it --user somebody-else suspect-image:v1.0.1</code></li>
 </ol>
-<h2>Docker Compose<span class="absolute -mt-20" id="docker-compose"></span>
-    <a href="#docker-compose" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<h2>16. Docker Compose<span class="absolute -mt-20" id="16-docker-compose"></span>
+    <a href="#16-docker-compose" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Docker Compose makes starting and connecting multiple containers as easy as docker-compose up</li>
 <li><a href="https://docs.docker.com/compose" target="_blank" rel="noopener">Docker Compose Doc</a></li>
 </ul>
-<h2>Kubernetes<span class="absolute -mt-20" id="kubernetes"></span>
-    <a href="#kubernetes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>It&rsquo;s a popular <strong>container orchestrator</strong> capable of managing very large numbers of containers.</p>
+<h2>17. Kubernetes<span class="absolute -mt-20" id="17-kubernetes"></span>
+    <a href="#17-kubernetes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>It&rsquo;s a popular <strong>container orchestrator</strong> capable of managing very large numbers of containers.</p>
 <ul>
 <li>Kubernetes uses a distributed architecture to run and connect hundreds of thousands of containers with minimal hardware.</li>
 <li>Kubernetes also makes grouping, scaling, and connecting containers with the outside world really easy.</li>

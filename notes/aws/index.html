@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>AWS – Yixian Wang</title>
-  <meta name="description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users " />
+  <meta name="description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked." />
 
   
 
 <meta property="og:title" content="AWS" />
-<meta property="og:description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users " />
+<meta property="og:description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/aws/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-04-29T15:12:10-04:00" />
 <meta property="article:modified_time" content="2024-04-29T15:12:10-04:00" />
 
   <meta itemprop="name" content="AWS">
-<meta itemprop="description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users "><meta itemprop="datePublished" content="2024-04-29T15:12:10-04:00" />
+<meta itemprop="description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked."><meta itemprop="datePublished" content="2024-04-29T15:12:10-04:00" />
 <meta itemprop="dateModified" content="2024-04-29T15:12:10-04:00" />
-<meta itemprop="wordCount" content="79">
+<meta itemprop="wordCount" content="373">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS"/>
-<meta name="twitter:description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users "/>
+<meta name="twitter:description" content="Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -327,6 +327,150 @@
                 href="#iam"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >IAM</a>
+            </li>
+          <li>
+              <a
+                href="#section-7-ec2-instance-storage"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 7: EC2 Instance Storage</a>
+            </li>
+          <li>
+              <a
+                href="#section-8-high-availability-and-scalability-elb--asg"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 8: High Availability and Scalability: ELB &amp;amp; ASG</a>
+            </li>
+          <li>
+              <a
+                href="#section-9-aws-fundamentals-rds--aurora--elasticache"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 9: AWS Fundamentals: RDS &#43; Aurora &#43; ElastiCache</a>
+            </li>
+          <li>
+              <a
+                href="#section-10-route-53"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 10: Route 53</a>
+            </li>
+          <li>
+              <a
+                href="#section-11-classic-solutions-architecture-discussions"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 11: Classic Solutions Architecture Discussions</a>
+            </li>
+          <li>
+              <a
+                href="#section-12-amazon-s3-introduction"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 12: Amazon S3 Introduction</a>
+            </li>
+          <li>
+              <a
+                href="#section-13-advanced-amazon-s3"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 13: Advanced Amazon S3</a>
+            </li>
+          <li>
+              <a
+                href="#section-14-amazon-s3-security"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 14: Amazon S3 Security</a>
+            </li>
+          <li>
+              <a
+                href="#section-15-cloudfront--aws-global-accelerator"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 15: CloudFront &amp;amp; AWS Global Accelerator</a>
+            </li>
+          <li>
+              <a
+                href="#section-16-aws-storage-extras"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 16: AWS Storage Extras</a>
+            </li>
+          <li>
+              <a
+                href="#section-17-decoupling-applications-sqs-sns-kinesis-active-mq"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 17: Decoupling applications: SQS, SNS, Kinesis, Active MQ</a>
+            </li>
+          <li>
+              <a
+                href="#section-18-containers-on-aws-ecs-fargate-ecr--eks"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 18: Containers on AWS: ECS, Fargate, ECR &amp;amp; EKS</a>
+            </li>
+          <li>
+              <a
+                href="#section-19-serverless-overviews-from-a-solution-architect-perspective"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 19: Serverless Overviews from a Solution Architect Perspective</a>
+            </li>
+          <li>
+              <a
+                href="#section-20-serverless-solution-architecture-discussions"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 20: Serverless Solution Architecture Discussions</a>
+            </li>
+          <li>
+              <a
+                href="#section-21-databases-in-aws"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 21: Databases in AWS</a>
+            </li>
+          <li>
+              <a
+                href="#section-22-data--analytics"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 22: Data &amp;amp; Analytics</a>
+            </li>
+          <li>
+              <a
+                href="#section-23-machine-learning"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 23: Machine Learning</a>
+            </li>
+          <li>
+              <a
+                href="#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 24: AWS Monitor &amp;amp; Audit: CloudWatch, CloudTrail &amp;amp; Config</a>
+            </li>
+          <li>
+              <a
+                href="#section-25-identiy-and-access-managementiam---advanced"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 25: Identiy and Access Management(IAM) - Advanced</a>
+            </li>
+          <li>
+              <a
+                href="#section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 26: AWS Security &amp;amp; Encryption: KMS, SSM Parameter Store, Shield, WAF</a>
+            </li>
+          <li>
+              <a
+                href="#section-27-networking---vpc"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 27: Networking - VPC</a>
+            </li>
+          <li>
+              <a
+                href="#section-28-disaster-recovery--migrations"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 28: Disaster Recovery &amp;amp; Migrations</a>
+            </li>
+          <li>
+              <a
+                href="#section-29-more-solution-architecures"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 29: More Solution Architecures</a>
+            </li>
+          <li>
+              <a
+                href="#section-30-other-services"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Section 30: Other Services</a>
             </li>
           </ul>
   
@@ -1110,6 +1254,130 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#iam">IAM
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-7-ec2-instance-storage">Section 7: EC2 Instance Storage
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#ebs">EBS
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#general-purpose-ssd-gp2-gp3">General Purpose SSD, gp2, gp3
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#provisioned-iops-piops-ssd-io1io2">Provisioned IOPS (PIOPS) SSD, io1/io2
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#hard-disk-driveshdd-st1-sc1">Hard Disk Drives(HDD), st1, sc1
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#ebs-multi-attach---io1io2-family">EBS Multi-Attach - io1/io2 family
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#ebs-encryption">EBS Encryption
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#efs">EFS
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-8-high-availability-and-scalability-elb--asg">Section 8: High Availability and Scalability: ELB &amp; ASG
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-9-aws-fundamentals-rds--aurora--elasticache">Section 9: AWS Fundamentals: RDS + Aurora + ElastiCache
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-10-route-53">Section 10: Route 53
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-11-classic-solutions-architecture-discussions">Section 11: Classic Solutions Architecture Discussions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-12-amazon-s3-introduction">Section 12: Amazon S3 Introduction
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-13-advanced-amazon-s3">Section 13: Advanced Amazon S3
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-14-amazon-s3-security">Section 14: Amazon S3 Security
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-15-cloudfront--aws-global-accelerator">Section 15: CloudFront &amp; AWS Global Accelerator
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-16-aws-storage-extras">Section 16: AWS Storage Extras
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-17-decoupling-applications-sqs-sns-kinesis-active-mq">Section 17: Decoupling applications: SQS, SNS, Kinesis, Active MQ
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-18-containers-on-aws-ecs-fargate-ecr--eks">Section 18: Containers on AWS: ECS, Fargate, ECR &amp; EKS
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-19-serverless-overviews-from-a-solution-architect-perspective">Section 19: Serverless Overviews from a Solution Architect Perspective
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-20-serverless-solution-architecture-discussions">Section 20: Serverless Solution Architecture Discussions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-21-databases-in-aws">Section 21: Databases in AWS
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-22-data--analytics">Section 22: Data &amp; Analytics
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-23-machine-learning">Section 23: Machine Learning
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config">Section 24: AWS Monitor &amp; Audit: CloudWatch, CloudTrail &amp; Config
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-25-identiy-and-access-managementiam---advanced">Section 25: Identiy and Access Management(IAM) - Advanced
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf">Section 26: AWS Security &amp; Encryption: KMS, SSM Parameter Store, Shield, WAF
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-27-networking---vpc">Section 27: Networking - VPC
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-28-disaster-recovery--migrations">Section 28: Disaster Recovery &amp; Migrations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-29-more-solution-architecures">Section 29: More Solution Architecures
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-30-other-services">Section 30: Other Services
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1172,7 +1440,86 @@ aws iam list-users</code></pre><div class="opacity-0 transition group-hover/code
     </button>
   </div>
 </div>
-
+<h2>Section 7: EC2 Instance Storage<span class="absolute -mt-20" id="section-7-ec2-instance-storage"></span>
+    <a href="#section-7-ec2-instance-storage" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>EBS<span class="absolute -mt-20" id="ebs"></span>
+    <a href="#ebs" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
+    <img src="../images-aws/1.png" alt="img" loading="lazy" /></p>
+<h4>General Purpose SSD, gp2, gp3<span class="absolute -mt-20" id="general-purpose-ssd-gp2-gp3"></span>
+    <a href="#general-purpose-ssd-gp2-gp3" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>gp3: IOPS and throughput are not linked.</li>
+<li>gp2: IOPS and throughput are linked.</li>
+</ul>
+<h4>Provisioned IOPS (PIOPS) SSD, io1/io2<span class="absolute -mt-20" id="provisioned-iops-piops-ssd-io1io2"></span>
+    <a href="#provisioned-iops-piops-ssd-io1io2" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>Use Case:
+<ul>
+<li>Critical business applications with sustained IOPS performance.</li>
+<li>Or applications that need more than 16000 IOPS</li>
+<li>Great for database workloads(sensitive to storage perf and consistency)</li>
+</ul>
+</li>
+<li>PIOPS and storage size are not linked just like gp3</li>
+</ul>
+<h4>Hard Disk Drives(HDD), st1, sc1<span class="absolute -mt-20" id="hard-disk-driveshdd-st1-sc1"></span>
+    <a href="#hard-disk-driveshdd-st1-sc1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>
+<p>cannot be boot volume</p>
+</li>
+<li>
+<p>Throughput Optimized HDD(st1)</p>
+<ul>
+<li>Big Data, Data Warehouses, Log Processing</li>
+</ul>
+</li>
+<li>
+<p>Cold HDD(sc1)</p>
+<ul>
+<li>For data that is infrequently accessed</li>
+</ul>
+</li>
+</ul>
+<h4>EBS Multi-Attach - io1/io2 family<span class="absolute -mt-20" id="ebs-multi-attach---io1io2-family"></span>
+    <a href="#ebs-multi-attach---io1io2-family" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>attach the same EBS volume to multiple EC2 instances in the same AZ</li>
+<li>Up to 16 EC2 instances at a time.</li>
+</ul>
+<h4>EBS Encryption<span class="absolute -mt-20" id="ebs-encryption"></span>
+    <a href="#ebs-encryption" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>create snapshot
+<ol>
+<li>copy snapshot &amp;&amp; encrypt snapshot</li>
+<li>create volume from snapshot &amp;&amp; encrypt volume</li>
+</ol>
+</li>
+</ul>
+<h4>EFS<span class="absolute -mt-20" id="efs"></span>
+    <a href="#efs" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>EFS works with EC2 instances in multi-AZ</li>
+</ul>
+<h2>Section 8: High Availability and Scalability: ELB &amp; ASG<span class="absolute -mt-20" id="section-8-high-availability-and-scalability-elb--asg"></span>
+    <a href="#section-8-high-availability-and-scalability-elb--asg" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 9: AWS Fundamentals: RDS + Aurora + ElastiCache<span class="absolute -mt-20" id="section-9-aws-fundamentals-rds--aurora--elasticache"></span>
+    <a href="#section-9-aws-fundamentals-rds--aurora--elasticache" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 10: Route 53<span class="absolute -mt-20" id="section-10-route-53"></span>
+    <a href="#section-10-route-53" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 11: Classic Solutions Architecture Discussions<span class="absolute -mt-20" id="section-11-classic-solutions-architecture-discussions"></span>
+    <a href="#section-11-classic-solutions-architecture-discussions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 12: Amazon S3 Introduction<span class="absolute -mt-20" id="section-12-amazon-s3-introduction"></span>
+    <a href="#section-12-amazon-s3-introduction" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 13: Advanced Amazon S3<span class="absolute -mt-20" id="section-13-advanced-amazon-s3"></span>
+    <a href="#section-13-advanced-amazon-s3" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 14: Amazon S3 Security<span class="absolute -mt-20" id="section-14-amazon-s3-security"></span>
+    <a href="#section-14-amazon-s3-security" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 15: CloudFront &amp; AWS Global Accelerator<span class="absolute -mt-20" id="section-15-cloudfront--aws-global-accelerator"></span>
+    <a href="#section-15-cloudfront--aws-global-accelerator" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 16: AWS Storage Extras<span class="absolute -mt-20" id="section-16-aws-storage-extras"></span>
+    <a href="#section-16-aws-storage-extras" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 17: Decoupling applications: SQS, SNS, Kinesis, Active MQ<span class="absolute -mt-20" id="section-17-decoupling-applications-sqs-sns-kinesis-active-mq"></span>
+    <a href="#section-17-decoupling-applications-sqs-sns-kinesis-active-mq" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 18: Containers on AWS: ECS, Fargate, ECR &amp; EKS<span class="absolute -mt-20" id="section-18-containers-on-aws-ecs-fargate-ecr--eks"></span>
+    <a href="#section-18-containers-on-aws-ecs-fargate-ecr--eks" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 19: Serverless Overviews from a Solution Architect Perspective<span class="absolute -mt-20" id="section-19-serverless-overviews-from-a-solution-architect-perspective"></span>
+    <a href="#section-19-serverless-overviews-from-a-solution-architect-perspective" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 20: Serverless Solution Architecture Discussions<span class="absolute -mt-20" id="section-20-serverless-solution-architecture-discussions"></span>
+    <a href="#section-20-serverless-solution-architecture-discussions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 21: Databases in AWS<span class="absolute -mt-20" id="section-21-databases-in-aws"></span>
+    <a href="#section-21-databases-in-aws" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 22: Data &amp; Analytics<span class="absolute -mt-20" id="section-22-data--analytics"></span>
+    <a href="#section-22-data--analytics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 23: Machine Learning<span class="absolute -mt-20" id="section-23-machine-learning"></span>
+    <a href="#section-23-machine-learning" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 24: AWS Monitor &amp; Audit: CloudWatch, CloudTrail &amp; Config<span class="absolute -mt-20" id="section-24-aws-monitor--audit-cloudwatch-cloudtrail--config"></span>
+    <a href="#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 25: Identiy and Access Management(IAM) - Advanced<span class="absolute -mt-20" id="section-25-identiy-and-access-managementiam---advanced"></span>
+    <a href="#section-25-identiy-and-access-managementiam---advanced" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 26: AWS Security &amp; Encryption: KMS, SSM Parameter Store, Shield, WAF<span class="absolute -mt-20" id="section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf"></span>
+    <a href="#section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 27: Networking - VPC<span class="absolute -mt-20" id="section-27-networking---vpc"></span>
+    <a href="#section-27-networking---vpc" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 28: Disaster Recovery &amp; Migrations<span class="absolute -mt-20" id="section-28-disaster-recovery--migrations"></span>
+    <a href="#section-28-disaster-recovery--migrations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 29: More Solution Architecures<span class="absolute -mt-20" id="section-29-more-solution-architecures"></span>
+    <a href="#section-29-more-solution-architecures" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 30: Other Services<span class="absolute -mt-20" id="section-30-other-services"></span>
+    <a href="#section-30-other-services" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
