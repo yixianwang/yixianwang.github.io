@@ -11,25 +11,33 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Cassandra – Yixian Wang</title>
-  <meta name="description" content="Basics replication factor (RF) consistency level (CL) = QUORUM (Quorum referring to majority, 2 replicas in this case or RF/2 &#43;1) coordinator SSTable memtable timestamps compaction: take small SSTables and merging them into bigger one Intro keyspaces: top-level namespace/container similar to a relational database schema CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1 }; USE switches between keyspaces USE killrvideo; Tables: keyspaces contain tables tables contain data CREATE TABLE table1 ( column1 TEXT, column2 TEXT, column3 INT, PRIMARY KEY (column1) ); CREATE TABLE users ( user_id UUID, first_name TEXT, last_name TEXT, PRIMARY KEY (user_id) ); Basic Data Types: text: UTF8 encoded string, varchar is same as text, unbounded int: Signed, 32 bits timestamp: date and time, 64 bit integer, store number of seconds since Jan 1st 1970 GMT UUID &amp;&amp; TIMEUUID generate global unique id without communication between nodes TIMEUUID embeds a TIMESTAMP value INSERT: INSERT INTO users (user_id, first_name, last_name) VALUES (uuid(), &#39;Joseph&#39;, &#39;Chu&#39;); SELECT: SELECT * FROM users; SELECT first_name, last_name FROM users; SELECT * FROM users WHERE user_id = 4b516b3-ddf0-4c43-bab6-b91d674b64a5; COPY: imports/exports CSV COPY table1 (column1, column2, column3) FROM &#39;table1data." />
+  <title>Go Syntax – Yixian Wang</title>
+  <meta name="description" content="1. workspace go env GOPATH
+1.1 file structures /Users/username/go/src/project1 /Users/username/go/src/project2 2. package main every project at least if we want to be executed it needs to have a package called package main 3. import this is where we can import different packages no comma
+import ( &#34;fmt&#34; &#34;math&#34; ) 4. run go file go run hello.go 5. go build compile the code into executable go build directly 6. go install similar to go build	except the executable is put in bin folder 7." />
 
   
 
-<meta property="og:title" content="Cassandra" />
-<meta property="og:description" content="Basics replication factor (RF) consistency level (CL) = QUORUM (Quorum referring to majority, 2 replicas in this case or RF/2 &#43;1) coordinator SSTable memtable timestamps compaction: take small SSTables and merging them into bigger one Intro keyspaces: top-level namespace/container similar to a relational database schema CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1 }; USE switches between keyspaces USE killrvideo; Tables: keyspaces contain tables tables contain data CREATE TABLE table1 ( column1 TEXT, column2 TEXT, column3 INT, PRIMARY KEY (column1) ); CREATE TABLE users ( user_id UUID, first_name TEXT, last_name TEXT, PRIMARY KEY (user_id) ); Basic Data Types: text: UTF8 encoded string, varchar is same as text, unbounded int: Signed, 32 bits timestamp: date and time, 64 bit integer, store number of seconds since Jan 1st 1970 GMT UUID &amp;&amp; TIMEUUID generate global unique id without communication between nodes TIMEUUID embeds a TIMESTAMP value INSERT: INSERT INTO users (user_id, first_name, last_name) VALUES (uuid(), &#39;Joseph&#39;, &#39;Chu&#39;); SELECT: SELECT * FROM users; SELECT first_name, last_name FROM users; SELECT * FROM users WHERE user_id = 4b516b3-ddf0-4c43-bab6-b91d674b64a5; COPY: imports/exports CSV COPY table1 (column1, column2, column3) FROM &#39;table1data." />
+<meta property="og:title" content="Go Syntax" />
+<meta property="og:description" content="1. workspace go env GOPATH
+1.1 file structures /Users/username/go/src/project1 /Users/username/go/src/project2 2. package main every project at least if we want to be executed it needs to have a package called package main 3. import this is where we can import different packages no comma
+import ( &#34;fmt&#34; &#34;math&#34; ) 4. run go file go run hello.go 5. go build compile the code into executable go build directly 6. go install similar to go build	except the executable is put in bin folder 7." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/cassandra/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2023-11-29T21:56:01-05:00" />
-<meta property="article:modified_time" content="2023-11-29T21:56:01-05:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/go/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-05-22T21:11:38-04:00" />
+<meta property="article:modified_time" content="2024-05-22T21:11:38-04:00" />
 
-  <meta itemprop="name" content="Cassandra">
-<meta itemprop="description" content="Basics replication factor (RF) consistency level (CL) = QUORUM (Quorum referring to majority, 2 replicas in this case or RF/2 &#43;1) coordinator SSTable memtable timestamps compaction: take small SSTables and merging them into bigger one Intro keyspaces: top-level namespace/container similar to a relational database schema CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1 }; USE switches between keyspaces USE killrvideo; Tables: keyspaces contain tables tables contain data CREATE TABLE table1 ( column1 TEXT, column2 TEXT, column3 INT, PRIMARY KEY (column1) ); CREATE TABLE users ( user_id UUID, first_name TEXT, last_name TEXT, PRIMARY KEY (user_id) ); Basic Data Types: text: UTF8 encoded string, varchar is same as text, unbounded int: Signed, 32 bits timestamp: date and time, 64 bit integer, store number of seconds since Jan 1st 1970 GMT UUID &amp;&amp; TIMEUUID generate global unique id without communication between nodes TIMEUUID embeds a TIMESTAMP value INSERT: INSERT INTO users (user_id, first_name, last_name) VALUES (uuid(), &#39;Joseph&#39;, &#39;Chu&#39;); SELECT: SELECT * FROM users; SELECT first_name, last_name FROM users; SELECT * FROM users WHERE user_id = 4b516b3-ddf0-4c43-bab6-b91d674b64a5; COPY: imports/exports CSV COPY table1 (column1, column2, column3) FROM &#39;table1data."><meta itemprop="datePublished" content="2023-11-29T21:56:01-05:00" />
-<meta itemprop="dateModified" content="2023-11-29T21:56:01-05:00" />
-<meta itemprop="wordCount" content="212">
+  <meta itemprop="name" content="Go Syntax">
+<meta itemprop="description" content="1. workspace go env GOPATH
+1.1 file structures /Users/username/go/src/project1 /Users/username/go/src/project2 2. package main every project at least if we want to be executed it needs to have a package called package main 3. import this is where we can import different packages no comma
+import ( &#34;fmt&#34; &#34;math&#34; ) 4. run go file go run hello.go 5. go build compile the code into executable go build directly 6. go install similar to go build	except the executable is put in bin folder 7."><meta itemprop="datePublished" content="2024-05-22T21:11:38-04:00" />
+<meta itemprop="dateModified" content="2024-05-22T21:11:38-04:00" />
+<meta itemprop="wordCount" content="406">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cassandra"/>
-<meta name="twitter:description" content="Basics replication factor (RF) consistency level (CL) = QUORUM (Quorum referring to majority, 2 replicas in this case or RF/2 &#43;1) coordinator SSTable memtable timestamps compaction: take small SSTables and merging them into bigger one Intro keyspaces: top-level namespace/container similar to a relational database schema CREATE KEYSPACE killrvideo WITH REPLICATION = { &#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1 }; USE switches between keyspaces USE killrvideo; Tables: keyspaces contain tables tables contain data CREATE TABLE table1 ( column1 TEXT, column2 TEXT, column3 INT, PRIMARY KEY (column1) ); CREATE TABLE users ( user_id UUID, first_name TEXT, last_name TEXT, PRIMARY KEY (user_id) ); Basic Data Types: text: UTF8 encoded string, varchar is same as text, unbounded int: Signed, 32 bits timestamp: date and time, 64 bit integer, store number of seconds since Jan 1st 1970 GMT UUID &amp;&amp; TIMEUUID generate global unique id without communication between nodes TIMEUUID embeds a TIMESTAMP value INSERT: INSERT INTO users (user_id, first_name, last_name) VALUES (uuid(), &#39;Joseph&#39;, &#39;Chu&#39;); SELECT: SELECT * FROM users; SELECT first_name, last_name FROM users; SELECT * FROM users WHERE user_id = 4b516b3-ddf0-4c43-bab6-b91d674b64a5; COPY: imports/exports CSV COPY table1 (column1, column2, column3) FROM &#39;table1data."/>
+<meta name="twitter:title" content="Go Syntax"/>
+<meta name="twitter:description" content="1. workspace go env GOPATH
+1.1 file structures /Users/username/go/src/project1 /Users/username/go/src/project2 2. package main every project at least if we want to be executed it needs to have a package called package main 3. import this is where we can import different packages no comma
+import ( &#34;fmt&#34; &#34;math&#34; ) 4. run go file go run hello.go 5. go build compile the code into executable go build directly 6. go install similar to go build	except the executable is put in bin folder 7."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -286,13 +294,106 @@
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/go/"
     
   >Go Syntax
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#1-workspace"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >1. workspace</a>
+            </li>
+          <li>
+              <a
+                href="#2-package-main"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >2. package main</a>
+            </li>
+          <li>
+              <a
+                href="#3-import"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >3. import</a>
+            </li>
+          <li>
+              <a
+                href="#4-run-go-file"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >4. run go file</a>
+            </li>
+          <li>
+              <a
+                href="#5-go-build"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >5. go build</a>
+            </li>
+          <li>
+              <a
+                href="#6-go-install"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >6. go install</a>
+            </li>
+          <li>
+              <a
+                href="#7-pkg-folder"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >7. pkg folder</a>
+            </li>
+          <li>
+              <a
+                href="#8-var-vs-"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >8. var vs :=</a>
+            </li>
+          <li>
+              <a
+                href="#9-if-else-if-else"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >9. if else if else</a>
+            </li>
+          <li>
+              <a
+                href="#10-array"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >10. array</a>
+            </li>
+          <li>
+              <a
+                href="#11-map"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >11. map</a>
+            </li>
+          <li>
+              <a
+                href="#12-for"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >12. for</a>
+            </li>
+          <li>
+              <a
+                href="#13-function"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >13. function</a>
+            </li>
+          <li>
+              <a
+                href="#14-struct"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >14. struct</a>
+            </li>
+          <li>
+              <a
+                href="#15-pointer"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >15. pointer</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -446,28 +547,13 @@
   >Spark
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/cassandra/"
     
   >Cassandra
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#basics"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Basics</a>
-            </li>
-          <li>
-              <a
-                href="#intro"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Intro</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -756,9 +842,9 @@
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/go/"
     
   >Go Syntax
@@ -896,9 +982,9 @@
     
   >Spark
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/cassandra/"
     
   >Cassandra
@@ -1109,11 +1195,83 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#basics">Basics
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#1-workspace">1. workspace
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#intro">Intro
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#11-file-structures">1.1 file structures
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#2-package-main">2. package main
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-import">3. import
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#4-run-go-file">4. run go file
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5-go-build">5. go build
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#6-go-install">6. go install
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#7-pkg-folder">7. pkg folder
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#8-var-vs-">8. var vs :=
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#9-if-else-if-else">9. if else if else
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#10-array">10. array
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#11-map">11. map
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#12-for">12. for
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#121-for-loop">12.1 for loop
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#122-while-loop">12.2 while loop
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#123-iterate-arraymap-with-range">12.3 iterate array/map with range
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#13-function">13. function
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#131-multiple-return-values">13.1 multiple return values
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#14-struct">14. struct
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#15-pointer">15. pointer
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1133,33 +1291,33 @@
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Cassandra</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Go Syntax</div>
 </div>
 
         <div class="content">
-          <h1>Cassandra</h1>
-          <h2>Basics<span class="absolute -mt-20" id="basics"></span>
-    <a href="#basics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>replication factor (RF)</li>
-<li>consistency level (CL) = QUORUM (Quorum referring to majority, 2 replicas in this case or RF/2 +1)</li>
-<li>coordinator</li>
-<li>SSTable</li>
-<li>memtable</li>
-<li>timestamps</li>
-<li>compaction: take small SSTables and merging them into bigger one</li>
+          <h1>Go Syntax</h1>
+          <h2>1. workspace<span class="absolute -mt-20" id="1-workspace"></span>
+    <a href="#1-workspace" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p><code>go env GOPATH</code></p>
+<h3>1.1 file structures<span class="absolute -mt-20" id="11-file-structures"></span>
+    <a href="#11-file-structures" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>/Users/username/go/src/project1</code></li>
+<li><code>/Users/username/go/src/project2</code></li>
 </ul>
-<h2>Intro<span class="absolute -mt-20" id="intro"></span>
-    <a href="#intro" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>keyspaces:
-<ul>
-<li>top-level namespace/container</li>
-<li>similar to a relational database schema</li>
+<h2>2. package main<span class="absolute -mt-20" id="2-package-main"></span>
+    <a href="#2-package-main" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>every project at least if we want to be executed it needs to have a package called <code>package main</code></li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="n">KEYSPACE</span><span class="w"> </span><span class="n">killrvideo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WITH</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;SimpleStrategy&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s1">&#39;replication_factor&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>3. import<span class="absolute -mt-20" id="3-import"></span>
+    <a href="#3-import" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>this is where we can import different packages</li>
+</ul>
+<blockquote>
+<p>no comma</p>
+</blockquote>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">import (
+  &#34;fmt&#34;
+  &#34;math&#34;
+)</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1170,9 +1328,31 @@
     </button>
   </div>
 </div>
-</li>
-<li>USE switches between keyspaces
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">killrvideo</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>4. run go file<span class="absolute -mt-20" id="4-run-go-file"></span>
+    <a href="#4-run-go-file" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>go run hello.go</code></li>
+</ul>
+<h2>5. go build<span class="absolute -mt-20" id="5-go-build"></span>
+    <a href="#5-go-build" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>compile the code into executable</li>
+<li><code>go build</code> directly</li>
+</ul>
+<h2>6. go install<span class="absolute -mt-20" id="6-go-install"></span>
+    <a href="#6-go-install" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>similar to <code>go build</code>	except the executable is put in <strong>bin</strong> folder</li>
+</ul>
+<h2>7. pkg folder<span class="absolute -mt-20" id="7-pkg-folder"></span>
+    <a href="#7-pkg-folder" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>for external dependencies</li>
+</ul>
+<h2>8. var vs :=<span class="absolute -mt-20" id="8-var-vs-"></span>
+    <a href="#8-var-vs-" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">var x int = 5
+var y int = 6
+var sum int = x &#43; y
+
+x := 5
+y := 7
+sum := x &#43; y</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1183,25 +1363,25 @@
     </button>
   </div>
 </div>
-</li>
-<li>Tables:
-<ul>
-<li>keyspaces contain tables</li>
-<li>tables contain data</li>
+<h2>9. if else if else<span class="absolute -mt-20" id="9-if-else-if-else"></span>
+    <a href="#9-if-else-if-else" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>no bracket</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">column1</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">column2</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">column3</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">user_id</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">first_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">last_name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>10. array<span class="absolute -mt-20" id="10-array"></span>
+    <a href="#10-array" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">// approach 1 to initialize
+var a [5]int
+
+// approach 2 to initialize
+a := [5]int{5,4,3,2,1}
+
+// modify the element by index
+a[2] = 11
+
+// dynamic array(slice is backed by array)
+a := []int{5,4,3,2,1}
+
+// slices doesn&#39;t modify the original slice, it returns a new one
+a = append(a, 13)</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1212,23 +1392,17 @@
     </button>
   </div>
 </div>
-</li>
-<li>Basic Data Types:
-<ul>
-<li>text: UTF8 encoded string, varchar is same as text, unbounded</li>
-<li>int: Signed, 32 bits</li>
-<li>timestamp: date and time, 64 bit integer, store number of seconds since Jan 1st 1970 GMT</li>
-</ul>
-</li>
-<li>UUID &amp;&amp; TIMEUUID
-<ul>
-<li>generate global unique id without communication between nodes</li>
-<li>TIMEUUID embeds a TIMESTAMP value</li>
-</ul>
-</li>
-<li>INSERT:
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">uuid</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;Joseph&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chu&#39;</span><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>11. map<span class="absolute -mt-20" id="11-map"></span>
+    <a href="#11-map" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">vertices  := make(map[string]int)
+vertices[&#34;triangle&#34;] = 1 
+vertices[&#34;square&#34;] = 2
+vertices[&#34;circle&#34;] = 3
+
+// get 
+vertices[&#34;square&#34;]
+
+// delete
+delete(vertices, &#34;square&#34;)</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1239,17 +1413,14 @@
     </button>
   </div>
 </div>
-</li>
-<li>SELECT:
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="n">b516b3</span><span class="o">-</span><span class="n">ddf0</span><span class="o">-</span><span class="mi">4</span><span class="n">c43</span><span class="o">-</span><span class="n">bab6</span><span class="o">-</span><span class="n">b91d674b64a5</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>12. for<span class="absolute -mt-20" id="12-for"></span>
+    <a href="#12-for" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
+<p>no <code>++i</code></p>
+</blockquote>
+<h3>12.1 for loop<span class="absolute -mt-20" id="121-for-loop"></span>
+    <a href="#121-for-loop" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">for i := 0; i &lt; 5; i&#43;&#43; {
+  // do something
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1260,12 +1431,12 @@
     </button>
   </div>
 </div>
-</li>
-<li>COPY:
-<ul>
-<li>imports/exports CSV</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">COPY</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="n">column3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;table1data.csv&#39;</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>12.2 while loop<span class="absolute -mt-20" id="122-while-loop"></span>
+    <a href="#122-while-loop" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">i := 0
+for i &lt; 5 {
+  // do something
+  i&#43;&#43;
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1276,11 +1447,20 @@
     </button>
   </div>
 </div>
-<ul>
-<li>header parameter skips the first line in the file</li>
-</ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">COPY</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="n">column3</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;table1data.csv&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WITH</span><span class="w"> </span><span class="n">HEADER</span><span class="o">=</span><span class="k">true</span><span class="p">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h3>12.3 iterate array/map with range<span class="absolute -mt-20" id="123-iterate-arraymap-with-range"></span>
+    <a href="#123-iterate-arraymap-with-range" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-6">// with array
+arr := []string{&#34;a&#34;, &#34;b&#34;, &#34;c&#34;}
+for index, value := range arr {
+  fmt.Println(&#34;index&#34;, index, &#34;value&#34;, value)
+}
+
+// with map
+m := make(map[string]string)
+m[&#34;a&#34;] = &#34;A&#34;
+m[&#34;b&#34;] = &#34;B&#34;
+for key, value := range m {
+  fmt.Println(&#34;key&#34;, key, &#34;value&#34;, value)
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1291,28 +1471,113 @@
     </button>
   </div>
 </div>
-</li>
-<li>get data into Cassandra:
-<ul>
-<li>COPY</li>
-<li>Spark</li>
-<li>Drivers</li>
-<li>Etc.</li>
-</ul>
-</li>
-</ul>
+<h2>13. function<span class="absolute -mt-20" id="13-function"></span>
+    <a href="#13-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">func sum(x int, y int) int {
+  return x &#43; y
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>13.1 multiple return values<span class="absolute -mt-20" id="131-multiple-return-values"></span>
+    <a href="#131-multiple-return-values" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-8">package main
+
+import (
+  &#34;fmt&#34;
+  &#34;errors&#34;
+  &#34;math&#34;
+)
+
+func main() {
+  result, err := sqrt(16)
+  if err != nil {
+    fmt.Println(err)
+  } else {
+    fmt.Println(result)
+  }
+}
+
+func sqrt(x float64) (float64, error) {
+  if x &lt; 0 {
+    return 0, errors.New(&#34;bla bla bla&#34;)
+  }
+  return math.Sqrt(x), nil
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>14. struct<span class="absolute -mt-20" id="14-struct"></span>
+    <a href="#14-struct" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-9">package main
+
+import (
+  &#34;fmt&#34;
+)
+
+type person struct {
+  name string
+  age int
+}
+
+func main() {
+  p := person(name: &#34;Yixian&#34;, age: 100)
+  fmt.Println(p)
+  fmt.Println(p.age) // get field
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>15. pointer<span class="absolute -mt-20" id="15-pointer"></span>
+    <a href="#15-pointer" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-10">func main() {
+  i := 7
+  inc(&amp;i)
+  fmt.Println(i)
+}
+
+func inc(x *int) {
+  *x&#43;&#43; // dereference the memory address
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-10"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/spark/"
-        title="Spark"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Spark</a><a
-        href="/notes/ccia_reading_note/"
-        title="[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/a_concepts/"
+        title="Antra Training Concepts Cheat Sheet"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Antra Training Concepts Cheat Sheet<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
