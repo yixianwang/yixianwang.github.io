@@ -1333,12 +1333,16 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;h2&gt;Maven/Gradle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mavengradle&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#mavengradle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;project management tool&lt;/li&gt;
+&lt;li&gt;auto building tool&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Maven folder structure&lt;span class=&#34;absolute -mt-20&#34; id=&#34;maven-folder-structure&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#maven-folder-structure&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
     &lt;img src=&#34;../images-a/8.png&#34; alt=&#34;8&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h3&gt;Types of Repositories in Maven&lt;span class=&#34;absolute -mt-20&#34; id=&#34;types-of-repositories-in-maven&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#types-of-repositories-in-maven&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+    &lt;a href=&#34;#types-of-repositories-in-maven&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;the idea about caching&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
 &lt;li&gt;Local Repository
 &lt;ul&gt;
 &lt;li&gt;~/.m2&lt;/li&gt;
@@ -1879,7 +1883,10 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
       <description>
         
         
-        &lt;h2&gt;Global Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;global-services&#34;&gt;&lt;/span&gt;
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/keenanromain/AWS-SAA-C02-Study-Guide?tab=readme-ov-file#elastic-block-store-ebs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SAA-02 Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Global Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;global-services&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#global-services&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Identity and Access Management (IAM)&lt;/li&gt;
 &lt;li&gt;Route 53 (DNS service)&lt;/li&gt;
