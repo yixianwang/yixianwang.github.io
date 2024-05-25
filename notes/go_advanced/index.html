@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="2383">
+<meta itemprop="wordCount" content="2939">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -357,6 +357,12 @@ Functions &amp; Control Structures Function with multiple return values func int
                 href="#buffer-channel"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Buffer Channel</a>
+            </li>
+          <li>
+              <a
+                href="#realistic-example-of-channels"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Realistic example of Channels</a>
             </li>
           <li>
               <a
@@ -1304,6 +1310,10 @@ Functions &amp; Control Structures Function with multiple return values func int
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#realistic-example-of-channels">Realistic example of Channels
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#generics">Generics
         </a>
       </li>
@@ -2178,7 +2188,123 @@ func process(c chan int) {
   </div>
 </div>
 <h2>Buffer Channel<span class="absolute -mt-20" id="buffer-channel"></span>
-    <a href="#buffer-channel" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Generics<span class="absolute -mt-20" id="generics"></span>
+    <a href="#buffer-channel" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>now we can store multiple values in the channel at the same time.</li>
+<li>i.e. we can store 5 integers <code>var c = make(chan int, 5)</code></li>
+</ul>
+<blockquote>
+<p>if we run the code with the regular channel, the process function stays active until the main function is done with the channel. But there&rsquo;s no need for the process function to hang around. It can finish its work quickly and just exit. And let the main function do its thing.</p>
+</blockquote>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-23">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;time&#34;
+)
+
+func main() {
+    var c = make(chan int, 5) // the process function can add up to 5 values in the channel without having to wait for the main function to make room in the channel by popping out a value(at the for loop line)
+    go process(c)
+    for i := range c {
+      fmt.Println(i)
+      time.Sleep(time.Second * 1) // some work..., takes 1 second
+    }
+}
+
+func process(c chan int) {
+    defer close(c)
+    for i := 0; i &lt; 5; i&#43;&#43; {
+        c &lt;- i
+    }
+    fmt.Println(&#34;Exiting process&#34;)
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-23"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<p>Note: the process function finishes almost immediately while the main function is still running reading the values in the channel.</p>
+</blockquote>
+<h2>Realistic example of Channels<span class="absolute -mt-20" id="realistic-example-of-channels"></span>
+    <a href="#realistic-example-of-channels" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-24">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;math/rand&#34;
+    &#34;time&#34;
+)
+
+var MAX_CHICKEN_PRICE float32 = 5
+var MAX_TOFU_PRICE float32 = 3
+
+// there are three go routines running at the same time checking these three websites
+// and sendMessage function is waiting there for value to be added to the channel to send off text
+// so the first go routine to find a deal on chicken will trigger the text message in the program and exit.
+func main() {
+    var chickenChannel = make(chan string) // the channel holds the website we found the sale on
+    var tofuChannel = make(chan string) // when we find a bargain on tofu we write to this channel
+    var websites = []string{&#34;walmart.com&#34;, &#34;costco.com&#34;, &#34;wholefoods.com&#34;}
+    for i := range websites {
+        go checkChickenPrices(websites[i], chickenChannel) // we spawn three go routines
+        go checkTofuPrices(websites[i], tofuChannel)
+    }
+    sendMessage(chickenChannel, tofuChannel) // send a message when a deal is found
+}
+
+func checkTofuPrices(website string, c chan string) {
+    for {
+        time.Sleep(time.Second * 1)
+        var tofu_price = rand.Float32() * 20
+        if tofu_price &lt;= MAX_TOFU_PRICE {
+            c &lt;- website
+            break
+        }
+    }
+}
+
+func checkChickenPrices(website string, chickenChannel chan string) {
+    for { 
+        // every second check the website for the price of chicken 
+        // and if it&#39;s below our threshold, it will set the value of the channel to the website
+        time.Sleep(time.Second * 1)
+        var chickenPrice = rand.Float32() * 20
+        if chickenPrice &lt;= MAX_CHICKEN_PRICE {
+            chickenChannel &lt;- website
+            break
+        }
+    }
+}
+
+func sendMessage(chickenChannel chan string, tofuChannel chan string) {
+    // fmt.Printf(&#34;\nFound a deal on chicken at %s&#34;, &lt;- chickenChannel) // waiting here for value to be added to the channel
+    
+    // select statement will listen for a result once it gets one it&#39;ll execute one of those statements and exit.
+    select { 
+        // if we receive a message from the chicken channel, we set the variable website to the value in the channel and we execute the following statement
+        case website := &lt;- chickenChannel:
+            fmt.Printf(&#34;\nText sent: Found deal on chicken at %v.&#34;, website)
+        // otherwise if we receive a message from the tofu channel, we execute the following statement
+        case website := &lt;- tofuChannel:
+            fmt.Printf(&#34;\nEmail sent: Found deal on chicken at %v.&#34;, website)
+    }
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-24"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Generics<span class="absolute -mt-20" id="generics"></span>
     <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
     <a href="#building-an-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
         </div>

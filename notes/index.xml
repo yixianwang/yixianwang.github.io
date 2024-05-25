@@ -944,7 +944,123 @@ func process(c chan int) {
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2&gt;Buffer Channel&lt;span class=&#34;absolute -mt-20&#34; id=&#34;buffer-channel&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#buffer-channel&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Generics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#buffer-channel&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;now we can store multiple values in the channel at the same time.&lt;/li&gt;
+&lt;li&gt;i.e. we can store 5 integers &lt;code&gt;var c = make(chan int, 5)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;if we run the code with the regular channel, the process function stays active until the main function is done with the channel. But there&amp;rsquo;s no need for the process function to hang around. It can finish its work quickly and just exit. And let the main function do its thing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-23&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;time&amp;#34;
+)
+
+func main() {
+    var c = make(chan int, 5) // the process function can add up to 5 values in the channel without having to wait for the main function to make room in the channel by popping out a value(at the for loop line)
+    go process(c)
+    for i := range c {
+      fmt.Println(i)
+      time.Sleep(time.Second * 1) // some work..., takes 1 second
+    }
+}
+
+func process(c chan int) {
+    defer close(c)
+    for i := 0; i &amp;lt; 5; i&amp;#43;&amp;#43; {
+        c &amp;lt;- i
+    }
+    fmt.Println(&amp;#34;Exiting process&amp;#34;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-23&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: the process function finishes almost immediately while the main function is still running reading the values in the channel.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Realistic example of Channels&lt;span class=&#34;absolute -mt-20&#34; id=&#34;realistic-example-of-channels&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#realistic-example-of-channels&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-24&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;math/rand&amp;#34;
+    &amp;#34;time&amp;#34;
+)
+
+var MAX_CHICKEN_PRICE float32 = 5
+var MAX_TOFU_PRICE float32 = 3
+
+// there are three go routines running at the same time checking these three websites
+// and sendMessage function is waiting there for value to be added to the channel to send off text
+// so the first go routine to find a deal on chicken will trigger the text message in the program and exit.
+func main() {
+    var chickenChannel = make(chan string) // the channel holds the website we found the sale on
+    var tofuChannel = make(chan string) // when we find a bargain on tofu we write to this channel
+    var websites = []string{&amp;#34;walmart.com&amp;#34;, &amp;#34;costco.com&amp;#34;, &amp;#34;wholefoods.com&amp;#34;}
+    for i := range websites {
+        go checkChickenPrices(websites[i], chickenChannel) // we spawn three go routines
+        go checkTofuPrices(websites[i], tofuChannel)
+    }
+    sendMessage(chickenChannel, tofuChannel) // send a message when a deal is found
+}
+
+func checkTofuPrices(website string, c chan string) {
+    for {
+        time.Sleep(time.Second * 1)
+        var tofu_price = rand.Float32() * 20
+        if tofu_price &amp;lt;= MAX_TOFU_PRICE {
+            c &amp;lt;- website
+            break
+        }
+    }
+}
+
+func checkChickenPrices(website string, chickenChannel chan string) {
+    for { 
+        // every second check the website for the price of chicken 
+        // and if it&amp;#39;s below our threshold, it will set the value of the channel to the website
+        time.Sleep(time.Second * 1)
+        var chickenPrice = rand.Float32() * 20
+        if chickenPrice &amp;lt;= MAX_CHICKEN_PRICE {
+            chickenChannel &amp;lt;- website
+            break
+        }
+    }
+}
+
+func sendMessage(chickenChannel chan string, tofuChannel chan string) {
+    // fmt.Printf(&amp;#34;\nFound a deal on chicken at %s&amp;#34;, &amp;lt;- chickenChannel) // waiting here for value to be added to the channel
+    
+    // select statement will listen for a result once it gets one it&amp;#39;ll execute one of those statements and exit.
+    select { 
+        // if we receive a message from the chicken channel, we set the variable website to the value in the channel and we execute the following statement
+        case website := &amp;lt;- chickenChannel:
+            fmt.Printf(&amp;#34;\nText sent: Found deal on chicken at %v.&amp;#34;, website)
+        // otherwise if we receive a message from the tofu channel, we execute the following statement
+        case website := &amp;lt;- tofuChannel:
+            fmt.Printf(&amp;#34;\nEmail sent: Found deal on chicken at %v.&amp;#34;, website)
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-24&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Generics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generics&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#generics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Building an API!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;building-an-api&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#building-an-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
       </description>
