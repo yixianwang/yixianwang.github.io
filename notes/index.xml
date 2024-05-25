@@ -544,15 +544,14 @@ import (
     &amp;#34;sync&amp;#34;
 )
 
-var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
-
 var wg = sync.WaitGroup{}
+var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
 
 func main() {
     t0 := time.Now()
     for i := 0; i &amp;lt; len(dbData); i&amp;#43;&amp;#43; {
         wg.Add(1)
-        dbCall(i)
+        go dbCall(i)
     }
     wg.Wait()
     fmt.Printf(&amp;#34;\nTotal execution time: %v&amp;#34;, time.Since(t0))
@@ -569,6 +568,190 @@ func dbCall(i int) {
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
       data-clipboard-target=&#34;#code-block-15&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;using locks to make threads safe&lt;span class=&#34;absolute -mt-20&#34; id=&#34;using-locks-to-make-threads-safe&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#using-locks-to-make-threads-safe&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;without lock&lt;span class=&#34;absolute -mt-20&#34; id=&#34;without-lock&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#without-lock&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-16&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;time&amp;#34;
+    &amp;#34;sync&amp;#34;
+)
+
+var wg = sync.WaitGroup{}
+var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
+var results = []string{} // 1. create a slice to store all the result from db
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &amp;lt; len(dbData); i&amp;#43;&amp;#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&amp;#34;\nTotal execution time: %v&amp;#34;, time.Since(t0))
+    fmt.Printf(&amp;#34;\nThe results are %v&amp;#34;, results) // 3. print the results
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&amp;#34;The result from the database is:&amp;#34;, dbData[i])
+    results = append(results, dbData[i]) // 2. append the result
+    wg.Done()
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-16&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Above code, WE WILL GET AN UNEXPECTED RESULT&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;with lock (sync.Mutex{})&lt;span class=&#34;absolute -mt-20&#34; id=&#34;with-lock-syncmutex&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#with-lock-syncmutex&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;to make thread safe, we can use &lt;strong&gt;mutex (Mutual Exclusion)&lt;/strong&gt; by &lt;code&gt;var m = sync.Mutex{}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;with two main methods &lt;code&gt;m.Lock()&lt;/code&gt; and &lt;code&gt;m.Unlock()&lt;/code&gt;, and place them around the part of our code which access the result slice&lt;/li&gt;
+&lt;li&gt;cons: it completely locks out other go routines to access the results slice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-17&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;time&amp;#34;
+    &amp;#34;sync&amp;#34;
+)
+
+var m = sync.Mutex{} // 1. create a mutex
+var wg = sync.WaitGroup{}
+var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
+var results = []string{} 
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &amp;lt; len(dbData); i&amp;#43;&amp;#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&amp;#34;\nTotal execution time: %v&amp;#34;, time.Since(t0))
+    fmt.Printf(&amp;#34;\nThe results are %v&amp;#34;, results) 
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&amp;#34;The result from the database is:&amp;#34;, dbData[i])
+    m.Lock() // 2. use lock
+    results = append(results, dbData[i]) 
+    m.Unlock() // 2. use unlock
+    wg.Done()
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-17&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;with lock (sync.RWMutex{})&lt;span class=&#34;absolute -mt-20&#34; id=&#34;with-lock-syncrwmutex&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#with-lock-syncrwmutex&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;this has all the same functionality of of the mutex above&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;and the &lt;code&gt;m.Lock()&lt;/code&gt; and &lt;code&gt;m.Unlock()&lt;/code&gt; work exactly the same&lt;/li&gt;
+&lt;li&gt;but we also have &lt;code&gt;m.RLock()&lt;/code&gt; and &lt;code&gt;m.RUnlock()&lt;/code&gt; methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;workflows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;when go routine reaches &lt;code&gt;m.RLock()&lt;/code&gt;, it checks if there&amp;rsquo;s a &lt;strong&gt;full lock (&lt;code&gt;m.Lock()&lt;/code&gt;)&lt;/strong&gt; on the mutex&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;if &lt;strong&gt;full lock&lt;/strong&gt; exists, it(&lt;code&gt;m.RLock()&lt;/code&gt;) will wait until &lt;strong&gt;full lock&lt;/strong&gt; is released before continuing&lt;/li&gt;
+&lt;li&gt;if no full lock exists, the go routine will acquire a &lt;strong&gt;read lock (&lt;code&gt;m.RLock()&lt;/code&gt;)&lt;/strong&gt;, and then proceed with the rest of the code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;many&lt;/strong&gt; go routines may hold &lt;strong&gt;read locks&lt;/strong&gt; at the same time, these &lt;strong&gt;read locks&lt;/strong&gt; will only block code execution up to the &lt;strong&gt;full lock&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;when the a go routine hits &lt;strong&gt;full lock&lt;/strong&gt; and in order to proceed, all &lt;strong&gt;locks&lt;/strong&gt; must be cleared&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pros: &lt;strong&gt;this prevents us from accessing the slice while other go routines are writing to or reading from the slice&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;summary: it allows multiple go routines to read from our slice at the same time, only blocking when writes may be potentially be happening&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-18&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;time&amp;#34;
+    &amp;#34;sync&amp;#34;
+)
+
+var m = sync.RWMutex{} // 1. use RWMutex
+var wg = sync.WaitGroup{}
+var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
+var results = []string{} 
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &amp;lt; len(dbData); i&amp;#43;&amp;#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&amp;#34;\nTotal execution time: %v&amp;#34;, time.Since(t0))
+    fmt.Printf(&amp;#34;\nThe results are %v&amp;#34;, results) 
+}
+
+func dbCall(i int) {
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+
+    save(dbData[i])
+    log()
+
+    wg.Done()
+}
+
+func save(result string) {
+    m.Lock()
+    results = append(results, result)
+    m.Unlock()
+}
+
+func log() {
+    m.RLock()
+    fmt.Printf(&amp;#34;\nThe current results are: %v&amp;#34;, results)
+    m.RUnlock()
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-18&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;

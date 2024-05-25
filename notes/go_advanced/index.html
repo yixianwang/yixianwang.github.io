@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="1090">
+<meta itemprop="wordCount" content="1644">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -1258,6 +1258,22 @@ Functions &amp; Control Structures Function with multiple return values func int
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#using-locks-to-make-threads-safe">using locks to make threads safe
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#without-lock">without lock
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#with-lock-syncmutex">with lock (sync.Mutex{})
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#with-lock-syncrwmutex">with lock (sync.RWMutex{})
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#channels">Channels
         </a>
       </li>
@@ -1736,15 +1752,14 @@ import (
     &#34;sync&#34;
 )
 
-var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
-
 var wg = sync.WaitGroup{}
+var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
 
 func main() {
     t0 := time.Now()
     for i := 0; i &lt; len(dbData); i&#43;&#43; {
         wg.Add(1)
-        dbCall(i)
+        go dbCall(i)
     }
     wg.Wait()
     fmt.Printf(&#34;\nTotal execution time: %v&#34;, time.Since(t0))
@@ -1761,6 +1776,190 @@ func dbCall(i int) {
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-15"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>using locks to make threads safe<span class="absolute -mt-20" id="using-locks-to-make-threads-safe"></span>
+    <a href="#using-locks-to-make-threads-safe" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>without lock<span class="absolute -mt-20" id="without-lock"></span>
+    <a href="#without-lock" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-16">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;time&#34;
+    &#34;sync&#34;
+)
+
+var wg = sync.WaitGroup{}
+var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
+var results = []string{} // 1. create a slice to store all the result from db
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &lt; len(dbData); i&#43;&#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&#34;\nTotal execution time: %v&#34;, time.Since(t0))
+    fmt.Printf(&#34;\nThe results are %v&#34;, results) // 3. print the results
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&#34;The result from the database is:&#34;, dbData[i])
+    results = append(results, dbData[i]) // 2. append the result
+    wg.Done()
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-16"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<p>Above code, WE WILL GET AN UNEXPECTED RESULT</p>
+</blockquote>
+<h4>with lock (sync.Mutex{})<span class="absolute -mt-20" id="with-lock-syncmutex"></span>
+    <a href="#with-lock-syncmutex" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>to make thread safe, we can use <strong>mutex (Mutual Exclusion)</strong> by <code>var m = sync.Mutex{}</code></li>
+<li>with two main methods <code>m.Lock()</code> and <code>m.Unlock()</code>, and place them around the part of our code which access the result slice</li>
+<li>cons: it completely locks out other go routines to access the results slice</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-17">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;time&#34;
+    &#34;sync&#34;
+)
+
+var m = sync.Mutex{} // 1. create a mutex
+var wg = sync.WaitGroup{}
+var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
+var results = []string{} 
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &lt; len(dbData); i&#43;&#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&#34;\nTotal execution time: %v&#34;, time.Since(t0))
+    fmt.Printf(&#34;\nThe results are %v&#34;, results) 
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&#34;The result from the database is:&#34;, dbData[i])
+    m.Lock() // 2. use lock
+    results = append(results, dbData[i]) 
+    m.Unlock() // 2. use unlock
+    wg.Done()
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-17"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h4>with lock (sync.RWMutex{})<span class="absolute -mt-20" id="with-lock-syncrwmutex"></span>
+    <a href="#with-lock-syncrwmutex" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>
+<p>this has all the same functionality of of the mutex above</p>
+<ul>
+<li>and the <code>m.Lock()</code> and <code>m.Unlock()</code> work exactly the same</li>
+<li>but we also have <code>m.RLock()</code> and <code>m.RUnlock()</code> methods</li>
+</ul>
+</li>
+<li>
+<p>workflows:</p>
+<ol>
+<li>when go routine reaches <code>m.RLock()</code>, it checks if there&rsquo;s a <strong>full lock (<code>m.Lock()</code>)</strong> on the mutex</li>
+</ol>
+<ul>
+<li>if <strong>full lock</strong> exists, it(<code>m.RLock()</code>) will wait until <strong>full lock</strong> is released before continuing</li>
+<li>if no full lock exists, the go routine will acquire a <strong>read lock (<code>m.RLock()</code>)</strong>, and then proceed with the rest of the code</li>
+</ul>
+</li>
+<li>
+<p>Note:</p>
+<ol>
+<li><strong>many</strong> go routines may hold <strong>read locks</strong> at the same time, these <strong>read locks</strong> will only block code execution up to the <strong>full lock</strong></li>
+<li>when the a go routine hits <strong>full lock</strong> and in order to proceed, all <strong>locks</strong> must be cleared</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>pros: <strong>this prevents us from accessing the slice while other go routines are writing to or reading from the slice</strong></p>
+</blockquote>
+<ul>
+<li>summary: it allows multiple go routines to read from our slice at the same time, only blocking when writes may be potentially be happening</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-18">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;time&#34;
+    &#34;sync&#34;
+)
+
+var m = sync.RWMutex{} // 1. use RWMutex
+var wg = sync.WaitGroup{}
+var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
+var results = []string{} 
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &lt; len(dbData); i&#43;&#43; {
+        wg.Add(1)
+        go dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&#34;\nTotal execution time: %v&#34;, time.Since(t0))
+    fmt.Printf(&#34;\nThe results are %v&#34;, results) 
+}
+
+func dbCall(i int) {
+    var delay float32 = 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+
+    save(dbData[i])
+    log()
+
+    wg.Done()
+}
+
+func save(result string) {
+    m.Lock()
+    results = append(results, result)
+    m.Unlock()
+}
+
+func log() {
+    m.RLock()
+    fmt.Printf(&#34;\nThe current results are: %v&#34;, results)
+    m.RUnlock()
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-18"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
