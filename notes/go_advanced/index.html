@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="1644">
+<meta itemprop="wordCount" content="2003">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -1278,6 +1278,14 @@ Functions &amp; Control Structures Function with multiple return values func int
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#deadlock-errors">deadlock errors
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#channel--go-routines-is-a-proper-way">(Channel + Go Routines) is a proper way
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#generics">Generics
         </a>
       </li>
@@ -1733,7 +1741,7 @@ func main() {
 </div>
 <h2>Pointers<span class="absolute -mt-20" id="pointers"></span>
     <a href="#pointers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>similar to c/c++</li>
+<li>same to c/c++</li>
 </ul>
 <h2>Goroutines<span class="absolute -mt-20" id="goroutines"></span>
     <a href="#goroutines" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -1967,7 +1975,89 @@ func log() {
   </div>
 </div>
 <h2>Channels<span class="absolute -mt-20" id="channels"></span>
-    <a href="#channels" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Generics<span class="absolute -mt-20" id="generics"></span>
+    <a href="#channels" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>think of channels as a way to enable go routines to pass around information</p>
+</li>
+<li>
+<p>main features:</p>
+<ol>
+<li>Hold Data: i.e. integer, slice, or anything else</li>
+<li>Thread Safe: i.e. we avoid data races when we&rsquo;re reading and writing from memory</li>
+<li>Listen for Data: we can listen when data is added or removed from a channel and we can block code execution until one of these events happens.</li>
+</ol>
+</li>
+<li>
+<p>to make a channel, we use <code>make</code> function followed by the <code>chan</code> keyword, then the type of value we want the channel to hold. i.e. <code>var c = make(chan int)</code>, so this channel can only hold a single int value</p>
+</li>
+<li>
+<p>channels also have a special syntax. i.e. we use <code>&lt;-</code> to add value to the channel</p>
+</li>
+<li>
+<p>we can think of a channel as containing an underlying array, in this case we have what&rsquo;s called an <strong>Unbuffer Channel</strong>, which only has enough room for one value.</p>
+</li>
+<li>
+<p>we can retrieve the value from a channel using <code>var i = &lt;- c</code>, so here the value gets <em>popped out</em> of the channel(the channel is now empty) and variable <code>i</code> holds the value</p>
+</li>
+</ul>
+<h3>deadlock errors<span class="absolute -mt-20" id="deadlock-errors"></span>
+    <a href="#deadlock-errors" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Why?:
+<ul>
+<li>when we write to an <strong>Unbuffer Channel</strong>(<code>c &lt;- 1</code>), the code will block until something else reads from it.</li>
+<li>so in effect we&rsquo;ll be waiting here forever, unable to reach the line (<code>var i = &lt;- c</code>), where we actually read from the channel</li>
+<li>luckily go&rsquo;s runtime is smart enough to notice this and we will just throw a deadlock error rather than our code hanging here forever.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>To use it properly in conjunction with go routine</p>
+</blockquote>
+<ul>
+<li><strong>Channel + Go Routines == Proper Way</strong></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-19">package main
+
+import &#34;fmt&#34;
+
+func main() {
+    var c = make(chan int) // to make a channel
+    c &lt;- 1 // add value to the channel
+    var i = &lt;- c // retrieve the value from a channel
+    fmt.Println(i)
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-19"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>(Channel + Go Routines) is a proper way<span class="absolute -mt-20" id="channel--go-routines-is-a-proper-way"></span>
+    <a href="#channel--go-routines-is-a-proper-way" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-20">package main
+
+import &#34;fmt&#34;
+
+func main() {
+    var c = make(chan int) // to make a channel
+    c &lt;- 1 // add value to the channel
+    var i = &lt;- c // retrieve the value from a channel
+    fmt.Println(i)
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-20"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Generics<span class="absolute -mt-20" id="generics"></span>
     <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
     <a href="#building-an-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
         </div>
