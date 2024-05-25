@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="2003">
+<meta itemprop="wordCount" content="2383">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -351,6 +351,12 @@ Functions &amp; Control Structures Function with multiple return values func int
                 href="#channels"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Channels</a>
+            </li>
+          <li>
+              <a
+                href="#buffer-channel"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Buffer Channel</a>
             </li>
           <li>
               <a
@@ -1282,7 +1288,19 @@ Functions &amp; Control Structures Function with multiple return values func int
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#channel--go-routines-is-a-proper-way">(Channel + Go Routines) is a proper way
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#channel--go-routines-is-the-proper-way">(Channel + Go Routines) is the proper way
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example-1">example 1
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example-2">example 2
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#buffer-channel">Buffer Channel
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -2036,16 +2054,21 @@ func main() {
     </button>
   </div>
 </div>
-<h3>(Channel + Go Routines) is a proper way<span class="absolute -mt-20" id="channel--go-routines-is-a-proper-way"></span>
-    <a href="#channel--go-routines-is-a-proper-way" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-20">package main
+<h3>(Channel + Go Routines) is the proper way<span class="absolute -mt-20" id="channel--go-routines-is-the-proper-way"></span>
+    <a href="#channel--go-routines-is-the-proper-way" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>example 1<span class="absolute -mt-20" id="example-1"></span>
+    <a href="#example-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-20">package main
 
 import &#34;fmt&#34;
 
 func main() {
-    var c = make(chan int) // to make a channel
-    c &lt;- 1 // add value to the channel
-    var i = &lt;- c // retrieve the value from a channel
-    fmt.Println(i)
+    var c = make(chan int) // 1. make a channel
+    go process(c) // 2. call go routine
+    fmt.Println(&lt;- c) // !!! 3. the execution will be waiting here for a value to be set in the channel
+    // !!! 5. then our main function notices that a value has been set, and finally the print function gets called
+}
+
+func process(c chan int) {
+    c &lt;- 123 // !!! 4. in this go routine, we set the value and exit the function
 }</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -2057,7 +2080,105 @@ func main() {
     </button>
   </div>
 </div>
-<h2>Generics<span class="absolute -mt-20" id="generics"></span>
+<h4>example 2<span class="absolute -mt-20" id="example-2"></span>
+    <a href="#example-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>
+<p>we can iterate over the channel by using <code>range</code> keyword</p>
+</li>
+<li>
+<p>work flows:</p>
+<ol>
+<li>we create the channel(<code>make(chan int)</code>) and start the go routine(<code>go process(c)</code>)</li>
+<li>in the main function we wait at the top of the <code>for</code> loop for something to be added to the channel</li>
+<li>in the process function we setup <code>for</code> loop and add <code>0</code> to the channel</li>
+<li>we wait (<code>c &lt;- 0</code>) until the main function reads from the channel</li>
+<li>and then in a concurrent way both the value printed and <code>1</code> is added to the channel at about the same time</li>
+<li>this then continues until <code>i</code> is equal to <code>5</code>.</li>
+</ol>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-21">package main
+
+import &#34;fmt&#34;
+
+func main() {
+    var c = make(chan int)
+    go process(c)
+    for i := range c {
+      fmt.Println(i) // i here is the value of the channel
+    }
+}
+
+func process(c chan int) {
+    for i := 0; i &lt; 5; i&#43;&#43; {
+        c &lt;- i
+    }
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-21"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<blockquote>
+<p>Note: deadlock error happens again for above code</p>
+</blockquote>
+<ul>
+<li>
+<p>because after we print all of our values from <code>0</code> to <code>4</code>,</p>
+</li>
+<li>
+<p>the main function will go back to wait at the top of the <code>for</code> loop for another value</p>
+</li>
+<li>
+<p>but just like me on under after five messages it will get ghosted by the process function which won&rsquo;t send any more messages and we get deadlock error</p>
+</li>
+<li>
+<p>Solution:</p>
+<ul>
+<li>before exiting a process, we can close the channel like <code>close(c)</code> or <code>defer close(c)</code></li>
+<li><code>close(c)</code> notifies any other process using this channel that we&rsquo;re done</li>
+<li>and our main function will break out of the <code>for</code> loop and exit.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>defer close(c)</code> using <code>defer</code> statement and it go this just means do this stuff(<code>close(c)</code>) <strong>right before the function exits</strong>.</p>
+</blockquote>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-22">package main
+
+import &#34;fmt&#34;
+
+func main() {
+    var c = make(chan int)
+    go process(c)
+    for i := range c {
+      fmt.Println(i)
+    }
+}
+
+func process(c chan int) {
+    for i := 0; i &lt; 5; i&#43;&#43; {
+        c &lt;- i
+    }
+    close(c) // close the channel
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-22"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Buffer Channel<span class="absolute -mt-20" id="buffer-channel"></span>
+    <a href="#buffer-channel" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Generics<span class="absolute -mt-20" id="generics"></span>
     <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
     <a href="#building-an-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
         </div>
