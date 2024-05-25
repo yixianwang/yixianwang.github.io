@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="962">
+<meta itemprop="wordCount" content="1090">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -1716,8 +1716,47 @@ func main() {
   </div>
 </div>
 <h2>Pointers<span class="absolute -mt-20" id="pointers"></span>
-    <a href="#pointers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-15">var p *int32 = new(int32)
-var i int32</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <a href="#pointers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>similar to c/c++</li>
+</ul>
+<h2>Goroutines<span class="absolute -mt-20" id="goroutines"></span>
+    <a href="#goroutines" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>use <code>go</code> keyword in front of the function we want to run concurrently</li>
+<li>import <code>sync</code> package, to let <strong>wait groups</strong> come in</li>
+<li>then we create a wait group <code>var wg = sync.WaitGroup{}</code>, they just like counters</li>
+<li>add <code>wg.Add(1)</code> and <code>wg.Done()</code></li>
+<li>add <code>wg.Wait()</code>, it gonna wait for the counter to go back down to 0, meaning all the tasks have completed</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-15">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;math/rand&#34;
+    &#34;time&#34;
+    &#34;sync&#34;
+)
+
+var dbData = []string{&#34;id1&#34;, &#34;id2&#34;, &#34;id3&#34;, &#34;id4&#34;, &#34;id5&#34;}
+
+var wg = sync.WaitGroup{}
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &lt; len(dbData); i&#43;&#43; {
+        wg.Add(1)
+        dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&#34;\nTotal execution time: %v&#34;, time.Since(t0))
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = rand.Float32() * 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&#34;The result from the database is:&#34;, dbData[i])
+    wg.Done()
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1728,9 +1767,7 @@ var i int32</code></pre><div class="opacity-0 transition group-hover/code:opacit
     </button>
   </div>
 </div>
-<p>36:49</p>
-<h2>Goroutines<span class="absolute -mt-20" id="goroutines"></span>
-    <a href="#goroutines" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Channels<span class="absolute -mt-20" id="channels"></span>
+<h2>Channels<span class="absolute -mt-20" id="channels"></span>
     <a href="#channels" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Generics<span class="absolute -mt-20" id="generics"></span>
     <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
     <a href="#building-an-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>

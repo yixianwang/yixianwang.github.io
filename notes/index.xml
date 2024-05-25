@@ -524,8 +524,47 @@ func main() {
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2&gt;Pointers&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pointers&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pointers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-15&#34;&gt;var p *int32 = new(int32)
-var i int32&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;a href=&#34;#pointers&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;similar to c/c++&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Goroutines&lt;span class=&#34;absolute -mt-20&#34; id=&#34;goroutines&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#goroutines&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;use &lt;code&gt;go&lt;/code&gt; keyword in front of the function we want to run concurrently&lt;/li&gt;
+&lt;li&gt;import &lt;code&gt;sync&lt;/code&gt; package, to let &lt;strong&gt;wait groups&lt;/strong&gt; come in&lt;/li&gt;
+&lt;li&gt;then we create a wait group &lt;code&gt;var wg = sync.WaitGroup{}&lt;/code&gt;, they just like counters&lt;/li&gt;
+&lt;li&gt;add &lt;code&gt;wg.Add(1)&lt;/code&gt; and &lt;code&gt;wg.Done()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;add &lt;code&gt;wg.Wait()&lt;/code&gt;, it gonna wait for the counter to go back down to 0, meaning all the tasks have completed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-15&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;math/rand&amp;#34;
+    &amp;#34;time&amp;#34;
+    &amp;#34;sync&amp;#34;
+)
+
+var dbData = []string{&amp;#34;id1&amp;#34;, &amp;#34;id2&amp;#34;, &amp;#34;id3&amp;#34;, &amp;#34;id4&amp;#34;, &amp;#34;id5&amp;#34;}
+
+var wg = sync.WaitGroup{}
+
+func main() {
+    t0 := time.Now()
+    for i := 0; i &amp;lt; len(dbData); i&amp;#43;&amp;#43; {
+        wg.Add(1)
+        dbCall(i)
+    }
+    wg.Wait()
+    fmt.Printf(&amp;#34;\nTotal execution time: %v&amp;#34;, time.Since(t0))
+}
+
+func dbCall(i int) {
+    // simulate DB call delay
+    var delay float32 = rand.Float32() * 2000
+    time.Sleep(time.Duration(delay) * time.Millisecond)
+    fmt.Println(&amp;#34;The result from the database is:&amp;#34;, dbData[i])
+    wg.Done()
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
@@ -536,9 +575,7 @@ var i int32&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition grou
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;36:49&lt;/p&gt;
-&lt;h2&gt;Goroutines&lt;span class=&#34;absolute -mt-20&#34; id=&#34;goroutines&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#goroutines&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Channels&lt;span class=&#34;absolute -mt-20&#34; id=&#34;channels&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Channels&lt;span class=&#34;absolute -mt-20&#34; id=&#34;channels&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#channels&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Generics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generics&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#generics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Building an API!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;building-an-api&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#building-an-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
