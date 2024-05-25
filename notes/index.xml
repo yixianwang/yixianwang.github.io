@@ -1061,7 +1061,158 @@ func sendMessage(chickenChannel chan string, tofuChannel chan string) {
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2&gt;Generics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generics&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#generics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Building an API!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;building-an-api&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#generics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;normal generic example&lt;span class=&#34;absolute -mt-20&#34; id=&#34;normal-generic-example&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#normal-generic-example&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-25&#34;&gt;package main
+import &amp;#34;fmt&amp;#34;
+
+func main() {
+    var intSlice = []int{1, 2, 3}
+    fmt.Println(sumSlice[int](intSlice))
+
+    var float32Slice = []float32{1, 2, 3}
+    fmt.Println(sumSlice[float32](float32Slice))
+}
+
+func sumSlice[T int | float32 | float64](slice []T) T {
+    var sum T
+    for _, v := range slice {
+        sum &amp;#43;= v
+    }
+    return sum
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-25&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;any type example&lt;span class=&#34;absolute -mt-20&#34; id=&#34;any-type-example&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#any-type-example&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-26&#34;&gt;package main
+import &amp;#34;fmt&amp;#34;
+
+func main() {
+    var intSlice = []int{}
+    fmt.Println(isEmpty(intSlice)) // we can omit the square bracket type input here
+
+    var float32Slice = []float32{1, 2, 3}
+    fmt.Println(isEmpty(float32Slice)) // and here
+}
+
+func isEmpty[T any](slice []T) bool {
+    return len(slice) == 0
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-26&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;an example that we can&amp;rsquo;t infer the type of our generic parameter&lt;span class=&#34;absolute -mt-20&#34; id=&#34;an-example-that-we-cant-infer-the-type-of-our-generic-parameter&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#an-example-that-we-cant-infer-the-type-of-our-generic-parameter&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-27&#34;&gt;package main
+
+import (
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;encoding/json&amp;#34;
+    &amp;#34;io/ioutil&amp;#34;
+)
+
+type contactInfo struct {
+    Name string
+    Email string
+}
+
+type purchaseInfo struct {
+    Name string
+    Price float32
+    Amount int
+}
+
+func main() {
+    var contacts []contactInfo = loadJSON[contactInfo](&amp;#34;./contactInfo.json&amp;#34;)
+    fmt.Printf(&amp;#34;\n%&amp;#43;v&amp;#34;, contacts)
+
+    var purchases []purchaseInfo = loadJSON[purchaseInfo](&amp;#34;./purchaseInfo.json&amp;#34;)
+    fmt.Printf(&amp;#34;\n%&amp;#43;v&amp;#34;, purchases)
+}
+
+func loadJSON[T contactInfo | purchaseInfo] (filePath string) []T {
+    data, _ = ioutil.ReadFile(filePath)
+
+    var loaded = []T{}
+    json.Unmarshal(data, &amp;amp;loaded)
+
+    return loaded
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-27&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;struct generic&lt;span class=&#34;absolute -mt-20&#34; id=&#34;struct-generic&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#struct-generic&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-28&#34;&gt;package main
+
+import &amp;#34;fmt&amp;#34;
+
+type gasEngine struct {
+  gallons float32
+  mpg float32
+}
+
+type electricEngine struct {
+  kwh float32
+  mpkwh float32
+}
+
+type car[T gasEngine | electricEngine] struct {
+    carMake string
+    carModel string
+    engine T
+}
+
+func main() {
+    var gasCar = car[gasEngine] {
+        carMake: &amp;#34;Honda&amp;#34;,
+        carModel: &amp;#34;Civic&amp;#34;,
+        engine: gasEngine {
+            gallons: 12.4,
+            mpg: 40,
+        },
+    }
+    fmt.Println(gasCar)
+    var electricCar = car[electricEngine] {
+        carMake: &amp;#34;Tesla&amp;#34;,
+        carModel: &amp;#34;Model 3&amp;#34;,
+        engine: electricEngine {
+            kwh: 57.5,
+            mpkwh: 4.17,
+        },
+    }
+    fmt.Println(electricCar)
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-28&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Building an API!&lt;span class=&#34;absolute -mt-20&#34; id=&#34;building-an-api&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#building-an-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
       </description>
     </item>

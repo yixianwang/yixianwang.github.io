@@ -29,7 +29,7 @@ Functions &amp; Control Structures Function with multiple return values func int
 <meta itemprop="description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
 Functions &amp; Control Structures Function with multiple return values func intDivision(numerator int, denominator int) (int, int) { var result int = numerator / denominator var remainder int = numerator % denominator return result, remainder } // var result, remainder = intDivision(numerator, denominator) error handling import &#34;errors&#34; func intDivision(numerator int, denominator int) (int, int, error) { var err error // default value is nil if denominator == 0 { err = errors."><meta itemprop="datePublished" content="2024-05-24T00:20:16-04:00" />
 <meta itemprop="dateModified" content="2024-05-24T00:20:16-04:00" />
-<meta itemprop="wordCount" content="2939">
+<meta itemprop="wordCount" content="3199">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Advanced"/>
 <meta name="twitter:description" content="Setting up file structure some_folder/module_name/package_name/go_file.go new project == new module name module with github repository is very common go mod init github.com/yixianwang/module_name go run equals to go build and then run executable Data Types const myConst var myVar bool float32 float64 int int16 int32 int64 rune string unit uint8 uint16 uint32 uint64 built-in package import &quot;unicode/utf8&quot; then use utf8.RuneCountInString(&quot;汉&quot;)
@@ -1318,6 +1318,22 @@ Functions &amp; Control Structures Function with multiple return values func int
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#normal-generic-example">normal generic example
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#any-type-example">any type example
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#an-example-that-we-cant-infer-the-type-of-our-generic-parameter">an example that we can&rsquo;t infer the type of our generic parameter
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#struct-generic">struct generic
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#building-an-api">Building an API!
         </a>
       </li></ul>
@@ -2305,7 +2321,158 @@ func sendMessage(chickenChannel chan string, tofuChannel chan string) {
   </div>
 </div>
 <h2>Generics<span class="absolute -mt-20" id="generics"></span>
-    <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
+    <a href="#generics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>normal generic example<span class="absolute -mt-20" id="normal-generic-example"></span>
+    <a href="#normal-generic-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-25">package main
+import &#34;fmt&#34;
+
+func main() {
+    var intSlice = []int{1, 2, 3}
+    fmt.Println(sumSlice[int](intSlice))
+
+    var float32Slice = []float32{1, 2, 3}
+    fmt.Println(sumSlice[float32](float32Slice))
+}
+
+func sumSlice[T int | float32 | float64](slice []T) T {
+    var sum T
+    for _, v := range slice {
+        sum &#43;= v
+    }
+    return sum
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-25"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>any type example<span class="absolute -mt-20" id="any-type-example"></span>
+    <a href="#any-type-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-26">package main
+import &#34;fmt&#34;
+
+func main() {
+    var intSlice = []int{}
+    fmt.Println(isEmpty(intSlice)) // we can omit the square bracket type input here
+
+    var float32Slice = []float32{1, 2, 3}
+    fmt.Println(isEmpty(float32Slice)) // and here
+}
+
+func isEmpty[T any](slice []T) bool {
+    return len(slice) == 0
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-26"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>an example that we can&rsquo;t infer the type of our generic parameter<span class="absolute -mt-20" id="an-example-that-we-cant-infer-the-type-of-our-generic-parameter"></span>
+    <a href="#an-example-that-we-cant-infer-the-type-of-our-generic-parameter" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-27">package main
+
+import (
+    &#34;fmt&#34;
+    &#34;encoding/json&#34;
+    &#34;io/ioutil&#34;
+)
+
+type contactInfo struct {
+    Name string
+    Email string
+}
+
+type purchaseInfo struct {
+    Name string
+    Price float32
+    Amount int
+}
+
+func main() {
+    var contacts []contactInfo = loadJSON[contactInfo](&#34;./contactInfo.json&#34;)
+    fmt.Printf(&#34;\n%&#43;v&#34;, contacts)
+
+    var purchases []purchaseInfo = loadJSON[purchaseInfo](&#34;./purchaseInfo.json&#34;)
+    fmt.Printf(&#34;\n%&#43;v&#34;, purchases)
+}
+
+func loadJSON[T contactInfo | purchaseInfo] (filePath string) []T {
+    data, _ = ioutil.ReadFile(filePath)
+
+    var loaded = []T{}
+    json.Unmarshal(data, &amp;loaded)
+
+    return loaded
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-27"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>struct generic<span class="absolute -mt-20" id="struct-generic"></span>
+    <a href="#struct-generic" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-28">package main
+
+import &#34;fmt&#34;
+
+type gasEngine struct {
+  gallons float32
+  mpg float32
+}
+
+type electricEngine struct {
+  kwh float32
+  mpkwh float32
+}
+
+type car[T gasEngine | electricEngine] struct {
+    carMake string
+    carModel string
+    engine T
+}
+
+func main() {
+    var gasCar = car[gasEngine] {
+        carMake: &#34;Honda&#34;,
+        carModel: &#34;Civic&#34;,
+        engine: gasEngine {
+            gallons: 12.4,
+            mpg: 40,
+        },
+    }
+    fmt.Println(gasCar)
+    var electricCar = car[electricEngine] {
+        carMake: &#34;Tesla&#34;,
+        carModel: &#34;Model 3&#34;,
+        engine: electricEngine {
+            kwh: 57.5,
+            mpkwh: 4.17,
+        },
+    }
+    fmt.Println(electricCar)
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-28"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Building an API!<span class="absolute -mt-20" id="building-an-api"></span>
     <a href="#building-an-api" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
         </div>
         <div class="mt-16"></div>
