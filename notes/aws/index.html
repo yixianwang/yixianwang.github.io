@@ -26,7 +26,7 @@
   <meta itemprop="name" content="AWS">
 <meta itemprop="description" content="SAA-02 Reference Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked."><meta itemprop="datePublished" content="2024-04-29T15:12:10-04:00" />
 <meta itemprop="dateModified" content="2024-04-29T15:12:10-04:00" />
-<meta itemprop="wordCount" content="375">
+<meta itemprop="wordCount" content="427">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS"/>
 <meta name="twitter:description" content="SAA-02 Reference Global Services Identity and Access Management (IAM) Route 53 (DNS service) CloudFront (Content Delivery Network) WAF (Web Application Firewall) Region-scoped Amazon EC2 (Infrastructure as a Service) Renting virtual machines (EC2) Storing data on virtual drives (EBS) Elastic File System (EFS) Distributing load across machines (ELB) Scaling the services using an auto-scaling group (ASG) Elastic Beanstalk (Platform as a Service) Lambda (Function as a Service) Rekognition (Software as a Service) IAM which aws aws --version aws configure aws iam list-users Section 7: EC2 Instance Storage EBS General Purpose SSD, gp2, gp3 gp3: IOPS and throughput are not linked."/>
@@ -284,6 +284,14 @@
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/projects/"
+    
+  >Projects
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -917,6 +925,13 @@
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/go_advanced/"
     
   >Go Advanced
@@ -1330,6 +1345,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-dns-works">How DNS works
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#section-11-classic-solutions-architecture-discussions">Section 11: Classic Solutions Architecture Discussions
         </a>
       </li>
@@ -1532,7 +1551,21 @@ aws iam list-users</code></pre><div class="opacity-0 transition group-hover/code
 <h2>Section 8: High Availability and Scalability: ELB &amp; ASG<span class="absolute -mt-20" id="section-8-high-availability-and-scalability-elb--asg"></span>
     <a href="#section-8-high-availability-and-scalability-elb--asg" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 9: AWS Fundamentals: RDS + Aurora + ElastiCache<span class="absolute -mt-20" id="section-9-aws-fundamentals-rds--aurora--elasticache"></span>
     <a href="#section-9-aws-fundamentals-rds--aurora--elasticache" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 10: Route 53<span class="absolute -mt-20" id="section-10-route-53"></span>
-    <a href="#section-10-route-53" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 11: Classic Solutions Architecture Discussions<span class="absolute -mt-20" id="section-11-classic-solutions-architecture-discussions"></span>
+    <a href="#section-10-route-53" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Domain Registrar: Amazon Route 53, GoDaddy, &hellip;</li>
+<li>DNS Records: A, AAAA, CNAME, NS, &hellip;</li>
+<li>Zone File: contains DNS Records</li>
+<li>Name Server: resolves DNS queries (Authoritative or Non-Authoritative)</li>
+<li>Top Level Domain (TLD): .com, .us, .in, .gov, .org, &hellip;</li>
+<li>Second Level Domain (SLD): amazon.com, google.com, &hellip;</li>
+</ul>
+<p>
+    <img src="../images-aws/2.png" alt="URL" loading="lazy" /></p>
+<ul>
+<li>DNS SOA(Start of Authority) record</li>
+</ul>
+<h3>How DNS works<span class="absolute -mt-20" id="how-dns-works"></span>
+    <a href="#how-dns-works" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>Section 11: Classic Solutions Architecture Discussions<span class="absolute -mt-20" id="section-11-classic-solutions-architecture-discussions"></span>
     <a href="#section-11-classic-solutions-architecture-discussions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 12: Amazon S3 Introduction<span class="absolute -mt-20" id="section-12-amazon-s3-introduction"></span>
     <a href="#section-12-amazon-s3-introduction" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 13: Advanced Amazon S3<span class="absolute -mt-20" id="section-13-advanced-amazon-s3"></span>
     <a href="#section-13-advanced-amazon-s3" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Section 14: Amazon S3 Security<span class="absolute -mt-20" id="section-14-amazon-s3-security"></span>

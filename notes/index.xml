@@ -91,6 +91,357 @@
     </item>
     
     <item>
+      <title>Projects</title>
+      <link>https://yixianwang.github.io/notes/projects/</link>
+      <pubDate>Mon, 27 May 2024 22:30:29 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/projects/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Project 1: Online Learning Platform&lt;span class=&#34;absolute -mt-20&#34; id=&#34;project-1-online-learning-platform&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#project-1-online-learning-platform&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Description:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An Online Learning Platform where users can enroll in courses, access course materials, and track their progress. Instructors can create and manage courses, upload materials, and interact with students. The platform will include user authentication, a RESTful API, and a front-end interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Features:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;features&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;User Management:
+&lt;ul&gt;
+&lt;li&gt;User registration and authentication (students and instructors).&lt;/li&gt;
+&lt;li&gt;Profile management.&lt;/li&gt;
+&lt;li&gt;Role-based access control.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Course Management:
+&lt;ul&gt;
+&lt;li&gt;Instructors can create, update, and delete courses.&lt;/li&gt;
+&lt;li&gt;Upload course materials (videos, PDFs, etc.).&lt;/li&gt;
+&lt;li&gt;Course categorization and tagging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enrollment and Progress Tracking:
+&lt;ul&gt;
+&lt;li&gt;Students can enroll in courses.&lt;/li&gt;
+&lt;li&gt;Track progress through course completion.&lt;/li&gt;
+&lt;li&gt;Certificate generation upon course completion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Interactive Components:
+&lt;ul&gt;
+&lt;li&gt;Discussion forums for each course.&lt;/li&gt;
+&lt;li&gt;Q&amp;amp;A section for student-instructor interaction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Search and Filtering:
+&lt;ul&gt;
+&lt;li&gt;Search courses by keywords.&lt;/li&gt;
+&lt;li&gt;Filter courses by category, difficulty level, and popularity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Admin Dashboard:
+&lt;ul&gt;
+&lt;li&gt;Overview of platform statistics (number of users, courses, enrollments).&lt;/li&gt;
+&lt;li&gt;Manage users and content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Technologies and Tools:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;technologies-and-tools&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#technologies-and-tools&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Backend:
+&lt;ul&gt;
+&lt;li&gt;Spring Boot: Core framework for building the application.&lt;/li&gt;
+&lt;li&gt;Spring Security: For authentication and authorization.&lt;/li&gt;
+&lt;li&gt;Spring Data JPA: For database interactions.&lt;/li&gt;
+&lt;li&gt;Hibernate: ORM framework.&lt;/li&gt;
+&lt;li&gt;MySQL/PostgreSQL: Database.&lt;/li&gt;
+&lt;li&gt;Spring Boot Actuator: Monitoring and management.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Frontend:
+&lt;ul&gt;
+&lt;li&gt;React.js: For building the user interface.&lt;/li&gt;
+&lt;li&gt;Redux: For state management.&lt;/li&gt;
+&lt;li&gt;Axios: For making API requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;API Documentation:
+&lt;ul&gt;
+&lt;li&gt;Swagger/OpenAPI: For documenting the RESTful API.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Testing:
+&lt;ul&gt;
+&lt;li&gt;JUnit: Unit testing.&lt;/li&gt;
+&lt;li&gt;Mockito: For mocking dependencies.&lt;/li&gt;
+&lt;li&gt;Spring Boot Test: Integration testing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DevOps:
+&lt;ul&gt;
+&lt;li&gt;Docker: Containerization of the application.&lt;/li&gt;
+&lt;li&gt;CI/CD: Integration with GitHub Actions or Jenkins for continuous integration and deployment.&lt;/li&gt;
+&lt;li&gt;Kubernetes: For orchestration (optional, for advanced deployment scenarios).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other Tools:
+&lt;ul&gt;
+&lt;li&gt;Lombok: To reduce boilerplate code.&lt;/li&gt;
+&lt;li&gt;MapStruct: For object mapping.&lt;/li&gt;
+&lt;li&gt;Thymeleaf/Freemarker: (Optional) If you want to add server-side rendering capabilities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Implementation Steps:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;implementation-steps&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#implementation-steps&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Project Setup:
+&lt;ul&gt;
+&lt;li&gt;Initialize a new Spring Boot project using Spring Initializr.&lt;/li&gt;
+&lt;li&gt;Set up the project structure and dependencies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;User Management Module:
+&lt;ul&gt;
+&lt;li&gt;Implement user registration and login using Spring Security.&lt;/li&gt;
+&lt;li&gt;Set up role-based access control.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Course Management Module:
+&lt;ul&gt;
+&lt;li&gt;Create entities for Course, Material, Enrollment, etc.&lt;/li&gt;
+&lt;li&gt;Develop RESTful APIs for CRUD operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Frontend Development:
+&lt;ul&gt;
+&lt;li&gt;Set up a React project.&lt;/li&gt;
+&lt;li&gt;Create components for user authentication, course listings, and course details.&lt;/li&gt;
+&lt;li&gt;Implement state management using Redux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Interactive Components:
+&lt;ul&gt;
+&lt;li&gt;Add features for discussion forums and Q&amp;amp;A sections.&lt;/li&gt;
+&lt;li&gt;Implement real-time updates using WebSockets (optional).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Admin Dashboard:
+&lt;ul&gt;
+&lt;li&gt;Develop an admin interface for managing the platform.&lt;/li&gt;
+&lt;li&gt;Display key metrics and provide management functionalities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Testing:
+&lt;ul&gt;
+&lt;li&gt;Write unit and integration tests.&lt;/li&gt;
+&lt;li&gt;Ensure code coverage and reliability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Documentation and Deployment:
+&lt;ul&gt;
+&lt;li&gt;Document the API using Swagger/OpenAPI.&lt;/li&gt;
+&lt;li&gt;Containerize the application using Docker.&lt;/li&gt;
+&lt;li&gt;Set up CI/CD pipelines for automated testing and deployment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Final Steps:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;final-steps&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#final-steps&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Code Quality: Ensure your code is clean, well-documented, and follows best practices.&lt;/li&gt;
+&lt;li&gt;Deployment: Deploy the application to a cloud platform (e.g., AWS, Azure, Heroku).&lt;/li&gt;
+&lt;li&gt;Showcase: Add the project to your GitHub or personal portfolio. Write a comprehensive README.md file explaining the project&amp;rsquo;s features, setup instructions, and usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Project 1 Plan: Online Learning Platform&lt;span class=&#34;absolute -mt-20&#34; id=&#34;project-1-plan-online-learning-platform&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#project-1-plan-online-learning-platform&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Phase 1: Project Setup and Basic Configuration&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-1-project-setup-and-basic-configuration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-1-project-setup-and-basic-configuration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Initialize Spring Boot Project:
+&lt;ul&gt;
+&lt;li&gt;Use Spring Initializr to create a new Spring Boot project.&lt;/li&gt;
+&lt;li&gt;Add dependencies: Spring Web, Spring Security, Spring Data JPA, MySQL/PostgreSQL Driver, Lombok, and Thymeleaf (if using server-side rendering).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Set Up Database:
+&lt;ul&gt;
+&lt;li&gt;Configure database connection in application.properties or application.yml.&lt;/li&gt;
+&lt;li&gt;Create initial database schema using JPA entities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 2: User Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-2-user-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-2-user-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;User Entity and Repository:
+&lt;ul&gt;
+&lt;li&gt;Define User entity with fields such as id, username, password, email, roles, etc.&lt;/li&gt;
+&lt;li&gt;Create UserRepository interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;User Registration and Authentication:
+&lt;ul&gt;
+&lt;li&gt;Implement registration endpoint.&lt;/li&gt;
+&lt;li&gt;Use Spring Security for authentication.&lt;/li&gt;
+&lt;li&gt;Set up JWT or session-based authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Role-Based Access Control:
+&lt;ul&gt;
+&lt;li&gt;Define roles (e.g., STUDENT, INSTRUCTOR, ADMIN).&lt;/li&gt;
+&lt;li&gt;Configure method-level security for role-based access.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 3: Course Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-3-course-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-3-course-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Course Entity and Repository:
+&lt;ul&gt;
+&lt;li&gt;Define Course entity with fields like id, title, description, instructor, materials, etc.&lt;/li&gt;
+&lt;li&gt;Create CourseRepository interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Course CRUD Operations:
+&lt;ul&gt;
+&lt;li&gt;Implement RESTful APIs for creating, reading, updating, and deleting courses.&lt;/li&gt;
+&lt;li&gt;Secure endpoints to allow only instructors to manage their courses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 4: Frontend Development&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-4-frontend-development&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-4-frontend-development&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Initialize React Project:
+&lt;ul&gt;
+&lt;li&gt;Set up a new React project using Create React App.&lt;/li&gt;
+&lt;li&gt;Install necessary dependencies: Axios, Redux, React Router.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Authentication Components:
+&lt;ul&gt;
+&lt;li&gt;Create components for login, registration, and profile management.&lt;/li&gt;
+&lt;li&gt;Implement Redux actions and reducers for user authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Course Components:
+&lt;ul&gt;
+&lt;li&gt;Develop components for course listing, course details, and course creation.&lt;/li&gt;
+&lt;li&gt;Use Axios to interact with backend APIs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 5: Enrollment and Progress Tracking&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-5-enrollment-and-progress-tracking&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-5-enrollment-and-progress-tracking&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Enrollment Entity and Repository:
+&lt;ul&gt;
+&lt;li&gt;Define Enrollment entity to track course enrollments.&lt;/li&gt;
+&lt;li&gt;Create EnrollmentRepository interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enrollment API:
+&lt;ul&gt;
+&lt;li&gt;Implement endpoints for students to enroll in courses.&lt;/li&gt;
+&lt;li&gt;Add functionality to track and update course progress.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Progress Tracking:
+&lt;ul&gt;
+&lt;li&gt;Implement logic to calculate and store course completion status.&lt;/li&gt;
+&lt;li&gt;Develop UI components to display progress.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 6: Interactive Components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-6-interactive-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-6-interactive-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Discussion Forum:
+&lt;ul&gt;
+&lt;li&gt;Define entities for discussions and comments.&lt;/li&gt;
+&lt;li&gt;Create APIs to manage discussions within courses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Q&amp;amp;A Section:
+&lt;ul&gt;
+&lt;li&gt;Implement endpoints for posting and answering questions.&lt;/li&gt;
+&lt;li&gt;Develop UI components to interact with the Q&amp;amp;A section.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 7: Admin Dashboard&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-7-admin-dashboard&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-7-admin-dashboard&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Admin Dashboard UI:
+&lt;ul&gt;
+&lt;li&gt;Create an admin dashboard interface using React.&lt;/li&gt;
+&lt;li&gt;Display key metrics like number of users, courses, enrollments, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Admin APIs:
+&lt;ul&gt;
+&lt;li&gt;Implement endpoints for managing users and courses.&lt;/li&gt;
+&lt;li&gt;Secure admin endpoints to restrict access to admin users only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 8: Testing and Documentation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-8-testing-and-documentation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-8-testing-and-documentation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Testing:
+&lt;ul&gt;
+&lt;li&gt;Write unit tests for services and controllers using JUnit and Mockito.&lt;/li&gt;
+&lt;li&gt;Create integration tests for API endpoints.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;API Documentation:
+&lt;ul&gt;
+&lt;li&gt;Use Swagger to document RESTful APIs.&lt;/li&gt;
+&lt;li&gt;Generate and host API documentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Phase 9: Deployment and CI/CD&lt;span class=&#34;absolute -mt-20&#34; id=&#34;phase-9-deployment-and-cicd&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#phase-9-deployment-and-cicd&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Containerization:
+&lt;ul&gt;
+&lt;li&gt;Create Dockerfile for the Spring Boot application.&lt;/li&gt;
+&lt;li&gt;Create Dockerfile for the React application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CI/CD Pipeline:
+&lt;ul&gt;
+&lt;li&gt;Set up a CI/CD pipeline using GitHub Actions or Jenkins.&lt;/li&gt;
+&lt;li&gt;Automate testing, building, and deployment processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud Deployment:
+&lt;ul&gt;
+&lt;li&gt;Deploy the application to a cloud provider (e.g., AWS, Azure, Heroku).&lt;/li&gt;
+&lt;li&gt;Configure domain, SSL, and other necessary services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Final Steps:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;final-steps-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#final-steps-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Code Review and Refactoring:
+&lt;ul&gt;
+&lt;li&gt;Conduct thorough code reviews.&lt;/li&gt;
+&lt;li&gt;Refactor code for better readability and performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Documentation:
+&lt;ul&gt;
+&lt;li&gt;Write comprehensive documentation for the project.&lt;/li&gt;
+&lt;li&gt;Include setup instructions, API usage, and contribution guidelines in the README.md file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Portfolio and Presentation:
+&lt;ul&gt;
+&lt;li&gt;Add the project to your GitHub portfolio.&lt;/li&gt;
+&lt;li&gt;Prepare a demo or presentation to showcase the project during interviews.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Go Advanced</title>
       <link>https://yixianwang.github.io/notes/go_advanced/</link>
       <pubDate>Fri, 24 May 2024 00:20:16 -0400</pubDate>
@@ -3128,7 +3479,21 @@ aws iam list-users&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transiti
 &lt;h2&gt;Section 8: High Availability and Scalability: ELB &amp;amp; ASG&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-8-high-availability-and-scalability-elb--asg&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-8-high-availability-and-scalability-elb--asg&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 9: AWS Fundamentals: RDS + Aurora + ElastiCache&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-9-aws-fundamentals-rds--aurora--elasticache&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-9-aws-fundamentals-rds--aurora--elasticache&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 10: Route 53&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-10-route-53&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-10-route-53&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 11: Classic Solutions Architecture Discussions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-11-classic-solutions-architecture-discussions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#section-10-route-53&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Domain Registrar: Amazon Route 53, GoDaddy, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;DNS Records: A, AAAA, CNAME, NS, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Zone File: contains DNS Records&lt;/li&gt;
+&lt;li&gt;Name Server: resolves DNS queries (Authoritative or Non-Authoritative)&lt;/li&gt;
+&lt;li&gt;Top Level Domain (TLD): .com, .us, .in, .gov, .org, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Second Level Domain (SLD): amazon.com, google.com, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../images-aws/2.png&#34; alt=&#34;URL&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS SOA(Start of Authority) record&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;How DNS works&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-dns-works&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-dns-works&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;Section 11: Classic Solutions Architecture Discussions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-11-classic-solutions-architecture-discussions&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-11-classic-solutions-architecture-discussions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 12: Amazon S3 Introduction&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-12-amazon-s3-introduction&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-12-amazon-s3-introduction&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 13: Advanced Amazon S3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-13-advanced-amazon-s3&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-13-advanced-amazon-s3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 14: Amazon S3 Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-14-amazon-s3-security&#34;&gt;&lt;/span&gt;
