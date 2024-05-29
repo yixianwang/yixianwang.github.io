@@ -9869,7 +9869,7 @@ Return type: Boolean, true if a multiset is empty else false&lt;/code&gt;&lt;/pr
 &lt;/ol&gt;
 &lt;h3&gt;single page development&lt;span class=&#34;absolute -mt-20&#34; id=&#34;single-page-development&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#single-page-development&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;props, default values and constraint types&lt;/li&gt;
+&lt;li&gt;props, default values and constraint types &lt;code&gt;(props) =&amp;gt; {...}&lt;/code&gt; or &lt;code&gt;({ isHome = false}) =&amp;gt; { ... }&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;useState, &lt;code&gt;onClick={() =&amp;gt; setSome((prevState) =&amp;gt; !prevState)}&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;additional package&lt;span class=&#34;absolute -mt-20&#34; id=&#34;additional-package&#34;&gt;&lt;/span&gt;
@@ -9902,6 +9902,139 @@ Return type: Boolean, true if a multiset is empty else false&lt;/code&gt;&lt;/pr
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
       data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;layout&lt;span class=&#34;absolute -mt-20&#34; id=&#34;layout&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#layout&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;create folder &lt;code&gt;pages&lt;/code&gt;, including HomePage, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;within &lt;code&gt;App.tsx&lt;/code&gt;, wrap other route with layout route&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;Outlet&lt;/code&gt; in layout component&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;we prefer &lt;code&gt;link tag&lt;/code&gt;, not &lt;code&gt;a tag&lt;/code&gt;, because &lt;code&gt;a tag&lt;/code&gt; does a complete page refresh&lt;/li&gt;
+&lt;li&gt;How to change a tag to link tag:
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;import {Link} from &amp;#39;react-router-dom&amp;#39;
+
+// 1. change all `a` to `Link`
+// 2. change `href` to `to`&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-3&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;404 page&lt;span class=&#34;absolute -mt-20&#34; id=&#34;404-page&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#404-page&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;create 404 page&lt;/li&gt;
+&lt;li&gt;add route with *&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;active link on NavBar&lt;span class=&#34;absolute -mt-20&#34; id=&#34;active-link-on-navbar&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#active-link-on-navbar&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;use &lt;code&gt;NavLink&lt;/code&gt; instead of &lt;code&gt;Link&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;className attached with a function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Conditional rendering&lt;span class=&#34;absolute -mt-20&#34; id=&#34;conditional-rendering&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#conditional-rendering&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;use props and &lt;code&gt;? :&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Mock API&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mock-api&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mock-api&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;use json server with our json file
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/json-server&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Json Server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;install: -D means dev dependency &lt;code&gt;npm i -D json-server&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;update &lt;code&gt;package.json&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;within &lt;code&gt;scripts&lt;/code&gt; add &lt;code&gt;&amp;quot;server&amp;quot;: &amp;quot;json-server --watch src/jobs.json --port 8888&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;run &lt;code&gt;npm run server&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;useEffect&lt;/code&gt; hook to make a request, we also use &lt;code&gt;useState&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;const [jobs, setJobs] = useState([]);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;const [loading, setLoading] = useState(true);&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-4&#34;&gt;  const fetchJobs = async () =&amp;gt; {
+    try {
+      const res = await fetch(&amp;#39;http://localhost:8000/jobs&amp;#39;); // without proxy
+      const data = await res.json();
+      setJobs(data);
+    } catch (error) {
+      console.log(&amp;#39;Error fetching&amp;#39;, error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  fetchJobs();
+}, []);
+
+
+{
+  loading ? (
+    &amp;lt;Spinner loading={loading} /&amp;gt;
+  ) : (
+    &amp;lt;&amp;gt;
+      {jobs.map((job) =&amp;gt; (
+        &amp;lt;JobListing key={job.id} job={job} /&amp;gt;
+      ))}
+    &amp;lt;/JobListing&amp;gt;
+  )
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-4&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;React Spinners&lt;/code&gt;, install: &lt;code&gt;npm i react-spinners&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/react-spinners&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;create a spinner ui component&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Different approach to fetch data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;different-approach-to-fetch-data&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#different-approach-to-fetch-data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;react suspense&lt;/code&gt;, it allows us to do a render while fetching, so we basically provide a fallback UI such as a spinner. (what we are doing here we fetch on render, because when it renders it has a side effect of fetching the data)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;react query&lt;/code&gt; and &lt;code&gt;SWR&lt;/code&gt; are third-party libraries. They make data fetching a little easier.&lt;/li&gt;
+&lt;li&gt;react 19 has new use hook&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Proxying&lt;span class=&#34;absolute -mt-20&#34; id=&#34;proxying&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#proxying&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;with create react app use &lt;code&gt;package.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;with vite we use &lt;code&gt;vite.config.ts&lt;/code&gt;, and add following in &lt;code&gt;server&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-5&#34;&gt;proxy: {
+  &amp;#39;/api&amp;#39;: {
+    target: &amp;#39;http://localhost:8000&amp;#39;,
+    changeOrigin: true,
+    rewrite: (path) =&amp;gt; path.replace(/^\/api/, &amp;#39;&amp;#39;),
+  },
+},
+
+// every time we send a request we use /api, i.e. /api/jobs (instead of localhost:00/jobs)&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-5&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
