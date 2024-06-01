@@ -11,25 +11,41 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Spring6 – Yixian Wang</title>
-  <meta name="description" content="IoC: Inverse of Control let Spring manage creating objects AOP: Aspect Orientied Programming enhance the code functionality without modifying the source code " />
+  <title>Hibernate – Yixian Wang</title>
+  <meta name="description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
+Session Factory grabs the configFile: username &#43; password, then creates sessions
+Hibernate use reflection API to auto generate SQL statements
+Hibernate allows us to write:
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:" />
 
   
 
-<meta property="og:title" content="Spring6" />
-<meta property="og:description" content="IoC: Inverse of Control let Spring manage creating objects AOP: Aspect Orientied Programming enhance the code functionality without modifying the source code " />
+<meta property="og:title" content="Hibernate" />
+<meta property="og:description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
+Session Factory grabs the configFile: username &#43; password, then creates sessions
+Hibernate use reflection API to auto generate SQL statements
+Hibernate allows us to write:
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/spring/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2023-12-27T10:03:16-05:00" />
-<meta property="article:modified_time" content="2023-12-27T10:03:16-05:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/hibernate/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-06-01T15:07:08-04:00" />
+<meta property="article:modified_time" content="2024-06-01T15:07:08-04:00" />
 
-  <meta itemprop="name" content="Spring6">
-<meta itemprop="description" content="IoC: Inverse of Control let Spring manage creating objects AOP: Aspect Orientied Programming enhance the code functionality without modifying the source code "><meta itemprop="datePublished" content="2023-12-27T10:03:16-05:00" />
-<meta itemprop="dateModified" content="2023-12-27T10:03:16-05:00" />
-<meta itemprop="wordCount" content="22">
+  <meta itemprop="name" content="Hibernate">
+<meta itemprop="description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
+Session Factory grabs the configFile: username &#43; password, then creates sessions
+Hibernate use reflection API to auto generate SQL statements
+Hibernate allows us to write:
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:"><meta itemprop="datePublished" content="2024-06-01T15:07:08-04:00" />
+<meta itemprop="dateModified" content="2024-06-01T15:07:08-04:00" />
+<meta itemprop="wordCount" content="103">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Spring6"/>
-<meta name="twitter:description" content="IoC: Inverse of Control let Spring manage creating objects AOP: Aspect Orientied Programming enhance the code functionality without modifying the source code "/>
+<meta name="twitter:title" content="Hibernate"/>
+<meta name="twitter:description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
+Session Factory grabs the configFile: username &#43; password, then creates sessions
+Hibernate use reflection API to auto generate SQL statements
+Hibernate allows us to write:
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -286,13 +302,22 @@
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/hibernate/"
     
   >Hibernate
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#concepts"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Concepts</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -446,28 +471,13 @@
   >OOP C&#43;&#43;
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/spring/"
     
   >Spring6
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#ioc-inverse-of-control"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >IoC: Inverse of Control</a>
-            </li>
-          <li>
-              <a
-                href="#aop-aspect-orientied-programming"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >AOP: Aspect Orientied Programming</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -804,9 +814,9 @@
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/hibernate/"
     
   >Hibernate
@@ -944,9 +954,9 @@
     
   >OOP C&#43;&#43;
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/spring/"
     
   >Spring6
@@ -1199,11 +1209,7 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#ioc-inverse-of-control">IoC: Inverse of Control
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#aop-aspect-orientied-programming">AOP: Aspect Orientied Programming
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#concepts">Concepts
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1223,31 +1229,49 @@
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Spring6</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Hibernate</div>
 </div>
 
         <div class="content">
-          <h1>Spring6</h1>
-          <h2>IoC: Inverse of Control<span class="absolute -mt-20" id="ioc-inverse-of-control"></span>
-    <a href="#ioc-inverse-of-control" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>let Spring manage creating objects</li>
+          <h1>Hibernate</h1>
+          <h2>Concepts<span class="absolute -mt-20" id="concepts"></span>
+    <a href="#concepts" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search</p>
+</li>
+<li>
+<p><code>Session Factory</code> grabs the configFile: username + password, then creates <code>sessions</code></p>
+</li>
+<li>
+<p>Hibernate use reflection API to auto generate SQL statements</p>
+</li>
+<li>
+<p>Hibernate allows us to write:</p>
+<ol>
+<li>HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations.</li>
+<li>Native SQL. cons: with dialect language(mysql, postgres, oracle)</li>
+</ol>
+</li>
+<li>
+<p>Cache in Hibernate:</p>
+<ul>
+<li>First Level(default): in <strong>session level</strong>. The session is private, it means it cannot access any content belong to other sessions.</li>
+<li>Second Level: in <strong>session factory level</strong>. Add extra configurations to the ConfigFile.</li>
 </ul>
-<h2>AOP: Aspect Orientied Programming<span class="absolute -mt-20" id="aop-aspect-orientied-programming"></span>
-    <a href="#aop-aspect-orientied-programming" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>enhance the code functionality without modifying the source code</li>
+</li>
 </ul>
 
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/oop-cpp/"
-        title="OOP C&#43;&#43;"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>OOP C&#43;&#43;</a><a
-        href="/notes/spring_boot/"
-        title="Spring Boot"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/jdbc/"
+        title="JDBC"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Spring Boot<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >JDBC<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
