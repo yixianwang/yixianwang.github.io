@@ -38,7 +38,7 @@ Hibernate use reflection API to auto generate SQL statements
 Hibernate allows us to write:
 HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:"><meta itemprop="datePublished" content="2024-06-01T15:07:08-04:00" />
 <meta itemprop="dateModified" content="2024-06-01T15:07:08-04:00" />
-<meta itemprop="wordCount" content="103">
+<meta itemprop="wordCount" content="264">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hibernate"/>
 <meta name="twitter:description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
@@ -315,6 +315,12 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
                 href="#concepts"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Concepts</a>
+            </li>
+          <li>
+              <a
+                href="#setup"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Setup</a>
             </li>
           </ul>
   
@@ -1211,6 +1217,30 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#concepts">Concepts
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#setup">Setup
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#old-style-cfg">Old style cfg
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#new-style-cfg">New style cfg
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#one-to-one">One to One
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#one-to-many">One to Many
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-hibernate">use Hibernate
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1259,7 +1289,176 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
 <li>Second Level: in <strong>session factory level</strong>. Add extra configurations to the ConfigFile.</li>
 </ul>
 </li>
+<li>
+<p><a href="https://github.com/yixianwang/hibernate" target="_blank" rel="noopener">github</a></p>
+</li>
 </ul>
+<h2>Setup<span class="absolute -mt-20" id="setup"></span>
+    <a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">pom.xml</div><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>5.4.20.Final<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.4.200<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Old style cfg<span class="absolute -mt-20" id="old-style-cfg"></span>
+    <a href="#old-style-cfg" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/main/resources/hibernate.cfg-one-to-one.xml</div><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE hibernate-configuration PUBLIC
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;-//Hibernate/Hibernate Configuration DTD 3.0//EN&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd&#34;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;hibernate-configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;session-factory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.driver_class&#34;</span><span class="nt">&gt;</span>org.h2.Driver<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.url&#34;</span><span class="nt">&gt;</span>jdbc:h2:mem:test<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.username&#34;</span><span class="nt">&gt;</span>sa<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.password&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.dialect&#34;</span><span class="nt">&gt;</span>org.hibernate.dialect.H2Dialect<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;show_sql&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hbm2ddl.auto&#34;</span><span class="nt">&gt;</span>create-drop<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.foreignKeyAsso.EmployeeEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.foreignKeyAsso.AccountEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.sharedPrimaryKey.EmployeeEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.sharedPrimaryKey.AccountEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.joinTable.EmployeeEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.joinTable.AccountEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.mapsById.EmployeeEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.onetoone.dto.mapsById.AccountEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/session-factory&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/hibernate-configuration&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/main/resources/hibernate.cfg-one-to-many.xml</div><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/main/resources/hibernate.cfg-many-to-many.xml</div><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE hibernate-configuration PUBLIC
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;-//Hibernate/Hibernate Configuration DTD 3.0//EN&#34;
+</span></span></span><span class="line"><span class="cl"><span class="cp">        &#34;http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd&#34;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;hibernate-configuration&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;session-factory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.driver_class&#34;</span><span class="nt">&gt;</span>org.h2.Driver<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.url&#34;</span><span class="nt">&gt;</span>jdbc:h2:mem:test<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.username&#34;</span><span class="nt">&gt;</span>sa<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.connection.password&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernate.dialect&#34;</span><span class="nt">&gt;</span>org.hibernate.dialect.H2Dialect<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;show_sql&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hbm2ddl.auto&#34;</span><span class="nt">&gt;</span>create-drop<span class="nt">&lt;/property&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.manyToMany.joinTable.ReaderEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mapping</span> <span class="na">class=</span><span class="s">&#34;com.yixianwang.hibernate.manyToMany.joinTable.SubscriptionEntity&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/session-factory&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/hibernate-configuration&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>New style cfg<span class="absolute -mt-20" id="new-style-cfg"></span>
+    <a href="#new-style-cfg" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>only use annotation</li>
+</ul>
+<h4>One to One<span class="absolute -mt-20" id="one-to-one"></span>
+    <a href="#one-to-one" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>two way one to one</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">EmployeeEntity.java</div><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@OneToOne</span><span class="o">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@PrimaryKeyJoinColumn</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AccountEntity</span> <span class="n">account</span><span class="o">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">AccountEntity.java</div><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@OneToOne</span><span class="o">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;account&#34;</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">REMOVE</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">EmployeeEntity</span> <span class="n">employee</span><span class="o">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h4>One to Many<span class="absolute -mt-20" id="one-to-many"></span>
+    <a href="#one-to-many" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>one employee has multiple accounts</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">EmployeeEntity.java</div><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">cascade</span><span class="o">=</span><span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@JoinTable</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;EMPLOYEE_ACCOUNT&#34;</span><span class="o">,</span> <span class="n">joinColumn</span><span class="o">={</span><span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;EMPLOYEE_ID&#34;</span><span class="o">,</span> <span class="n">referencedColumnName</span><span class="o">=</span><span class="s">&#34;ID&#34;</span><span class="o">)}</span>
+</span></span><span class="line"><span class="cl">                                  <span class="o">,</span> <span class="n">inverseJoinColumns</span><span class="o">={</span><span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;ACCOUNT_ID&#34;</span><span class="o">,</span> <span class="n">referencedColumnName</span><span class="o">=</span><span class="s">&#34;ID&#34;</span><span class="o">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">AccountEntity</span><span class="o">&gt;</span> <span class="n">accounts</span><span class="o">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>use Hibernate<span class="absolute -mt-20" id="use-hibernate"></span>
+    <a href="#use-hibernate" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">HibernateUtil</span><span class="o">.</span><span class="na">getSessionFactory</span><span class="o">().</span><span class="na">oepnSession</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">session</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// save(insert)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">session</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">firstEmployee</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">session</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">secondEmployee</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">session</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">commit</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">HibernateUtil</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
