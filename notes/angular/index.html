@@ -12,24 +12,28 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Angular – Yixian Wang</title>
-  <meta name="description" content="1. Google Official Youtube Tutorial Tutorial # install angular npm install -g @angular/cli new project ng new project-name cd project-name ng serve Tutorial Project Github # setup cd homes-app npm install ng serve # generate component ng generate component Home --standalone --inline-template switch angular version npm uninstall -g @angular/cli npm cache verify # if the there is any issue npm cache clean --force # install the older version of angular npm install -g @angular/cli@8." />
+  <meta name="description" content="Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement
+dynamic properties vs dynamic attributes dynamic attributes: for custom HTML attributes which are not standard DOM properties we need to prepend the custom HTML attribute with the attr. prefix. &lt;button [attr.data-test-id]=&#34;testId&#34;&gt;Primary CTA&lt;/button&gt; the declared value in square bracket should be interpreted as a Javascript-like statement." />
 
   
 
 <meta property="og:title" content="Angular" />
-<meta property="og:description" content="1. Google Official Youtube Tutorial Tutorial # install angular npm install -g @angular/cli new project ng new project-name cd project-name ng serve Tutorial Project Github # setup cd homes-app npm install ng serve # generate component ng generate component Home --standalone --inline-template switch angular version npm uninstall -g @angular/cli npm cache verify # if the there is any issue npm cache clean --force # install the older version of angular npm install -g @angular/cli@8." />
+<meta property="og:description" content="Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement
+dynamic properties vs dynamic attributes dynamic attributes: for custom HTML attributes which are not standard DOM properties we need to prepend the custom HTML attribute with the attr. prefix. &lt;button [attr.data-test-id]=&#34;testId&#34;&gt;Primary CTA&lt;/button&gt; the declared value in square bracket should be interpreted as a Javascript-like statement." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/angular/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-01-27T02:54:24-04:00" />
 <meta property="article:modified_time" content="2024-01-27T02:54:24-04:00" />
 
   <meta itemprop="name" content="Angular">
-<meta itemprop="description" content="1. Google Official Youtube Tutorial Tutorial # install angular npm install -g @angular/cli new project ng new project-name cd project-name ng serve Tutorial Project Github # setup cd homes-app npm install ng serve # generate component ng generate component Home --standalone --inline-template switch angular version npm uninstall -g @angular/cli npm cache verify # if the there is any issue npm cache clean --force # install the older version of angular npm install -g @angular/cli@8."><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
+<meta itemprop="description" content="Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement
+dynamic properties vs dynamic attributes dynamic attributes: for custom HTML attributes which are not standard DOM properties we need to prepend the custom HTML attribute with the attr. prefix. &lt;button [attr.data-test-id]=&#34;testId&#34;&gt;Primary CTA&lt;/button&gt; the declared value in square bracket should be interpreted as a Javascript-like statement."><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="627">
+<meta itemprop="wordCount" content="712">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
-<meta name="twitter:description" content="1. Google Official Youtube Tutorial Tutorial # install angular npm install -g @angular/cli new project ng new project-name cd project-name ng serve Tutorial Project Github # setup cd homes-app npm install ng serve # generate component ng generate component Home --standalone --inline-template switch angular version npm uninstall -g @angular/cli npm cache verify # if the there is any issue npm cache clean --force # install the older version of angular npm install -g @angular/cli@8."/>
+<meta name="twitter:description" content="Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement
+dynamic properties vs dynamic attributes dynamic attributes: for custom HTML attributes which are not standard DOM properties we need to prepend the custom HTML attribute with the attr. prefix. &lt;button [attr.data-test-id]=&#34;testId&#34;&gt;Primary CTA&lt;/button&gt; the declared value in square bracket should be interpreted as a Javascript-like statement."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -423,6 +427,12 @@
     </a>
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#concepts"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Concepts</a>
+            </li>
+          <li>
               <a
                 href="#1-google-official-youtube-tutorial"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
@@ -1220,6 +1230,22 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#concepts">Concepts
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#template-reference-variable">template reference variable
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dynamic-properties-vs-dynamic-attributes">dynamic properties vs dynamic attributes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#event">event
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#1-google-official-youtube-tutorial">1. Google Official Youtube Tutorial
         </a>
       </li>
@@ -1281,12 +1307,13 @@
 
         <div class="content">
           <h1>Angular</h1>
-          <h2>1. Google Official Youtube Tutorial<span class="absolute -mt-20" id="1-google-official-youtube-tutorial"></span>
-    <a href="#1-google-official-youtube-tutorial" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li><a href="https://www.youtube.com/watch?v=UnOwDuliqZA&amp;list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF&amp;index=2" target="_blank" rel="noopener">Tutorial</a></li>
+          <h2>Concepts<span class="absolute -mt-20" id="concepts"></span>
+    <a href="#concepts" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>template reference variable<span class="absolute -mt-20" id="template-reference-variable"></span>
+    <a href="#template-reference-variable" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0"># install angular
-npm install -g @angular/cli</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">&lt;input #text /&gt;
+&lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1297,10 +1324,19 @@ npm install -g @angular/cli</code></pre><div class="opacity-0 transition group-h
     </button>
   </div>
 </div>
-<h3>new project<span class="absolute -mt-20" id="new-project"></span>
-    <a href="#new-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">ng new project-name
-cd project-name
-ng serve</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<blockquote>
+<p>child component use <code>@Input</code> to receive the reference of HTMLInputElement</p>
+</blockquote>
+<h3>dynamic properties vs dynamic attributes<span class="absolute -mt-20" id="dynamic-properties-vs-dynamic-attributes"></span>
+    <a href="#dynamic-properties-vs-dynamic-attributes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>dynamic attributes:
+<ul>
+<li>for custom HTML attributes which are not standard DOM properties</li>
+<li>we need to prepend the custom HTML attribute with the <code>attr.</code> prefix.</li>
+</ul>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">&lt;button [attr.data-test-id]=&#34;testId&#34;&gt;Primary CTA&lt;/button&gt;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1311,17 +1347,19 @@ ng serve</code></pre><div class="opacity-0 transition group-hover/code:opacity-1
     </button>
   </div>
 </div>
-<h3>Tutorial Project<span class="absolute -mt-20" id="tutorial-project"></span>
-    <a href="#tutorial-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li><a href="https://github.com/angular/codelabs/tree/homes-app-start" target="_blank" rel="noopener">Github</a></li>
+<blockquote>
+<p>the declared value in square bracket should be interpreted as a Javascript-like statement.</p>
+</blockquote>
+<h3>event<span class="absolute -mt-20" id="event"></span>
+    <a href="#event" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>syntax: <code>(click)=&quot;save()&quot;</code>, interpreted as event trigger the Javascript-like statement.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2"># setup
-cd homes-app
-npm install
-ng serve
-
-# generate component
-ng generate component Home --standalone --inline-template</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+<h2>1. Google Official Youtube Tutorial<span class="absolute -mt-20" id="1-google-official-youtube-tutorial"></span>
+    <a href="#1-google-official-youtube-tutorial" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://www.youtube.com/watch?v=UnOwDuliqZA&amp;list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF&amp;index=2" target="_blank" rel="noopener">Tutorial</a></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2"># install angular
+npm install -g @angular/cli</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
@@ -1332,8 +1370,43 @@ ng generate component Home --standalone --inline-template</code></pre><div class
     </button>
   </div>
 </div>
+<h3>new project<span class="absolute -mt-20" id="new-project"></span>
+    <a href="#new-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">ng new project-name
+cd project-name
+ng serve</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Tutorial Project<span class="absolute -mt-20" id="tutorial-project"></span>
+    <a href="#tutorial-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><a href="https://github.com/angular/codelabs/tree/homes-app-start" target="_blank" rel="noopener">Github</a></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4"># setup
+cd homes-app
+npm install
+ng serve
+
+# generate component
+ng generate component Home --standalone --inline-template</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h3>switch angular version<span class="absolute -mt-20" id="switch-angular-version"></span>
-    <a href="#switch-angular-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">npm uninstall -g @angular/cli
+    <a href="#switch-angular-version" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">npm uninstall -g @angular/cli
 npm cache verify
 
 # if the there is any issue
@@ -1344,7 +1417,7 @@ npm install -g @angular/cli@8.3.19</code></pre><div class="opacity-0 transition 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-3"
+      data-clipboard-target="#code-block-5"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1359,13 +1432,13 @@ npm install -g @angular/cli@8.3.19</code></pre><div class="opacity-0 transition 
 <h3>Fetching Data From Server (Services &amp; Endpoints)<span class="absolute -mt-20" id="fetching-data-from-server-services--endpoints"></span>
     <a href="#fetching-data-from-server-services--endpoints" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>3. Todo List Project<span class="absolute -mt-20" id="3-todo-list-project"></span>
     <a href="#3-todo-list-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>build file structures of project<span class="absolute -mt-20" id="build-file-structures-of-project"></span>
-    <a href="#build-file-structures-of-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">ng g s services/api
+    <a href="#build-file-structures-of-project" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-6">ng g s services/api
 ng g c components/home
 ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-4"
+      data-clipboard-target="#code-block-6"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1373,7 +1446,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
   </div>
 </div>
 <h3>setup bootstrap<span class="absolute -mt-20" id="setup-bootstrap"></span>
-    <a href="#setup-bootstrap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/index.html</div><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
+    <a href="#setup-bootstrap" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/index.html</div><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
@@ -1393,33 +1466,6 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-5"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<h3>Coding<span class="absolute -mt-20" id="coding"></span>
-    <a href="#coding" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/models/todo.ts</div><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">Todo</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">id?</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">isComplete</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-6"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/app.components.html</div><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">app</span><span class="err">-</span><span class="na">home</span><span class="p">&gt;</span><span class="o">&lt;</span><span class="err">/app-home&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
       data-clipboard-target="#code-block-7"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
@@ -1427,7 +1473,34 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/app.module.ts</div><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<h3>Coding<span class="absolute -mt-20" id="coding"></span>
+    <a href="#coding" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/models/todo.ts</div><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">Todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id?</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">isComplete</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/app.components.html</div><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">app</span><span class="err">-</span><span class="na">home</span><span class="p">&gt;</span><span class="o">&lt;</span><span class="err">/app-home&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/app.module.ts</div><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// manually added
@@ -1458,14 +1531,14 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-8"
+      data-clipboard-target="#code-block-10"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/services/api.service.ts</div><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/services/api.service.ts</div><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">HttpClient</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@angular/common/http&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">@Injectable</span><span class="p">({</span>
@@ -1482,7 +1555,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-9"
+      data-clipboard-target="#code-block-11"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1492,7 +1565,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
 <ul>
 <li>search <code>input group</code> in bootstrap doc website</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/components/home.component.html</div><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container-fluid bg-light&#34;</span><span class="p">&gt;</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/components/home.component.html</div><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container-fluid bg-light&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container bg-light&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row mt-4&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;height: 500px&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1528,7 +1601,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-10"
+      data-clipboard-target="#code-block-12"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1538,7 +1611,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
 <ul>
 <li>back to service, add some <strong>methods</strong></li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/service/api.service.ts</div><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/service/api.service.ts</div><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">HttpClient</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@angular/common/http&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Todo</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../models/todo&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">Observable</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;rxjs&#34;</span><span class="p">;</span>
@@ -1571,7 +1644,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-11"
+      data-clipboard-target="#code-block-13"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1581,7 +1654,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
 <ul>
 <li>inject service into home component, and then define some variables and methods</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/components/home.component.ts</div><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">src/app/components/home.component.ts</div><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">ApiService</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../services/api.service&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">Todo</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../models/todo&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span><span class="nx">Observable</span><span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;rxjs&#34;</span><span class="p">;</span>
@@ -1640,7 +1713,7 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-12"
+      data-clipboard-target="#code-block-14"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
