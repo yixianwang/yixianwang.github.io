@@ -4542,6 +4542,11 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;Lambda (Function as a Service)&lt;/li&gt;
 &lt;li&gt;Rekognition (Software as a Service)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Concepts&lt;span class=&#34;absolute -mt-20&#34; id=&#34;concepts&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#concepts&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;RDS Multi-AZ = Synchronous = High Availability&lt;/li&gt;
+&lt;li&gt;Read Replica = Asynchronous = Disaster Recovery (DR)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;IAM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#iam&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;which aws
 aws --version
@@ -4645,11 +4650,32 @@ aws iam list-users&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transiti
     &lt;a href=&#34;#section-20-serverless-solution-architecture-discussions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 21: Databases in AWS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-21-databases-in-aws&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-21-databases-in-aws&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 22: Data &amp;amp; Analytics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-22-data--analytics&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-22-data--analytics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 23: Machine Learning&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-23-machine-learning&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-23-machine-learning&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 24: AWS Monitor &amp;amp; Audit: CloudWatch, CloudTrail &amp;amp; Config&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 25: Identiy and Access Management(IAM) - Advanced&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-25-identiy-and-access-managementiam---advanced&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-25-identiy-and-access-managementiam---advanced&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 26: AWS Security &amp;amp; Encryption: KMS, SSM Parameter Store, Shield, WAF&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#section-23-machine-learning&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Rekognition: face detection, labeling, celebrity recognition&lt;/li&gt;
+&lt;li&gt;Transcribe: audio to text&lt;/li&gt;
+&lt;li&gt;Polly: text to audio&lt;/li&gt;
+&lt;li&gt;Translate: translations&lt;/li&gt;
+&lt;li&gt;Lex: build conversational bots - chatbots&lt;/li&gt;
+&lt;li&gt;Connect: cloud contact center&lt;/li&gt;
+&lt;li&gt;Comprehend: NLP&lt;/li&gt;
+&lt;li&gt;SageMaker: ML for every developer and data scientist&lt;/li&gt;
+&lt;li&gt;Forecast: build high accurate forecasts&lt;/li&gt;
+&lt;li&gt;Kendra: ML-powered search engine&lt;/li&gt;
+&lt;li&gt;Personalize: real-time personalized recommendations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Section 24: AWS Monitor &amp;amp; Audit: CloudWatch, CloudTrail &amp;amp; Config&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 25: Identity and Access Management(IAM) - Advanced&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-25-identity-and-access-managementiam---advanced&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#section-25-identity-and-access-managementiam---advanced&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 26: AWS Security &amp;amp; Encryption: KMS, SSM Parameter Store, Shield, WAF&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 27: Networking - VPC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-27-networking---vpc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-27-networking---vpc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 28: Disaster Recovery &amp;amp; Migrations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-28-disaster-recovery--migrations&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#section-27-networking---vpc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Gateway VPC endpoints: Amazon S3 and DynamoDB, with route we don&amp;rsquo;t need public IP addresses&lt;/li&gt;
+&lt;li&gt;Interface VPC endpoints: are used by all the other services that are becoming available inside our VPC.
+&lt;ul&gt;
+&lt;li&gt;PrivateLink: we can use this to share our services with thousands of other VPCs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Section 28: Disaster Recovery &amp;amp; Migrations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-28-disaster-recovery--migrations&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-28-disaster-recovery--migrations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 29: More Solution Architecures&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-29-more-solution-architecures&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-29-more-solution-architecures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 30: Other Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-30-other-services&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#section-30-other-services&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
