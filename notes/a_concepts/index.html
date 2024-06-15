@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="5757">
+<meta itemprop="wordCount" content="6372">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -3577,11 +3577,84 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>stateful protocol for communication between FE and BE(or BE to other BE)</li>
 </ul>
 <h2>Database<span class="absolute -mt-20" id="database"></span>
-    <a href="#database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>SQL<span class="absolute -mt-20" id="sql"></span>
-    <a href="#sql" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>noSQL<span class="absolute -mt-20" id="nosql"></span>
-    <a href="#nosql" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>elastic search<span class="absolute -mt-20" id="elastic-search"></span>
+    <a href="#database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>we need to store backend data somewhere to ensure we have a better <strong>searching performance</strong>, comparing to File System, which would scan all the files in the file system.</li>
+<li>we need a certain structure that structure need to be efficient for searching</li>
+<li>it also need to be efficient for maintenance.</li>
+<li>it also need to ensure that it&rsquo;s not over complicated(means that going through table of content must faster than going through file system)</li>
+</ul>
+<h3>SQL<span class="absolute -mt-20" id="sql"></span>
+    <a href="#sql" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>SQL database, supporting ACID principle(Atomicity, Consistency, Isolation, and Durability)
+<ul>
+<li>structural, tabular database, good for vertical scaling</li>
+</ul>
+</li>
+<li><strong>ACID and transaction are interchangeable</strong>.
+<ul>
+<li>transaction: a group of operation, i.e. CRUD operations. Once they are grouped up together, either all of them is going to be executed successfully, or none of them is going to be executed at all.
+<ul>
+<li>it ensures the <strong>consistency</strong> in between database, business logics, user.</li>
+<li>it just adds locks to the database level.
+<ul>
+<li>the idea is similar to Java, when we add locks(or monitor, interchangeable) to ensure the group of operations are Atomic(or Thread Safe, interchangeable)</li>
+</ul>
+</li>
+<li>transaction&rsquo;s thread safety is supported by the ACID principle.
+<ul>
+<li>A(Atomicity): either all of them is going to be executed successfully, or none of them is going to be executed at all.</li>
+<li>C(Consistency): guarantee the CRUD operations&rsquo; consistency. i.d. Deleted records won&rsquo;t come back later.</li>
+<li>I(Isolation): there will be certain critical problems, which is thread safety problems. With database default settings cannot solve it(Dirty Writing and Dirty Reading). Dirty Writing is guaranteed to solved by database like Mysql for sure. Dirty Reading has several levels, different levels require different level of locks to solve the problem. Trade off between Less Thread Safety and Less Concurrency with #locks.</li>
+<li>D(Durability): once the record is inserted, the record will stay at there. i.e. Out of electricity won&rsquo;t affect the record.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Primary Key: basically consider as ID, for any of the record within the table it will be unique and cannot be null.</li>
+<li>Foreign Key: it&rsquo;s a key that trying to simplify the content. can have duplicate values. The purpose is to save space which is also increasing searching efficiency.</li>
+<li>Normalization: the whole idea is to reduce redundancies and maintain integrity. There are 6 level of normalization forms we can have.
+<ul>
+<li>First Normal Form: one value in each cell
+<ul>
+<li>Sometimes we break up the normalization rules, that we keep the redundancies is to <strong>simplify the join logics in between the tables or simplify the logics of our application</strong>. From performance perspective, avoiding join operation can improve the performance a lot.</li>
+</ul>
+</li>
+<li>Second Normal Form: Any columns in between the same row are not going to have dependencies. (this rule is to create foreign key relationship)
+<ul>
+<li>Binding several columns as a Primary key is actually break this rule.</li>
+</ul>
+</li>
+<li>Third Normal Form: No Transitive Dependencies. i.e. age column and DOB column. (this rule is to create one-to-many/many-to-one relationships)</li>
+</ul>
+</li>
+<li>Indexes: Like the index of the book is to improve reading speed.
+<ul>
+<li>if we define a table with Primary key but without Indexes. The primary key in default will be setup as the indexes. That&rsquo;s index is going to be count as a <strong>cluster index</strong>(equal to Primary key, interchangeable).</li>
+<li>in some scenarios, we want to search in different style. Where we have <strong>non-clustered index</strong>. Any table can have as many as <strong>non-clustered index</strong> as we want.</li>
+<li>it&rsquo;s good for reading operation, but bad for insert or delete operations. That&rsquo;s also the reason we cannot have as many indexes as we want.</li>
+<li>non-clustered index is table of content. clustered index is the data.</li>
+</ul>
+</li>
+<li>nowadays Postgres and Mysql supporting to store documents</li>
+</ul>
+<h3>noSQL<span class="absolute -mt-20" id="nosql"></span>
+    <a href="#nosql" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>noSQL, supporting transactional
+<ul>
+<li>non tabular data, i.e. documents/files</li>
+</ul>
+</li>
+<li>nowadays MongoDB(after 4.2) supporting multi document transaction
+<ul>
+<li>Collections in MongoDB is similar to a table in SQL database.</li>
+</ul>
+</li>
+</ul>
+<h3>elastic search<span class="absolute -mt-20" id="elastic-search"></span>
     <a href="#elastic-search" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>not a exactly like traditional noSQL database, more like a full text searching database</li>
+<li>not a exactly like traditional noSQL database, more like a full-text searching database</li>
 </ul>
 <h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
     <a href="#microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>WHY: we need microservice<span class="absolute -mt-20" id="why-we-need-microservice"></span>

@@ -4412,11 +4412,84 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;stateful protocol for communication between FE and BE(or BE to other BE)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Database&lt;span class=&#34;absolute -mt-20&#34; id=&#34;database&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#database&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;SQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sql&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#sql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;noSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;nosql&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#nosql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;elastic search&lt;span class=&#34;absolute -mt-20&#34; id=&#34;elastic-search&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#database&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;we need to store backend data somewhere to ensure we have a better &lt;strong&gt;searching performance&lt;/strong&gt;, comparing to File System, which would scan all the files in the file system.&lt;/li&gt;
+&lt;li&gt;we need a certain structure that structure need to be efficient for searching&lt;/li&gt;
+&lt;li&gt;it also need to be efficient for maintenance.&lt;/li&gt;
+&lt;li&gt;it also need to ensure that it&amp;rsquo;s not over complicated(means that going through table of content must faster than going through file system)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;SQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;SQL database, supporting ACID principle(Atomicity, Consistency, Isolation, and Durability)
+&lt;ul&gt;
+&lt;li&gt;structural, tabular database, good for vertical scaling&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ACID and transaction are interchangeable&lt;/strong&gt;.
+&lt;ul&gt;
+&lt;li&gt;transaction: a group of operation, i.e. CRUD operations. Once they are grouped up together, either all of them is going to be executed successfully, or none of them is going to be executed at all.
+&lt;ul&gt;
+&lt;li&gt;it ensures the &lt;strong&gt;consistency&lt;/strong&gt; in between database, business logics, user.&lt;/li&gt;
+&lt;li&gt;it just adds locks to the database level.
+&lt;ul&gt;
+&lt;li&gt;the idea is similar to Java, when we add locks(or monitor, interchangeable) to ensure the group of operations are Atomic(or Thread Safe, interchangeable)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;transaction&amp;rsquo;s thread safety is supported by the ACID principle.
+&lt;ul&gt;
+&lt;li&gt;A(Atomicity): either all of them is going to be executed successfully, or none of them is going to be executed at all.&lt;/li&gt;
+&lt;li&gt;C(Consistency): guarantee the CRUD operations&amp;rsquo; consistency. i.d. Deleted records won&amp;rsquo;t come back later.&lt;/li&gt;
+&lt;li&gt;I(Isolation): there will be certain critical problems, which is thread safety problems. With database default settings cannot solve it(Dirty Writing and Dirty Reading). Dirty Writing is guaranteed to solved by database like Mysql for sure. Dirty Reading has several levels, different levels require different level of locks to solve the problem. Trade off between Less Thread Safety and Less Concurrency with #locks.&lt;/li&gt;
+&lt;li&gt;D(Durability): once the record is inserted, the record will stay at there. i.e. Out of electricity won&amp;rsquo;t affect the record.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Primary Key: basically consider as ID, for any of the record within the table it will be unique and cannot be null.&lt;/li&gt;
+&lt;li&gt;Foreign Key: it&amp;rsquo;s a key that trying to simplify the content. can have duplicate values. The purpose is to save space which is also increasing searching efficiency.&lt;/li&gt;
+&lt;li&gt;Normalization: the whole idea is to reduce redundancies and maintain integrity. There are 6 level of normalization forms we can have.
+&lt;ul&gt;
+&lt;li&gt;First Normal Form: one value in each cell
+&lt;ul&gt;
+&lt;li&gt;Sometimes we break up the normalization rules, that we keep the redundancies is to &lt;strong&gt;simplify the join logics in between the tables or simplify the logics of our application&lt;/strong&gt;. From performance perspective, avoiding join operation can improve the performance a lot.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Second Normal Form: Any columns in between the same row are not going to have dependencies. (this rule is to create foreign key relationship)
+&lt;ul&gt;
+&lt;li&gt;Binding several columns as a Primary key is actually break this rule.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Third Normal Form: No Transitive Dependencies. i.e. age column and DOB column. (this rule is to create one-to-many/many-to-one relationships)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Indexes: Like the index of the book is to improve reading speed.
+&lt;ul&gt;
+&lt;li&gt;if we define a table with Primary key but without Indexes. The primary key in default will be setup as the indexes. That&amp;rsquo;s index is going to be count as a &lt;strong&gt;cluster index&lt;/strong&gt;(equal to Primary key, interchangeable).&lt;/li&gt;
+&lt;li&gt;in some scenarios, we want to search in different style. Where we have &lt;strong&gt;non-clustered index&lt;/strong&gt;. Any table can have as many as &lt;strong&gt;non-clustered index&lt;/strong&gt; as we want.&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s good for reading operation, but bad for insert or delete operations. That&amp;rsquo;s also the reason we cannot have as many indexes as we want.&lt;/li&gt;
+&lt;li&gt;non-clustered index is table of content. clustered index is the data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;nowadays Postgres and Mysql supporting to store documents&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;noSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;nosql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#nosql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;noSQL, supporting transactional
+&lt;ul&gt;
+&lt;li&gt;non tabular data, i.e. documents/files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;nowadays MongoDB(after 4.2) supporting multi document transaction
+&lt;ul&gt;
+&lt;li&gt;Collections in MongoDB is similar to a table in SQL database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;elastic search&lt;span class=&#34;absolute -mt-20&#34; id=&#34;elastic-search&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#elastic-search&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;not a exactly like traditional noSQL database, more like a full text searching database&lt;/li&gt;
+&lt;li&gt;not a exactly like traditional noSQL database, more like a full-text searching database&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
