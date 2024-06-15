@@ -4411,6 +4411,21 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     &lt;a href=&#34;#2-soapearlier-days&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;stateful protocol for communication between FE and BE(or BE to other BE)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Sharding &amp;amp; Replica&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sharding--replica&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sharding--replica&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Replica&lt;span class=&#34;absolute -mt-20&#34; id=&#34;replica&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#replica&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;trade off between hardware resources and performance&lt;/li&gt;
+&lt;li&gt;lose some C(Consistency)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sharding&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sharding&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sharding&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;partition database into different servers
+&lt;ul&gt;
+&lt;li&gt;horizontal partition&lt;/li&gt;
+&lt;li&gt;vertical partition: for flat and fat table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Database&lt;span class=&#34;absolute -mt-20&#34; id=&#34;database&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#database&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;we need to store backend data somewhere to ensure we have a better &lt;strong&gt;searching performance&lt;/strong&gt;, comparing to File System, which would scan all the files in the file system.&lt;/li&gt;
@@ -4472,6 +4487,15 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;non-clustered index is table of content. clustered index is the data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;Views: A virtual table(just &lt;strong&gt;reference&lt;/strong&gt;, that pointing to specific columns that supposed to be seen within the view) created from a query that includes one or more tables&amp;rsquo; data
+&lt;ul&gt;
+&lt;li&gt;based on references we still can have update/delete those records in the table&lt;/li&gt;
+&lt;li&gt;restrict data access from other user&lt;/li&gt;
+&lt;li&gt;used to improve query speed&lt;/li&gt;
+&lt;li&gt;simplify commonly used complex queries into one place&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Store Procedure: A function directly written inside the database.&lt;/li&gt;
 &lt;li&gt;nowadays Postgres and Mysql supporting to store documents&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;noSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;nosql&#34;&gt;&lt;/span&gt;

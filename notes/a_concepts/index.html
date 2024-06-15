@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="6372">
+<meta itemprop="wordCount" content="6471">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -731,6 +731,12 @@
                 href="#connection-between-frontend-and-backend"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Connection between frontend and backend</a>
+            </li>
+          <li>
+              <a
+                href="#sharding--replica"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Sharding &amp;amp; Replica</a>
             </li>
           <li>
               <a
@@ -2071,6 +2077,18 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#2-soapearlier-days">2. SOAP(earlier days)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#sharding--replica">Sharding &amp; Replica
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#replica">Replica
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#sharding">Sharding
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -3576,6 +3594,21 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     <a href="#2-soapearlier-days" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>stateful protocol for communication between FE and BE(or BE to other BE)</li>
 </ul>
+<h2>Sharding &amp; Replica<span class="absolute -mt-20" id="sharding--replica"></span>
+    <a href="#sharding--replica" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Replica<span class="absolute -mt-20" id="replica"></span>
+    <a href="#replica" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>trade off between hardware resources and performance</li>
+<li>lose some C(Consistency)</li>
+</ul>
+<h3>Sharding<span class="absolute -mt-20" id="sharding"></span>
+    <a href="#sharding" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>partition database into different servers
+<ul>
+<li>horizontal partition</li>
+<li>vertical partition: for flat and fat table</li>
+</ul>
+</li>
+</ul>
 <h2>Database<span class="absolute -mt-20" id="database"></span>
     <a href="#database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>we need to store backend data somewhere to ensure we have a better <strong>searching performance</strong>, comparing to File System, which would scan all the files in the file system.</li>
@@ -3637,6 +3670,15 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>non-clustered index is table of content. clustered index is the data.</li>
 </ul>
 </li>
+<li>Views: A virtual table(just <strong>reference</strong>, that pointing to specific columns that supposed to be seen within the view) created from a query that includes one or more tables&rsquo; data
+<ul>
+<li>based on references we still can have update/delete those records in the table</li>
+<li>restrict data access from other user</li>
+<li>used to improve query speed</li>
+<li>simplify commonly used complex queries into one place</li>
+</ul>
+</li>
+<li>Store Procedure: A function directly written inside the database.</li>
 <li>nowadays Postgres and Mysql supporting to store documents</li>
 </ul>
 <h3>noSQL<span class="absolute -mt-20" id="nosql"></span>
