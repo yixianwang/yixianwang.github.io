@@ -4994,12 +4994,12 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;Monitoring and Log Tracing&lt;/li&gt;
 &lt;li&gt;Business Modules&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;???Spring Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-cloud&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#spring-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h4&gt;Spring Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-cloud&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#spring-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Spring Cloud provides a comprehensive set of tools to build resilient, scalable, and manageable microservices architectures. By leveraging the various components of Spring Cloud, developers can focus on business logic while the framework handles the complexities of distributed systems. Whether dealing with service discovery, configuration management, circuit breakers, or API gateways, Spring Cloud offers a unified and streamlined approach to developing cloud-native applications.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Core components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;core-components&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#core-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h5&gt;Core components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;core-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#core-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ol&gt;
 &lt;li&gt;Spring Cloud Config:
 &lt;ul&gt;
 &lt;li&gt;Spring Cloud Config Server: Centralized external configuration management across all environments.&lt;/li&gt;
@@ -5046,9 +5046,14 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;Eureka(Service discovery server): for service discover and registry&lt;/li&gt;
+&lt;li&gt;Eureka(Service discovery server): for service discover and registry. for service health management with service heart beat.
+&lt;ul&gt;
+&lt;li&gt;key-value: URL - IP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;config server: Centralized external configuration management across all environments.&lt;/li&gt;
-&lt;li&gt;zipkin &amp;amp; sleuth: Distributed tracing via logs. With trace and span IDs to help in troubleshooting.&lt;/li&gt;
+&lt;li&gt;zipkin &amp;amp; sleuth(for debug in microservice): Distributed tracing via logs. With trace IDs and span IDs to help in troubleshooting.
+&lt;ul&gt;
 &lt;li&gt;trace ID &amp;amp; Span ID:
 &lt;ul&gt;
 &lt;li&gt;Trace ID
@@ -5066,22 +5071,63 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;ribbon: for Client-side load balancing.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;???Log Aggregation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;log-aggregation&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#log-aggregation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Log Aggregation
+&lt;ul&gt;
 &lt;li&gt;Splunk&lt;/li&gt;
-&lt;li&gt;ELK&lt;/li&gt;
+&lt;li&gt;ELK: Elastic Search(Storage)/ LogStash(Data processing)/ Kibana(Visualize)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;???Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security&#34;&gt;&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#security&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Security Basic
 &lt;ul&gt;
-&lt;li&gt;Authentication vs Authorization&lt;/li&gt;
-&lt;li&gt;Encryption, Hashing, Encoding&lt;/li&gt;
+&lt;li&gt;Authentication vs Authorization
+&lt;ul&gt;
+&lt;li&gt;Authentication: valid user? passcode, username, fingerprint&lt;/li&gt;
+&lt;li&gt;Authorization: what permission does the user have.
+&lt;ul&gt;
+&lt;li&gt;role base&lt;/li&gt;
+&lt;li&gt;permission base&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Encryption, Hashing, Encoding
+&lt;ul&gt;
+&lt;li&gt;Encryption
+&lt;ul&gt;
+&lt;li&gt;symmetric: i.e.AES&lt;/li&gt;
+&lt;li&gt;asymmetric: public/private key i.e. RSA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Hashing: for data integration
+&lt;ul&gt;
+&lt;li&gt;i.e. MD5, SHA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Asymmetric Key usage(SSL/TLS/HTTPs, Signature, SSH)&lt;/li&gt;
-&lt;li&gt;data security&lt;/li&gt;
-&lt;li&gt;api security&lt;/li&gt;
+&lt;li&gt;data security
+&lt;ul&gt;
+&lt;li&gt;solving with Encryption/Hashing
+&lt;ul&gt;
+&lt;li&gt;in transit&lt;/li&gt;
+&lt;li&gt;at rest&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;api security
+&lt;ul&gt;
+&lt;li&gt;Authentication: 401&lt;/li&gt;
+&lt;li&gt;Authorization: 403&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;server side security(SQL Injection), client side security(XSS, CSRF)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -5112,10 +5158,23 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;certificate&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;OAuth2, Single Sign On&lt;/li&gt;
+&lt;li&gt;OAuth2, Single Sign On
+&lt;ul&gt;
+&lt;li&gt;OAuth2
+&lt;ul&gt;
+&lt;li&gt;is a third party validation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;SSO
+&lt;ul&gt;
+&lt;li&gt;once we login in a service like gmail, our other service like google drive and google map will automatically login.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;JWT
 &lt;ul&gt;
-&lt;li&gt;structure, head body signature&lt;/li&gt;
+&lt;li&gt;header(algorithm..) + payload(data) + verify signature(hashed values)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
