@@ -4966,12 +4966,15 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;li&gt;Promise / Observable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;???Architecture&lt;span class=&#34;absolute -mt-20&#34; id=&#34;architecture&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Architecture&lt;span class=&#34;absolute -mt-20&#34; id=&#34;architecture&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#architecture&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;monolithic architecture&lt;/li&gt;
-&lt;li&gt;frontend backend separation&lt;/li&gt;
-&lt;li&gt;SOA&lt;/li&gt;
-&lt;li&gt;Microservice&lt;/li&gt;
+&lt;li&gt;Monolithic architecture&lt;/li&gt;
+&lt;li&gt;SOA: ESB(Enterprise Service Bus) could become a single point of failure. Sharing data storage.&lt;/li&gt;
+&lt;li&gt;MicroService: Each microservice has its own data storage.&lt;/li&gt;
+&lt;li&gt;MicroFrontend: Each component we can use different frontend framework to build with.&lt;/li&gt;
+&lt;li&gt;Frontend Backend Separation
+
+    &lt;img src=&#34;../images-a/65.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
@@ -4991,7 +4994,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;Monitoring and Log Tracing&lt;/li&gt;
 &lt;li&gt;Business Modules&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Spring Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-cloud&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;???Spring Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-cloud&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#spring-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Spring Cloud provides a comprehensive set of tools to build resilient, scalable, and manageable microservices architectures. By leveraging the various components of Spring Cloud, developers can focus on business logic while the framework handles the complexities of distributed systems. Whether dealing with service discovery, configuration management, circuit breakers, or API gateways, Spring Cloud offers a unified and streamlined approach to developing cloud-native applications.&lt;/li&gt;
 &lt;/ul&gt;
@@ -5070,7 +5073,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;Splunk&lt;/li&gt;
 &lt;li&gt;ELK&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;???Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#security&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Security Basic
 &lt;ul&gt;
