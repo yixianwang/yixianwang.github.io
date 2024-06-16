@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="8006">
+<meta itemprop="wordCount" content="8486">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -782,9 +782,27 @@
             </li>
           <li>
               <a
-                href="#microservice"
+                href="#architecture"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Microservice</a>
+              >???Architecture</a>
+            </li>
+          <li>
+              <a
+                href="#spring-cloud"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Spring Cloud</a>
+            </li>
+          <li>
+              <a
+                href="#log-aggregation"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >???Log Aggregation</a>
+            </li>
+          <li>
+              <a
+                href="#security"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Security</a>
             </li>
           <li>
               <a
@@ -2220,19 +2238,39 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#microservice">Microservice
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#architecture">???Architecture
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#why-we-need-microservice">WHY: we need microservice
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#microservice">Microservice
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-various-ways-to-implement-microservice">HOW: various ways to implement Microservice
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#why-we-need-microservice">WHY: we need microservice
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#five-components">Five Components
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#how-various-ways-to-implement-microservice">HOW: various ways to implement Microservice
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#five-components">Five Components
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#spring-cloud">Spring Cloud
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#core-components">Core components
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#log-aggregation">???Log Aggregation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#security">Security
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -4239,23 +4277,155 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </li>
 <li>Promise / Observable</li>
 </ul>
-<h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
-    <a href="#microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>WHY: we need microservice<span class="absolute -mt-20" id="why-we-need-microservice"></span>
-    <a href="#why-we-need-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h2>???Architecture<span class="absolute -mt-20" id="architecture"></span>
+    <a href="#architecture" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>monolithic architecture</li>
+<li>frontend backend separation</li>
+<li>SOA</li>
+<li>Microservice</li>
+</ul>
+<h3>Microservice<span class="absolute -mt-20" id="microservice"></span>
+    <a href="#microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>WHY: we need microservice<span class="absolute -mt-20" id="why-we-need-microservice"></span>
+    <a href="#why-we-need-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>if one service fails, we need to like restart the whole thing work.</li>
 </ul>
-<h3>HOW: various ways to implement Microservice<span class="absolute -mt-20" id="how-various-ways-to-implement-microservice"></span>
-    <a href="#how-various-ways-to-implement-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h4>HOW: various ways to implement Microservice<span class="absolute -mt-20" id="how-various-ways-to-implement-microservice"></span>
+    <a href="#how-various-ways-to-implement-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>business separation: (vertical): i.e. login/browse/order/payment/&hellip;</li>
 <li>business separation: (horizontal): i.e. service oriented. (Python handles ML, Java handles web application, &hellip;)</li>
 </ul>
-<h3>Five Components<span class="absolute -mt-20" id="five-components"></span>
-    <a href="#five-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<h4>Five Components<span class="absolute -mt-20" id="five-components"></span>
+    <a href="#five-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>API Gateway</li>
 <li>Service Registry/Discovery</li>
 <li>Configuration Management</li>
 <li>Monitoring and Log Tracing</li>
 <li>Business Modules</li>
+</ul>
+<h2>Spring Cloud<span class="absolute -mt-20" id="spring-cloud"></span>
+    <a href="#spring-cloud" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Spring Cloud provides a comprehensive set of tools to build resilient, scalable, and manageable microservices architectures. By leveraging the various components of Spring Cloud, developers can focus on business logic while the framework handles the complexities of distributed systems. Whether dealing with service discovery, configuration management, circuit breakers, or API gateways, Spring Cloud offers a unified and streamlined approach to developing cloud-native applications.</li>
+</ul>
+<h3>Core components<span class="absolute -mt-20" id="core-components"></span>
+    <a href="#core-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Spring Cloud Config:
+<ul>
+<li>Spring Cloud Config Server: Centralized external configuration management across all environments.</li>
+<li>Spring Cloud Config Client: Provides an abstraction for the client to access configuration properties.</li>
+</ul>
+</li>
+<li>Spring Cloud Netflix (now largely superseded by Spring Cloud LoadBalancer and Spring Cloud CircuitBreaker):
+<ul>
+<li>Eureka: Service discovery server.</li>
+<li>Ribbon: Client-side load balancing.</li>
+<li>Hystrix: Circuit breaker.</li>
+<li>Zuul: Edge server for routing.</li>
+</ul>
+</li>
+<li>Spring Cloud Gateway:
+<ul>
+<li>A replacement for Zuul, it provides a way to route requests to various services using filters and predicates for request processing.</li>
+</ul>
+</li>
+<li>Spring Cloud OpenFeign:
+<ul>
+<li>Declarative REST client, which allows defining a client interface annotated with Feign annotations to create dynamic REST clients.</li>
+</ul>
+</li>
+<li>Spring Cloud Circuit Breaker:
+<ul>
+<li>Provides an abstraction layer over various circuit breaker implementations like Resilience4j, Hystrix, Sentinel, etc.</li>
+</ul>
+</li>
+<li>Spring Cloud Sleuth:
+<ul>
+<li>Distributed tracing via logs. It integrates with Zipkin or Brave for trace and span IDs to help in troubleshooting.</li>
+</ul>
+</li>
+<li>Spring Cloud Stream:
+<ul>
+<li>Framework for building message-driven microservices using Apache Kafka or RabbitMQ.</li>
+</ul>
+</li>
+<li>Spring Cloud Bus:
+<ul>
+<li>Links nodes of a distributed system with a lightweight message broker. Useful for broadcasting state changes (e.g., configuration changes) or other management instructions.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Eureka(Service discovery server): for service discover and registry</li>
+<li>config server: Centralized external configuration management across all environments.</li>
+<li>zipkin &amp; sleuth: Distributed tracing via logs. With trace and span IDs to help in troubleshooting.</li>
+<li>trace ID &amp; Span ID:
+<ul>
+<li>Trace ID
+<ul>
+<li>A <strong>Trace ID</strong> is a unique identifier for a single request as it travels through various microservices or components of a distributed system.</li>
+<li>It remains consistent across all services involved in the handling of the request, enabling a holistic view of the request&rsquo;s lifecycle.</li>
+</ul>
+</li>
+<li>Span ID
+<ul>
+<li>A <strong>Span ID</strong> is a unique identifier for a single unit of work or operation within the trace.</li>
+<li>Each span represents a segment of the work done by a microservice, including details like the start and end time, and any additional metadata.</li>
+<li>Spans are related to each other in a parent-child relationship, forming a tree-like structure that maps out the full journey of a request.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ribbon: for Client-side load balancing.</li>
+</ul>
+<h2>???Log Aggregation<span class="absolute -mt-20" id="log-aggregation"></span>
+    <a href="#log-aggregation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Splunk</li>
+<li>ELK</li>
+</ul>
+<h2>Security<span class="absolute -mt-20" id="security"></span>
+    <a href="#security" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Security Basic
+<ul>
+<li>Authentication vs Authorization</li>
+<li>Encryption, Hashing, Encoding</li>
+<li>Asymmetric Key usage(SSL/TLS/HTTPs, Signature, SSH)</li>
+<li>data security</li>
+<li>api security</li>
+<li>server side security(SQL Injection), client side security(XSS, CSRF)</li>
+</ul>
+</li>
+<li>HTTPS
+<ul>
+<li>Flow</li>
+<li>port 443</li>
+<li>protect data in transit</li>
+<li>prevent man in the middle attack</li>
+</ul>
+</li>
+<li>Networking Configuration
+<ul>
+<li>Segmentation
+<ul>
+<li>public/private subnet</li>
+</ul>
+</li>
+<li>Firewall</li>
+<li>VPN</li>
+</ul>
+</li>
+<li>User authentication/authorization
+<ul>
+<li>username/password</li>
+<li>token</li>
+<li>api key</li>
+<li>certificate</li>
+</ul>
+</li>
+<li>OAuth2, Single Sign On</li>
+<li>JWT
+<ul>
+<li>structure, head body signature</li>
+</ul>
+</li>
 </ul>
 <h2>Messaging Queue<span class="absolute -mt-20" id="messaging-queue"></span>
     <a href="#messaging-queue" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>

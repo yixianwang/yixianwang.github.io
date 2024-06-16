@@ -4966,23 +4966,155 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;li&gt;Promise / Observable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#why-we-need-microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2&gt;???Architecture&lt;span class=&#34;absolute -mt-20&#34; id=&#34;architecture&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#architecture&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;monolithic architecture&lt;/li&gt;
+&lt;li&gt;frontend backend separation&lt;/li&gt;
+&lt;li&gt;SOA&lt;/li&gt;
+&lt;li&gt;Microservice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#why-we-need-microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;if one service fails, we need to like restart the whole thing work.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;HOW: various ways to implement Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-various-ways-to-implement-microservice&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#how-various-ways-to-implement-microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h4&gt;HOW: various ways to implement Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-various-ways-to-implement-microservice&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#how-various-ways-to-implement-microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;business separation: (vertical): i.e. login/browse/order/payment/&amp;hellip;&lt;/li&gt;
 &lt;li&gt;business separation: (horizontal): i.e. service oriented. (Python handles ML, Java handles web application, &amp;hellip;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Five Components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;five-components&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#five-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h4&gt;Five Components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;five-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#five-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;API Gateway&lt;/li&gt;
 &lt;li&gt;Service Registry/Discovery&lt;/li&gt;
 &lt;li&gt;Configuration Management&lt;/li&gt;
 &lt;li&gt;Monitoring and Log Tracing&lt;/li&gt;
 &lt;li&gt;Business Modules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Spring Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-cloud&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#spring-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Spring Cloud provides a comprehensive set of tools to build resilient, scalable, and manageable microservices architectures. By leveraging the various components of Spring Cloud, developers can focus on business logic while the framework handles the complexities of distributed systems. Whether dealing with service discovery, configuration management, circuit breakers, or API gateways, Spring Cloud offers a unified and streamlined approach to developing cloud-native applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Core components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;core-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#core-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Spring Cloud Config:
+&lt;ul&gt;
+&lt;li&gt;Spring Cloud Config Server: Centralized external configuration management across all environments.&lt;/li&gt;
+&lt;li&gt;Spring Cloud Config Client: Provides an abstraction for the client to access configuration properties.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Netflix (now largely superseded by Spring Cloud LoadBalancer and Spring Cloud CircuitBreaker):
+&lt;ul&gt;
+&lt;li&gt;Eureka: Service discovery server.&lt;/li&gt;
+&lt;li&gt;Ribbon: Client-side load balancing.&lt;/li&gt;
+&lt;li&gt;Hystrix: Circuit breaker.&lt;/li&gt;
+&lt;li&gt;Zuul: Edge server for routing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Gateway:
+&lt;ul&gt;
+&lt;li&gt;A replacement for Zuul, it provides a way to route requests to various services using filters and predicates for request processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud OpenFeign:
+&lt;ul&gt;
+&lt;li&gt;Declarative REST client, which allows defining a client interface annotated with Feign annotations to create dynamic REST clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Circuit Breaker:
+&lt;ul&gt;
+&lt;li&gt;Provides an abstraction layer over various circuit breaker implementations like Resilience4j, Hystrix, Sentinel, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Sleuth:
+&lt;ul&gt;
+&lt;li&gt;Distributed tracing via logs. It integrates with Zipkin or Brave for trace and span IDs to help in troubleshooting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Stream:
+&lt;ul&gt;
+&lt;li&gt;Framework for building message-driven microservices using Apache Kafka or RabbitMQ.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Cloud Bus:
+&lt;ul&gt;
+&lt;li&gt;Links nodes of a distributed system with a lightweight message broker. Useful for broadcasting state changes (e.g., configuration changes) or other management instructions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Eureka(Service discovery server): for service discover and registry&lt;/li&gt;
+&lt;li&gt;config server: Centralized external configuration management across all environments.&lt;/li&gt;
+&lt;li&gt;zipkin &amp;amp; sleuth: Distributed tracing via logs. With trace and span IDs to help in troubleshooting.&lt;/li&gt;
+&lt;li&gt;trace ID &amp;amp; Span ID:
+&lt;ul&gt;
+&lt;li&gt;Trace ID
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;Trace ID&lt;/strong&gt; is a unique identifier for a single request as it travels through various microservices or components of a distributed system.&lt;/li&gt;
+&lt;li&gt;It remains consistent across all services involved in the handling of the request, enabling a holistic view of the request&amp;rsquo;s lifecycle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Span ID
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;Span ID&lt;/strong&gt; is a unique identifier for a single unit of work or operation within the trace.&lt;/li&gt;
+&lt;li&gt;Each span represents a segment of the work done by a microservice, including details like the start and end time, and any additional metadata.&lt;/li&gt;
+&lt;li&gt;Spans are related to each other in a parent-child relationship, forming a tree-like structure that maps out the full journey of a request.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ribbon: for Client-side load balancing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;???Log Aggregation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;log-aggregation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#log-aggregation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Splunk&lt;/li&gt;
+&lt;li&gt;ELK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#security&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Security Basic
+&lt;ul&gt;
+&lt;li&gt;Authentication vs Authorization&lt;/li&gt;
+&lt;li&gt;Encryption, Hashing, Encoding&lt;/li&gt;
+&lt;li&gt;Asymmetric Key usage(SSL/TLS/HTTPs, Signature, SSH)&lt;/li&gt;
+&lt;li&gt;data security&lt;/li&gt;
+&lt;li&gt;api security&lt;/li&gt;
+&lt;li&gt;server side security(SQL Injection), client side security(XSS, CSRF)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTPS
+&lt;ul&gt;
+&lt;li&gt;Flow&lt;/li&gt;
+&lt;li&gt;port 443&lt;/li&gt;
+&lt;li&gt;protect data in transit&lt;/li&gt;
+&lt;li&gt;prevent man in the middle attack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Networking Configuration
+&lt;ul&gt;
+&lt;li&gt;Segmentation
+&lt;ul&gt;
+&lt;li&gt;public/private subnet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Firewall&lt;/li&gt;
+&lt;li&gt;VPN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;User authentication/authorization
+&lt;ul&gt;
+&lt;li&gt;username/password&lt;/li&gt;
+&lt;li&gt;token&lt;/li&gt;
+&lt;li&gt;api key&lt;/li&gt;
+&lt;li&gt;certificate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;OAuth2, Single Sign On&lt;/li&gt;
+&lt;li&gt;JWT
+&lt;ul&gt;
+&lt;li&gt;structure, head body signature&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Messaging Queue&lt;span class=&#34;absolute -mt-20&#34; id=&#34;messaging-queue&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#messaging-queue&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
