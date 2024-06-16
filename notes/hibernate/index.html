@@ -16,7 +16,7 @@
 Session Factory grabs the configFile: username &#43; password, then creates sessions
 Hibernate use reflection API to auto generate SQL statements
 Hibernate allows us to write:
-HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:" />
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache strategies in Hibernate:" />
 
   
 
@@ -25,7 +25,7 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
 Session Factory grabs the configFile: username &#43; password, then creates sessions
 Hibernate use reflection API to auto generate SQL statements
 Hibernate allows us to write:
-HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:" />
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache strategies in Hibernate:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/hibernate/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-06-01T15:07:08-04:00" />
@@ -36,16 +36,16 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
 Session Factory grabs the configFile: username &#43; password, then creates sessions
 Hibernate use reflection API to auto generate SQL statements
 Hibernate allows us to write:
-HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:"><meta itemprop="datePublished" content="2024-06-01T15:07:08-04:00" />
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache strategies in Hibernate:"><meta itemprop="datePublished" content="2024-06-01T15:07:08-04:00" />
 <meta itemprop="dateModified" content="2024-06-01T15:07:08-04:00" />
-<meta itemprop="wordCount" content="303">
+<meta itemprop="wordCount" content="340">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hibernate"/>
 <meta name="twitter:description" content="Concepts JDBC -&gt; JPA -&gt; Hibernate -&gt; Spring Data JPA / Spring Data Mongodb / Spring Data Elastic Search
 Session Factory grabs the configFile: username &#43; password, then creates sessions
 Hibernate use reflection API to auto generate SQL statements
 Hibernate allows us to write:
-HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache in Hibernate:"/>
+HQL(Hibernate Query Language), just in case the APIs are not flexible enough to catering some situations. Native SQL. cons: with dialect language(mysql, postgres, oracle) Cache strategies in Hibernate:"/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -1302,10 +1302,14 @@ HQL(Hibernate Query Language), just in case the APIs are not flexible enough to 
 </ol>
 </li>
 <li>
-<p>Cache in Hibernate:</p>
+<p>Cache strategies in Hibernate:</p>
 <ul>
-<li>First Level(default): in <strong>session level</strong>. The session is private, it means it cannot access any content belong to other sessions.</li>
-<li>Second Level: in <strong>session factory level</strong>. Add extra configurations to the ConfigFile.</li>
+<li>First Level(default): in <strong>session level</strong>. The session(a user create a session) is private, it means it cannot access any content belong to other sessions.</li>
+<li>Second Level: in <strong>session factory level</strong>. Add extra configurations to the ConfigFile.
+<ul>
+<li>For example, there are many users sending the same queries and they are supposed to return the same result. with second level caching strategy, the cache will be pubic to all sessions.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
