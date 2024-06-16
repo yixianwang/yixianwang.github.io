@@ -2610,13 +2610,28 @@ func inc(x *int) {
 &lt;/ul&gt;
 &lt;h2&gt;core&lt;span class=&#34;absolute -mt-20&#34; id=&#34;core&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#core&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;business logics details&lt;/li&gt;
-&lt;li&gt;tech stack details
+&lt;li&gt;
+&lt;p&gt;describe it within a minute(3-5 sentences, 30 secs)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;spring/springBoot/java/versions/database/frontend frameworks/&amp;hellip;&lt;/li&gt;
+&lt;li&gt;define industry, it need to be a part of business need to be a web app&lt;/li&gt;
+&lt;li&gt;internal use or external use or hybrid&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;people we worked with
+&lt;li&gt;
+&lt;p&gt;tech stack details&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;spring/springBoot/java/versions/database/frontend frameworks/&amp;hellip;&lt;/li&gt;
+&lt;li&gt;pros &amp;amp; cons&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;distributed? / frontend/ backend(java 8/11/13)/ database/ internal components(jdbc/ hibernate/ spring data jpa)/ how you implemented microservices(spring cloud or kubernetes)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;data: frontend data/ what kind of payload/ what kind of format/ design dataflow: FE-&amp;gt;BE-&amp;gt;DB/ then we have architecture/ then in middle we should add buffering or caching(just add different tools to handle different problem, i.e. failure tolerance, scalability, &amp;hellip;.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;people we worked with&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Agile style/how big the team/what&amp;rsquo;s my role/different scenario we need to talk to different people&lt;/li&gt;
 &lt;li&gt;who I talked with/ who I suppose to talk with/&amp;hellip;&lt;/li&gt;
@@ -3923,16 +3938,38 @@ static: inner class, method, variable, static block&lt;/code&gt;&lt;/pre&gt;&lt;
 
     &lt;img src=&#34;../images-a/7.png&#34; alt=&#34;7&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h2&gt;Maven/Gradle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mavengradle&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#mavengradle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;project management tool&lt;/li&gt;
-&lt;li&gt;auto building tool&lt;/li&gt;
+    &lt;a href=&#34;#mavengradle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;it&amp;rsquo;s a tool that automate the building of the project into a jar or war file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;It is trying to do the Build Automation
+&lt;ul&gt;
+&lt;li&gt;Build Automation has different stages, which is lifecycles:
+&lt;ul&gt;
+&lt;li&gt;clean: clean up all the .class files that has generated&lt;/li&gt;
+&lt;li&gt;validate: Checks if the project is correct and all necessary information is available.&lt;/li&gt;
+&lt;li&gt;compile: Compiles the project&amp;rsquo;s source code.&lt;/li&gt;
+&lt;li&gt;test&lt;/li&gt;
+&lt;li&gt;package: Takes the compiled code and packages it in its distributable format, such as a JAR, WAR, or EAR file.
+&lt;ul&gt;
+&lt;li&gt;pack this maven into jar package for local test. In real, it will done by CI/CD pipeline&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;verify: Runs any checks to verify the integrity and quality of the project.&lt;/li&gt;
+&lt;li&gt;install: install the jar package into the local repository for the maven, making it available for other projects on the same machine.&lt;/li&gt;
+&lt;li&gt;site&lt;/li&gt;
+&lt;li&gt;deploy: Copies the final package to the remote repository for sharing with other developers and projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Maven folder structure&lt;span class=&#34;absolute -mt-20&#34; id=&#34;maven-folder-structure&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#maven-folder-structure&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
     &lt;img src=&#34;../images-a/8.png&#34; alt=&#34;8&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;h3&gt;Types of Repositories in Maven&lt;span class=&#34;absolute -mt-20&#34; id=&#34;types-of-repositories-in-maven&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#types-of-repositories-in-maven&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;the idea about caching&lt;/p&gt;
+&lt;p&gt;the idea about caching for the maven. When we flush our project on our IDE or local dev environment. First thing they are going to check is our local maven repository. If the local repository doesn&amp;rsquo;t have it, it will check the remote repository.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Local Repository
@@ -4566,7 +4603,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;
 &lt;p&gt;Work Flow:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;MongoS: like a router, when request reach the &lt;strong&gt;MongoS&lt;/strong&gt; first, then it will consult the &lt;strong&gt;ConfigSever&lt;/strong&gt;, then MongoS get the Sharding position it will get to the right Server to get the result of the Request.&lt;/li&gt;
+&lt;li&gt;MongoS(comparing to DBMS): like a router, when request reach the &lt;strong&gt;MongoS&lt;/strong&gt; first, then it will consult the &lt;strong&gt;ConfigSever&lt;/strong&gt;, then MongoS get the Sharding position it will get to the right Server to get the result of the Request.&lt;/li&gt;
 &lt;li&gt;ConfigServer: contains &lt;code&gt;meta data&lt;/code&gt; about the MongoDB sharding and replica info.&lt;/li&gt;
 &lt;li&gt;Arbiter: it doesn&amp;rsquo;t contain any data. It only contain &lt;strong&gt;one vote&lt;/strong&gt;, everytime there is an election has a draw, Arbiter is going to check for either one of those secondary nodes(or candidates within election).&lt;/li&gt;
 &lt;/ul&gt;
@@ -4694,6 +4731,64 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Server vs Web Server vs Application Server&lt;span class=&#34;absolute -mt-20&#34; id=&#34;server-vs-web-server-vs-application-server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#server-vs-web-server-vs-application-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;the difference between web server and application server
+&lt;ul&gt;
+&lt;li&gt;Web Server is used to handle http request&lt;/li&gt;
+&lt;li&gt;Application Server just with some additional features like JBoss, it supports transaction on application layer instead of database layer or anything in our code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Both Web Server and Application Server in general speaking are in same Web Server Layer, they help us to handle duplicate logics for the &lt;strong&gt;servlet&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Server&lt;span class=&#34;absolute -mt-20&#34; id=&#34;server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;hardware&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Web Server&lt;span class=&#34;absolute -mt-20&#34; id=&#34;web-server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#web-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Web Server is used to handle http request
+&lt;ul&gt;
+&lt;li&gt;Tomcat&lt;/li&gt;
+&lt;li&gt;Nginx&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Application server&lt;span class=&#34;absolute -mt-20&#34; id=&#34;application-server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#application-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;some require commercial license, which also would provide additional features.
+&lt;ul&gt;
+&lt;li&gt;JBoss: i.e. additional features like on application server layer, they provide transactions.&lt;/li&gt;
+&lt;li&gt;GlassFish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Other related topics???&lt;span class=&#34;absolute -mt-20&#34; id=&#34;other-related-topics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#other-related-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;SpringBoot
+&lt;ul&gt;
+&lt;li&gt;Servlet
+&lt;ul&gt;
+&lt;li&gt;how virtual thread would benefit the traditional ones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Stream/React/WebFlux/MonoFlux
+&lt;ul&gt;
+&lt;li&gt;how to debug?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;BE &amp;lt;&amp;ndash;&amp;gt; DB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;be----db&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#be----db&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;socket&lt;span class=&#34;absolute -mt-20&#34; id=&#34;socket&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#socket&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;open the pipeline, we choose the port number, send the stream of the data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;HTTP/S&lt;span class=&#34;absolute -mt-20&#34; id=&#34;https&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#https&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;the idea of JDBC&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
