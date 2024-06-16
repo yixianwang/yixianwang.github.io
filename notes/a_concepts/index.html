@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="6891">
+<meta itemprop="wordCount" content="7222">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -737,6 +737,12 @@
                 href="#sharding--replica"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Sharding &amp;amp; Replica</a>
+            </li>
+          <li>
+              <a
+                href="#qps-vs-throughput"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >QPS vs Throughput</a>
             </li>
           <li>
               <a
@@ -2092,6 +2098,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#qps-vs-throughput">QPS vs Throughput
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#database">Database
         </a>
       </li>
@@ -2112,6 +2122,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#interview-questions">interview questions
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#microservice">Microservice
         </a>
       </li>
@@ -2124,7 +2138,7 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#five-components">Five Components
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#five-components">Five Components
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -3613,6 +3627,11 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </ul>
 </li>
 </ul>
+<h2>QPS vs Throughput<span class="absolute -mt-20" id="qps-vs-throughput"></span>
+    <a href="#qps-vs-throughput" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>QPS(query per second): dealing with a lot of users concurrently click the button</li>
+<li>Throughput: dealing with the size of the payload</li>
+</ul>
 <h2>Database<span class="absolute -mt-20" id="database"></span>
     <a href="#database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>we need to store backend data somewhere to ensure we have a better <strong>searching performance</strong>, comparing to File System, which would scan all the files in the file system.</li>
@@ -3802,7 +3821,82 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </li>
 </ul>
 <h4>Redis<span class="absolute -mt-20" id="redis"></span>
-    <a href="#redis" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
+    <a href="#redis" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>we can setup Redis running in RAM, it&rsquo;s not default</li>
+<li>it features that it can handle more than 10+K QPS</li>
+<li>it use a lot as <strong>Cache</strong>, and <strong>Distributed Lock</strong></li>
+<li>the purpose is to reduce the #I/O between backend server and database server.</li>
+<li>the expire time of the key in Cache depends on the business model.</li>
+<li>it&rsquo;s a key-value pair database
+<ul>
+<li>value type
+<ul>
+<li>string</li>
+<li>list</li>
+<li>set</li>
+<li>sortedSet(same as Zset)</li>
+<li>hash(same as hashTable)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cache
+<ul>
+<li>Hit(cache hit)
+<ul>
+<li>when there is a request send to backend, then it first check the cache layer to see if there&rsquo;s any the same request that has sent before and the data has been stored within the cache. Then we directly return from the cache layer instead of sending request to the database.</li>
+</ul>
+</li>
+<li>Miss(cache miss)
+<ul>
+<li>no record we can find in the cache. Then we count it as <strong>cache miss</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cold Start-Up
+<ul>
+<li>solve it with Pre-Heat, just with some buffer</li>
+</ul>
+</li>
+<li>Avoid syncing up cache and database with strong consistency, because it will lose concurrency that sacrifice too much performance.
+<ul>
+<li>we are trading off between consistency and performance.</li>
+<li>strong consistency is the trading off between thread safety and performance.</li>
+</ul>
+</li>
+<li>There are different strategies to choose based on different <strong>traffic</strong> patterns in our web app.
+<ul>
+<li>We can apply distributed lock to ensure thread safety.</li>
+<li>To ensure the data consistent between Redis and DB. Before we use <code>Redis + Lua script</code>, right now <code>Redison</code>(a framework based on Redis).
+<ul>
+<li><code>Lua script</code> add locks in the source code for atomicity to ensure the data consistency.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Eventual Consistency vs Strong Consistency
+<ul>
+<li>with Eventual Consistency, our business model is able to endure the loss, but our technical architecture is benefit a lot regarding to the performance.</li>
+</ul>
+</li>
+</ul>
+<h3>interview questions<span class="absolute -mt-20" id="interview-questions"></span>
+    <a href="#interview-questions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>SQL and noSQL
+<ul>
+<li>what is transaction</li>
+<li>how to enable transaction</li>
+<li>in distributed system case
+<ul>
+<li>how to ensure the transaction</li>
+<li>how to rollback with strategy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
     <a href="#microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>WHY: we need microservice<span class="absolute -mt-20" id="why-we-need-microservice"></span>
     <a href="#why-we-need-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>if one service fails, we need to like restart the whole thing work.</li>
@@ -3812,8 +3906,8 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>business separation: (vertical): i.e. login/browse/order/payment/&hellip;</li>
 <li>business separation: (horizontal): i.e. service oriented. (Python handles ML, Java handles web application, &hellip;)</li>
 </ul>
-<h4>Five Components<span class="absolute -mt-20" id="five-components"></span>
-    <a href="#five-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<h3>Five Components<span class="absolute -mt-20" id="five-components"></span>
+    <a href="#five-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>API Gateway</li>
 <li>Service Registry/Discovery</li>
 <li>Configuration Management</li>

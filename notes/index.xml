@@ -4426,6 +4426,11 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;QPS vs Throughput&lt;span class=&#34;absolute -mt-20&#34; id=&#34;qps-vs-throughput&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#qps-vs-throughput&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;QPS(query per second): dealing with a lot of users concurrently click the button&lt;/li&gt;
+&lt;li&gt;Throughput: dealing with the size of the payload&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Database&lt;span class=&#34;absolute -mt-20&#34; id=&#34;database&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#database&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;we need to store backend data somewhere to ensure we have a better &lt;strong&gt;searching performance&lt;/strong&gt;, comparing to File System, which would scan all the files in the file system.&lt;/li&gt;
@@ -4615,7 +4620,82 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Redis&lt;span class=&#34;absolute -mt-20&#34; id=&#34;redis&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#redis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#redis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;we can setup Redis running in RAM, it&amp;rsquo;s not default&lt;/li&gt;
+&lt;li&gt;it features that it can handle more than 10+K QPS&lt;/li&gt;
+&lt;li&gt;it use a lot as &lt;strong&gt;Cache&lt;/strong&gt;, and &lt;strong&gt;Distributed Lock&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;the purpose is to reduce the #I/O between backend server and database server.&lt;/li&gt;
+&lt;li&gt;the expire time of the key in Cache depends on the business model.&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s a key-value pair database
+&lt;ul&gt;
+&lt;li&gt;value type
+&lt;ul&gt;
+&lt;li&gt;string&lt;/li&gt;
+&lt;li&gt;list&lt;/li&gt;
+&lt;li&gt;set&lt;/li&gt;
+&lt;li&gt;sortedSet(same as Zset)&lt;/li&gt;
+&lt;li&gt;hash(same as hashTable)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cache
+&lt;ul&gt;
+&lt;li&gt;Hit(cache hit)
+&lt;ul&gt;
+&lt;li&gt;when there is a request send to backend, then it first check the cache layer to see if there&amp;rsquo;s any the same request that has sent before and the data has been stored within the cache. Then we directly return from the cache layer instead of sending request to the database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Miss(cache miss)
+&lt;ul&gt;
+&lt;li&gt;no record we can find in the cache. Then we count it as &lt;strong&gt;cache miss&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cold Start-Up
+&lt;ul&gt;
+&lt;li&gt;solve it with Pre-Heat, just with some buffer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Avoid syncing up cache and database with strong consistency, because it will lose concurrency that sacrifice too much performance.
+&lt;ul&gt;
+&lt;li&gt;we are trading off between consistency and performance.&lt;/li&gt;
+&lt;li&gt;strong consistency is the trading off between thread safety and performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;There are different strategies to choose based on different &lt;strong&gt;traffic&lt;/strong&gt; patterns in our web app.
+&lt;ul&gt;
+&lt;li&gt;We can apply distributed lock to ensure thread safety.&lt;/li&gt;
+&lt;li&gt;To ensure the data consistent between Redis and DB. Before we use &lt;code&gt;Redis + Lua script&lt;/code&gt;, right now &lt;code&gt;Redison&lt;/code&gt;(a framework based on Redis).
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Lua script&lt;/code&gt; add locks in the source code for atomicity to ensure the data consistency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eventual Consistency vs Strong Consistency
+&lt;ul&gt;
+&lt;li&gt;with Eventual Consistency, our business model is able to endure the loss, but our technical architecture is benefit a lot regarding to the performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;interview questions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;interview-questions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#interview-questions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;SQL and noSQL
+&lt;ul&gt;
+&lt;li&gt;what is transaction&lt;/li&gt;
+&lt;li&gt;how to enable transaction&lt;/li&gt;
+&lt;li&gt;in distributed system case
+&lt;ul&gt;
+&lt;li&gt;how to ensure the transaction&lt;/li&gt;
+&lt;li&gt;how to rollback with strategy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#why-we-need-microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;if one service fails, we need to like restart the whole thing work.&lt;/li&gt;
@@ -4625,8 +4705,8 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;li&gt;business separation: (vertical): i.e. login/browse/order/payment/&amp;hellip;&lt;/li&gt;
 &lt;li&gt;business separation: (horizontal): i.e. service oriented. (Python handles ML, Java handles web application, &amp;hellip;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Five Components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;five-components&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#five-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;h3&gt;Five Components&lt;span class=&#34;absolute -mt-20&#34; id=&#34;five-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#five-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;API Gateway&lt;/li&gt;
 &lt;li&gt;Service Registry/Discovery&lt;/li&gt;
 &lt;li&gt;Configuration Management&lt;/li&gt;
