@@ -4840,8 +4840,8 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;blockquote&gt;
 &lt;p&gt;the more encapsulation we are going to have, the more automation in between table and Java Class we are going to have.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;Hibernate&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hibernate&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#hibernate&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h3&gt;Hibernate&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hibernate&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hibernate&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Session Factory&lt;/code&gt; grabs the configFile: username + password, then creates &lt;code&gt;sessions&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Hibernate use reflection API to auto generate SQL statements&lt;/li&gt;
 &lt;li&gt;Hibernate allows us to write:
@@ -4860,6 +4860,111 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Frontend&lt;span class=&#34;absolute -mt-20&#34; id=&#34;frontend&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#frontend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;HTTP, FTP, SMTP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;http-ftp-smtp&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#http-ftp-smtp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;All are in application layer(7th layer of OSI)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;They are methods or protocols that allow users use browser/or some application to communicate with the backend server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP/S: HyperText Transfer Protocol Secure&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FTP: File Transfer Protocol&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SMTP: Simple Mail Transfer Protocol&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;DNS: domain name system&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dns-domain-name-system&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dns-domain-name-system&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s a system that we can use to translate URL to the public IP address of server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Browser storage types&lt;span class=&#34;absolute -mt-20&#34; id=&#34;browser-storage-types&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#browser-storage-types&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Local Storage: no expiration date and 5 MB limit. Data here will never transfer to the server side&lt;/li&gt;
+&lt;li&gt;Session Storage: is used to store session related data. Session storage will be closed and cleared after we close the browser.&lt;/li&gt;
+&lt;li&gt;Cookie: 4 KB limit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Angular&lt;span class=&#34;absolute -mt-20&#34; id=&#34;angular&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#angular&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Angular project develop, build, test, release flow
+&lt;ul&gt;
+&lt;li&gt;Typescript&lt;/li&gt;
+&lt;li&gt;npm&lt;/li&gt;
+&lt;li&gt;nvm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Single Page Application&lt;/li&gt;
+&lt;li&gt;Component
+&lt;ul&gt;
+&lt;li&gt;Basic building blocks that compose the webpage.&lt;/li&gt;
+&lt;li&gt;@Component class
+&lt;ul&gt;
+&lt;li&gt;act like controller&lt;/li&gt;
+&lt;li&gt;written in typescript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Template
+&lt;ul&gt;
+&lt;li&gt;act like view template&lt;/li&gt;
+&lt;li&gt;written in html and angular syntax(binding, directives)&lt;/li&gt;
+&lt;li&gt;binding
+&lt;ul&gt;
+&lt;li&gt;event binding&lt;/li&gt;
+&lt;li&gt;one-way&lt;/li&gt;
+&lt;li&gt;two-way data binding&lt;/li&gt;
+&lt;li&gt;Directives&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Attribute Directive&lt;/li&gt;
+&lt;li&gt;Directive(*ngIf, *ngFor, *ngClass, *ngStyle, *ngForm,)&lt;/li&gt;
+&lt;li&gt;pipes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Forms - template driven/ reactive forms&lt;/li&gt;
+&lt;li&gt;StyleSheet
+&lt;ul&gt;
+&lt;li&gt;css, sass, less&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Service&lt;/li&gt;
+&lt;li&gt;Dependency Injection
+&lt;ul&gt;
+&lt;li&gt;Service -&amp;gt; Component&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Angular CLI&lt;/li&gt;
+&lt;li&gt;Module&lt;/li&gt;
+&lt;li&gt;Routing&lt;/li&gt;
+&lt;li&gt;HttpClient&lt;/li&gt;
+&lt;li&gt;RxJs
+&lt;ul&gt;
+&lt;li&gt;Observable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Routing&lt;/li&gt;
+&lt;li&gt;HttpClient
+&lt;ul&gt;
+&lt;li&gt;RxJs&lt;/li&gt;
+&lt;li&gt;Observable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Module&lt;/li&gt;
+&lt;li&gt;CORS configuration&lt;/li&gt;
+&lt;li&gt;UI Library&lt;/li&gt;
+&lt;li&gt;bootstrap
+&lt;ul&gt;
+&lt;li&gt;material UI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Promise / Observable&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservice&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#microservice&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WHY: we need microservice&lt;span class=&#34;absolute -mt-20&#34; id=&#34;why-we-need-microservice&#34;&gt;&lt;/span&gt;
