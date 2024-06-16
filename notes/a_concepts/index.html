@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="6471">
+<meta itemprop="wordCount" content="6891">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -2104,7 +2104,11 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#elastic-search">elastic search
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#mongodb-cp-it-sacrifices-some-availabilities">MongoDB (CP, it sacrifices some availabilities)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#redis">Redis
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -3688,17 +3692,117 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 <li>non tabular data, i.e. documents/files</li>
 </ul>
 </li>
-<li>nowadays MongoDB(after 4.2) supporting multi document transaction
+</ul>
+<ol>
+<li>Documented DB
+<ul>
+<li>Key-Document Pair</li>
+</ul>
+</li>
+<li>Column wised DB
+<ul>
+<li>It&rsquo;s something like a table, but all the thing are going to store in the <strong>node</strong>, each column is consider as a <strong>node</strong>. When we searching, we search base on the <strong>node</strong>. So any non-related column won&rsquo;t be searched.</li>
+<li>The whole purpose is to reduce I/O between RAM and HD.</li>
+</ul>
+</li>
+<li>Key-Value DB. (i.e. Redis)
+<ul>
+<li>Value can be anything, including int, string, arrList, set, sortedSet, &hellip;</li>
+<li>Redis:
+<ul>
+<li>natively running in the RAM database. The idea is it to cache some data to improve the performance.</li>
+<li>The purpose with Redis is to reduce the number of I/O.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Graph noSQL
+<ul>
+<li>we want to find out the relationship between each records, in this scenario we can use Graph noSQL.</li>
+</ul>
+</li>
+<li>Elastic Search
+<ul>
+<li>not a exactly like traditional noSQL database, more like a full-text searching database</li>
+</ul>
+</li>
+<li>TimeSeries noSQL</li>
+<li>Vector DB.
+<ul>
+<li>For ML scenarios.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>CAP (For all distributed system, not only for noSQL)
+<ul>
+<li>C(Consistency): Every read reflects the <strong>most recent</strong> write or an error.</li>
+<li>A(Availability): All reads contain data, but it may <strong>not</strong> be the most recent.</li>
+<li>P(Partition Tolerance): The system continues to operate even when there are network failures.</li>
+<li>Most time we would trade off between C and A.</li>
+</ul>
+</li>
+</ul>
+<h4>MongoDB (CP, it sacrifices some availabilities)<span class="absolute -mt-20" id="mongodb-cp-it-sacrifices-some-availabilities"></span>
+    <a href="#mongodb-cp-it-sacrifices-some-availabilities" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>
+<p>Work Flow:</p>
+<ul>
+<li>MongoS: like a router, when request reach the <strong>MongoS</strong> first, then it will consult the <strong>ConfigSever</strong>, then MongoS get the Sharding position it will get to the right Server to get the result of the Request.</li>
+<li>ConfigServer: contains <code>meta data</code> about the MongoDB sharding and replica info.</li>
+<li>Arbiter: it doesn&rsquo;t contain any data. It only contain <strong>one vote</strong>, everytime there is an election has a draw, Arbiter is going to check for either one of those secondary nodes(or candidates within election).</li>
+</ul>
+</li>
+<li>
+<p>Before MongoDB(4.2)</p>
+<ul>
+<li>any of those transactions has to stay in the <strong>same collections</strong>(very similar idea like table).</li>
+</ul>
+</li>
+<li>
+<p>After MongoDB(4.2)</p>
+<ul>
+<li>it supports multiple collections within one transaction.</li>
+</ul>
+</li>
+<li>
+<p>We can Setup in MongoDB</p>
+<ul>
+<li>Tade off between C and P
+<ul>
+<li>Write Concern
+<ul>
+<li>determine if the data is available to the user based on #synced nodes.</li>
+<li>we can also define sync up, <code>J = 1 or J = 0</code> define in RAM or HD.</li>
+<li>trade off between persistency and performance</li>
+</ul>
+</li>
+<li>Read Concern
+<ul>
+<li>Are we okay to read data in RAM, or we have to read data in HD.</li>
+<li>There are several levels:
+<ul>
+<li>Local: it doesn&rsquo;t have to be in HD</li>
+<li>Majority: I only read from main node and secondary node that has already synced up. Might not be the lastest one, but we are not reading from the node hasn&rsquo;t sync up.</li>
+<li>Snapshot</li>
+<li>Linearizable: everything is reading from HD</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>nowadays MongoDB(after 4.2) supporting multi document transaction</p>
 <ul>
 <li>Collections in MongoDB is similar to a table in SQL database.</li>
 </ul>
 </li>
 </ul>
-<h3>elastic search<span class="absolute -mt-20" id="elastic-search"></span>
-    <a href="#elastic-search" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>not a exactly like traditional noSQL database, more like a full-text searching database</li>
-</ul>
-<h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
+<h4>Redis<span class="absolute -mt-20" id="redis"></span>
+    <a href="#redis" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><h2>Microservice<span class="absolute -mt-20" id="microservice"></span>
     <a href="#microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>WHY: we need microservice<span class="absolute -mt-20" id="why-we-need-microservice"></span>
     <a href="#why-we-need-microservice" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>if one service fails, we need to like restart the whole thing work.</li>
