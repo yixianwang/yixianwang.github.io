@@ -179,16 +179,22 @@
 &lt;/li&gt;
 &lt;li&gt;Project Name.
 &lt;ul&gt;
-&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?&lt;/li&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?
+&lt;ul&gt;
 &lt;li&gt;The project is used to provide comprehensive insights and analytics to various departments within eBay, such as sales, marketing, product development, and customer support.&lt;/li&gt;
 &lt;li&gt;The dashboard will aggregate data from different sources, process it in real-time, and present it through interactive and customizable visualizations.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Users.
 &lt;ul&gt;
-&lt;li&gt;The project is used by whom? How many users approximately?&lt;/li&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?
+&lt;ul&gt;
 &lt;li&gt;This project is only used by internal users.&lt;/li&gt;
 &lt;li&gt;There is about 3,000 users are allowed to access the dashboard with different access level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;What&amp;rsquo;s the team structure.
@@ -212,7 +218,7 @@
 &lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective
 &lt;ul&gt;
 &lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
-&lt;li&gt;One Scrum Spring:&lt;/li&gt;
+&lt;li&gt;One single Scrum Spring consists:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;Product Backlog
      ↓
@@ -248,8 +254,8 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;ul&gt;
 &lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?
 &lt;ul&gt;
-&lt;li&gt;I was in BE team.&lt;/li&gt;
-&lt;li&gt;Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.&lt;/li&gt;
+&lt;li&gt;I am in BE team.&lt;/li&gt;
+&lt;li&gt;I am responsible for designing and implementing the real-time data processing pipeline and integrating it with the frontend dashboard.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -258,17 +264,30 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;ol&gt;
 &lt;li&gt;TechStack
 &lt;ul&gt;
-&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;li&gt;Java Version: Java 11&lt;/li&gt;
+&lt;li&gt;Spring Boot: Version 2.5&lt;/li&gt;
+&lt;li&gt;Databases: PostgreSQL for transactional data, MongoDB for NoSQL needs&lt;/li&gt;
+&lt;li&gt;AWS (Cloud): EC2, RDS, S3, MSK (Managed Streaming for Apache Kafka), ElastiCache (Redis)&lt;/li&gt;
+&lt;li&gt;Frontend Framework: Angular 11&lt;/li&gt;
+&lt;li&gt;Testing Frameworks: JUnit 5, Mockito&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Environments
 &lt;ul&gt;
-&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;li&gt;Development (Dev): Where initial development and testing occur.&lt;/li&gt;
+&lt;li&gt;Testing (Test): Used by QA for functional and integration testing.&lt;/li&gt;
+&lt;li&gt;Staging: Pre-production environment where final testing is conducted to mimic the production setup.&lt;/li&gt;
+&lt;li&gt;Production: Live environment where the application is used by internal users.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Cloud/Platform
 &lt;ul&gt;
-&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?
+&lt;ul&gt;
+&lt;li&gt;Deployment: The project is deployed on AWS.&lt;/li&gt;
+&lt;li&gt;CI/CD Pipelines: Jenkins is used for continuous integration and continuous deployment, automating the build, test, and deployment processes across all environments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Architecture
@@ -276,6 +295,50 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;li&gt;Draw a chart.&lt;/li&gt;
 &lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-1&#34;&gt;&amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;
+|                   |       |                   |       |                   |
+|     API Gateway   | &amp;lt;---&amp;gt; |  Authentication   | &amp;lt;---&amp;gt; |  User Service     |
+|                   |       |  Service (Spring  |       |  (Spring Boot)    |
+|                   |       |  Boot &amp;#43; Spring    |       |                   |
+&amp;#43;-------------------&amp;#43;       |  Security)        |       &amp;#43;-------------------&amp;#43;
+         |                   &amp;#43;-------------------&amp;#43;              |
+         |                                                    / \
+         |                                                   /   \
+         |                                                  /     \
+&amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;
+|                   |       |                   |       |                   |
+|   Activity        | &amp;lt;---&amp;gt; |  Messaging        | &amp;lt;---&amp;gt; |  Data Processing  |
+|   Service         |       |  Service          |       |  Service          |
+|   (Spring Boot)   |       |  (Kafka)          |       |  (Spring Boot)    |
+|                   |       |                   |       |                   |
+&amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;
+         |                                                    |
+         |                                                    |
+         v                                                    v
+&amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;
+|                   |       |                   |       |                   |
+|  PostgreSQL       |       |  Redis (Elasti-   |       |  MongoDB          |
+|  (RDS)            |       |  Cache)           |       |                   |
+|                   |       |                   |       |                   |
+&amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;       &amp;#43;-------------------&amp;#43;
+         |
+         |
+         v
+&amp;#43;-------------------&amp;#43;
+|                   |
+|  S3 (Data Storage)|
+|                   |
+&amp;#43;-------------------&amp;#43;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-1&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;One Specific Functionality
 &lt;ul&gt;
@@ -284,7 +347,77 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.
+&lt;ul&gt;
+&lt;li&gt;Functionality: Real-Time User Activity Logging and Analysis&lt;/li&gt;
+&lt;li&gt;Detailed Breakdown:
+&lt;ol&gt;
+&lt;li&gt;API Endpoint: Log User Activity
+&lt;ul&gt;
+&lt;li&gt;Method: POST&lt;/li&gt;
+&lt;li&gt;URI: /api/v1/activity/log&lt;/li&gt;
+&lt;li&gt;Payload:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;{
+   &amp;#34;userId&amp;#34;: &amp;#34;12345&amp;#34;,
+   &amp;#34;activityType&amp;#34;: &amp;#34;SEARCH&amp;#34;,
+   &amp;#34;timestamp&amp;#34;: &amp;#34;2024-06-21T10:15:30Z&amp;#34;,
+   &amp;#34;details&amp;#34;: {
+   &amp;#34;query&amp;#34;: &amp;#34;laptop&amp;#34;,
+   &amp;#34;resultsCount&amp;#34;: 150
+   }
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Service Layers:
+&lt;ul&gt;
+&lt;li&gt;API Gateway: Receives the API request and forwards it to the Authentication Service.&lt;/li&gt;
+&lt;li&gt;Authentication Service: Verifies the user&amp;rsquo;s identity using JWT tokens.&lt;/li&gt;
+&lt;li&gt;Activity Service: Handles the logging of user activity.
+&lt;ul&gt;
+&lt;li&gt;REST Communication: The API Gateway communicates with the Activity Service via REST.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Internal Communication:
+&lt;ul&gt;
+&lt;li&gt;Activity Service: Receives the payload and sends it to the Messaging Service (Kafka) for real-time processing.&lt;/li&gt;
+&lt;li&gt;Messaging Service: Publishes the message to the relevant Kafka topic.&lt;/li&gt;
+&lt;li&gt;Data Processing Service: Subscribes to the Kafka topic, processes the message, and stores the processed data.
+&lt;ul&gt;
+&lt;li&gt;Storage:
+&lt;ul&gt;
+&lt;li&gt;Transactional Data: Stored in PostgreSQL (RDS) for quick access and querying.&lt;/li&gt;
+&lt;li&gt;Logs and Historical Data: Stored in MongoDB for flexible querying and analysis.&lt;/li&gt;
+&lt;li&gt;Raw Data: Archived in S3 for long-term storage and potential future analysis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Challenge and Solutions:
+&lt;ul&gt;
+&lt;li&gt;Real-Time Data Processing: Ensuring low latency in processing high volumes of data. Solved by using Kafka for efficient message streaming and processing.&lt;/li&gt;
+&lt;li&gt;Data Consistency: Maintaining consistency between different databases (PostgreSQL and MongoDB). Used transaction management in Spring and eventual consistency principles.&lt;/li&gt;
+&lt;li&gt;Scalability: Handling increased load as user activity grows. Utilized AWS auto-scaling features for EC2 instances and optimized database queries.&lt;/li&gt;
+&lt;li&gt;Security: Ensuring data security during transit and storage. Implemented encryption (SSL/TLS) and AWS KMS for data at rest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;Lewis Energy Group - Safety Incidents Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lewis-energy-group---safety-incidents-management&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#lewis-energy-group---safety-incidents-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
@@ -325,7 +458,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;ul&gt;
 &lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-1&#34;&gt;Product Backlog
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -345,7 +478,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-1&#34;
+      data-clipboard-target=&#34;#code-block-3&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -436,7 +569,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;ul&gt;
 &lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;Product Backlog
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-4&#34;&gt;Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -456,7 +589,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-2&#34;
+      data-clipboard-target=&#34;#code-block-4&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -559,7 +692,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;ul&gt;
 &lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;Product Backlog
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-5&#34;&gt;Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -579,7 +712,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
     &lt;button
       class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
       title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-3&#34;
+      data-clipboard-target=&#34;#code-block-5&#34;
     &gt;
       &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
       &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
@@ -886,7 +1019,7 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
 &lt;li&gt;For example, in my the most recent project at eBay which is Data Analytics Dashboard.
 &lt;ul&gt;
 &lt;li&gt;I use EC2 to host microservices I built.&lt;/li&gt;
-&lt;li&gt;I also use Amazon RDS to host Oracle database.&lt;/li&gt;
+&lt;li&gt;I also use Amazon RDS to host PostgreSQL database.&lt;/li&gt;
 &lt;li&gt;And MSK(Managed Kafka) service for real-time data streaming. And so on.
 &lt;ul&gt;
 &lt;li&gt;Set up VPCs to create isolated network environments, configured subnets, route tables, and NAT gateways.&lt;/li&gt;

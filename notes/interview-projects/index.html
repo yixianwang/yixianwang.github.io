@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Interview Projects">
 <meta itemprop="description" content="Project Preparation Guide Company Info. Brief company info. Project Name. Why the project exists? What&rsquo;s the main goal? Users. The project is used by whom? How many users approximately? What&rsquo;s the team structure. Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps) What&rsquo;s agile scrum flow? Daily meetings, Jira, Planning meeting, demo, review, retrospective Your Main responsibilities. Design, Implement, Test XXX functions, Backend, DB, Frontend? High-level System Structure TechStack Environments Cloud/Platform Architecture One Specific Functionality."><meta itemprop="datePublished" content="2024-06-22T21:08:17-04:00" />
 <meta itemprop="dateModified" content="2024-06-22T21:08:17-04:00" />
-<meta itemprop="wordCount" content="1464">
+<meta itemprop="wordCount" content="1966">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Interview Projects"/>
 <meta name="twitter:description" content="Project Preparation Guide Company Info. Brief company info. Project Name. Why the project exists? What&rsquo;s the main goal? Users. The project is used by whom? How many users approximately? What&rsquo;s the team structure. Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps) What&rsquo;s agile scrum flow? Daily meetings, Jira, Planning meeting, demo, review, retrospective Your Main responsibilities. Design, Implement, Test XXX functions, Backend, DB, Frontend? High-level System Structure TechStack Environments Cloud/Platform Architecture One Specific Functionality."/>
@@ -1432,16 +1432,22 @@
 </li>
 <li>Project Name.
 <ul>
-<li>Why the project exists? What&rsquo;s the main goal?</li>
+<li>Why the project exists? What&rsquo;s the main goal?
+<ul>
 <li>The project is used to provide comprehensive insights and analytics to various departments within eBay, such as sales, marketing, product development, and customer support.</li>
 <li>The dashboard will aggregate data from different sources, process it in real-time, and present it through interactive and customizable visualizations.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>Users.
 <ul>
-<li>The project is used by whom? How many users approximately?</li>
+<li>The project is used by whom? How many users approximately?
+<ul>
 <li>This project is only used by internal users.</li>
 <li>There is about 3,000 users are allowed to access the dashboard with different access level.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>What&rsquo;s the team structure.
@@ -1465,7 +1471,7 @@
 <li>Daily meetings, Jira, Planning meeting, demo, review, retrospective
 <ul>
 <li>The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.</li>
-<li>One Scrum Spring:</li>
+<li>One single Scrum Spring consists:</li>
 </ul>
 <div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">Product Backlog
      ↓
@@ -1501,8 +1507,8 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <ul>
 <li>Design, Implement, Test XXX functions, Backend, DB, Frontend?
 <ul>
-<li>I was in BE team.</li>
-<li>Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.</li>
+<li>I am in BE team.</li>
+<li>I am responsible for designing and implementing the real-time data processing pipeline and integrating it with the frontend dashboard.</li>
 </ul>
 </li>
 </ul>
@@ -1511,17 +1517,30 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <ol>
 <li>TechStack
 <ul>
-<li>Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito</li>
+<li>Java Version: Java 11</li>
+<li>Spring Boot: Version 2.5</li>
+<li>Databases: PostgreSQL for transactional data, MongoDB for NoSQL needs</li>
+<li>AWS (Cloud): EC2, RDS, S3, MSK (Managed Streaming for Apache Kafka), ElastiCache (Redis)</li>
+<li>Frontend Framework: Angular 11</li>
+<li>Testing Frameworks: JUnit 5, Mockito</li>
 </ul>
 </li>
 <li>Environments
 <ul>
-<li>Dev, Test, Staging, Production</li>
+<li>Development (Dev): Where initial development and testing occur.</li>
+<li>Testing (Test): Used by QA for functional and integration testing.</li>
+<li>Staging: Pre-production environment where final testing is conducted to mimic the production setup.</li>
+<li>Production: Live environment where the application is used by internal users.</li>
 </ul>
 </li>
 <li>Cloud/Platform
 <ul>
-<li>Project deployed in AWS or On-premises? CI/CD pipelines?</li>
+<li>Project deployed in AWS or On-premises? CI/CD pipelines?
+<ul>
+<li>Deployment: The project is deployed on AWS.</li>
+<li>CI/CD Pipelines: Jenkins is used for continuous integration and continuous deployment, automating the build, test, and deployment processes across all environments.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Architecture
@@ -1529,6 +1548,50 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <li>Draw a chart.</li>
 <li>Consists of: API Gateway, Service A/B/C, Messaging among services, Database</li>
 </ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">&#43;-------------------&#43;       &#43;-------------------&#43;       &#43;-------------------&#43;
+|                   |       |                   |       |                   |
+|     API Gateway   | &lt;---&gt; |  Authentication   | &lt;---&gt; |  User Service     |
+|                   |       |  Service (Spring  |       |  (Spring Boot)    |
+|                   |       |  Boot &#43; Spring    |       |                   |
+&#43;-------------------&#43;       |  Security)        |       &#43;-------------------&#43;
+         |                   &#43;-------------------&#43;              |
+         |                                                    / \
+         |                                                   /   \
+         |                                                  /     \
+&#43;-------------------&#43;       &#43;-------------------&#43;       &#43;-------------------&#43;
+|                   |       |                   |       |                   |
+|   Activity        | &lt;---&gt; |  Messaging        | &lt;---&gt; |  Data Processing  |
+|   Service         |       |  Service          |       |  Service          |
+|   (Spring Boot)   |       |  (Kafka)          |       |  (Spring Boot)    |
+|                   |       |                   |       |                   |
+&#43;-------------------&#43;       &#43;-------------------&#43;       &#43;-------------------&#43;
+         |                                                    |
+         |                                                    |
+         v                                                    v
+&#43;-------------------&#43;       &#43;-------------------&#43;       &#43;-------------------&#43;
+|                   |       |                   |       |                   |
+|  PostgreSQL       |       |  Redis (Elasti-   |       |  MongoDB          |
+|  (RDS)            |       |  Cache)           |       |                   |
+|                   |       |                   |       |                   |
+&#43;-------------------&#43;       &#43;-------------------&#43;       &#43;-------------------&#43;
+         |
+         |
+         v
+&#43;-------------------&#43;
+|                   |
+|  S3 (Data Storage)|
+|                   |
+&#43;-------------------&#43;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 </li>
 <li>One Specific Functionality
 <ul>
@@ -1537,7 +1600,77 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 </li>
 </ol>
 </li>
-<li>One Specific Functionality.</li>
+<li>One Specific Functionality.
+<ul>
+<li>Functionality: Real-Time User Activity Logging and Analysis</li>
+<li>Detailed Breakdown:
+<ol>
+<li>API Endpoint: Log User Activity
+<ul>
+<li>Method: POST</li>
+<li>URI: /api/v1/activity/log</li>
+<li>Payload:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">{
+   &#34;userId&#34;: &#34;12345&#34;,
+   &#34;activityType&#34;: &#34;SEARCH&#34;,
+   &#34;timestamp&#34;: &#34;2024-06-21T10:15:30Z&#34;,
+   &#34;details&#34;: {
+   &#34;query&#34;: &#34;laptop&#34;,
+   &#34;resultsCount&#34;: 150
+   }
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+<li>Service Layers:
+<ul>
+<li>API Gateway: Receives the API request and forwards it to the Authentication Service.</li>
+<li>Authentication Service: Verifies the user&rsquo;s identity using JWT tokens.</li>
+<li>Activity Service: Handles the logging of user activity.
+<ul>
+<li>REST Communication: The API Gateway communicates with the Activity Service via REST.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Internal Communication:
+<ul>
+<li>Activity Service: Receives the payload and sends it to the Messaging Service (Kafka) for real-time processing.</li>
+<li>Messaging Service: Publishes the message to the relevant Kafka topic.</li>
+<li>Data Processing Service: Subscribes to the Kafka topic, processes the message, and stores the processed data.
+<ul>
+<li>Storage:
+<ul>
+<li>Transactional Data: Stored in PostgreSQL (RDS) for quick access and querying.</li>
+<li>Logs and Historical Data: Stored in MongoDB for flexible querying and analysis.</li>
+<li>Raw Data: Archived in S3 for long-term storage and potential future analysis.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Challenge and Solutions:
+<ul>
+<li>Real-Time Data Processing: Ensuring low latency in processing high volumes of data. Solved by using Kafka for efficient message streaming and processing.</li>
+<li>Data Consistency: Maintaining consistency between different databases (PostgreSQL and MongoDB). Used transaction management in Spring and eventual consistency principles.</li>
+<li>Scalability: Handling increased load as user activity grows. Utilized AWS auto-scaling features for EC2 instances and optimized database queries.</li>
+<li>Security: Ensuring data security during transit and storage. Implemented encryption (SSL/TLS) and AWS KMS for data at rest.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
 </ol>
 <h2>Lewis Energy Group - Safety Incidents Management<span class="absolute -mt-20" id="lewis-energy-group---safety-incidents-management"></span>
     <a href="#lewis-energy-group---safety-incidents-management" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
@@ -1578,7 +1711,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <ul>
 <li>The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">Product Backlog
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -1598,7 +1731,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-1"
+      data-clipboard-target="#code-block-3"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1689,7 +1822,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <ul>
 <li>The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">Product Backlog
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -1709,7 +1842,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-2"
+      data-clipboard-target="#code-block-4"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1812,7 +1945,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
 <ul>
 <li>The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">Product Backlog
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">Product Backlog
      ↓
 Sprint Planning
      ↓
@@ -1832,7 +1965,7 @@ Continuous Improvement &amp; Next Sprint Planning</code></pre><div class="opacit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-3"
+      data-clipboard-target="#code-block-5"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
