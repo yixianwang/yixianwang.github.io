@@ -91,11 +91,556 @@
     </item>
     
     <item>
-      <title>Interview</title>
-      <link>https://yixianwang.github.io/notes/interview/</link>
+      <title>Interview Projects</title>
+      <link>https://yixianwang.github.io/notes/interview-projects/</link>
+      <pubDate>Sat, 22 Jun 2024 21:08:17 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/interview-projects/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Project Preparation Guide&lt;span class=&#34;absolute -mt-20&#34; id=&#34;project-preparation-guide&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#project-preparation-guide&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Company Info.
+&lt;ul&gt;
+&lt;li&gt;Brief company info.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project Name.
+&lt;ul&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Users.
+&lt;ul&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the team structure.
+&lt;ul&gt;
+&lt;li&gt;Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s agile scrum flow?
+&lt;ul&gt;
+&lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your Main responsibilities.
+&lt;ul&gt;
+&lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;High-level System Structure
+&lt;ol&gt;
+&lt;li&gt;TechStack&lt;/li&gt;
+&lt;li&gt;Environments&lt;/li&gt;
+&lt;li&gt;Cloud/Platform&lt;/li&gt;
+&lt;li&gt;Architecture&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;High-Level System Structure Guide&lt;span class=&#34;absolute -mt-20&#34; id=&#34;high-level-system-structure-guide&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#high-level-system-structure-guide&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;TechStack
+&lt;ul&gt;
+&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Environments
+&lt;ul&gt;
+&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud/Platform
+&lt;ul&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Architecture
+&lt;ul&gt;
+&lt;li&gt;Draw a chart.&lt;/li&gt;
+&lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality
+&lt;ul&gt;
+&lt;li&gt;As detailed as possible. One or two APIs in detail(method, uri, payload). Service layers, which services are called? how the services communicates(REST, Messaging), where the data is stored(SQL Database, NoSQL, S3 bucket). Chanllenges.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;eBay - Data Analytics Dashboard&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ebay---data-analytics-dashboard&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ebay---data-analytics-dashboard&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Company Info.
+&lt;ul&gt;
+&lt;li&gt;eBay is an e-commerce company, that connects buyers and sellers around the world.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project Name.
+&lt;ul&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?&lt;/li&gt;
+&lt;li&gt;The project is used to provide comprehensive insights and analytics to various departments within eBay, such as sales, marketing, product development, and customer support.&lt;/li&gt;
+&lt;li&gt;The dashboard will aggregate data from different sources, process it in real-time, and present it through interactive and customizable visualizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Users.
+&lt;ul&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?&lt;/li&gt;
+&lt;li&gt;This project is only used by internal users.&lt;/li&gt;
+&lt;li&gt;There is about 3,000 users are allowed to access the dashboard with different access level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the team structure.
+&lt;ul&gt;
+&lt;li&gt;Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps)
+&lt;ul&gt;
+&lt;li&gt;1 Product Manager + Scrum Master&lt;/li&gt;
+&lt;li&gt;1 BA&lt;/li&gt;
+&lt;li&gt;1 Project Manger + BE TL&lt;/li&gt;
+&lt;li&gt;BE 1 TL + 7 Dev&lt;/li&gt;
+&lt;li&gt;FE 1 TL + 5 Dev&lt;/li&gt;
+&lt;li&gt;QA 1 TL + 4 QA&lt;/li&gt;
+&lt;li&gt;DBA 2 DBA&lt;/li&gt;
+&lt;li&gt;DevOps 2 DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s agile scrum flow?
+&lt;ul&gt;
+&lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective
+&lt;ul&gt;
+&lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
+&lt;li&gt;One Scrum Spring:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;Product Backlog
+     ↓
+Sprint Planning
+     ↓
+Sprint Backlog
+     ↓
+   Sprint Execution (2-4 weeks)
+   ↓                 ↓                 ↓
+Daily Scrum      Development       Task Updates
+   ↓                 ↓                 ↓
+   Sprint Review (end of Sprint)
+     ↓
+Product Increment
+     ↓
+Sprint Retrospective
+     ↓
+Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-0&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your Main responsibilities.
+&lt;ul&gt;
+&lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?
+&lt;ul&gt;
+&lt;li&gt;I was in BE team.&lt;/li&gt;
+&lt;li&gt;Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;High-level System Structure
+&lt;ol&gt;
+&lt;li&gt;TechStack
+&lt;ul&gt;
+&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Environments
+&lt;ul&gt;
+&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud/Platform
+&lt;ul&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Architecture
+&lt;ul&gt;
+&lt;li&gt;Draw a chart.&lt;/li&gt;
+&lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality
+&lt;ul&gt;
+&lt;li&gt;As detailed as possible. One or two APIs in detail(method, uri, payload). Service layers, which services are called? how the services communicates(REST, Messaging), where the data is stored(SQL Database, NoSQL, S3 bucket). Chanllenges.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Lewis Energy Group - Safety Incidents Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lewis-energy-group---safety-incidents-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lewis-energy-group---safety-incidents-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Company Info.
+&lt;ul&gt;
+&lt;li&gt;Lewis Energy is a natural gas drilling company.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project Name.
+&lt;ul&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Users.
+&lt;ul&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the team structure.
+&lt;ul&gt;
+&lt;li&gt;Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps)
+&lt;ul&gt;
+&lt;li&gt;1 Product Manager + Scrum Master&lt;/li&gt;
+&lt;li&gt;1 BA&lt;/li&gt;
+&lt;li&gt;1 Project Manger + BE TL&lt;/li&gt;
+&lt;li&gt;BE 1 TL + 5 Dev&lt;/li&gt;
+&lt;li&gt;FE 1 TL + 2 Dev&lt;/li&gt;
+&lt;li&gt;QA 1 TL + 1 QA&lt;/li&gt;
+&lt;li&gt;DBA 2 DBA&lt;/li&gt;
+&lt;li&gt;DevOps 1 DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s agile scrum flow?
+&lt;ul&gt;
+&lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective
+&lt;ul&gt;
+&lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-1&#34;&gt;Product Backlog
+     ↓
+Sprint Planning
+     ↓
+Sprint Backlog
+     ↓
+   Sprint Execution (2-4 weeks)
+   ↓                 ↓                 ↓
+Daily Scrum      Development       Task Updates
+   ↓                 ↓                 ↓
+   Sprint Review (end of Sprint)
+     ↓
+Product Increment
+     ↓
+Sprint Retrospective
+     ↓
+Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-1&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your Main responsibilities.
+&lt;ul&gt;
+&lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?
+&lt;ul&gt;
+&lt;li&gt;I was in BE team.&lt;/li&gt;
+&lt;li&gt;Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;High-level System Structure
+&lt;ol&gt;
+&lt;li&gt;TechStack
+&lt;ul&gt;
+&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Environments
+&lt;ul&gt;
+&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud/Platform
+&lt;ul&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Architecture
+&lt;ul&gt;
+&lt;li&gt;Draw a chart.&lt;/li&gt;
+&lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality
+&lt;ul&gt;
+&lt;li&gt;As detailed as possible. One or two APIs in detail(method, uri, payload). Service layers, which services are called? how the services communicates(REST, Messaging), where the data is stored(SQL Database, NoSQL, S3 bucket). Chanllenges.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Citi Bank - Tele Processing System&lt;span class=&#34;absolute -mt-20&#34; id=&#34;citi-bank---tele-processing-system&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#citi-bank---tele-processing-system&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Company Info.
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s a banking company.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project Name.
+&lt;ul&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Users.
+&lt;ul&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the team structure.
+&lt;ul&gt;
+&lt;li&gt;Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps)
+&lt;ul&gt;
+&lt;li&gt;1 Product Manager + Scrum Master&lt;/li&gt;
+&lt;li&gt;1 BA&lt;/li&gt;
+&lt;li&gt;1 Project Manger + BE TL&lt;/li&gt;
+&lt;li&gt;BE 1 TL + 5 Dev&lt;/li&gt;
+&lt;li&gt;FE 1 TL + 2 Dev&lt;/li&gt;
+&lt;li&gt;QA 1 TL + 1 QA&lt;/li&gt;
+&lt;li&gt;DBA 2 DBA&lt;/li&gt;
+&lt;li&gt;DevOps 1 DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s agile scrum flow?
+&lt;ul&gt;
+&lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective
+&lt;ul&gt;
+&lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;Product Backlog
+     ↓
+Sprint Planning
+     ↓
+Sprint Backlog
+     ↓
+   Sprint Execution (2-4 weeks)
+   ↓                 ↓                 ↓
+Daily Scrum      Development       Task Updates
+   ↓                 ↓                 ↓
+   Sprint Review (end of Sprint)
+     ↓
+Product Increment
+     ↓
+Sprint Retrospective
+     ↓
+Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your Main responsibilities.
+&lt;ul&gt;
+&lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?
+&lt;ul&gt;
+&lt;li&gt;I was in BE team.&lt;/li&gt;
+&lt;li&gt;Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;High-level System Structure
+&lt;ol&gt;
+&lt;li&gt;TechStack
+&lt;ul&gt;
+&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Environments
+&lt;ul&gt;
+&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud/Platform
+&lt;ul&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Architecture
+&lt;ul&gt;
+&lt;li&gt;Draw a chart.&lt;/li&gt;
+&lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality
+&lt;ul&gt;
+&lt;li&gt;As detailed as possible. One or two APIs in detail(method, uri, payload). Service layers, which services are called? how the services communicates(REST, Messaging), where the data is stored(SQL Database, NoSQL, S3 bucket). Chanllenges.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Beijing Jishuitan Hospital - Drug Data System&lt;span class=&#34;absolute -mt-20&#34; id=&#34;beijing-jishuitan-hospital---drug-data-system&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#beijing-jishuitan-hospital---drug-data-system&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Company Info.
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s a public hospital in Beijing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project Name.
+&lt;ul&gt;
+&lt;li&gt;Why the project exists? What&amp;rsquo;s the main goal?
+&lt;ul&gt;
+&lt;li&gt;The hospital was planning to modernize and upgrade the current drug data system.&lt;/li&gt;
+&lt;li&gt;The hospital used to have separate data system for both chinese pharmacy and western pharmacy.&lt;/li&gt;
+&lt;li&gt;The goal of this project is to build a brand new drug data system that integrate both chinese pharmacy and western pharmacy. And do the data migration from the old system to the new system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Users.
+&lt;ul&gt;
+&lt;li&gt;The project is used by whom? How many users approximately?
+&lt;ul&gt;
+&lt;li&gt;The project is used by both internal user and external user.&lt;/li&gt;
+&lt;li&gt;There are about more than 2,000 internal users, including doctors and nurses.&lt;/li&gt;
+&lt;li&gt;For the external users, there are about 80,000 patients per year.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the team structure.
+&lt;ul&gt;
+&lt;li&gt;Agile Team (Scrum Master, Product Owner, Manager, Team Lead, Developers, QA, BA, DBA, DevOps)
+&lt;ul&gt;
+&lt;li&gt;1 Product Manager + Scrum Master&lt;/li&gt;
+&lt;li&gt;1 BA&lt;/li&gt;
+&lt;li&gt;1 Project Manger + BE TL&lt;/li&gt;
+&lt;li&gt;BE 1 TL + 5 Dev&lt;/li&gt;
+&lt;li&gt;FE 1 TL + 2 Dev&lt;/li&gt;
+&lt;li&gt;QA 1 TL + 1 QA&lt;/li&gt;
+&lt;li&gt;DBA 2 DBA&lt;/li&gt;
+&lt;li&gt;DevOps 1 DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s agile scrum flow?
+&lt;ul&gt;
+&lt;li&gt;Daily meetings, Jira, Planning meeting, demo, review, retrospective
+&lt;ul&gt;
+&lt;li&gt;The PM/SM is responsible for creating and maintaining the Product Backlog, a prioritized list of features, enhancements, and bug fixes required for the product.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-3&#34;&gt;Product Backlog
+     ↓
+Sprint Planning
+     ↓
+Sprint Backlog
+     ↓
+   Sprint Execution (2-4 weeks)
+   ↓                 ↓                 ↓
+Daily Scrum      Development       Task Updates
+   ↓                 ↓                 ↓
+   Sprint Review (end of Sprint)
+     ↓
+Product Increment
+     ↓
+Sprint Retrospective
+     ↓
+Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-3&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your Main responsibilities.
+&lt;ul&gt;
+&lt;li&gt;Design, Implement, Test XXX functions, Backend, DB, Frontend?
+&lt;ul&gt;
+&lt;li&gt;I was in BE team.&lt;/li&gt;
+&lt;li&gt;Write clean, maintainable, and efficient code using Spring Boot, Hibernate, and other back-end technologies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;High-level System Structure
+&lt;ol&gt;
+&lt;li&gt;TechStack
+&lt;ul&gt;
+&lt;li&gt;Java version, SpringBoot, REST, What kind of DB, AWS(Cloud), React/Angular, Junit, Mockito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Environments
+&lt;ul&gt;
+&lt;li&gt;Dev, Test, Staging, Production&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud/Platform
+&lt;ul&gt;
+&lt;li&gt;Project deployed in AWS or On-premises? CI/CD pipelines?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Architecture
+&lt;ul&gt;
+&lt;li&gt;Draw a chart.&lt;/li&gt;
+&lt;li&gt;Consists of: API Gateway, Service A/B/C, Messaging among services, Database&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality
+&lt;ul&gt;
+&lt;li&gt;As detailed as possible. One or two APIs in detail(method, uri, payload). Service layers, which services are called? how the services communicates(REST, Messaging), where the data is stored(SQL Database, NoSQL, S3 bucket). Chanllenges.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;One Specific Functionality.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Interview Questions</title>
+      <link>https://yixianwang.github.io/notes/interview-questions/</link>
       <pubDate>Thu, 20 Jun 2024 22:49:47 -0400</pubDate>
       
-      <guid>https://yixianwang.github.io/notes/interview/</guid>
+      <guid>https://yixianwang.github.io/notes/interview-questions/</guid>
       <description>
         
         
@@ -116,35 +661,390 @@
 &lt;h2&gt;Questions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;questions&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#questions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Important&lt;span class=&#34;absolute -mt-20&#34; id=&#34;important&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#important&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Introduce your self and the previous project in 2 to 3 minutes.&lt;/li&gt;
-&lt;li&gt;Describe a specific function/feature you did in last project. As detailed as possible.&lt;/li&gt;
-&lt;li&gt;How did you agile in your team? Typical Day?&lt;/li&gt;
-&lt;li&gt;What is the size of team? BA, DBA, QA, TL(team lead)?&lt;/li&gt;
-&lt;li&gt;Most challenging/proud task.&lt;/li&gt;
-&lt;li&gt;What is the Deployment process? How do you release? How many environment do you have?&lt;/li&gt;
-&lt;li&gt;Do you have front-end experience?&lt;/li&gt;
-&lt;li&gt;Do you know Cloud/AWS? Where/what do you use?&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduce your self and the previous project in 2 to 3 minutes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hi, thanks for having me today. My name is Austin Wang. I have over 6 years of professional Java developer experience.&lt;/li&gt;
+&lt;li&gt;For my past working experience. All the projects I have are Enterprise level Web-Application.&lt;/li&gt;
+&lt;li&gt;So I am very proficient in back-end programming with Java and Spring Framework.&lt;/li&gt;
+&lt;li&gt;and also many other web technologies.&lt;/li&gt;
+&lt;li&gt;like database, the relational and non-relational ones.&lt;/li&gt;
+&lt;li&gt;messaging queue systems like Kafka&lt;/li&gt;
+&lt;li&gt;ORM(Object-relational mapping) frameworks including hibernate and Spring Data JPA.&lt;/li&gt;
+&lt;li&gt;and so on.&lt;/li&gt;
+&lt;li&gt;I am also experience in developing front-end using Angular.&lt;/li&gt;
+&lt;li&gt;I am an AWS-certified solution architect with real hands-on experience.&lt;/li&gt;
+&lt;li&gt;With those knowledge and experience I can work on any complex and sophisticated project.&lt;/li&gt;
+&lt;li&gt;The most recent project I am currently working on is calleed Data Analyics Dashboard System at eBay company. This project is only designed for internal users only. It is used to provide analytics and some comprehensive insights to various departments like sales department, customer support department, and so on. It supports Role based access control for different users to hide some sensitive data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Describe a specific function/feature you did in last project. As detailed as possible.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature: Real-Time User Activity Dashboard&lt;/li&gt;
+&lt;li&gt;Context: In my last project at eBay, we developed an internal real-time analytics dashboard designed to provide insights into user activity on the platform. This dashboard was crucial for various departments, including marketing, customer support, and product development, as it helped them understand user behavior, identify trends, and make data-driven decisions.&lt;/li&gt;
+&lt;li&gt;My Role: As a backend developer, I was responsible for designing and implementing the real-time data processing pipeline and integrating it with the frontend dashboard.&lt;/li&gt;
+&lt;li&gt;Detailed Breakdown:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Requirement Gathering:
+&lt;ul&gt;
+&lt;li&gt;Stakeholders: I collaborated with marketing, customer support, and product teams to understand their specific needs and the kind of metrics they wanted to track.&lt;/li&gt;
+&lt;li&gt;Key Metrics: We identified key metrics such as user login frequency, page views, search queries, purchase behavior, and real-time user location data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Design Phase:
+&lt;ul&gt;
+&lt;li&gt;Architecture: I designed a microservice architecture using Spring Boot for the backend services, Kafka for real-time data streaming, and Redis for caching frequently accessed data.&lt;/li&gt;
+&lt;li&gt;Data Flow: The data flow involved collecting raw user activity data, processing it in real-time, and storing it in a format suitable for quick retrieval and visualization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Implementation:
+&lt;ul&gt;
+&lt;li&gt;Data Collection Service:
+&lt;ul&gt;
+&lt;li&gt;Developed a Spring Boot service to collect raw user activity data from various sources (e.g., web logs, API calls).&lt;/li&gt;
+&lt;li&gt;Integrated Kafka producers to publish this raw data to different Kafka topics based on activity types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Processing Service:
+&lt;ul&gt;
+&lt;li&gt;Created Kafka consumers using Spring Kafka to read the data from Kafka topics.&lt;/li&gt;
+&lt;li&gt;Implemented data transformation and enrichment logic to normalize and augment the data with additional information (e.g., user demographics, geolocation).&lt;/li&gt;
+&lt;li&gt;Used Redis to cache frequently accessed metrics and intermediate results to reduce latency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Storage:
+&lt;ul&gt;
+&lt;li&gt;Stored the processed data in PostgreSQL for relational queries and historical analysis.&lt;/li&gt;
+&lt;li&gt;Utilized MongoDB to store unstructured data and support flexible querying for real-time dashboards.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;API Development:
+&lt;ul&gt;
+&lt;li&gt;RESTful APIs: Developed RESTful APIs using Spring Boot to expose the processed data to the frontend application.&lt;/li&gt;
+&lt;li&gt;Endpoints: Created endpoints for fetching aggregated metrics, detailed activity logs, and real-time updates.&lt;/li&gt;
+&lt;li&gt;Documentation: Documented the APIs using Swagger to ensure clarity and ease of use for frontend developers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How did you agile in your team? Typical Day?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We follow the Agile Scrum framework, conducting regular meetings such as daily stand-ups, spring planning, sprint reviews, and retrospectives. With these practices ensured continuous improvement and allowed us to quickly adapt to any change on the business requirement.&lt;/li&gt;
+&lt;li&gt;For each of typical day, the scrum master will hold an stand-up meeting in the morning about 15 minutes to discuss what we have done yesterday and what we should do in the current day. Get task from Jira System, and work on it then update the Jira system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What is the size of team? BA, DBA, QA, TL(team lead)?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Our team has 25 members.
+&lt;ul&gt;
+&lt;li&gt;1 Product Manager + Scrum Master&lt;/li&gt;
+&lt;li&gt;1 BA&lt;/li&gt;
+&lt;li&gt;1 Project Manger + BE TL&lt;/li&gt;
+&lt;li&gt;BE 1 TL + 7 Dev&lt;/li&gt;
+&lt;li&gt;FE 1 TL + 5 Dev&lt;/li&gt;
+&lt;li&gt;QA 1 TL + 4 QA&lt;/li&gt;
+&lt;li&gt;DBA 2 DBA&lt;/li&gt;
+&lt;li&gt;DevOps 2 DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;One Business Analyst who gathers requirements from stakeholders and ensures they are clearly communicated to the team.&lt;/li&gt;
+&lt;li&gt;One Database Administrator who manages the database system.&lt;/li&gt;
+&lt;li&gt;Two Quality Assurance Engineers who are responsible for testing.&lt;/li&gt;
+&lt;li&gt;One Team Lead conducts code review, provides technical guidance, mentors team members, and coordinates with other teams.&lt;/li&gt;
+&lt;li&gt;The core of our team has 7 Developers who write and maintain the code, implement new features, and fix bugs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Most challenging/proud task.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One of the most challenging tasks I faced was during a project at eBay, where I was responsible for designing a real-time analytics dashboard for internal users. My role involved integrating various data sources, including legacy systems and modern cloud services, to provide comprehensive and timely insights.&lt;/li&gt;
+&lt;li&gt;The most significant challenge was integrating data from a legacy on-premise system with a modern cloud-based infrastructure using Kafka for real-time data streaming. The legacy system had limited documentation, and there were significant discrepancies in data formats and structures between the old and new systems.&lt;/li&gt;
+&lt;li&gt;To tackle this challenge, I started by thoroughly analyzing the legacy system’s data formats and structures. I collaborated with the team members who had experience with the legacy system to understand its intricacies better. I then designed a series of data transformation pipelines using Apache Kafka and Spring Boot to process and normalize the data in real-time.&lt;/li&gt;
+&lt;li&gt;As a result of these efforts, we successfully integrated the legacy system with our modern cloud infrastructure. The real-time analytics dashboard was able to display up-to-date information with minimal latency, significantly improving the decision-making process for internal users. The project was delivered on time and received positive feedback for its accuracy and reliability. And it&amp;rsquo;s under maintenance right now.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What is the Deployment process? How do you release? How many environment do you have?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Environments:
+&lt;ul&gt;
+&lt;li&gt;Development Environment:
+&lt;ul&gt;
+&lt;li&gt;Purpose: Used by developers to build and test new features and bug fixes.&lt;/li&gt;
+&lt;li&gt;Tools: Local development environments, Docker containers, and possibly a shared development server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Staging Environment:
+&lt;ul&gt;
+&lt;li&gt;Purpose: Acts as a pre-production environment to test the integration of new features and ensure they work correctly before going live. It mirrors the production environment closely.&lt;/li&gt;
+&lt;li&gt;Tools: AWS EC2 instances, Kubernetes (EKS), RDS, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Production Environment:
+&lt;ul&gt;
+&lt;li&gt;Purpose: The live environment where the application is available to internal users.&lt;/li&gt;
+&lt;li&gt;Tools: AWS EC2 instances, RDS, ElastiCache, MSK, CloudFront, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Deployment Process:
+&lt;ol&gt;
+&lt;li&gt;Code Commit and Version Control:
+&lt;ul&gt;
+&lt;li&gt;Git: Developers commit their code changes to a shared repository using Git.&lt;/li&gt;
+&lt;li&gt;Branching Strategy: Utilize a branching strategy like Gitflow to manage feature development, releases, and hotfixes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Continuous Integration (CI):
+&lt;ul&gt;
+&lt;li&gt;Jenkins Pipeline:
+&lt;ul&gt;
+&lt;li&gt;Triggers: The CI pipeline is triggered automatically upon code commit or pull request.&lt;/li&gt;
+&lt;li&gt;Steps:
+&lt;ul&gt;
+&lt;li&gt;Build: Compile the code and resolve dependencies.&lt;/li&gt;
+&lt;li&gt;Unit Tests: Run unit tests using JUnit to ensure code quality and functionality.&lt;/li&gt;
+&lt;li&gt;Static Code Analysis: Use SonarQube to analyze code quality and identify potential issues.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Artifact Storage:
+&lt;ul&gt;
+&lt;li&gt;Docker Hub/Amazon ECR: Build Docker images and store them in a container registry like Docker Hub or Amazon Elastic Container Registry (ECR).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Continuous Deployment (CD):
+&lt;ul&gt;
+&lt;li&gt;Jenkins/CD Pipeline:
+&lt;ul&gt;
+&lt;li&gt;Triggers: The CD pipeline is triggered upon successful completion of the CI pipeline.&lt;/li&gt;
+&lt;li&gt;Steps:
+&lt;ul&gt;
+&lt;li&gt;Deploy to Development:
+&lt;ul&gt;
+&lt;li&gt;Docker Compose: Use Docker Compose to deploy the application in the development environment.&lt;/li&gt;
+&lt;li&gt;Automated Tests: Run integration tests and functional tests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Deploy to Staging:
+&lt;ul&gt;
+&lt;li&gt;Kubernetes: Use Helm charts to deploy Docker containers to the Kubernetes cluster in the staging environment.&lt;/li&gt;
+&lt;li&gt;Manual Testing: Perform manual testing and user acceptance testing (UAT).&lt;/li&gt;
+&lt;li&gt;Load Testing: Conduct load and performance testing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Approval Process: Obtain approval from QA and stakeholders before deploying to production.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Release to Production:
+&lt;ul&gt;
+&lt;li&gt;Blue-Green Deployment/Canary Release:
+&lt;ul&gt;
+&lt;li&gt;Blue-Green Deployment: Deploy the new version of the application in parallel with the old version, then switch traffic to the new version once it&amp;rsquo;s verified to be stable.&lt;/li&gt;
+&lt;li&gt;Canary Release: Gradually roll out the new version to a small subset of users before fully deploying it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes: Use Helm charts to deploy Docker containers to the Kubernetes cluster in the production environment.&lt;/li&gt;
+&lt;li&gt;Post-Deployment Monitoring: Monitor application performance and logs using AWS CloudWatch and Prometheus to ensure the new release is functioning as expected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Rollback Strategy:
+&lt;ul&gt;
+&lt;li&gt;Automated Rollback: Implement automated rollback mechanisms in the Jenkins pipeline to revert to the previous stable version in case of issues.&lt;/li&gt;
+&lt;li&gt;Manual Rollback: Have procedures in place for manual rollback if automated rollback is not feasible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do you have front-end experience?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Yes, I do have front-end experience. With small part of time I would do DOM manipulation with vanilla Javascript or with jQuery. Most of time I just use Angular framework. Over the course of my career, I have worked on various projects where I was responsible for designing and implementing user interfaces that are not only visually appealing but also highly functional and responsive.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do you know Cloud/AWS? Where/what do you use?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I am AWS certified solution architect.&lt;/li&gt;
+&lt;li&gt;I also have hands-on experience in AWS provisioning for my previous projects including EC2, S3, RDS, SNS, SQS, etc.&lt;/li&gt;
+&lt;li&gt;For example, in my the most recent project at eBay which is Data Analytics Dashboard.
+&lt;ul&gt;
+&lt;li&gt;I use EC2 to host microservices I built.&lt;/li&gt;
+&lt;li&gt;I also use Amazon RDS to host Oracle database.&lt;/li&gt;
+&lt;li&gt;And MSK(Managed Kafka) service for real-time data streaming. And so on.
+&lt;ul&gt;
+&lt;li&gt;Set up VPCs to create isolated network environments, configured subnets, route tables, and NAT gateways.&lt;/li&gt;
+&lt;li&gt;Used S3 for storing and retrieving large datasets, including log files and user-generated content. Configured bucket policies and lifecycle rules for data management.&lt;/li&gt;
+&lt;li&gt;Configured CloudWatch for monitoring application performance, setting up alarms, and logging. Integrated CloudWatch with Prometheus for enhanced monitoring.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Normal&lt;span class=&#34;absolute -mt-20&#34; id=&#34;normal&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#normal&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;What&amp;rsquo;s your strong/weak point?&lt;/li&gt;
-&lt;li&gt;Version control. How did you use it? SVN? GIT? Branching, CheckIn-CheckOut.&lt;/li&gt;
-&lt;li&gt;Did you do production support.&lt;/li&gt;
-&lt;li&gt;What will you do if you don&amp;rsquo;t like the design from other team member? Conflict? Which project is your favorite?&lt;/li&gt;
-&lt;li&gt;How did you use spring mvc/ws/hibernate/transaction/all technologies in your resume in detail with examples of your project&lt;/li&gt;
-&lt;li&gt;How many tables you worked on, how much traffic, how many users/clients&lt;/li&gt;
-&lt;li&gt;How did you use JIRA/jenkins?&lt;/li&gt;
-&lt;li&gt;Do you write document? What kind of document? Swagger?&lt;/li&gt;
-&lt;li&gt;What&amp;rsquo;s the name of your manager/team lead/architect?&lt;/li&gt;
-&lt;li&gt;Where is the project located?&lt;/li&gt;
-&lt;li&gt;How did you do unit testing?&lt;/li&gt;
-&lt;li&gt;How do you handle exception? How do you log? Any tools used?&lt;/li&gt;
-&lt;li&gt;Do you know any scripting language? Where do you use scripting?&lt;/li&gt;
-&lt;li&gt;Given a task/story, what&amp;rsquo;s the steps you take to complete it? What if there are road-blockers?&lt;/li&gt;
-&lt;li&gt;What will you do if you cannot finish a task on time?&lt;/li&gt;
-&lt;li&gt;What&amp;rsquo;s your next 5 years plan?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s your strong/weak point?
+&lt;ul&gt;
+&lt;li&gt;Strong point: I am very strict with my time management. For instance, I like to set reasonable deadline for each task. The deadline I set can give me a sense of urgency. And I believe that a sense of urgency makes me more efficient.&lt;/li&gt;
+&lt;li&gt;Week point: I will get nervous if I have to give a speak in a big meeting or conference in front of a lot of people.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Version control. How did you use it? SVN? GIT? Branching, CheckIn-CheckOut.
+&lt;ul&gt;
+&lt;li&gt;In my projects, I&amp;rsquo;ve primarily used Git for version control. Our team followed a branching strategy similar to Gitflow. We had separate branches for feature development, bug fixes, and releases. Typically, we would:
+&lt;ul&gt;
+&lt;li&gt;Branching: Create feature branches from the develop branch.&lt;/li&gt;
+&lt;li&gt;CheckIn-CheckOut: Regularly commit changes locally and push them to the remote repository. We also performed code reviews using pull requests before merging changes back into the develop branch.&lt;/li&gt;
+&lt;li&gt;Merging: Once features were tested, they were merged into the develop branch, and periodically we would merge develop into main for a release.&lt;/li&gt;
+&lt;li&gt;SVN Experience: Although I primarily used Git, I have experience with SVN from earlier projects where we used a centralized approach to version control, focusing on check-in/check-out mechanisms and resolving conflicts during updates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Did you do production support.
+&lt;ul&gt;
+&lt;li&gt;Yes, I have been involved in production support. My responsibilities included monitoring application performance, handling incidents, debugging production issues, and ensuring high availability. We used tools like AWS CloudWatch and Prometheus for monitoring and alerting, and I was part of the on-call rotation to address critical issues promptly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What will you do if you don&amp;rsquo;t like the design from other team member? Conflict? Which project is your favorite?
+&lt;ul&gt;
+&lt;li&gt;If I don&amp;rsquo;t agree with a design from a team member, I would:
+&lt;ul&gt;
+&lt;li&gt;Discuss: Arrange a meeting to discuss the design and understand the reasoning behind their choices.&lt;/li&gt;
+&lt;li&gt;Collaborate: Provide constructive feedback and suggest alternatives while keeping an open mind.&lt;/li&gt;
+&lt;li&gt;Consensus: Aim to reach a consensus that benefits the project as a whole. If needed, involve a neutral third party, like a team lead or architect, to mediate.&lt;/li&gt;
+&lt;li&gt;Favorite Project: My favorite project was the Real-Time User Activity Dashboard at eBay. It was complex, involved cutting-edge technology, and had a significant impact on the business.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How did you use spring mvc/ws/hibernate/transaction/all technologies in your resume in detail with examples of your project
+&lt;ul&gt;
+&lt;li&gt;Spring MVC: Used for building RESTful APIs to serve the real-time analytics data to the frontend.&lt;/li&gt;
+&lt;li&gt;Spring WS: Developed SOAP-based web services for internal communication between legacy systems and new microservices.&lt;/li&gt;
+&lt;li&gt;Hibernate: Utilized for ORM to map Java objects to database tables and manage CRUD operations efficiently.&lt;/li&gt;
+&lt;li&gt;Transactions: Managed transactions using Spring&amp;rsquo;s @Transactional annotation to ensure data integrity during complex operations.&lt;/li&gt;
+&lt;li&gt;Example: &amp;ldquo;In the eBay project, I used Spring MVC to create endpoints for the analytics dashboard. Spring WS facilitated integration with legacy systems, enabling seamless data exchange. Hibernate managed data persistence in PostgreSQL, and Spring’s transaction management ensured data consistency during multi-step operations, like processing and updating user activity logs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How many tables you worked on, how much traffic, how many users/clients
+&lt;ul&gt;
+&lt;li&gt;In the eBay Real-Time User Activity Dashboard project:
+&lt;ul&gt;
+&lt;li&gt;Tables: Worked on around 50 tables, including complex joins and indexing strategies for performance.&lt;/li&gt;
+&lt;li&gt;Traffic: Handled data streams of several thousand events per second using Kafka.&lt;/li&gt;
+&lt;li&gt;Users: Supported hundreds of internal users, including analysts and executives, who accessed the dashboard for insights.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How did you use JIRA/jenkins?
+&lt;ul&gt;
+&lt;li&gt;JIRA: Used for task management, sprint planning, and tracking progress. Created user stories, logged bugs, and followed Agile methodologies.&lt;/li&gt;
+&lt;li&gt;Jenkins: Set up CI/CD pipelines to automate builds, run tests, and deploy applications. Configured jobs for different environments and integrated with GitHub for automatic triggers on code commits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Do you write document? What kind of document? Swagger?
+&lt;ul&gt;
+&lt;li&gt;Yes, I write various types of documentation:
+&lt;ul&gt;
+&lt;li&gt;API Documentation: Used Swagger to document RESTful APIs, making it easy for frontend developers to understand and consume the services.&lt;/li&gt;
+&lt;li&gt;Technical Documentation: Detailed system architecture, data flow diagrams, and design decisions.&lt;/li&gt;
+&lt;li&gt;User Guides: Instructions for internal users on how to use the analytics dashboard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the name of your manager/team lead/architect?
+&lt;ul&gt;
+&lt;li&gt;My project manager was [Josh Lee]. The Backend team lead is [Agrima Jindal], she also worked as an architect.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Where is the project located?
+&lt;ul&gt;
+&lt;li&gt;The project was developed and deployed within eBay&amp;rsquo;s internal infrastructure, hosted on AWS cloud services. Our development team was based in [Location, e.g., San Jose, California].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How did you do unit testing?
+&lt;ul&gt;
+&lt;li&gt;I used JUnit for writing unit tests. Each method was tested independently, ensuring they performed as expected. Mocking frameworks like Mockito were used to simulate dependencies. We aimed for high code coverage to catch potential bugs early.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How do you handle exception? How do you log? Any tools used?
+&lt;ul&gt;
+&lt;li&gt;Exception Handling: Implemented centralized exception handling using Spring&amp;rsquo;s @ControllerAdvice and @ExceptionHandler. Custom exceptions were created for specific error scenarios.&lt;/li&gt;
+&lt;li&gt;Logging: Used SLF4J with Logback for logging. Logs were structured and included context to aid debugging. Tools like ELK Stack (Elasticsearch, Logstash, Kibana) were used for log aggregation and visualization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Do you know any scripting language? Where do you use scripting?
+&lt;ul&gt;
+&lt;li&gt;Yes, I am proficient in Python and Bash scripting. I used:
+&lt;ul&gt;
+&lt;li&gt;Python: For data analysis, automation tasks, and creating custom scripts for data processing.&lt;/li&gt;
+&lt;li&gt;Bash: For writing deployment scripts, automating server setup, and managing cron jobs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Given a task/story, what&amp;rsquo;s the steps you take to complete it? What if there are road-blockers?
+&lt;ul&gt;
+&lt;li&gt;Understanding: Thoroughly read the task/story and clarify any ambiguities with stakeholders.&lt;/li&gt;
+&lt;li&gt;Planning: Break down the task into smaller, manageable sub-tasks.&lt;/li&gt;
+&lt;li&gt;Execution: Start with development, write tests, and commit changes.&lt;/li&gt;
+&lt;li&gt;Testing: Run unit and integration tests to ensure functionality.&lt;/li&gt;
+&lt;li&gt;Review: Submit the code for peer review and make necessary adjustments.&lt;/li&gt;
+&lt;li&gt;Road-blockers: Identify the issue, research possible solutions, seek help from team members or stakeholders, and escalate to the team lead if necessary.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What will you do if you cannot finish a task on time?
+&lt;ul&gt;
+&lt;li&gt;If I cannot finish a task on time, I would:
+&lt;ul&gt;
+&lt;li&gt;Communicate: Inform my team lead and stakeholders about the delay as soon as possible.&lt;/li&gt;
+&lt;li&gt;Assess: Analyze the reasons for the delay and identify any blockers.&lt;/li&gt;
+&lt;li&gt;Plan: Create a revised plan with a new timeline and any additional resources needed.&lt;/li&gt;
+&lt;li&gt;Prioritize: Focus on critical aspects and defer non-essential parts if necessary.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s your next 5 years plan?
+&lt;ul&gt;
+&lt;li&gt;In the next 5 years, I aim to:
+&lt;ul&gt;
+&lt;li&gt;Skill Development: Continue enhancing my technical skills, particularly in cloud computing and AI/ML.&lt;/li&gt;
+&lt;li&gt;Leadership: Transition into a technical leadership role where I can mentor junior developers and lead larger projects.&lt;/li&gt;
+&lt;li&gt;Innovation: Contribute to innovative projects that drive business value and leverage emerging technologies.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;What do you know about our company? Do some research before go to a client interview.&lt;/li&gt;
-&lt;li&gt;Why are you looking for a new project?&lt;/li&gt;
+&lt;li&gt;Why are you looking for a new project?
+&lt;ul&gt;
+&lt;li&gt;I seek new challenges and opportunities to grow my skills in different domains.&lt;/li&gt;
+&lt;li&gt;I also want to work on projects that have a significant impact and align with my passion for technology and innovation.&lt;/li&gt;
+&lt;li&gt;I am also eager to collaborate with new teams and bring fresh perspectives to complex problems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Questions to ask at the end of an interview&lt;span class=&#34;absolute -mt-20&#34; id=&#34;questions-to-ask-at-the-end-of-an-interview&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#questions-to-ask-at-the-end-of-an-interview&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -179,6 +1079,365 @@
 &lt;li&gt;Have I answered all the questions that you have for me?&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Do you have any hesitation about my qualifications?&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Is there anything I can clarify for you?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Projects V3</title>
+      <link>https://yixianwang.github.io/notes/projects-v3/</link>
+      <pubDate>Wed, 19 Jun 2024 22:42:17 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/projects-v3/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Descriptions (3-5 sentences, 30 sec, industry, admin/internal/external/hybrid)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;descriptions-3-5-sentences-30-sec-industry-admininternalexternalhybrid&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#descriptions-3-5-sentences-30-sec-industry-admininternalexternalhybrid&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s an E-commerce web app where users can browse products, add items to a cart, place orders, and make payments.&lt;/li&gt;
+&lt;li&gt;It supports Role Based Access Control(RBAC) for both internal users to update products price or quantity and external users to browse, search and buy products.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Data Flow (frontend data, what kind of payload, what kind of format, design data flow: FE-&amp;gt;BE-&amp;gt;DB, then we have architecture, then in the middle: add buffering or caching, just add different tools to handle different problem, i.e. failure tolerance, scalability, &amp;hellip;.)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data-flow-frontend-data-what-kind-of-payload-what-kind-of-format-design-data-flow-fe-be-db-then-we-have-architecture-then-in-the-middle-add-buffering-or-caching-just-add-different-tools-to-handle-different-problem-ie-failure-tolerance-scalability-&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#data-flow-frontend-data-what-kind-of-payload-what-kind-of-format-design-data-flow-fe-be-db-then-we-have-architecture-then-in-the-middle-add-buffering-or-caching-just-add-different-tools-to-handle-different-problem-ie-failure-tolerance-scalability-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DB&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Internal User Table (userID, name)&lt;/li&gt;
+&lt;li&gt;External User Table (userID, name)&lt;/li&gt;
+&lt;li&gt;Product Inventory Table (productUID, description, price, quantity)&lt;/li&gt;
+&lt;li&gt;Cart Table (userID, productUID, price, quantity)&lt;/li&gt;
+&lt;li&gt;Order Table (orderID, userID, productID, quantity, price, amount)&lt;/li&gt;
+&lt;li&gt;Credit card Table (userID, card number, billing address, expiration date, cvv)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(internal): add product image, product descriptions, price and quantity.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(out): product info (image + text + numbers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BE(internal): add product image to MongoDB, add product meta data into PostgresSQL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(internal): fetch inventory data and manage inventories(delete or update product)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(in): List of products (list of image + text + numbers)&lt;/li&gt;
+&lt;li&gt;data(out): productUID (numbers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(external): fetch data from the backend&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(in): List of (image + text + numbers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(external): add products into cart, remove products from cart, update product quantity&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(out): cart table (userID, productUID)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(external): make order, make payment, receive notification about the order status&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(out):
+&lt;ul&gt;
+&lt;li&gt;List of orderItem: product idx, price, quantity(numbers)&lt;/li&gt;
+&lt;li&gt;credit card info &amp;amp;&amp;amp; save credit card info?(numbers, date, text, boolean)&lt;/li&gt;
+&lt;li&gt;addresses(text)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;data(in):
+&lt;ul&gt;
+&lt;li&gt;order status: successful or failed (numbers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BE(external):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(in):
+&lt;ul&gt;
+&lt;li&gt;List of orderItem: product idx, price, quantity(numbers)&lt;/li&gt;
+&lt;li&gt;credit card info(numbers, date, text)&lt;/li&gt;
+&lt;li&gt;addresses(text)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FE(external):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(in &amp;amp;&amp;amp; out):
+&lt;ul&gt;
+&lt;li&gt;order status (number)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BE(external):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;data(int &amp;amp;&amp;amp; out):
+&lt;ul&gt;
+&lt;li&gt;order status (number)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tech stack(???pros &amp;amp; cons)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tech-stackpros--cons&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#tech-stackpros--cons&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Frontend&lt;span class=&#34;absolute -mt-20&#34; id=&#34;frontend&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#frontend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Angular 14.2.5&lt;/li&gt;
+&lt;li&gt;Typescript 4.7 for optimal compatibility and features&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Backend&lt;span class=&#34;absolute -mt-20&#34; id=&#34;backend&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#backend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Java 17&lt;/li&gt;
+&lt;li&gt;SpringBoot 2.7.5&lt;/li&gt;
+&lt;li&gt;Spring Security 5.7.5&lt;/li&gt;
+&lt;li&gt;Spring Data JPA 2.7.5&lt;/li&gt;
+&lt;li&gt;Spring Data MongoDB 3.4.5&lt;/li&gt;
+&lt;li&gt;Spring Data Redis 2.7.5&lt;/li&gt;
+&lt;li&gt;Kafka
+&lt;ul&gt;
+&lt;li&gt;Spring Kafka 2.8.8&lt;/li&gt;
+&lt;li&gt;Kafka Server 2.8.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;PostgreSQL
+&lt;ul&gt;
+&lt;li&gt;JDBC Driver: 42.4.2&lt;/li&gt;
+&lt;li&gt;Database Server 14.5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MongoDB
+&lt;ul&gt;
+&lt;li&gt;Java Driver 4.7.1&lt;/li&gt;
+&lt;li&gt;Database Server 5.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Redis
+&lt;ul&gt;
+&lt;li&gt;Spring Data Redis 2.7.5&lt;/li&gt;
+&lt;li&gt;Redis Server 6.2.6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Swagger
+&lt;ul&gt;
+&lt;li&gt;Springfox Swagger 3.0.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;CI/CD and Testing Tools&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cicd-and-testing-tools&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cicd-and-testing-tools&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Jenkins 2.346.1 (For build pipeline)&lt;/li&gt;
+&lt;li&gt;SonarQube (For code quality analysis)
+&lt;ul&gt;
+&lt;li&gt;Server Version 9.4&lt;/li&gt;
+&lt;li&gt;Scanner Version 4.6.2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Docker 20.10.7 (For building container images)&lt;/li&gt;
+&lt;li&gt;Kubernetes 1.24 (For deploying and managing microservices)&lt;/li&gt;
+&lt;li&gt;JUnit 5.8.2&lt;/li&gt;
+&lt;li&gt;Selenium
+&lt;ul&gt;
+&lt;li&gt;Selenium WebDriver 4.4.0&lt;/li&gt;
+&lt;li&gt;Browser Driver(e.g. ChromeDriver) 104.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Cloud and Deployment&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloud-and-deployment&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cloud-and-deployment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;AWS (ECS, EKS)&lt;/li&gt;
+&lt;li&gt;Docker 20.10.7 (For containerization)&lt;/li&gt;
+&lt;li&gt;Kubernetes 1.24 (For orchestration)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Additional Tools and Libraries&lt;span class=&#34;absolute -mt-20&#34; id=&#34;additional-tools-and-libraries&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#additional-tools-and-libraries&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;JWT, Library &lt;code&gt;jjwt&lt;/code&gt; 0.11.5&lt;/li&gt;
+&lt;li&gt;BCrypt, Library &lt;code&gt;spring-security-crypto&lt;/code&gt; 5.7.5&lt;/li&gt;
+&lt;li&gt;Lombok, 1.18.22&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;On-premise or Cloud&lt;span class=&#34;absolute -mt-20&#34; id=&#34;on-premise-or-cloud&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#on-premise-or-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;AWS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;??? Teams ( people we worked with, Agile style/how big the team/what&amp;rsquo;s my role/different scenario we need to talk to different people, who I talked with/ who I suppose to talk with/&amp;hellip; )&lt;span class=&#34;absolute -mt-20&#34; id=&#34;-teams--people-we-worked-with-agile-stylehow-big-the-teamwhats-my-roledifferent-scenario-we-need-to-talk-to-different-people-who-i-talked-with-who-i-suppose-to-talk-with-&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-teams--people-we-worked-with-agile-stylehow-big-the-teamwhats-my-roledifferent-scenario-we-need-to-talk-to-different-people-who-i-talked-with-who-i-suppose-to-talk-with-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Distributed&lt;span class=&#34;absolute -mt-20&#34; id=&#34;distributed&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#distributed&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;distributed&amp;rdquo; refers to the architectural approach of breaking down the application into smaller, independent services that communicate with each other over a network.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Pros&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pros&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pros&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Scalability: Distributed systems can scale horizontally by adding more instances of individual services rather than scaling up a monolithic application.&lt;/li&gt;
+&lt;li&gt;Fault Isolation: Failures in one microservice are isolated, preventing cascading failures across the entire system.&lt;/li&gt;
+&lt;li&gt;Flexibility: Teams can choose the most appropriate technology stack for each microservice, optimizing performance and developer productivity.&lt;/li&gt;
+&lt;li&gt;Improved Maintainability: Smaller, focused codebases are easier to maintain and update compared to a large monolithic application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Cons&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cons&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cons&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Increased Complexity: Managing multiple microservices introduces complexity in terms of deployment, monitoring, and debugging.&lt;/li&gt;
+&lt;li&gt;Consistency: Ensuring data consistency and transaction management across distributed services can be challenging.&lt;/li&gt;
+&lt;li&gt;Network Overhead: Communication between microservices over a network can introduce latency and require robust error handling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Example scenario in this project&lt;span class=&#34;absolute -mt-20&#34; id=&#34;example-scenario-in-this-project&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#example-scenario-in-this-project&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;The User Service handles user authentication and profile management.&lt;/li&gt;
+&lt;li&gt;The Product Catalog Service manages product information and inventory.&lt;/li&gt;
+&lt;li&gt;The Order Service processes customer orders and manages order fulfillment.&lt;/li&gt;
+&lt;li&gt;The Payment Service handles payment processing and integrates with payment gateways.&lt;/li&gt;
+&lt;li&gt;The Notification Service sends notifications to users about order status updates.&lt;/li&gt;
+&lt;li&gt;Each of these services operates independently but collaborates through well-defined APIs, enabling the platform to deliver a seamless e-commerce experience while benefiting from the scalability and resilience of a distributed architecture.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Overall, in this project, &amp;ldquo;distributed&amp;rdquo; signifies the adoption of a microservices architecture to achieve modularity, scalability, and maintainability in building and operating the e-commerce platform.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Project: Distributed E-commerce Platform&lt;span class=&#34;absolute -mt-20&#34; id=&#34;project-distributed-e-commerce-platform&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#project-distributed-e-commerce-platform&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Project Overview:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;project-overview&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#project-overview&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Develop a distributed e-commerce platform where users can browse products, add items to a cart, place orders, and make payments. The platform should also include user authentication and authorization, real-time updates, and analytics.&lt;/p&gt;
+&lt;h2&gt;Architecture and Technologies:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;architecture-and-technologies&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#architecture-and-technologies&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Microservices Architecture: Use Spring Boot to create independent services for different functionalities.&lt;/li&gt;
+&lt;li&gt;Message Queuing: Use Kafka for communication between services.&lt;/li&gt;
+&lt;li&gt;Caching: Use Redis for caching frequently accessed data.&lt;/li&gt;
+&lt;li&gt;Cloud Deployment: Deploy services on AWS.&lt;/li&gt;
+&lt;li&gt;Front-End: Develop a user interface using Angular.&lt;/li&gt;
+&lt;li&gt;Data Persistence: Use PostgreSQL for relational data and MongoDB for NoSQL data.&lt;/li&gt;
+&lt;li&gt;API Documentation: Use Swagger for API documentation.&lt;/li&gt;
+&lt;li&gt;Continuous Integration/Continuous Deployment (CI/CD): Use Jenkins for CI/CD pipeline.&lt;/li&gt;
+&lt;li&gt;Security: Implement security using Spring Security.&lt;/li&gt;
+&lt;li&gt;Testing: Write unit tests using JUnit, integrate SonarQube for code quality analysis, and use Selenium for end-to-end testing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Detailed Components:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;detailed-components&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#detailed-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;User Service:
+&lt;ul&gt;
+&lt;li&gt;Manages user registration, login, profile management.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, Spring Security, PostgreSQL, JWT for authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Product Service:
+&lt;ul&gt;
+&lt;li&gt;Manages product catalog, including CRUD operations for products.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, MongoDB, Swagger.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Order Service:
+&lt;ul&gt;
+&lt;li&gt;Manages orders, order history, and interactions with the payment service.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, PostgreSQL, Kafka.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cart Service:
+&lt;ul&gt;
+&lt;li&gt;Manages user cart operations.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, Redis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Payment Service:
+&lt;ul&gt;
+&lt;li&gt;Manages payment processing.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, external payment gateway integration (e.g., Stripe).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Notification Service:
+&lt;ul&gt;
+&lt;li&gt;Sends real-time notifications to users (e.g., order status updates).&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, Kafka.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Analytics Service:
+&lt;ul&gt;
+&lt;li&gt;Collects and analyzes data for business insights.&lt;/li&gt;
+&lt;li&gt;Technology: Spring Boot, MongoDB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Frontend Application:
+&lt;ul&gt;
+&lt;li&gt;User interface for the e-commerce platform.&lt;/li&gt;
+&lt;li&gt;Technology: Angular, integrating with various backend services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CI/CD Pipeline:
+&lt;ul&gt;
+&lt;li&gt;Automate testing, build, and deployment processes.&lt;/li&gt;
+&lt;li&gt;Technology: Jenkins, SonarQube, Docker for containerization, AWS for deployment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Testing:
+&lt;ul&gt;
+&lt;li&gt;Unit Testing: JUnit.&lt;/li&gt;
+&lt;li&gt;End-to-End Testing: Selenium.&lt;/li&gt;
+&lt;li&gt;Code Quality: SonarQube.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Example Workflow:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;example-workflow&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#example-workflow&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;User Registration and Authentication:
+&lt;ul&gt;
+&lt;li&gt;User signs up and logs in via the User Service.&lt;/li&gt;
+&lt;li&gt;JWT tokens are generated for authenticated sessions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Product Browsing:
+&lt;ul&gt;
+&lt;li&gt;User browses products through the Product Service.&lt;/li&gt;
+&lt;li&gt;Product data is cached using Redis for quick access.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Shopping Cart:
+&lt;ul&gt;
+&lt;li&gt;User adds products to the cart.&lt;/li&gt;
+&lt;li&gt;Cart Service manages the cart with Redis to ensure fast performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Order Placement:
+&lt;ul&gt;
+&lt;li&gt;User places an order, which triggers the Order Service.&lt;/li&gt;
+&lt;li&gt;Order details are stored in PostgreSQL, and the service sends a message via Kafka to the Payment Service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Payment Processing:
+&lt;ul&gt;
+&lt;li&gt;Payment Service processes the payment.&lt;/li&gt;
+&lt;li&gt;On successful payment, the Order Service updates the order status and sends a notification via Kafka.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Real-Time Notifications:
+&lt;ul&gt;
+&lt;li&gt;Notification Service sends real-time updates to the user about order status.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Analytics:
+&lt;ul&gt;
+&lt;li&gt;Analytics Service collects data from various services to generate business insights.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Deployment:&lt;span class=&#34;absolute -mt-20&#34; id=&#34;deployment&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#deployment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;AWS Infrastructure:
+&lt;ul&gt;
+&lt;li&gt;Use AWS EC2 for deploying microservices.&lt;/li&gt;
+&lt;li&gt;Use AWS RDS for PostgreSQL database.&lt;/li&gt;
+&lt;li&gt;Use AWS S3 for static content storage.&lt;/li&gt;
+&lt;li&gt;Use AWS Lambda for serverless computing where applicable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CI/CD with Jenkins:
+&lt;ul&gt;
+&lt;li&gt;Jenkins pipelines for automated testing, building, and deployment.&lt;/li&gt;
+&lt;li&gt;Integration with SonarQube for code quality analysis.&lt;/li&gt;
+&lt;li&gt;Docker for containerizing microservices.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -18569,550 +19828,6 @@ scp -i ~/.ssh/my-ssh-key -r LOCAL_FOLDER_PATH USERNAME@IP_ADDRESS:~&lt;/p&gt;
 &lt;h2&gt;Others&lt;span class=&#34;absolute -mt-20&#34; id=&#34;others&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#others&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;gcloud compute scp /Users/xxxxxxxxxx/Desktop/folders/model.py nlp-cpu:~/
 gcloud compute scp &amp;ndash;recurse [INSTANCE_NAME]:[REMOTE_DIR] [LOCAL_DIR]&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Hexo</title>
-      <link>https://yixianwang.github.io/notes/hexo/</link>
-      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/hexo/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;Doc&lt;span class=&#34;absolute -mt-20&#34; id=&#34;doc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#doc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hexo.io/docs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Doc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Restart hexo server, each time changed yml file&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;NEW BLOG PROJECT&lt;span class=&#34;absolute -mt-20&#34; id=&#34;new-blog-project&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#new-blog-project&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-0&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo init blog_project_name&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-0&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;POST&lt;span class=&#34;absolute -mt-20&#34; id=&#34;post&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#post&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;creating a post&lt;span class=&#34;absolute -mt-20&#34; id=&#34;creating-a-post&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#creating-a-post&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-1&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# under blog folder to create a new post with name a.md&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo new a&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-1&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;DRAFT&lt;span class=&#34;absolute -mt-20&#34; id=&#34;draft&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#draft&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;create a new draft&lt;span class=&#34;absolute -mt-20&#34; id=&#34;create-a-new-draft&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#create-a-new-draft&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo new draft b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-2&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;test draft&lt;span class=&#34;absolute -mt-20&#34; id=&#34;test-draft&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#test-draft&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-3&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo server --draft&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-3&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;publish the draft&lt;span class=&#34;absolute -mt-20&#34; id=&#34;publish-the-draft&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#publish-the-draft&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-4&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# move b from _drafts folder to _posts folder&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo publish b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-4&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;PAGE&lt;span class=&#34;absolute -mt-20&#34; id=&#34;page&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#page&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-5&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo new page c&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-5&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;to access the page c &amp;ldquo;http://localhost:4000/about/&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;SCAFFOLDS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;scaffolds&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#scaffolds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For handling default content&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;create a new file within scafoolds. e.g. giraffe.md&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-6&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: {{ title }} // title within curly brace here are just placeholder
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: {{ date }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layout: {{ layout }}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-6&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;create new post with template giraffe&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-7&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo new giraffe f&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-7&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Tags &amp;amp; Categories&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tags--categories&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#tags--categories&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Within &lt;code&gt;_posts&lt;/code&gt; folder &lt;code&gt;a.md&lt;/code&gt; file&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-8&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tags: [Tag1, Tag2, Tag3]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; [Cat1, Cat1.1]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; [Cat2]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; [Cat3]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-8&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Tag Plugins&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tag-plugins&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#tag-plugins&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Code Block&lt;span class=&#34;absolute -mt-20&#34; id=&#34;code-block&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#code-block&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-9&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{% codeblock lang:c++ %}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{% endcodeblock %}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-9&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Youtube&lt;span class=&#34;absolute -mt-20&#34; id=&#34;youtube&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#youtube&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-10&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{% youtube AnyYoutubeID %}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-10&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Asset folders&lt;span class=&#34;absolute -mt-20&#34; id=&#34;asset-folders&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#asset-folders&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;use hexo syntax for img: second priority&lt;span class=&#34;absolute -mt-20&#34; id=&#34;use-hexo-syntax-for-img-second-priority&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#use-hexo-syntax-for-img-second-priority&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;_config.yml&lt;/code&gt;
-&lt;code&gt;post_asset_folder: true&lt;/code&gt;
-Then next time we create new post with hexo command line, it will also create a asset folder &lt;code&gt;a&lt;/code&gt; along with &lt;code&gt;a.md&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Notice: jpg works, png not works&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-11&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# within a.md
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;{% asset_img testdel.jpg Image Title Here %}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{% asset_link testdel.jpg %}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{% asset_path testdel.jpg %}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-11&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;use markdown syntax for img: first priority&lt;span class=&#34;absolute -mt-20&#34; id=&#34;use-markdown-syntax-for-img-first-priority&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#use-markdown-syntax-for-img-first-priority&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-12&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# _config.yml&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;post_asset_folder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;marked&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;prependRoot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;postAsset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-12&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Notice: create an additional folder for reference and convinence&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-13&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;images&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;a/testdel.jpg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-13&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Official Theme&lt;span class=&#34;absolute -mt-20&#34; id=&#34;official-theme&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#official-theme&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Clone github to themes folder&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-14&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;theme&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;change the name here to theme-folder&amp;#39;s name&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-14&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Then restart hexo server&lt;/p&gt;
-&lt;h2&gt;Creating a theme&lt;span class=&#34;absolute -mt-20&#34; id=&#34;creating-a-theme&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#creating-a-theme&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;file &lt;code&gt;layout.ejs&lt;/code&gt; is the overview of the structure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;partial&lt;span class=&#34;absolute -mt-20&#34; id=&#34;partial&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#partial&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;partial can make process modular&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;create &lt;code&gt;partial&lt;/code&gt; folder, and a file &lt;code&gt;header.ejs&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-15&#34;&gt;# within layout.ejs
-# title is the parameter
-&amp;lt;body&amp;gt;
-  &amp;lt;%- parital(&amp;#39;partial/header&amp;#39;, {title: &amp;#39;red&amp;#39;}) %&amp;gt;
-&amp;lt;/body&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-15&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-16&#34;&gt;# within partial/header.ejs
-# to get the parameter
-&amp;lt;%= title %&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-16&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Variables&lt;span class=&#34;absolute -mt-20&#34; id=&#34;variables&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#variables&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://yixianwang.github.io/notes/hugo/</link>
-      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/hugo/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;Theme Doc - hextra&lt;span class=&#34;absolute -mt-20&#34; id=&#34;theme-doc---hextra&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#theme-doc---hextra&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://imfing.github.io/hextra/docs/getting-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hextra doc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Theme-hextra&lt;span class=&#34;absolute -mt-20&#34; id=&#34;theme-hextra&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#theme-hextra&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;git@github.com:imfing/hextra.git&#34; &gt;hextra&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-0&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# an easy way?&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo serve -D -t theme_name_here&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-0&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-1&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Change directory to the theme folder&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; hextra-starter-template
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Start the server&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod tidy
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server --logLevel debug --disableFastRender -p &lt;span class=&#34;m&#34;&gt;1313&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Update the theme&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod get -u
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod tidy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-1&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# start the server for draft&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-2&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Installing on mac&lt;span class=&#34;absolute -mt-20&#34; id=&#34;installing-on-mac&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#installing-on-mac&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-3&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install hogo&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-3&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Creating&lt;span class=&#34;absolute -mt-20&#34; id=&#34;creating&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#creating&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-4&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new site first_site&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-4&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Installing &amp;amp; using themes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;installing--using-themes&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#installing--using-themes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-5&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# within config.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;theme&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;the name of theme downloaded&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-5&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;content&lt;span class=&#34;absolute -mt-20&#34; id=&#34;content&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#content&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-6&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new a.md&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-6&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;List pages: if the folder is not the first folder level under content&lt;span class=&#34;absolute -mt-20&#34; id=&#34;list-pages-if-the-folder-is-not-the-first-folder-level-under-content&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#list-pages-if-the-folder-is-not-the-first-folder-level-under-content&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-7&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# it must to be _index.md here&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new dir1/dir2/_index.md&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-7&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;archetypes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;archetypes&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#archetypes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;find if there exist the folder name within &lt;code&gt;archetypes&lt;/code&gt; that correspond with the folder name within &lt;code&gt;content&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;yes: use the specific markdown file; no: use the &lt;code&gt;default.md&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Shortcodes&lt;span class=&#34;absolute -mt-20&#34; id=&#34;shortcodes&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#shortcodes&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-8&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# /{/{/&amp;lt; shortcode-name param1 /&amp;gt;/}/}
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# e.g.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;# /{/{/&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;youtube&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;AnyYoutubeID&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;/}/}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-8&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Tags &amp;amp; Categories&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tags--categories&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#tags--categories&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-9&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tags: [&amp;#34;tag1&amp;#34;, &amp;#34;tag2&amp;#34;, &amp;#34;tag3&amp;#34;]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories: [&amp;#34;cat1&amp;#34;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-9&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Creating taxonomy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;creating-taxonomy&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#creating-taxonomy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Notice: modify &lt;code&gt;themes/ga-hugo-theme/layouts/_default/list.html&lt;/code&gt; by adding a new line for that name &lt;code&gt;mood&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-10&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mood: [&amp;#34;happy&amp;#34;, &amp;#34;upset&amp;#34;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-10&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-11&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# hugo.toml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# even if tag and category are default, but we have to include them when we creating new taxonomies&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# after modifyint he toml file, restart the server&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;taxonomies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;tag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;category&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;categories&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;mood&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;moods&amp;#34;&lt;/span&gt; &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-11&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Setting up Github Page&lt;span class=&#34;absolute -mt-20&#34; id=&#34;setting-up-github-page&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#setting-up-github-page&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Cretea production repository&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cretea-production-repository&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cretea-production-repository&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;the repository&amp;rsquo;s name has to be username.github.io&lt;/li&gt;
-&lt;li&gt;it at least has one commit&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-12&#34;&gt;git clone git@github.com:yixianwang/yixianwang.github.io.git
-cd yixianwang.github.io
-git checkout -b main
-touch README.md
-git status
-git add .
-git commit -m &amp;#34;adding readme&amp;#34;
-git push origin main&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-12&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Add submodule&lt;span class=&#34;absolute -mt-20&#34; id=&#34;add-submodule&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#add-submodule&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;Head to yixian-site folder&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-13&#34;&gt;git submodule add -b main git@github.com:yixianwang/yixianwang.github.io.git public&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-13&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Deploy the site&lt;span class=&#34;absolute -mt-20&#34; id=&#34;deploy-the-site&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#deploy-the-site&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Generate public folder with static website&lt;span class=&#34;absolute -mt-20&#34; id=&#34;generate-public-folder-with-static-website&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#generate-public-folder-with-static-website&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-14&#34;&gt;hugo # without draft
-hugo -D # with draft
-# or
-# hugo -t theme_name&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-14&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Push&lt;span class=&#34;absolute -mt-20&#34; id=&#34;push&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#push&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;Head to public folder&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-15&#34;&gt;git add .
-git commit -m &amp;#34;update&amp;#34;
-git push origin main&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-15&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
 
       </description>
     </item>
