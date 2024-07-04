@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Antra Training Concepts Cheat Sheet">
 <meta itemprop="description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."><meta itemprop="datePublished" content="2024-04-30T18:58:08-04:00" />
 <meta itemprop="dateModified" content="2024-04-30T18:58:08-04:00" />
-<meta itemprop="wordCount" content="9910">
+<meta itemprop="wordCount" content="9931">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Antra Training Concepts Cheat Sheet"/>
 <meta name="twitter:description" content="QuickNotes singleton vs immutable class functional interface with static Core Java interview questions Java is passed by Value or Reference? In Java, there are two kinds of data type, Primitive data types and Non-primitive data types. For primitive types, they are built-in data types in Java including int/short/long/float/double/char/byte/boolean. They are all passed by value. For non-primitive types, they are also passed by value, the value here is actually the memory address of the object."/>
@@ -284,6 +284,22 @@
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/bugs/"
+    
+  >Bugs
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/k8s/"
+    
+  >K8s
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -1353,6 +1369,20 @@
     href="/notes/latex/"
     
   >Latex
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/bugs/"
+    
+  >Bugs
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/k8s/"
+    
+  >K8s
     </a></li>
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -3395,7 +3425,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <h2>HTTP methods<span class="absolute -mt-20" id="http-methods"></span>
     <a href="#http-methods" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>Safe: the http method does not change the state of the server, does not changing on the server side.</li>
-<li>Indempotent: two or more same requests are made to backend, and it will have the same effect.</li>
+<li>Idempotent: two or more same requests are made to backend, and it will have the same effect.</li>
 <li>Cacheable: the browser caches some data for some http methods by default. (we can setup with <code>cache-control</code>)</li>
 </ul>
 <table>
@@ -3403,7 +3433,7 @@ static: inner class, method, variable, static block</code></pre><div class="opac
 <tr>
 <th>Methods</th>
 <th>Safe</th>
-<th>Indempotent</th>
+<th>Idempotent</th>
 <th>Cacheable</th>
 <th>Description</th>
 </tr>
@@ -4634,11 +4664,11 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 </ul>
 <h4>Five Components<span class="absolute -mt-20" id="five-components"></span>
     <a href="#five-components" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
-<li>API Gateway</li>
-<li>Service Registry/Discovery</li>
-<li>Configuration Management</li>
-<li>Monitoring and Log Tracing</li>
+<li>API Gateway: Spring Gateway or Zuul(can also be used as LB)</li>
+<li>Service Registry/Discovery: Eureka</li>
 <li>Business Modules</li>
+<li>Monitoring and Log Tracing: log4j, backlog, splunk</li>
+<li>Configuration Management: nacos or Eureka(can also be an configuration server)</li>
 </ul>
 <h4>Spring Cloud<span class="absolute -mt-20" id="spring-cloud"></span>
     <a href="#spring-cloud" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
