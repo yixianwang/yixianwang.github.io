@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Java Last Minute">
 <meta itemprop="description" content="1D Array int[] r = new int[26]; // r.length; String[] r = {&#34;c1&#34;, &#34;c2&#34;, &#34;c3&#34;}; Arrays.fill(r, 0); 2D Array String[][] r = new String[3][3]; String[][] r = {{&#34;a&#34;, &#34;b&#34;}, {&#34;c&#34;, &#34;d&#34;}}; for (String[] row : r) { Arrays.fill(row, &#34;apple&#34;); // Fill each row with the string &#34;apple&#34; } Character Character.isLetterOrDigit(s.charAt(i)) // isWhitespace, isLetter, isDigit Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j)) String String name = &#34;Bro&#34;; // name.length(); char[] ch = str.toCharArray(); return new String(ch) // convert char array back to String substring(int beginIndex, int endIndex) String r = name."><meta itemprop="datePublished" content="2024-04-11T23:30:02-04:00" />
 <meta itemprop="dateModified" content="2024-04-11T23:30:02-04:00" />
-<meta itemprop="wordCount" content="2578">
+<meta itemprop="wordCount" content="2609">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java Last Minute"/>
 <meta name="twitter:description" content="1D Array int[] r = new int[26]; // r.length; String[] r = {&#34;c1&#34;, &#34;c2&#34;, &#34;c3&#34;}; Arrays.fill(r, 0); 2D Array String[][] r = new String[3][3]; String[][] r = {{&#34;a&#34;, &#34;b&#34;}, {&#34;c&#34;, &#34;d&#34;}}; for (String[] row : r) { Arrays.fill(row, &#34;apple&#34;); // Fill each row with the string &#34;apple&#34; } Character Character.isLetterOrDigit(s.charAt(i)) // isWhitespace, isLetter, isDigit Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j)) String String name = &#34;Bro&#34;; // name.length(); char[] ch = str.toCharArray(); return new String(ch) // convert char array back to String substring(int beginIndex, int endIndex) String r = name."/>
@@ -1789,7 +1789,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">substring</span><span class="o">(</span><span class="kt">int</span> <span class="n">beginIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">endIndex</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">r</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">trim</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">r</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="sc">&#39;o&#39;</span><span class="o">,</span> <span class="sc">&#39;a&#39;</span><span class="o">);</span>  <span class="c1">// return Bra
+</span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">r</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="sc">&#39;o&#39;</span><span class="o">,</span> <span class="sc">&#39;a&#39;</span><span class="o">);</span>  <span class="c1">// Replace all &#39;a&#39; to &#39;o&#39;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="kt">boolean</span> <span class="n">r</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;Bro&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="kt">boolean</span> <span class="n">r</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="s">&#34;bro&#34;</span><span class="o">);</span>
@@ -1816,10 +1816,13 @@
 </div>
 <h2>StringBuilder<span class="absolute -mt-20" id="stringbuilder"></span>
     <a href="#stringbuilder" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// sb.length();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">str</span><span class="o">);</span> <span class="c1">// append the string to string builder
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sb</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span> <span class="n">str</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">setCharAt</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="sc">&#39;z&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">idx</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">setCharAt</span><span class="o">(</span><span class="n">idx</span><span class="o">,</span> <span class="sc">&#39;z&#39;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span> <span class="c1">// convert string builder to string
 </span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
@@ -1877,7 +1880,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arrayDeque</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;&gt;();</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// better flexibility. internal data structure is double linked list, support null 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">linkedList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// dq.size();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="c1">// peekFirst() peekLast()
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">pf</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">peekFirst</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pl</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">peekLast</span><span class="o">();</span>
@@ -1888,7 +1892,12 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// removeFirst() removeLast()
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">dequeuedFromArrayDeque1</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">removeFirst</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">dequeuedFromArrayDeque2</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">dequeuedFromArrayDeque2</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">removeLast</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// pollFirst() pollLast()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Does not throw an exception if the deque is empty.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">dequeuedFromArrayDeque1</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">pollFirst</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">dequeuedFromArrayDeque2</span> <span class="o">=</span> <span class="n">arrayDeque</span><span class="o">.</span><span class="na">pollLast</span><span class="o">();</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
