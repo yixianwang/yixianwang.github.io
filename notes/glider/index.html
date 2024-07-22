@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Glider">
 <meta itemprop="description" content="String Segmentation class Outcome { public static String solve(String s, List&lt;String&gt; wordDict) { Set&lt;String&gt; hs = new HashSet&lt;&gt;(wordDict); boolean[] f = new boolean[s.length() &#43; 1]; f[0] = true; for (int i = 1; i &lt;= s.length(); i&#43;&#43;) { for (int j = 0; j &lt; i; j&#43;&#43;) { if (f[j] &amp;&amp; hs.contains(s.substring(j, i))) { f[i] = true; break; } } } return f[s.length()] ? &#34;true&#34; : &#34;false&#34;; //return type &#34;String&#34;. } } LRU class Outcome { private int capacity; LinkedHashMap&lt;Integer, Integer&gt; LRU = new LinkedHashMap&lt;&gt;(); public Outcome(int capacity) { this."><meta itemprop="datePublished" content="2024-07-22T12:03:13-04:00" />
 <meta itemprop="dateModified" content="2024-07-22T12:03:13-04:00" />
-<meta itemprop="wordCount" content="660">
+<meta itemprop="wordCount" content="580">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Glider"/>
 <meta name="twitter:description" content="String Segmentation class Outcome { public static String solve(String s, List&lt;String&gt; wordDict) { Set&lt;String&gt; hs = new HashSet&lt;&gt;(wordDict); boolean[] f = new boolean[s.length() &#43; 1]; f[0] = true; for (int i = 1; i &lt;= s.length(); i&#43;&#43;) { for (int j = 0; j &lt; i; j&#43;&#43;) { if (f[j] &amp;&amp; hs.contains(s.substring(j, i))) { f[i] = true; break; } } } return f[s.length()] ? &#34;true&#34; : &#34;false&#34;; //return type &#34;String&#34;. } } LRU class Outcome { private int capacity; LinkedHashMap&lt;Integer, Integer&gt; LRU = new LinkedHashMap&lt;&gt;(); public Outcome(int capacity) { this."/>
@@ -1585,43 +1585,6 @@
 </div>
 <h2>Little Brother&rsquo;s Factorial Challenge<span class="absolute -mt-20" id="little-brothers-factorial-challenge"></span>
     <a href="#little-brothers-factorial-challenge" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-</span></span><span class="line"><span class="cl">      <span class="n">BigInteger</span> <span class="n">factorial</span> <span class="o">=</span> <span class="n">factorial</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="o">(</span><span class="n">startsWithEvenDigit</span><span class="o">(</span><span class="n">factorial</span><span class="o">)){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-</span></span><span class="line"><span class="cl">      <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="o">;</span> <span class="c1">//return type &#34;List&lt;Integer&gt;&#34;.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="n">BigInteger</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">    <span class="n">BigInteger</span> <span class="n">fact</span> <span class="o">=</span> <span class="n">BigInteger</span><span class="o">.</span><span class="na">ONE</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">num</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-</span></span><span class="line"><span class="cl">      <span class="n">fact</span> <span class="o">=</span> <span class="n">fact</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">BigInteger</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fact</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">startsWithEvenDigit</span><span class="o">(</span><span class="n">BigInteger</span> <span class="n">number</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">firstDigit</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">(</span><span class="n">firstDigit</span> <span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="o">)%</span><span class="mi">2</span> <span class="o">==</span><span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
-    <button
-      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
-      title="Copy code"
-      data-clipboard-target="#code-block-2"
-    >
-      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
-      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
-    </button>
-  </div>
-</div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">m</span> <span class="o">&gt;</span> <span class="n">n</span><span class="o">)</span> <span class="k">return</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
@@ -1644,7 +1607,7 @@
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-3"
+      data-clipboard-target="#code-block-2"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1652,7 +1615,7 @@
   </div>
 </div>
 <h2>Brother&rsquo;s Game<span class="absolute -mt-20" id="brothers-game"></span>
-    <a href="#brothers-game" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
+    <a href="#brothers-game" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">solve</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">ar</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">ar</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">[]</span> <span class="n">dp1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
@@ -1674,7 +1637,7 @@
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-4"
+      data-clipboard-target="#code-block-3"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1682,7 +1645,7 @@
   </div>
 </div>
 <h2>Binary Addition<span class="absolute -mt-20" id="binary-addition"></span>
-    <a href="#binary-addition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
+    <a href="#binary-addition" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">solve</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//Write your code here
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
@@ -1703,7 +1666,7 @@
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-5"
+      data-clipboard-target="#code-block-4"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1711,7 +1674,7 @@
   </div>
 </div>
 <h2>Biggest Rectangle<span class="absolute -mt-20" id="biggest-rectangle"></span>
-    <a href="#biggest-rectangle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
+    <a href="#biggest-rectangle" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outcome</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">maxArea</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayDeque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
@@ -1731,7 +1694,7 @@
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-6"
+      data-clipboard-target="#code-block-5"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
