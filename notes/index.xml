@@ -91,6 +91,42 @@
     </item>
     
     <item>
+      <title>LeetCode 75</title>
+      <link>https://yixianwang.github.io/notes/leetcode75/</link>
+      <pubDate>Sat, 20 Jul 2024 09:19:43 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/leetcode75/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Array / String&lt;span class=&#34;absolute -mt-20&#34; id=&#34;array--string&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#array--string&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Two Pointer&lt;span class=&#34;absolute -mt-20&#34; id=&#34;two-pointer&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#two-pointer&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Sliding Window&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sliding-window&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sliding-window&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Prefix Sum&lt;span class=&#34;absolute -mt-20&#34; id=&#34;prefix-sum&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#prefix-sum&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;HashMap / Set&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hashmap--set&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hashmap--set&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Stack&lt;span class=&#34;absolute -mt-20&#34; id=&#34;stack&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#stack&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Stack&lt;span class=&#34;absolute -mt-20&#34; id=&#34;stack-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#stack-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Queue&lt;span class=&#34;absolute -mt-20&#34; id=&#34;queue&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#queue&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Linked List&lt;span class=&#34;absolute -mt-20&#34; id=&#34;linked-list&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#linked-list&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Binary Tree - DFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;binary-tree---dfs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#binary-tree---dfs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Binary Tree - BFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;binary-tree---bfs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#binary-tree---bfs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Binary Search Tree&lt;span class=&#34;absolute -mt-20&#34; id=&#34;binary-search-tree&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#binary-search-tree&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Graph DFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;graph-dfs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#graph-dfs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Graph BFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;graph-bfs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#graph-bfs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Heap / Priority Queue&lt;span class=&#34;absolute -mt-20&#34; id=&#34;heap--priority-queue&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#heap--priority-queue&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Binary Search&lt;span class=&#34;absolute -mt-20&#34; id=&#34;binary-search&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#binary-search&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Backtracking&lt;span class=&#34;absolute -mt-20&#34; id=&#34;backtracking&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#backtracking&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;DP - 1D&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dp---1d&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dp---1d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;DP - Multidimensional&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dp---multidimensional&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dp---multidimensional&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Bit Manipulation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;bit-manipulation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#bit-manipulation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Trie&lt;span class=&#34;absolute -mt-20&#34; id=&#34;trie&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#trie&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Intervals&lt;span class=&#34;absolute -mt-20&#34; id=&#34;intervals&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#intervals&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Monotonic Stack&lt;span class=&#34;absolute -mt-20&#34; id=&#34;monotonic-stack&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#monotonic-stack&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Resume Parts</title>
       <link>https://yixianwang.github.io/notes/resume_parts/</link>
       <pubDate>Wed, 10 Jul 2024 17:42:52 -0400</pubDate>
@@ -99,7 +135,34 @@
       <description>
         
         
-        &lt;h2&gt;Java&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;Prompt&lt;span class=&#34;absolute -mt-20&#34; id=&#34;prompt&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#prompt&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;how to convert my the following description into one sentence that I can use in resume: 
+&amp;#34;Managed Kubernetes Cluster, meaning AWS will manage the Master Nodes for us. It will create the master nodes. Install all the necessary applications on them, like Container Runtime, Kubernetes Master Processes. It will take care of scaling it when needed, doing backup on that, etc. If you have small team of people, usually it&amp;#39;s a good idea to let the platform do this maintenance for you. So we can focus on deploying your applications in K8s without worrying about whether the master nodes are properly backed up etc. This means we only have to care about the worker nodes.
+we will have a control plane once AWS creates all master nodes**(by choosing cluster name, k8s version, choose region and VPC, set Security Group for the cluster). 
+Then, we have to create worker nodes and connect to the cluster(by creating Node Group, and choose the cluster it attaches to, define Security Group, select instance type of EC2 instances, basically which resources your EC2 instances should have, etc.). On AWS these worker nodes will be some EC2 instances with certain CPU RAM and Storage Resources. With Node Group, we should have auto-scaling. So based on the cluster needs, depend on how much load the cluster has, the new worker nodes will automatically be added or removed in the cluster. So for that we should define max and min number of nodes, and we have some other configurations as well.
+Finally connect to the cluster from local machine, to deploy our applications from laptop using kubectl, which is k8s command line tool. It basically uses configured kubectl to talk to remote cluster.&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-0&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-1&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Java&#34; data-lang=&#34;Java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;please&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;give&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;me&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;similar&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;description&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;that&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;I&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;can&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;use&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resume&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;XXX&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;experience&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-1&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Java&lt;span class=&#34;absolute -mt-20&#34; id=&#34;java&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#java&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Spring Boot&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-boot&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#spring-boot&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Spring MVC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-mvc&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#spring-mvc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Spring Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;spring-security&#34;&gt;&lt;/span&gt;
@@ -126,23 +189,218 @@
     &lt;a href=&#34;#datadog&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Dynatrace&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dynatrace&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#dynatrace&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Postman&lt;span class=&#34;absolute -mt-20&#34; id=&#34;postman&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#postman&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;AWS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;aws&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#aws&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;EC2&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ec2&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ec2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;S3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;s3&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#s3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;VPC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;vpc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#vpc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;basically our Virtual Private Space in AWS, basically a space where you do your own stuff, it doesn&amp;rsquo;t interfere with other AWS users in the cloud. That&amp;rsquo;s basically what VPC is.&lt;/p&gt;
+    &lt;a href=&#34;#aws&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Compute&lt;span class=&#34;absolute -mt-20&#34; id=&#34;compute&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#compute&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;EC2 (Elastic Compute Cloud)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ec2-elastic-compute-cloud&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ec2-elastic-compute-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Understand EC2 instance types, pricing models, Auto Scaling, and best practices.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;IAM role&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam-role&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#iam-role&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Provisioned and managed AWS EC2 instances to deliver scalable compute resources, configured instance types, security groups, and storage options, ensuring optimal performance and availability for applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Lambada&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lambada&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lambada&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Familiarity with serverless computing, event-driven architecture, and common use cases.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed and managed AWS Lambda functions by creating and configuring functions, setting up event triggers, integrating with other AWS services, optimizing performance, and ensuring scalability and reliability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Elastic Beanstalk&lt;span class=&#34;absolute -mt-20&#34; id=&#34;elastic-beanstalk&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#elastic-beanstalk&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Managed service for deploying and scaling web applications and services.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Managed AWS Elastic Beanstalk environments by provisioning and configuring application resources, handling auto-scaling and load balancing, deploying applications, and ensuring continuous integration and delivery using CI/CD pipelines.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Storage&lt;span class=&#34;absolute -mt-20&#34; id=&#34;storage&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#storage&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;S3 (Simple Storage Service)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;s3-simple-storage-service&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#s3-simple-storage-service&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Knowledge of storage classes, lifecycle policies, access control, and data protection mechanisms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Configured and managed AWS S3 for scalable storage solutions, ensuring secure data access and efficient storage management with versioning, lifecycle policies, and access control configurations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;EBS (Elastic Block Store)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ebs-elastic-block-store&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ebs-elastic-block-store&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Understanding of volumes, snapshots, and performance optimization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;EFS (Elastic File System)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;efs-elastic-file-system&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#efs-elastic-file-system&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Network file system concepts and use cases.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Databases&lt;span class=&#34;absolute -mt-20&#34; id=&#34;databases&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#databases&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;RDS (Relational Database Service)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;rds-relational-database-service&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#rds-relational-database-service&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Managed relational databases, including Aurora, MySQL, PostgreSQL, and more.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Managed AWS RDS instances by creating and configuring databases, optimizing performance, automating backups, ensuring high availability and security, and integrating with other AWS services for scalable and reliable database solutions.&lt;/li&gt;
+&lt;li&gt;Managed AWS RDS instances by configuring databases, performing automated backups, monitoring performance, and ensuring high availability and scalability for production environments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;DynamoDB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;dynamodb&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dynamodb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;NoSQL database, key-value and document store, scaling, and performance optimization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Redshift&lt;span class=&#34;absolute -mt-20&#34; id=&#34;redshift&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#redshift&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Data warehousing and analytics.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;ElastiCache&lt;span class=&#34;absolute -mt-20&#34; id=&#34;elasticache&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#elasticache&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Managed caching for Redis and Memcached.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;NetWorking&lt;span class=&#34;absolute -mt-20&#34; id=&#34;networking&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#networking&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;VPC (Virtual Private Cloud)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;vpc-virtual-private-cloud&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#vpc-virtual-private-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Network segmentation, subnets, route tables, NAT gateways, and security groups.
+basically our Virtual Private Space in AWS, basically a space where you do your own stuff, it doesn&amp;rsquo;t interfere with other AWS users in the cloud. That&amp;rsquo;s basically what VPC is.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed and managed AWS VPCs to create isolated network environments, configure subnets, route tables, and gateways, ensuring secure and efficient network communication for applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Route 53&lt;span class=&#34;absolute -mt-20&#34; id=&#34;route-53&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#route-53&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;DNS service, routing policies, and domain management.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;API Gateway&lt;span class=&#34;absolute -mt-20&#34; id=&#34;api-gateway&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#api-gateway&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Creating, deploying, and managing APIs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Security and Identity&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security-and-identity&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#security-and-identity&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;IAM (Identity and Access Management)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam-identity-and-access-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iam-identity-and-access-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Users, roles, policies, and best practices.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5&gt;IAM role&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam-role&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iam-role&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;blockquote&gt;
 &lt;p&gt;AWS user&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;Security Group&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security-group&#34;&gt;&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed and managed AWS IAM roles to control access and permissions, ensuring secure and efficient resource management across various AWS services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;KMS (Key Management Service)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;kms-key-management-service&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#kms-key-management-service&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Managing encryption keys and securing data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Implemented and managed AWS KMS by creating and configuring encryption keys, ensuring secure key management, integrating with other AWS services for data protection, and enforcing compliance with security policies and best practices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Cognito&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cognito&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cognito&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;User authentication and authorization&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Monitoring and Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;monitoring-and-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#monitoring-and-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;CloudWatch&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloudwatch&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cloudwatch&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Monitoring, logging, and alerting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Implemented and managed AWS CloudWatch by configuring monitoring and alerting for resources, setting up custom metrics and dashboards, analyzing logs, and ensuring system performance and reliability through automated responses and insights.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;CloudTrail&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloudtrail&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cloudtrail&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Logging and auditing AWS API calls.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Config&lt;span class=&#34;absolute -mt-20&#34; id=&#34;config&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Resource inventory, configuration history, and change notifications.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;DevOps and CI/CD&lt;span class=&#34;absolute -mt-20&#34; id=&#34;devops-and-cicd&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#devops-and-cicd&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;CodePipeline&lt;span class=&#34;absolute -mt-20&#34; id=&#34;codepipeline&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#codepipeline&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Continuous integration and continuous delivery.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;CodeBuild&lt;span class=&#34;absolute -mt-20&#34; id=&#34;codebuild&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#codebuild&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Build and test code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;CodeDeploy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;codedeploy&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#codedeploy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Automated deployment of applications.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Analytics and Big Data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analytics-and-big-data&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#analytics-and-big-data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;EMR (Elastic MapReduce)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;emr-elastic-mapreduce&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#emr-elastic-mapreduce&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Bit data processing using Hadoop, Spark, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Athena&lt;span class=&#34;absolute -mt-20&#34; id=&#34;athena&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#athena&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Querying data in S3 using SQL.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Kinesis&lt;span class=&#34;absolute -mt-20&#34; id=&#34;kinesis&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#kinesis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Real-time data processing and streaming.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Machine Learning&lt;span class=&#34;absolute -mt-20&#34; id=&#34;machine-learning&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#machine-learning&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;SageMaker&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sagemaker&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sagemaker&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Building, training, and deploying machine learning models.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Implemented and managed machine learning workflows on AWS by setting up and maintaining SageMaker environments, configuring EC2 instances for scalable training and inference, and deploying models using automated pipelines and endpoint management.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Rekognition&lt;span class=&#34;absolute -mt-20&#34; id=&#34;rekognition&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#rekognition&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Image and video analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Comprehend&lt;span class=&#34;absolute -mt-20&#34; id=&#34;comprehend&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#comprehend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Natural Language Processing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Application Integration&lt;span class=&#34;absolute -mt-20&#34; id=&#34;application-integration&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#application-integration&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;SQS (Simple Queue Service)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sqs-simple-queue-service&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sqs-simple-queue-service&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Messaging queue service.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed and implemented AWS SQS solutions by creating and configuring queues, integrating with other AWS services, optimizing message handling, and ensuring reliable and scalable message processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;SNS (Simple Notification Service)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sns-simple-notification-service&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sns-simple-notification-service&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Messaging and notifications.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed and managed AWS SNS by creating and configuring topics, setting up subscriptions, integrating with other AWS services, optimizing notification delivery, and ensuring reliable and scalable message broadcasting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Step Function&lt;span class=&#34;absolute -mt-20&#34; id=&#34;step-function&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#step-function&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Orchestration of serverless workflows.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Architecture Best Practices&lt;span class=&#34;absolute -mt-20&#34; id=&#34;architecture-best-practices&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#architecture-best-practices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Well-Architected Framework&lt;span class=&#34;absolute -mt-20&#34; id=&#34;well-architected-framework&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#well-architected-framework&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Understanding the pillars of operational excellence, security, reliability, performance efficiency, and cost optimization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Microservices&lt;span class=&#34;absolute -mt-20&#34; id=&#34;microservices&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#microservices&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Designing and deploying microservices on AWS&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;General Concepts&lt;span class=&#34;absolute -mt-20&#34; id=&#34;general-concepts&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#general-concepts&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Infrastructure as Code (IaC)&lt;span class=&#34;absolute -mt-20&#34; id=&#34;infrastructure-as-code-iac&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#infrastructure-as-code-iac&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Using AWS CloudFormation or Terraform&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Cost Management&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cost-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cost-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Best practices for cost optimization and monitoring&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Disaster Recovery&lt;span class=&#34;absolute -mt-20&#34; id=&#34;disaster-recovery&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#disaster-recovery&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Strategies for backups, failover, and resilience.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Others&lt;span class=&#34;absolute -mt-20&#34; id=&#34;others&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#others&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Security Group&lt;span class=&#34;absolute -mt-20&#34; id=&#34;security-group&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#security-group&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;a list of permissions&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;ECS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ecs&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ecs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;EKS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;eks&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#eks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Configured and managed AWS Security Groups to control inbound and outbound traffic, ensuring secure network communication for applications and compliance with security policies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;ECS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ecs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ecs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Managed and deployed containerized applications using AWS ECS, configuring clusters, task definitions, and service scaling to ensure high availability and efficient resource utilization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;EKS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;eks&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#eks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;Managed Kubernetes Cluster, meaning AWS will manage the &lt;strong&gt;Master Nodes&lt;/strong&gt; for us. It will create the master nodes. Install all the necessary applications on them, like &lt;strong&gt;Container Runtime&lt;/strong&gt;, Kubernetes &lt;strong&gt;Master Processes&lt;/strong&gt;. It will take care of scaling it when needed, doing backup on that, etc. If you have small team of people, usually it&amp;rsquo;s a good idea to let the platform do this maintenance for you. So we can focus on deploying your applications in K8s without worrying about whether the master nodes are properly backed up etc. This means we only have to care about the worker nodes.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
@@ -157,30 +415,69 @@ Pros: powerful, popular.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;eksctl&lt;/code&gt; one single eks single command, it basically does all above steps in background. Configuration will use default values. We can override configurations via parameters. But we still have one command.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;RDS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;rds&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#rds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;SNS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sns&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#sns&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;SQS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sqs&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#sqs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Lambada&lt;span class=&#34;absolute -mt-20&#34; id=&#34;lambada&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#lambada&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Elastic Beanstalk&lt;span class=&#34;absolute -mt-20&#34; id=&#34;elastic-beanstalk&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#elastic-beanstalk&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;KMS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;kms&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#kms&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;CloudWatch&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloudwatch&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cloudwatch&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;CloudFormation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloudformation&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cloudformation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;Python&lt;span class=&#34;absolute -mt-20&#34; id=&#34;python&#34;&gt;&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;Managed AWS EKS cluster by overseeing the creation and maintenance of master nodes, configuring worker nodes with auto-scaling EC2 instances, and deploying applications using kubectl and eksctl.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;CloudFormation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cloudformation&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cloudformation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Developed and maintained AWS CloudFormation templates by defining infrastructure as code, automating resource provisioning, ensuring consistent environments, and managing stack updates and rollbacks for scalable and reliable deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Python&lt;span class=&#34;absolute -mt-20&#34; id=&#34;python&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#python&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Python Script&lt;span class=&#34;absolute -mt-20&#34; id=&#34;python-script&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#python-script&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Machine Learning&lt;span class=&#34;absolute -mt-20&#34; id=&#34;machine-learning&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#machine-learning&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Pytorch&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pytorch&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pytorch&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h4&gt;Sklearn&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sklearn&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#sklearn&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h3&gt;pySpark&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pyspark&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pyspark&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;PyTest&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pytest&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pytest&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Unittest&lt;span class=&#34;absolute -mt-20&#34; id=&#34;unittest&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#unittest&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Numpy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;numpy&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#numpy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Pandas&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pandas&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pandas&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;SQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sql&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#sql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;AWS RDS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;aws-rds&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#aws-rds&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;PostgresSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;postgressql&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#postgressql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Oracle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;oracle&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#oracle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;MySQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mysql&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#mysql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;NoSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;nosql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#python-script&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Developed and maintained Python scripts for automating data processing tasks, and improving workflow efficiency, while ensuring code quality through testing and version control.&lt;/li&gt;
+&lt;li&gt;Developed and maintained Python scripts for automation, data analysis, and process optimization, and improved efficiency and accuracy of repetitive tasks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Machine Learning&lt;span class=&#34;absolute -mt-20&#34; id=&#34;machine-learning-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#machine-learning-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Developed and deployed machine learning models by managing data preprocessing, feature engineering, model training, and evaluation, utilizing cloud platforms for scalable computing resources, and integrating models into production environments to ensure continuous performance monitoring and optimization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Pytorch&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pytorch&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pytorch&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Developed and deployed deep learning models using PyTorch, performed data preprocessing and augmentation, optimized model performance, and collaborated with research and engineering teams to implement scalable solutions for various machine learning tasks.&lt;/li&gt;
+&lt;li&gt;Developed and optimized deep learning models using PyTorch, implemented data preprocessing pipelines, and trained models on large datasets to achieve high performance and accuracy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Sklearn&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sklearn&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sklearn&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Implemented and optimized machine learning models using Scikit-learn, conducted data preprocessing and feature engineering, and performed model evaluation and tuning to achieve high predictive accuracy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;pySpark&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pyspark&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pyspark&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Developed and optimized large-scale data processing pipelines using PySpark, performed data cleansing and transformation, implemented complex algorithms for data analysis, and collaborated with data engineering teams to ensure efficient data flow and integration within a distributed computing environment.&lt;/li&gt;
+&lt;li&gt;Developed and optimized data processing workflows using PySpark, implemented ETL processes on large-scale datasets, and performed distributed computing tasks to enhance data analysis efficiency and scalability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;PyTest&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pytest&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pytest&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Designed and implemented comprehensive test suites using PyTest to ensure the reliability and performance of applications, developed automated test scripts for functional and regression testing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Unittest&lt;span class=&#34;absolute -mt-20&#34; id=&#34;unittest&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#unittest&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Designed and implemented unit tests using the Unittest framework in Python to ensure code quality and reliability, created comprehensive test cases for various functionalities, automated testing processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Numpy&lt;span class=&#34;absolute -mt-20&#34; id=&#34;numpy&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#numpy&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Utilized NumPy to perform high-performance numerical computations, developed efficient algorithms for data manipulation and analysis, optimized data processing workflows, and collaborated with data science teams to implement and test statistical models and simulations.&lt;/li&gt;
+&lt;li&gt;Utilized NumPy for efficient numerical computations, performed data manipulation and analysis, and optimized performance of scientific computing tasks through array operations and vectorization techniques.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Pandas&lt;span class=&#34;absolute -mt-20&#34; id=&#34;pandas&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#pandas&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Utilized Pandas to perform data manipulation, analysis, and visualization, developed efficient data processing workflows, cleaned and transformed large datasets, and collaborated with data science teams to derive actionable insights and support data-driven decision-making.&lt;/li&gt;
+&lt;li&gt;Leveraged Pandas for data manipulation and analysis, performed data cleaning, transformation, and aggregation, and optimized workflows for handling large datasets to enhance data-driven decision-making.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;SQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;sql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;PostgresSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;postgressql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#postgressql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Designed, developed, and optimized PostgreSQL databases, implemented complex SQL queries and stored procedures, and ensured database performance, security, and scalability for application development projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Oracle&lt;span class=&#34;absolute -mt-20&#34; id=&#34;oracle&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#oracle&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Developed and maintained Oracle databases, implemented complex PL/SQL scripts and stored procedures, optimized database performance, and ensured data integrity and security in support of business operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;MySQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mysql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mysql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Designed, developed, and maintained MySQL databases, optimized query performance, implemented data models, and ensured data integrity and security in high-traffic applications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;NoSQL&lt;span class=&#34;absolute -mt-20&#34; id=&#34;nosql&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#nosql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;AWS DynamoDB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;aws-dynamodb&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#aws-dynamodb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Redis&lt;span class=&#34;absolute -mt-20&#34; id=&#34;redis&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#redis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;MongoDB&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mongodb&#34;&gt;&lt;/span&gt;
@@ -222,7 +519,21 @@ Pros: powerful, popular.&lt;/p&gt;
     &lt;a href=&#34;#spark&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;HDFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hdfs&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hdfs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Hive&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hive&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hive&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Kafka&lt;span class=&#34;absolute -mt-20&#34; id=&#34;kafka-1&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#kafka-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+    &lt;a href=&#34;#kafka-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;Skills - Long&lt;span class=&#34;absolute -mt-20&#34; id=&#34;skills---long&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#skills---long&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Languages: Java, C++, SQL, TypeScript, JavaScript, Python, Go.
+Databases: PostgreSQL, Oracle, MySQL, Hive, Redis, MongoDB, Cassandra, AWS RDS, AWS DynamoDB.
+Frameworks: Spring Boot, Spring MVC, Spring Security, Spring Data JPA, Hibernate, Kafka, Junit, TestNG, Selenium.
+Cloud Service: AWS (EC2, S3, ECS, EKS, RDS, DynamoDB, SNS, SQS, Lambda, Fargate, KMS, CloudWatch).
+Frontend Technologies: Angular 10+, HTML, CSS, Bootstrap, Material UI, jQuery.
+Web Technologies: J2EE (Java Servlets, JDBC), RESTful Web Services, SOAP, JWT, Oauth2.
+Design Patterns: Singleton, Factory, Builder, Proxy, MVC, DAO.
+Dev/Ops: Git, Docker, Kubernetes, Jenkins, GitHub, GitLab, Linux, Bash.
+IDE &amp;amp; Tools: IntelliJ IDEA, WebStorm, VS Code, Maven, Jira, Splunk, Logstash, Kibana.
+AI / ML / HPC: Pytorch, Sklearn, Pandas, Numpy, CUDA.&lt;/p&gt;
+&lt;h2&gt;Skills - Short&lt;span class=&#34;absolute -mt-20&#34; id=&#34;skills---short&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#skills---short&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Technical Skills: Java, SQL, TypeScript, JavaScript, Python, Go, C++, HTML, CSS, Spring Boot, Spring MVC, Spring Security, Spring Data JPA, Hibernate, Kafka, Junit, TestNG, Selenium, PostgreSQL, Oracle, MySQL, Hive, Redis, MongoDB, Cassandra, Angular, Bootstrap, Angular Material, jQuery, AWS (EC2, S3, ECS, EKS, RDS, DynamoDB, SNS, SQS, Lambda, Fargate, KMS, CloudWatch).
+Tools &amp;amp; Knowledge: J2EE (Java Servlets, JDBC), RESTful Web Services, JWT, Oauth2, Maven, Jira, Splunk, Logstash, Kibana, Git, Docker, Kubernetes, Jenkins, GitHub, GitLab, Linux, Bash, Pytorch, Sklearn, Pandas, Numpy, CUDA.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -7235,7 +7546,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 &lt;h2&gt;JDBC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;jdbc&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#jdbc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;JDBC is used to connect out WEB APP and DB.&lt;/p&gt;
+&lt;p&gt;JDBC is used to connect our WEB APP and DB.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;just a driver, that require duplicate logics&lt;/p&gt;
@@ -20069,69 +20380,6 @@ group by
         
         
         &lt;p&gt;scp -ri /Users/xxxxxxxxxx/.ssh/xxx_xx.pem ./local_foler &lt;a href=&#34;mailto:ec2-user@ec2-22-222-22-222.us-east-2.compute.amazonaws.com&#34; &gt;ec2-user@ec2-22-222-22-222.us-east-2.compute.amazonaws.com&lt;/a&gt;:~/&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Colab Tips</title>
-      <link>https://yixianwang.github.io/notes/colab_tips/</link>
-      <pubDate>Tue, 24 Oct 2023 03:10:46 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/colab_tips/</guid>
-      <description>
-        
-        
-        &lt;p&gt;colab tips
-Seems like colab is popular, so I wanted to share maybe some useful tips that helped me streamline my setup/workflow:&lt;/p&gt;
-&lt;p&gt;a) If you cloned the notebook and are using gdrive to store the data, you can only mount gdrive using the python package, which requires entering a new oauth code for each session; if you create a new notebook, it actually persists the mount between sessions. You can just copy the contents over - &lt;a href=&#34;https://datascience.stackexchange.com/questions/64486/how-to-automatically-mount-my-google-drive-to-google-colab&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://datascience.stackexchange.com/questions/64486/how-to-automatically-mount-my-google-drive-to-google-colab&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;b) You can run this code in a cell to extend sessions (prevent timeouts); it also doesn&amp;rsquo;t majorly use the CPU unnecessarily. Still, as this SO points out, it&amp;rsquo;s not morally right to hog up a GPU/CPU if you&amp;rsquo;re not using it. I use it when I&amp;rsquo;m actively developing over ssh, but not running anything on the notebook.&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-0&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;time&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-0&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;c) You can ssh into the machine; someone even made a package for that - &lt;a href=&#34;https://pypi.org/project/colab-ssh/#description&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://pypi.org/project/colab-ssh/#description&lt;/a&gt;. I usually use ipdb to do REPL-driven development and explore the data, so this is really useful for me since I can&amp;rsquo;t run this workload locally. Head&amp;rsquo;s up - it does take a bit of setup, but if you persist the extra python packages and the authorized_hosts file, you can get it up and running for new sessions quickly.&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-1&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sys&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# set up persistent pip library path&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;nb_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/content/drive/My Drive/Colab Notebooks/pip&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{nb_path}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;insert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nb_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{nb_path}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ipdb&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pip&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{nb_path}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;colab_ssh&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upgrade&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-1&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;drive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MyDrive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nlp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;qa&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;finalproj&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ssh&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ssh&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;authorized_keys&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-2&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Hope this helps, good luck!&lt;/p&gt;
 
       </description>
     </item>
