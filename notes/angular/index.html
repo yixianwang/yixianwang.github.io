@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="783">
+<meta itemprop="wordCount" content="960">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -689,6 +689,12 @@
                 href="#3-todo-list-project"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >3. Todo List Project</a>
+            </li>
+          <li>
+              <a
+                href="#advanced-topics"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Advanced topics</a>
             </li>
           </ul>
   
@@ -1762,6 +1768,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#coding">Coding
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#advanced-topics">Advanced topics
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2263,6 +2273,91 @@ ng g class models/Todo</code></pre><div class="opacity-0 transition group-hover/
 <li>search <code>Modal</code> in bootstrap doc, and update parts</li>
 <li>add variable within <code>.ts</code> file, <code>updateTodoText: string = '';</code></li>
 </ul>
+<h2>Advanced topics<span class="absolute -mt-20" id="advanced-topics"></span>
+    <a href="#advanced-topics" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>
+<p>input vs ng-content(simple string vs different html mark up)</p>
+</li>
+<li>
+<p><code>&lt;ng-content select=&quot;input, textarea” /&gt;</code></p>
+</li>
+<li>
+<p>only extend built-in element like <code>button[buttonAttribute]</code></p>
+</li>
+<li>
+<p>:host (host element)</p>
+</li>
+<li>
+<p>? how to check setInterval running in background</p>
+</li>
+<li>
+<p><code>private interval?: ReturnType&lt;typeof setInterval&gt;;</code></p>
+</li>
+<li>
+<p><code>clearTimeout(this.interval);</code></p>
+</li>
+</ul>
+<p>Form:
+get value:</p>
+<ol>
+<li>
+<p>two way binding</p>
+</li>
+<li>
+<p>template variable(pros: not update on every keystroke behind the scenes)
+1. onSomthing(template variables) // with event
+2. viewChild(class name | template vraibel name string) // without event
+@ViewChild(‘form’) private form?: ElementRef<HTMLFormElement>;
+// or private form = viewChild.required&lt;ElementRef<HTMLFormElement>&gt;(ButtonComponent); // 17.3 or after // return a signal
+// constructor cannot access form</p>
+<p>this.form?.nativeElement.reset();  // executing after ? if this.form is not undefined.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><code>ContentChild</code> vs <code>ViewChild</code></p>
+</li>
+<li>
+<p>(ng-content child vs real exist child)</p>
+</li>
+<li>
+<p><code>@ViewChild</code> cannot used in <code>ngOnInit</code> but can be used in <code>ngAfterViewInit</code> and other method triggers within template.</p>
+</li>
+</ul>
+<ol>
+<li><code>@Output() add = new EventEmitter&lt;{title: string; text: string}&gt;();</code></li>
+<li><code>add = output&lt;{title: string; text: string}&gt;();</code></li>
+</ol>
+<ul>
+<li>private el = inject(ElementRef);</li>
+</ul>
+<ol>
+<li>
+<p><code>@ContentChild('input') private control?: ElementRef&lt; HTMLInputElement | HTMLTextAreaElement &gt;;</code></p>
+</li>
+<li>
+<p><code>private control = contentChild&lt;ElementRef&lt;HTMLInputElement | HTMLTextAreaElement&gt;&gt;('input');</code></p>
+</li>
+<li></li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-19">host: {
+  class: &#39;control&#39;,
+  &#39;(click)&#39;: &#39;onClick()&#39;,
+},</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-19"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ol start="2">
+<li><code>@HostBinding('class') className = 'control';</code></li>
+<li><code>@HostListener('click') onClick() { console.log('Clicked!'); }</code></li>
+</ol>
 
         </div>
         <div class="mt-16"></div>

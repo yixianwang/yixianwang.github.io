@@ -18000,6 +18000,91 @@ ng g class models/Todo&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 tran
 &lt;li&gt;search &lt;code&gt;Modal&lt;/code&gt; in bootstrap doc, and update parts&lt;/li&gt;
 &lt;li&gt;add variable within &lt;code&gt;.ts&lt;/code&gt; file, &lt;code&gt;updateTodoText: string = &#39;&#39;;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;Advanced topics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;advanced-topics&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#advanced-topics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;input vs ng-content(simple string vs different html mark up)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;ng-content select=&amp;quot;input, textarea” /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;only extend built-in element like &lt;code&gt;button[buttonAttribute]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;:host (host element)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;? how to check setInterval running in background&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;private interval?: ReturnType&amp;lt;typeof setInterval&amp;gt;;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;clearTimeout(this.interval);&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Form:
+get value:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;two way binding&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;template variable(pros: not update on every keystroke behind the scenes)
+1. onSomthing(template variables) // with event
+2. viewChild(class name | template vraibel name string) // without event
+@ViewChild(‘form’) private form?: ElementRef&lt;HTMLFormElement&gt;;
+// or private form = viewChild.required&amp;lt;ElementRef&lt;HTMLFormElement&gt;&amp;gt;(ButtonComponent); // 17.3 or after // return a signal
+// constructor cannot access form&lt;/p&gt;
+&lt;p&gt;this.form?.nativeElement.reset();  // executing after ? if this.form is not undefined.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ContentChild&lt;/code&gt; vs &lt;code&gt;ViewChild&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;(ng-content child vs real exist child)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@ViewChild&lt;/code&gt; cannot used in &lt;code&gt;ngOnInit&lt;/code&gt; but can be used in &lt;code&gt;ngAfterViewInit&lt;/code&gt; and other method triggers within template.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;@Output() add = new EventEmitter&amp;lt;{title: string; text: string}&amp;gt;();&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add = output&amp;lt;{title: string; text: string}&amp;gt;();&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;private el = inject(ElementRef);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@ContentChild(&#39;input&#39;) private control?: ElementRef&amp;lt; HTMLInputElement | HTMLTextAreaElement &amp;gt;;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;private control = contentChild&amp;lt;ElementRef&amp;lt;HTMLInputElement | HTMLTextAreaElement&amp;gt;&amp;gt;(&#39;input&#39;);&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-19&#34;&gt;host: {
+  class: &amp;#39;control&amp;#39;,
+  &amp;#39;(click)&amp;#39;: &amp;#39;onClick()&amp;#39;,
+},&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-19&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;@HostBinding(&#39;class&#39;) className = &#39;control&#39;;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@HostListener(&#39;click&#39;) onClick() { console.log(&#39;Clicked!&#39;); }&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>
