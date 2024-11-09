@@ -18085,6 +18085,122 @@ get value:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;@HostBinding(&#39;class&#39;) className = &#39;control&#39;;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;@HostListener(&#39;click&#39;) onClick() { console.log(&#39;Clicked!&#39;); }&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-20&#34;&gt;@for (ticket of tickets; track ticket.id) {
+   &amp;lt;li&amp;gt;
+      &amp;lt;app-ticket /&amp;gt; 
+      {{ $first }}
+      {{ $last }}
+      {{ $even }}
+      {{ $odd }}
+      {{ $count }}
+   &amp;lt;/li&amp;gt;
+} @empty {
+   &amp;lt;p&amp;gt;No tickets available.&amp;lt;/p&amp;gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-20&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;signal: read once in .ts file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;signal()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;signal: set subscription in .ts file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;effect((cleanUp) =&amp;gt; {});&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;signal: set vs update&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;signal.update((oldValue) =&amp;gt; newValue);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;hellip; operator in js: keep old properties, and overriding status key.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-21&#34;&gt;this.tickets = this.tickets.map((ticket) =&amp;gt; {
+   if (ticket.id === id) {
+      return { ...ticket, status: &amp;#39;closed&amp;#39; }
+   }
+   return ticket;
+});&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-21&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;in template, dynamically bind css style, true/false&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-22&#34;&gt; &amp;lt;div
+   [class]=&amp;#34;{
+     &amp;#39;ticket-open&amp;#39;: data().status === &amp;#39;open&amp;#39;,
+     &amp;#39;ticket-closed&amp;#39;: data().status === &amp;#39;closed&amp;#39;
+   }&amp;#34;
+ &amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-22&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;// {} is configuration&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;input configuration difference in input vs input.require
+&lt;ul&gt;
+&lt;li&gt;(null, {}) vs ({})&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Input configuration&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@Input({})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;// how to configuration for input&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;alias(avoid in best practice), inside component is just property name, outside use alias name&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;transform: (inputValue) =&amp;gt; {// some transformed value}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;// how to configuration for output&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;only has alias&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@Output(&#39;aliasNameOutsideOfComponent&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;propertyName = output({alias: &#39;aliasNameOutsideOfComponent&#39;})&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;we can unlock ngModule with FormModule, for two-way-binding&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;two-way-binding can use signal or non-signal properties&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
