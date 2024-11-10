@@ -18200,7 +18200,57 @@ get value:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;two-way-binding can use signal or non-signal properties&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To make component two-way-bindable
+// approach 1: version &amp;lt; 17.2&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-23&#34;&gt;export class RectComponent{
+  @Input({required: true}) size!: { width: string; height: string };
+  @Output() sizeChange = new EventEmitter&amp;lt;{ width: string; height: string }&amp;gt;(); // must follow name rule here
+  
+  onReset() {
+    this.sizeChange.emit({
+      width: &amp;#39;200&amp;#39;,
+      height: &amp;#39;100&amp;#39;
+    });
+  }
+}
+
+// in parent template
+&amp;lt;app-rect [(size)]=&amp;#34;rectSize&amp;#34; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-23&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;// approach 2: version &amp;gt;= 17.2&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-24&#34;&gt;export class RectComponent{
+  size = model.required&amp;lt;{ width: string; height: string }&amp;gt;();
+  
+  onReset() {
+    // we can use set or update here
+    this.size.set({
+      width: &amp;#39;200&amp;#39;,
+      height: &amp;#39;100&amp;#39;
+    });
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-24&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
       </description>
     </item>

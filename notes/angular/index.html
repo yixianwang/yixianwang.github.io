@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="1140">
+<meta itemprop="wordCount" content="1230">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -2473,7 +2473,57 @@ get value:</p>
 <li>
 <p>two-way-binding can use signal or non-signal properties</p>
 </li>
+<li>
+<p>To make component two-way-bindable
+// approach 1: version &lt; 17.2</p>
+</li>
 </ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-23">export class RectComponent{
+  @Input({required: true}) size!: { width: string; height: string };
+  @Output() sizeChange = new EventEmitter&lt;{ width: string; height: string }&gt;(); // must follow name rule here
+  
+  onReset() {
+    this.sizeChange.emit({
+      width: &#39;200&#39;,
+      height: &#39;100&#39;
+    });
+  }
+}
+
+// in parent template
+&lt;app-rect [(size)]=&#34;rectSize&#34; /&gt;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-23"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>// approach 2: version &gt;= 17.2</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-24">export class RectComponent{
+  size = model.required&lt;{ width: string; height: string }&gt;();
+  
+  onReset() {
+    // we can use set or update here
+    this.size.set({
+      width: &#39;200&#39;,
+      height: &#39;100&#39;
+    });
+  }
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-24"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
