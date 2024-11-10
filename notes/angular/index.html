@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="1440">
+<meta itemprop="wordCount" content="1534">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -2591,6 +2591,42 @@ get value:</p>
 </li>
 <li>
 <p>we can use <code>hostDirectives</code> within <code>@Dicrective</code> to build some layers</p>
+</li>
+<li>
+<p><code>if (typeof value === 'string'){}</code> // js</p>
+</li>
+<li>
+<p><code>val = parseFloat(value);</code>// convert from string to number</p>
+</li>
+<li>
+<p><code>return </code>${outputTemp} F``</p>
+</li>
+<li>
+<p><code>tempPipe: 'param1'' : 'param2'</code></p>
+</li>
+<li>
+<p>const sorted = [&hellip;value];</p>
+</li>
+<li>
+<p>sorted.sort();</p>
+</li>
+<li>
+<p>in pipe, transform method only check if there is any change</p>
+</li>
+<li>
+<p>in pipe, by setting pure:false within decorator, it will disable caching mechanism of the pipe.</p>
+</li>
+<li>
+<p>let pipe execute very time anything changed in the template.</p>
+</li>
+<li>
+<p>asc: <code>sorted.sort((a, b) =&gt; a &gt; b ? 1 : -1);</code></p>
+</li>
+<li>
+<p>desc: <code>sorted.sort((a, b) =&gt; a &gt; b ? -1 : 1);</code></p>
+</li>
+<li>
+<p>pipe best practice is only transforming what user sees</p>
 </li>
 </ul>
 
