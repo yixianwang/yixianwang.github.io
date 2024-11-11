@@ -18534,6 +18534,40 @@ this.destroyRef.onDestroy(() =&amp;gt; {
 &lt;li&gt;
 &lt;p&gt;setTimeout monitored by zone.js&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RxJS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;we need to subscribe to kick off the observables.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;signal(values in container) vs observable(values over time)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;signals are great for managing application state&lt;/li&gt;
+&lt;li&gt;observables are great for managing events &amp;amp; streamed data
+&lt;ol&gt;
+&lt;li&gt;signal built-in angular&lt;/li&gt;
+&lt;li&gt;observable has leaner code for interval&lt;/li&gt;
+&lt;li&gt;observable only executed when it has at least one subscriber, whereas signal always there&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;convert between signal and observable with &lt;code&gt;toObservalbe&lt;/code&gt; and &lt;code&gt;toSignal&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;signals always have initial value&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;observables can have initial value&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;toSignal&lt;/code&gt; will setup an undefined value for signal by default, but we can setup initial value in configuration object&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;toSignal&lt;/code&gt; has one nice thing that it will automatically cleanup observable subscription&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
