@@ -18178,7 +18178,7 @@ get value:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;// how to configuration for input&lt;/p&gt;
+&lt;p&gt;// how to setup configuration for input&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;alias(avoid in best practice), inside component is just property name, outside use alias name&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;transform: (inputValue) =&amp;gt; {// some transformed value}&lt;/code&gt;&lt;/li&gt;
@@ -18329,7 +18329,7 @@ get value:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;return &lt;/code&gt;${outputTemp} F``&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;tempPipe: &#39;param1&#39;&#39; : &#39;param2&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tempPipe: &#39;param1&#39; : &#39;param2&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;const sorted = [&amp;hellip;value];&lt;/p&gt;
@@ -18355,7 +18355,76 @@ get value:&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;pipe best practice is only transforming what user sees&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;services best practice:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;private tasks = signal&amp;lt;Task[]&amp;gt;([]);&lt;/li&gt;
+&lt;li&gt;allTasks = this.tasks.asReadonly();&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;map will produce a new array&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;we should always create a new instead of updating in place&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-25&#34;&gt;  updateTaskStatus(taskId: string, newStatus: TaskStatus) {
+    this.tasks.update((oldTasks) =&amp;gt;
+      oldTasks.map((task) =&amp;gt;
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    );
+  }&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-25&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;computed will return a new signal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;effect and computed will do subscription&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;component and directive can access element injector&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;service cannot access element injector instead it only have access environment injector or module injector&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How to register customized provider for anything&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-26&#34;&gt;export const TASK_STATUS_OPTIONS = new InjectionToken&amp;lt;TaskStatusOptions&amp;gt;(
+  &amp;#39;task-status-options&amp;#39;
+);
+export const taskStatusOptionsProvider: Provider = {
+  provide: TASK_STATUS_OPTIONS,
+  useValue: TaskStatusOptions
+};
+
+// in component
+providers: [taskStatusOptionsProvider]
+
+private taskStatusOptinos = inject(TASK_STATUS_OPTIONS);&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-26&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
       </description>
     </item>

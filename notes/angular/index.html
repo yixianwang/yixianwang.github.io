@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="1534">
+<meta itemprop="wordCount" content="1654">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -2451,7 +2451,7 @@ get value:</p>
 </ul>
 </li>
 </ul>
-<p>// how to configuration for input</p>
+<p>// how to setup configuration for input</p>
 <ol>
 <li>alias(avoid in best practice), inside component is just property name, outside use alias name</li>
 <li><code>transform: (inputValue) =&gt; {// some transformed value}</code></li>
@@ -2602,7 +2602,7 @@ get value:</p>
 <p><code>return </code>${outputTemp} F``</p>
 </li>
 <li>
-<p><code>tempPipe: 'param1'' : 'param2'</code></p>
+<p><code>tempPipe: 'param1' : 'param2'</code></p>
 </li>
 <li>
 <p>const sorted = [&hellip;value];</p>
@@ -2628,7 +2628,76 @@ get value:</p>
 <li>
 <p>pipe best practice is only transforming what user sees</p>
 </li>
+<li>
+<p>services best practice:</p>
+<ul>
+<li>private tasks = signal&lt;Task[]&gt;([]);</li>
+<li>allTasks = this.tasks.asReadonly();</li>
 </ul>
+</li>
+<li>
+<p>map will produce a new array</p>
+</li>
+<li>
+<p>we should always create a new instead of updating in place</p>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-25">  updateTaskStatus(taskId: string, newStatus: TaskStatus) {
+    this.tasks.update((oldTasks) =&gt;
+      oldTasks.map((task) =&gt;
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    );
+  }</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-25"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>
+<p>computed will return a new signal</p>
+</li>
+<li>
+<p>effect and computed will do subscription</p>
+</li>
+<li>
+<p>component and directive can access element injector</p>
+</li>
+<li>
+<p>service cannot access element injector instead it only have access environment injector or module injector</p>
+</li>
+<li>
+<p>How to register customized provider for anything</p>
+</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-26">export const TASK_STATUS_OPTIONS = new InjectionToken&lt;TaskStatusOptions&gt;(
+  &#39;task-status-options&#39;
+);
+export const taskStatusOptionsProvider: Provider = {
+  provide: TASK_STATUS_OPTIONS,
+  useValue: TaskStatusOptions
+};
+
+// in component
+providers: [taskStatusOptionsProvider]
+
+private taskStatusOptinos = inject(TASK_STATUS_OPTIONS);</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-26"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
