@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="2412">
+<meta itemprop="wordCount" content="2744">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -712,9 +712,9 @@
             </li>
           <li>
               <a
-                href="#reactive-driven-approach"
+                href="#reactive-driven-approach-in-template-we-just-connect-elements"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Reactive driven approach</a>
+              >Reactive driven approach: in template, we just connect elements</a>
             </li>
           </ul>
   
@@ -1805,7 +1805,31 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#reactive-driven-approach">Reactive driven approach
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#reactive-driven-approach-in-template-we-just-connect-elements">Reactive driven approach: in template, we just connect elements
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#first-step-setup-the-form">first step: setup the form
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#second-step-connect-this-form-to-template">second step: connect this form to template
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pros">pros
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#validators">validators
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#prepopulate-data">prepopulate data
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#nested-formgroup-validator">nested FormGroup validator
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -2998,11 +3022,12 @@ this.destroyRef.onDestroy(() =&gt; {
     </button>
   </div>
 </div>
-<h2>Reactive driven approach<span class="absolute -mt-20" id="reactive-driven-approach"></span>
-    <a href="#reactive-driven-approach" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<h2>Reactive driven approach: in template, we just connect elements<span class="absolute -mt-20" id="reactive-driven-approach-in-template-we-just-connect-elements"></span>
+    <a href="#reactive-driven-approach-in-template-we-just-connect-elements" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>inside FormGroup or nested FormGroup, each key-value pair represents one control. e.g. email control for email input.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-33"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormGroup</span><span class="p">({</span>
+<h3>first step: setup the form<span class="absolute -mt-20" id="first-step-setup-the-form"></span>
+    <a href="#first-step-setup-the-form" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-33"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormGroup</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// email and password can be any name
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">email</span>: <span class="kt">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">password</span>: <span class="kt">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -3011,6 +3036,127 @@ this.destroyRef.onDestroy(() =&gt; {
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-33"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>second step: connect this form to template<span class="absolute -mt-20" id="second-step-connect-this-form-to-template"></span>
+    <a href="#second-step-connect-this-form-to-template" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-34"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">ReactiveFormsModule</span><span class="p">]</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-34"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>// approach 1
+&lt;input id=&ldquo;email&rdquo; type=&ldquo;email&rdquo; [formControl]=&ldquo;form.controls.email&rdquo; /&gt;
+// approach 2</p>
+<form [formGroup]="form">
+  <input id="email" type="email" [formControlName]="password" />
+</form>
+```
+<h3>pros<span class="absolute -mt-20" id="pros"></span>
+    <a href="#pros" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>pros: Submitting: in reactive approach, we don&rsquo;t have to pass any argument to onSubmit, because we already have access to the form in class</li>
+<li>pros: get access and have type safe when using .value <code>this.form.controls.email</code> and <code>this.form.value.email</code></li>
+</ul>
+<h3>validators<span class="absolute -mt-20" id="validators"></span>
+    <a href="#validators" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-35"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormGroup</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// can be [], or {validators:[], }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// asyncValidators?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// nonNullable?, it can make sure this input cannot be set to null again if it were reset.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// updateOn?, it can control if the value managed by Angular should update on every keystroke or only if the input loses focus with updateOn.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">email</span>: <span class="kt">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">validators</span><span class="o">:</span> <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span> <span class="p">(</span><span class="nx">control</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="kc">null</span> <span class="nx">or</span> <span class="nx">nothing</span> <span class="k">for</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">or</span> <span class="p">{}</span> <span class="k">for</span> <span class="nx">invalid</span><span class="p">}]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}),</span> 
+</span></span><span class="line"><span class="cl">  <span class="nx">password</span>: <span class="kt">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-35"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-36"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// custom validators
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">customValidator</span><span class="p">(</span><span class="nx">control</span>: <span class="kt">AbstractControl</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span> <span class="nx">doesNotContainQuestionMark</span>: <span class="kt">true</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// custom async validators
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">emailIsUnique</span><span class="p">(</span><span class="nx">control</span>: <span class="kt">AbstractControl</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="s1">&#39;test@example.com&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">of</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span> <span class="c1">// `of` produces an observable that instantly emits a value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">of</span><span class="p">({</span> <span class="nx">notUnique</span>: <span class="kt">true</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-36"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>prepopulate data<span class="absolute -mt-20" id="prepopulate-data"></span>
+    <a href="#prepopulate-data" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>we don&rsquo;t need afterNextRender within constructor, because we created form inside class, we don&rsquo;t have to wait for the template to render for it to be initialized. we already initialized form in the code.</li>
+<li>so we can use <code>ngOnInit() {}</code></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-37"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// save value into localStorage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">private</span> <span class="nx">destroyRef</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">DestroyRef</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">valueChanges</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">debounceTime</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span> <span class="c1">// we don&#39;t need ? after valueChanges.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">next</span><span class="o">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;saved-login-form&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="nx">email</span>: <span class="kt">value.email</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">            <span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">destroyRef</span><span class="p">.</span><span class="nx">onDestroy</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">subscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// update form value with localStorage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">1</span><span class="p">.</span> <span class="nx">outside</span> <span class="nx">component</span><span class="p">,</span> <span class="nx">doesn</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">work</span> <span class="k">for</span> <span class="nx">ssr</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="p">.</span> <span class="nx">inside</span> <span class="nx">ngOnInit</span> <span class="nx">before</span> <span class="sb">`subsription`</span> <span class="kr">as</span> <span class="nx">usual</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-37"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>nested FormGroup validator<span class="absolute -mt-20" id="nested-formgroup-validator"></span>
+    <a href="#nested-formgroup-validator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-38"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// access controls within nested formgroup
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">equalValues</span><span class="p">(</span><span class="nx">control</span>: <span class="kt">AbstractControl</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">confirmPassword</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;confirmPassword&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">password</span> <span class="o">===</span> <span class="nx">confirmPassword</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span> <span class="nx">passwordNotEuqal</span>: <span class="kt">true</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-38"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
