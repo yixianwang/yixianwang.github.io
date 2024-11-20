@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular NgRx">
 <meta itemprop="description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."><meta itemprop="datePublished" content="2024-09-04T19:21:00-04:00" />
 <meta itemprop="dateModified" content="2024-09-04T19:21:00-04:00" />
-<meta itemprop="wordCount" content="592">
+<meta itemprop="wordCount" content="716">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular NgRx"/>
 <meta name="twitter:description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."/>
@@ -289,6 +289,14 @@
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/css/"
+    
+  >CSS
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/temp/"
     
   >Temp
@@ -340,9 +348,15 @@
             </li>
           <li>
               <a
-                href="#code"
+                href="#concepts"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Code</a>
+              >Concepts</a>
+            </li>
+          <li>
+              <a
+                href="#install-ngrx"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Install NgRx</a>
             </li>
           </ul>
   
@@ -1069,6 +1083,13 @@
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/css/"
+    
+  >CSS
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/temp/"
     
   >Temp
@@ -1693,7 +1714,19 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#code">Code
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#concepts">Concepts
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#install-ngrx">Install NgRx
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#module">Module
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#standalone">Standalone
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1764,8 +1797,49 @@ Now the <strong>reducer</strong> can handle this load todo success <strong>actio
 And this time the <strong>action</strong> already has all of the data available to it.
 And so now the <strong>reducer</strong> can set that status flag to success or something similar and it can update the todo&rsquo;s property in the <strong>store</strong> with the data we just loaded.</p>
 </blockquote>
-<h2>Code<span class="absolute -mt-20" id="code"></span>
-    <a href="#code" class="subheading-anchor" aria-label="Permalink for this section"></a></h2>
+<h2>Concepts<span class="absolute -mt-20" id="concepts"></span>
+    <a href="#concepts" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li><strong>Store</strong>, this is where our data is stored &amp; managed.</li>
+<li><strong>Component</strong>, this is where the data is needed &amp; updates should be reflected.</li>
+<li><strong>Selector(Optional)</strong>, Component can <em>read data</em> from the store(&ldquo;listen to changes).</li>
+<li><strong>Action</strong>, Standardized messages(&ldquo;events&rdquo;) to which reducers can listen. <em>Describe the changes that should be performed + any extra data that might be needed.</em></li>
+<li><strong>Reducer</strong>, Contains state changing logic. e.g. increment counter by 1. <em>it have the actual logic that gets triggered based on those actions</em></li>
+<li><strong>Effects</strong>, Side-effects that should be triggered for certain actions. e.g. send HTTP request.</li>
+</ol>
+<h2>Install NgRx<span class="absolute -mt-20" id="install-ngrx"></span>
+    <a href="#install-ngrx" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p><code>ng add @ngrx/store</code></p>
+<h3>Module<span class="absolute -mt-20" id="module"></span>
+    <a href="#module" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.module.ts</div><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="nx">imports</span><span class="o">:</span> <span class="p">[...,</span> <span class="nx">StoreModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({},</span> <span class="p">{})];</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Standalone<span class="absolute -mt-20" id="standalone"></span>
+    <a href="#standalone" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">main.ts</div><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">provideStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">bootstrapApplication</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">provideStore</span><span class="p">()]</span> <span class="c1">// added providedStore()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
