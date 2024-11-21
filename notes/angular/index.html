@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="3228">
+<meta itemprop="wordCount" content="3485">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -735,6 +735,18 @@
                 href="#performance---lazy-loading"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Performance - Lazy Loading</a>
+            </li>
+          <li>
+              <a
+                href="#building---spasingle-page-application"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Building - SPA(Single Page Application)</a>
+            </li>
+          <li>
+              <a
+                href="#building---ssr"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Building - SSR</a>
             </li>
           </ul>
   
@@ -1944,7 +1956,11 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lazily-loaded-routes">Lazily Loaded Routes
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#building---spasingle-page-application">Building - SPA(Single Page Application)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#building---ssr">Building - SSR
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -3562,8 +3578,31 @@ this.destroyRef.onDestroy(() =&gt; {
   </div>
 </div>
 <h3>Deferrable Views(&gt;= 17)<span class="absolute -mt-20" id="deferrable-views-17"></span>
-    <a href="#deferrable-views-17" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Lazily Loaded Routes<span class="absolute -mt-20" id="lazily-loaded-routes"></span>
-    <a href="#lazily-loaded-routes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+    <a href="#deferrable-views-17" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>enhancement for route base lazy loading</li>
+</ul>
+<h2>Building - SPA(Single Page Application)<span class="absolute -mt-20" id="building---spasingle-page-application"></span>
+    <a href="#building---spasingle-page-application" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Build a <strong>client-side only</strong> web app: all the UI rendering happens on the client side by JS code that is being served by the web host to the website visitors.</li>
+<li>All compiled and optimized application code executes in the browsers.</li>
+<li>Therefore, we don&rsquo;t need any dynamic web server. A <strong>static host</strong> suffices.</li>
+<li>Potential Cons: initially missing content, bad SEO(search engine crawlers will likely see an empty site, because they are not waiting for the client-side Javascript code to render all the content. At least they are not guaranteed to wait.)</li>
+<li>Use case: internal app, app that requires authentication, etc.</li>
+</ul>
+<h2>Building - SSR<span class="absolute -mt-20" id="building---ssr"></span>
+    <a href="#building---ssr" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Angular app routes are <strong>rendered on-demand</strong> on a dynamic web server</li>
+<li>Browser receives finished, rendered page. This page still includes lots of Angular Javascript code, which then takes over and <strong>hydrated(&ldquo;activated&rdquo;)</strong> the page once it has been received.</li>
+<li>Web app is <strong>hydrated</strong> and becomes a SPA after initial rendering. Subsequent actions will be handled by client-side JS code.</li>
+<li>Pros: instant responses due to client-side JS doing the heavy work. + Finished pages without missing content for the initial request.</li>
+<li><strong>Dynamic web server</strong> is required.</li>
+<li>Advantage: users no longer receive an empty HTML file or an almost empty HTML file, but instead, a file that contains all the content. It&rsquo;s also great for search engine crawlers.</li>
+<li>Potential disadvantages: Long-taking tasks may cause empty pages, complexity but this approach also has some potential disadvantages.</li>
+</ul>
+<blockquote>
+<p><code>afterNextRender(() =&gt; {})</code> only runs in browser, right after the next overall Component render cycle.</p>
+</blockquote>
+
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
