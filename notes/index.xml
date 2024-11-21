@@ -19273,7 +19273,7 @@ this.destroyRef.onDestroy(() =&amp;gt; {
 &lt;li&gt;Potential disadvantages: Long-taking tasks may cause empty pages, complexity but this approach also has some potential disadvantages.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;afterNextRender(() =&amp;gt; {})&lt;/code&gt; only runs in browser, right after the next overall Component render cycle.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;, right after the next overall Component render cycle., right after the next overall Component render cycle.afterNextRender(() =&amp;gt; {})&lt;/code&gt; only runs in browser, right after the next overall Component render cycle.&lt;/p&gt;
 &lt;/blockquote&gt;
 
       </description>
