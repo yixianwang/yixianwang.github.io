@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="3501">
+<meta itemprop="wordCount" content="3547">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -284,6 +284,14 @@
     href="/notes/latex/"
     
   >Latex
+    </a>
+              
+            </li><li class="flex flex-col gap-1 "><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/nx/"
+    
+  >Nx
     </a>
               
             </li><li class="flex flex-col gap-1 "><a
@@ -748,6 +756,12 @@
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Building - SSR</a>
             </li>
+          <li>
+              <a
+                href="#refs"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Refs</a>
+            </li>
           </ul>
   
               
@@ -1133,6 +1147,13 @@
     href="/notes/latex/"
     
   >Latex
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/nx/"
+    
+  >Nx
     </a></li>
         <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1961,6 +1982,10 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#building---ssr">Building - SSR
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#refs">Refs
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -3602,6 +3627,22 @@ this.destroyRef.onDestroy(() =&gt; {
 <blockquote>
 <p><code>, right after the next overall Component render cycle., right after the next overall Component render cycle.afterNextRender(() =&gt; {})</code> only runs in browser, right after the next overall Component render cycle.</p>
 </blockquote>
+<h2>Refs<span class="absolute -mt-20" id="refs"></span>
+    <a href="#refs" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>ElementRef: for directives, get access to the host element.
+<ul>
+<li><code>private hostElementRef = inject&lt;ElementRef&lt;HTMLAnchorElement&gt;&gt;(ElementRef);</code></li>
+<li>with <code>this.elementRef.nativeElement</code></li>
+</ul>
+</li>
+<li>TemplateRef: within Directive, to hold content within <code>ng-template</code></li>
+<li>ViewContainerRef: is a reference to the place in the DOM where above template is being used.
+<ul>
+<li><code>this.viewContainerRef.createEmbeddedView(this.templateRef);</code></li>
+<li><code>this.viewContainerRef.clear();</code>: will remove rendered content.</li>
+</ul>
+</li>
+</ul>
 
         </div>
         <div class="mt-16"></div>
