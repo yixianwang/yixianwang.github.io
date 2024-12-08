@@ -19412,6 +19412,27 @@ this.destroyRef.onDestroy(() =&amp;gt; {
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Scope&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Queries elements projected via &lt;ng-content&gt;.&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Queries elements declared in the component&amp;rsquo;s own template.&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Timing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Available in ngAfterContentInit.&lt;/td&gt;
+&lt;td&gt;Available in ngAfterViewInit.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Use Case&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;For working with external content.&lt;/td&gt;
+&lt;td&gt;For working with internal content.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>
