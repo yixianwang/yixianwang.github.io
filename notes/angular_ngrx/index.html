@@ -12,24 +12,32 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Angular NgRx – Yixian Wang</title>
-  <meta name="description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result." />
+  <meta name="description" content="Tips
+Youtube
+Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result." />
 
   
 
 <meta property="og:title" content="Angular NgRx" />
-<meta property="og:description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result." />
+<meta property="og:description" content="Tips
+Youtube
+Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/angular_ngrx/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2024-09-04T19:21:00-04:00" />
 <meta property="article:modified_time" content="2024-09-04T19:21:00-04:00" />
 
   <meta itemprop="name" content="Angular NgRx">
-<meta itemprop="description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."><meta itemprop="datePublished" content="2024-09-04T19:21:00-04:00" />
+<meta itemprop="description" content="Tips
+Youtube
+Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."><meta itemprop="datePublished" content="2024-09-04T19:21:00-04:00" />
 <meta itemprop="dateModified" content="2024-09-04T19:21:00-04:00" />
-<meta itemprop="wordCount" content="720">
+<meta itemprop="wordCount" content="1714">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular NgRx"/>
-<meta name="twitter:description" content="Youtube Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."/>
+<meta name="twitter:description" content="Tips
+Youtube
+Pros The component shouldn&rsquo;t have to worry about how to manage the state when something happens. It doesn&rsquo;t need to know what services to inject or methods to call to get the job done. Work flow A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -371,6 +379,66 @@
                 href="#syntax"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >syntax</a>
+            </li>
+          <li>
+              <a
+                href="#combinelatest"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >combineLatest</a>
+            </li>
+          <li>
+              <a
+                href="#if-else-in-subscribe-block"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >if-else in subscribe block</a>
+            </li>
+          <li>
+              <a
+                href="#combinelatest-1"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >combineLatest</a>
+            </li>
+          <li>
+              <a
+                href="#behavior-subject"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Behavior Subject</a>
+            </li>
+          <li>
+              <a
+                href="#entitystate-for-crud-operations"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >EntityState for CRUD operations</a>
+            </li>
+          <li>
+              <a
+                href="#partial-for-states-that-are-populated-after-an-api-call"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Partial for states that are populated after an API call</a>
+            </li>
+          <li>
+              <a
+                href="#avoid-any"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Avoid any</a>
+            </li>
+          <li>
+              <a
+                href="#logger-for-signal-store"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >logger for signal store</a>
+            </li>
+          <li>
+              <a
+                href="#entity-management"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Entity Management</a>
+            </li>
+          <li>
+              <a
+                href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Manual Cleanup signalMethod created in an ancestor injection context</a>
             </li>
           </ul>
   
@@ -1738,6 +1806,50 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#syntax">syntax
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#combinelatest">combineLatest
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#more-example">More Example
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#if-else-in-subscribe-block">if-else in subscribe block
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#combinelatest-1">combineLatest
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#behavior-subject">Behavior Subject
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#entitystate-for-crud-operations">EntityState for CRUD operations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#partial-for-states-that-are-populated-after-an-api-call">Partial for states that are populated after an API call
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#avoid-any">Avoid any
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#logger-for-signal-store">logger for signal store
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#entity-management">Entity Management
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context">Manual Cleanup signalMethod created in an ancestor injection context
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1762,7 +1874,12 @@
         <div class="content">
           <h1>Angular NgRx</h1>
           <ul>
-<li><a href="https://www.youtube.com/watch?v=kx0VTgTtSBg" target="_blank" rel="noopener">Youtube</a></li>
+<li>
+<p><a href="https://dev.to/this-is-angular/ngrx-tips-i-needed-in-the-beginning-4hno" target="_blank" rel="noopener">Tips</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=kx0VTgTtSBg" target="_blank" rel="noopener">Youtube</a></p>
+</li>
 </ul>
 <h2>Pros<span class="absolute -mt-20" id="pros"></span>
     <a href="#pros" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
@@ -1853,6 +1970,436 @@ And so now the <strong>reducer</strong> can set that status flag to success or s
     <a href="#syntax" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
 <li><code>createAction</code> + <code>createReducer</code></li>
 </ol>
+<h2>combineLatest<span class="absolute -mt-20" id="combinelatest"></span>
+    <a href="#combinelatest" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnDestroy</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineLatest</span><span class="p">,</span> <span class="nx">Subject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreA</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../store-a/store-a.service&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreB</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../store-b/store-b.service&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">takeUntil</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-example&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;./example.component.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">styleUrls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./example.component.scss&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">ExampleComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">private</span> <span class="nx">destroy$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Subject</span><span class="p">&lt;</span><span class="nt">void</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">dataA$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeA</span><span class="p">.</span><span class="nx">data$</span><span class="p">;</span> <span class="c1">// Observable from StoreA
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">dataB$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeB</span><span class="p">.</span><span class="nx">data$</span><span class="p">;</span> <span class="c1">// Observable from StoreB
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="nx">combinedData</span>: <span class="kt">any</span><span class="p">;</span> <span class="c1">// Combined data from both stores
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">storeA</span>: <span class="kt">StoreA</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">storeB</span>: <span class="kt">StoreB</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Example of combining streams for component logic
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">combineLatest</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">dataA$</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataB$</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Combined Data:&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnDestroy</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;dataA$ | async as dataA&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Data from Store A: {{ dataA | json }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;dataB$ | async as dataB&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Data from Store B: {{ dataB | json }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>More Example<span class="absolute -mt-20" id="more-example"></span>
+    <a href="#more-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Store</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Observable</span><span class="p">,</span> <span class="nx">combineLatest</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">map</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">loadUsers</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./store/user.actions&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">selectUsers</span><span class="p">,</span> <span class="nx">selectUsersLoading</span><span class="p">,</span> <span class="nx">selectUsersError</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./store/user.selectors&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-users&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;loading&#34;&gt;Loading...&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;error&#34;&gt;{{ error }}&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;ul *ngIf=&#34;processedUsers.length &gt; 0&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">      &lt;li *ngFor=&#34;let user of processedUsers&#34;&gt;{{ user.name }}&lt;/li&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;/ul&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;!loading &amp;&amp; processedUsers.length === 0&#34;&gt;No users found.&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">  `</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loading</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">error</span>: <span class="kt">string</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">processedUsers</span><span class="o">:</span> <span class="p">{</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">name</span>: <span class="kt">string</span> <span class="p">}[]</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">store</span>: <span class="kt">Store</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loadUsers</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Combine streams for business logic
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">combineLatest</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsers</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsersLoading</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsersError</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">map</span><span class="p">(([</span><span class="nx">users</span><span class="p">,</span> <span class="nx">loading</span><span class="p">,</span> <span class="nx">error</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">this</span><span class="p">.</span><span class="nx">loading</span> <span class="o">=</span> <span class="nx">loading</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">this</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">error</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="c1">// Apply business logic here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">users</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">isActive</span><span class="p">);</span> <span class="c1">// Example business logic: Filter active users
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">processedUsers</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">processedUsers</span> <span class="o">=</span> <span class="nx">processedUsers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>if-else in subscribe block<span class="absolute -mt-20" id="if-else-in-subscribe-block"></span>
+    <a href="#if-else-in-subscribe-block" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>If the logic is straightforward and doesn&rsquo;t involve too many nested conditions, it&rsquo;s acceptable.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="nx">dataB</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Missing data&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>Move the conditional logic to operators like filter, map, or switchMap before the subscribe block.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">combineLatest</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">dataA$</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataB$</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">filter</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="o">!!</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="nx">dataB</span><span class="p">),</span> <span class="c1">// Ensure both exist
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">map</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">}))</span> <span class="c1">// Transform data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">combinedData</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="nx">combinedData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Combined Data:&#39;</span><span class="p">,</span> <span class="nx">combinedData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>Extract complex logic into a separate method.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">processData</span><span class="p">(</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">processData</span><span class="p">(</span><span class="nx">dataA</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">dataB</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="nx">dataB</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Missing data&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>combineLatest<span class="absolute -mt-20" id="combinelatest-1"></span>
+    <a href="#combinelatest-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>combineLatest([observable1, observable2, ...]): Observable&lt;[T1, T2, ...]&gt;</code></li>
+<li>It waits until each of the source observables has emitted at least one value.</li>
+</ul>
+<h2>Behavior Subject<span class="absolute -mt-20" id="behavior-subject"></span>
+    <a href="#behavior-subject" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineLatest</span><span class="p">,</span> <span class="nx">BehaviorSubject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">filter$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BehaviorSubject</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span> <span class="c1">// Emits &#34;active&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">sort$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BehaviorSubject</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>    <span class="c1">// Emits &#34;name&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Combine the latest values
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">combineLatest</span><span class="p">([</span><span class="nx">filter$</span><span class="p">,</span> <span class="nx">sort$</span><span class="p">]).</span><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">filter</span><span class="p">,</span> <span class="nx">sort</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Filter: </span><span class="si">${</span><span class="nx">filter</span><span class="si">}</span><span class="sb">, Sort: </span><span class="si">${</span><span class="nx">sort</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Output:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Filter: active, Sort: name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Updating streams
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">filter$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Output: Filter: completed, Sort: name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sort$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Output: Filter: completed, Sort: date
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>EntityState for CRUD operations<span class="absolute -mt-20" id="entitystate-for-crud-operations"></span>
+    <a href="#entitystate-for-crud-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">EntityState</span><span class="p">,</span> <span class="nx">EntityAdapter</span><span class="p">,</span> <span class="nx">createEntityAdapter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/entity&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">completed</span>: <span class="kt">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">TodosState</span> <span class="kr">extends</span> <span class="nx">EntityState</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">adapter</span>: <span class="kt">EntityAdapter</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;</span> <span class="o">=</span> <span class="nx">createEntityAdapter</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">initialTodosState</span>: <span class="kt">TodosState</span> <span class="o">=</span> <span class="nx">adapter</span><span class="p">.</span><span class="nx">getInitialState</span><span class="p">();</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Partial for states that are populated after an API call<span class="absolute -mt-20" id="partial-for-states-that-are-populated-after-an-api-call"></span>
+    <a href="#partial-for-states-that-are-populated-after-an-api-call" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Use Partial or Lazy Initialization When Necessary</li>
+<li>For very large or complex state, you can use Partial<T> to initialize only top-level properties and lazy-load the deeper ones as needed. This can be useful for states that are populated after an API call.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DeepComplexState</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">topLevel</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">deeplyNested</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">level1</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">level2</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">value</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">initialDeepComplexState</span>: <span class="kt">Partial</span><span class="p">&lt;</span><span class="nt">DeepComplexState</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">topLevel</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">deeplyNested</span>: <span class="kt">undefined</span><span class="p">,</span> <span class="c1">// Initialize later when necessary
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-10"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Avoid any<span class="absolute -mt-20" id="avoid-any"></span>
+    <a href="#avoid-any" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Avoid any in favor of type-safe solutions like Partial, Record, or EntityState.</li>
+</ul>
+<h2>logger for signal store<span class="absolute -mt-20" id="logger-for-signal-store"></span>
+    <a href="#logger-for-signal-store" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>The following example shows how to create a custom feature that logs SignalStore state changes to the console.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">logger.feature.ts</div><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">content_copy</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">effect</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getState</span><span class="p">,</span> <span class="nx">signalStoreFeature</span><span class="p">,</span> <span class="nx">withHooks</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">withLogger</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">signalStoreFeature</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">withHooks</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">onInit</span><span class="p">(</span><span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">effect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">getState</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> state changed`</span><span class="p">,</span> <span class="nx">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-11"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>The withLogger feature can be used in the BooksStore as follows:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">book.store.ts</div><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">signalStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withEntities</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals/entities&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withRequestStatus</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./request-status.feature&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withLogger</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./logger.feature&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Book</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./book.model&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">BooksStore</span> <span class="o">=</span> <span class="nx">signalStore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">&lt;</span><span class="nt">Book</span><span class="p">&gt;(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withRequestStatus</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withLogger</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-12"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>State changes will be logged to the console whenever the BooksStore state is updated.</li>
+</ul>
+<h2>Entity Management<span class="absolute -mt-20" id="entity-management"></span>
+    <a href="#entity-management" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>The entityConfig function reduces repetitive code when defining a custom entity configuration and ensures strong typing. It accepts a config object where the entity type is required, and the collection name and custom ID selector are optional.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">patchState</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">signalStore</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">type</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withMethods</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addEntity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entityConfig</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">removeEntity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals/entities&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Todo</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">text</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">completed</span>: <span class="kt">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">todoConfig</span> <span class="o">=</span> <span class="nx">entityConfig</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entity</span>: <span class="kt">type</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;todo&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selectId</span><span class="o">:</span> <span class="p">(</span><span class="nx">todo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">TodosStore</span> <span class="o">=</span> <span class="nx">signalStore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">(</span><span class="nx">todoConfig</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withMethods</span><span class="p">((</span><span class="nx">store</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">addTodo</span><span class="p">(</span><span class="nx">todo</span>: <span class="kt">Todo</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">patchState</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">addEntity</span><span class="p">(</span><span class="nx">todo</span><span class="p">,</span> <span class="nx">todoConfig</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">removeTodo</span><span class="p">(</span><span class="nx">todo</span>: <span class="kt">Todo</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">patchState</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">removeEntity</span><span class="p">(</span><span class="nx">todo</span><span class="p">,</span> <span class="nx">todoConfig</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-13"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Manual Cleanup signalMethod created in an ancestor injection context<span class="absolute -mt-20" id="manual-cleanup-signalmethod-created-in-an-ancestor-injection-context"></span>
+    <a href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">@Injectable</span><span class="p">({</span> <span class="nx">providedIn</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">NumbersService</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">logDoubledNumber</span> <span class="o">=</span> <span class="nx">signalMethod</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">double</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">double</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span> <span class="cm">/* ... */</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">NumbersComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">numbersService</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">NumbersService</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">injector</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">Injector</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">signal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 👇 Providing the `NumbersComponent` injector
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// to ensure cleanup on component destroy.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">numbersService</span><span class="p">.</span><span class="nx">logDoubledNumber</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">injector</span>: <span class="kt">this.injector</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// 👇 No need to provide an injector for static values.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">numbersService</span><span class="p">.</span><span class="nx">logDoubledNumber</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-14"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
