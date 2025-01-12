@@ -11,41 +11,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm – Yixian Wang</title>
-  <meta name="description" content="
-Implemented base sequential version of work-efficient parallel prefix sum algorithm by C&#43;&#43;
-Implemented parallel and barrier versions of work-efficient parallel prefix sum with POSIX thread (pthread) by C&#43;&#43;
-Analyzed speedup among the all implantations with respect to the number of threads and data size
-" />
+  <title>Github Actions – Yixian Wang</title>
+  <meta name="description" content="File Structure .github/workflows/**.yml: Github Actions workflow files Example name: workflow Name # workflow name on: push # trigger event permissions: # to avoid bugs when add fake-deploy step contents: write jobs: # define jobs, jobs are running in parallel npm-build: # random job name name: npm build job # job name runs-on: ubuntu-latest # runner steps: # define steps, steps are running in sequence - name: get code from github # step name uses: actions/checkout@v4 # action - name: group steps together with vertical bar # step name run: | npm install npm run build - name: fake-deploy # step name uses: JamesIves/github-pages-deploy-action@4 # action with: # action input branch: gh-pages # branch name folder: build # artifact folder Docker Example auto generate Docker Image and push to Docker Hub create a docker hub repository with namereact-app New Access Token in Docker Hub DockerfileFROM node:18-alpine WORKDIR /react-app COPY public/ /react-app/public/ COPY src/ /react-app/src/ COPY package." />
 
   
 
-<meta property="og:title" content="Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm" />
-<meta property="og:description" content="
-Implemented base sequential version of work-efficient parallel prefix sum algorithm by C&#43;&#43;
-Implemented parallel and barrier versions of work-efficient parallel prefix sum with POSIX thread (pthread) by C&#43;&#43;
-Analyzed speedup among the all implantations with respect to the number of threads and data size
-" />
+<meta property="og:title" content="Github Actions" />
+<meta property="og:description" content="File Structure .github/workflows/**.yml: Github Actions workflow files Example name: workflow Name # workflow name on: push # trigger event permissions: # to avoid bugs when add fake-deploy step contents: write jobs: # define jobs, jobs are running in parallel npm-build: # random job name name: npm build job # job name runs-on: ubuntu-latest # runner steps: # define steps, steps are running in sequence - name: get code from github # step name uses: actions/checkout@v4 # action - name: group steps together with vertical bar # step name run: | npm install npm run build - name: fake-deploy # step name uses: JamesIves/github-pages-deploy-action@4 # action with: # action input branch: gh-pages # branch name folder: build # artifact folder Docker Example auto generate Docker Image and push to Docker Hub create a docker hub repository with namereact-app New Access Token in Docker Hub DockerfileFROM node:18-alpine WORKDIR /react-app COPY public/ /react-app/public/ COPY src/ /react-app/src/ COPY package." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/projects/pthreads_prefix_sum/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2021-09-24T18:44:08-04:00" />
-<meta property="article:modified_time" content="2021-09-24T18:44:08-04:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/github-actions/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2025-01-11T23:35:19-05:00" />
+<meta property="article:modified_time" content="2025-01-11T23:35:19-05:00" />
 
-  <meta itemprop="name" content="Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm">
-<meta itemprop="description" content="
-Implemented base sequential version of work-efficient parallel prefix sum algorithm by C&#43;&#43;
-Implemented parallel and barrier versions of work-efficient parallel prefix sum with POSIX thread (pthread) by C&#43;&#43;
-Analyzed speedup among the all implantations with respect to the number of threads and data size
-"><meta itemprop="datePublished" content="2021-09-24T18:44:08-04:00" />
-<meta itemprop="dateModified" content="2021-09-24T18:44:08-04:00" />
-<meta itemprop="wordCount" content="1425">
+  <meta itemprop="name" content="Github Actions">
+<meta itemprop="description" content="File Structure .github/workflows/**.yml: Github Actions workflow files Example name: workflow Name # workflow name on: push # trigger event permissions: # to avoid bugs when add fake-deploy step contents: write jobs: # define jobs, jobs are running in parallel npm-build: # random job name name: npm build job # job name runs-on: ubuntu-latest # runner steps: # define steps, steps are running in sequence - name: get code from github # step name uses: actions/checkout@v4 # action - name: group steps together with vertical bar # step name run: | npm install npm run build - name: fake-deploy # step name uses: JamesIves/github-pages-deploy-action@4 # action with: # action input branch: gh-pages # branch name folder: build # artifact folder Docker Example auto generate Docker Image and push to Docker Hub create a docker hub repository with namereact-app New Access Token in Docker Hub DockerfileFROM node:18-alpine WORKDIR /react-app COPY public/ /react-app/public/ COPY src/ /react-app/src/ COPY package."><meta itemprop="datePublished" content="2025-01-11T23:35:19-05:00" />
+<meta itemprop="dateModified" content="2025-01-11T23:35:19-05:00" />
+<meta itemprop="wordCount" content="251">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm"/>
-<meta name="twitter:description" content="
-Implemented base sequential version of work-efficient parallel prefix sum algorithm by C&#43;&#43;
-Implemented parallel and barrier versions of work-efficient parallel prefix sum with POSIX thread (pthread) by C&#43;&#43;
-Analyzed speedup among the all implantations with respect to the number of threads and data size
-"/>
+<meta name="twitter:title" content="Github Actions"/>
+<meta name="twitter:description" content="File Structure .github/workflows/**.yml: Github Actions workflow files Example name: workflow Name # workflow name on: push # trigger event permissions: # to avoid bugs when add fake-deploy step contents: write jobs: # define jobs, jobs are running in parallel npm-build: # random job name name: npm build job # job name runs-on: ubuntu-latest # runner steps: # define steps, steps are running in sequence - name: get code from github # step name uses: actions/checkout@v4 # action - name: group steps together with vertical bar # step name run: | npm install npm run build - name: fake-deploy # step name uses: JamesIves/github-pages-deploy-action@4 # action with: # action input branch: gh-pages # branch name folder: build # artifact folder Docker Example auto generate Docker Image and push to Docker Hub create a docker hub repository with namereact-app New Access Token in Docker Hub DockerfileFROM node:18-alpine WORKDIR /react-app COPY public/ /react-app/public/ COPY src/ /react-app/src/ COPY package."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -91,7 +75,7 @@ Analyzed speedup among the all implantations with respect to the number of threa
             title="Projects"
             href="/projects/"
             
-            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
           >
             <span class="text-center">Projects</span>
           </a><a
@@ -105,7 +89,7 @@ Analyzed speedup among the all implantations with respect to the number of threa
             title="Notes"
             href="/notes/"
             
-            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+            class="text-sm contrast-more:text-gray-700 contrast-more:dark:text-gray-100 relative -ml-2 hidden whitespace-nowrap p-2 md:inline-block font-medium"
           >
             <span class="text-center">Notes</span>
           </a><div class="search-wrapper relative md:w-64">
@@ -140,8 +124,7 @@ Analyzed speedup among the all implantations with respect to the number of threa
 </div>
 
   <div class='mx-auto flex max-w-screen-xl'>
-    
-    <aside class="sidebar-container flex flex-col print:hidden md:top-16 md:shrink-0 md:w-64 md:self-start max-md:[transform:translate3d(0,-100%,0)] md:hidden">
+    <aside class="sidebar-container flex flex-col print:hidden md:top-16 md:shrink-0 md:w-64 md:self-start max-md:[transform:translate3d(0,-100%,0)] md:sticky">
   
   <div class="px-4 pt-4 md:hidden">
     <div class="search-wrapper relative md:w-64">
@@ -287,7 +270,7 @@ Analyzed speedup among the all implantations with respect to the number of threa
               
             </li></ul>
       </div></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/"
@@ -303,13 +286,22 @@ Analyzed speedup among the all implantations with respect to the number of threa
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/github-actions/"
     
   >Github Actions
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#file-structure"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >File Structure</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1009,7 +1001,7 @@ Analyzed speedup among the all implantations with respect to the number of threa
               
             </li></ul>
       </div></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/projects/"
@@ -1049,40 +1041,13 @@ Analyzed speedup among the all implantations with respect to the number of threa
   >Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/projects/pthreads_prefix_sum/"
     
   >Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#data"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Data</a>
-            </li>
-          <li>
-              <a
-                href="#abstract"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Abstract</a>
-            </li>
-          <li>
-              <a
-                href="#implementation-details-for-work-efficiency-algorithm"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Implementation Details for Work-Efficiency Algorithm</a>
-            </li>
-          <li>
-              <a
-                href="#analyze-each-step"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Analyze Each Step</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1104,10 +1069,637 @@ Analyzed speedup among the all implantations with respect to the number of threa
       </div></li>
     </ul>
 
+    <ul class="flex flex-col gap-1 max-md:hidden">
+        
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/latex/"
+    
+  >Latex
+    </a></li>
+        <li class="open"><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+    href="/notes/github-actions/"
+    
+  >Github Actions
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/idea/"
+    
+  >IDEA
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/nx/"
+    
+  >Nx
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/css/"
+    
+  >CSS
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/temp/"
+    
+  >Temp
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/windows/"
+    
+  >Windows
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/ginnie_mae/"
+    
+  >Ginnie Mae
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/tailwind/"
+    
+  >Tailwind
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/angular_ngrx/"
+    
+  >Angular NgRx
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/aws_cdk/"
+    
+  >AWS CDK
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/aws_sam/"
+    
+  >Aws Sam
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/prompts/"
+    
+  >Prompts
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/api_design/"
+    
+  >Api Design
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/api_security/"
+    
+  >Api Security
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/linkedin_del/"
+    
+  >Linkedin Del
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/hiring_manager_interview/"
+    
+  >Hiring Manager Interview
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/keyword_structure/"
+    
+  >Keyword Structure
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/do_you_have_experience/"
+    
+  >Do You Have Experience
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/goldman/"
+    
+  >Goldman
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/reach_out_letter/"
+    
+  >Reach Out Letter
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/glider/"
+    
+  >Glider
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/leetcode75/"
+    
+  >LeetCode 75
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/resume_parts/"
+    
+  >Resume Parts
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/note/"
+    
+  >Memo
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/kafka/"
+    
+  >Kafka
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/bugs/"
+    
+  >Bugs
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/k8s/"
+    
+  >K8s
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/interview_self_introduction/"
+    
+  >Self Introduction
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/project_design_doc/"
+    
+  >Project Design Doc
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/interview-projects/"
+    
+  >Interview Projects
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/interview-questions/"
+    
+  >Interview Questions
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/projects-v3/"
+    
+  >Projects V3
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/projects-v2/"
+    
+  >Projects V2
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/spring_data_jpa/"
+    
+  >Spring Data Jpa
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/hibernate/"
+    
+  >Hibernate
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/jdbc/"
+    
+  >JDBC
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/go_advanced/"
+    
+  >Go Advanced
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/go/"
+    
+  >Go Syntax
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/solid/"
+    
+  >SOLID
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/aws/"
+    
+  >AWS
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/a_concept/"
+    
+  >Cheat Sheet
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/a_code/"
+    
+  >A Code
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/java_last_minute/"
+    
+  >Java Last Minute
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cpp_const/"
+    
+  >C&#43;&#43; Const
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cpp_comparator/"
+    
+  >C&#43;&#43; Comparator
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cpp_inheritance/"
+    
+  >C&#43;&#43; Inheritance
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/templates/"
+    
+  >Templates
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/al_note/"
+    
+  >Algo Note
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/angular/"
+    
+  >Angular
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/react/"
+    
+  >React
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/oop-python/"
+    
+  >OOP Python
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/oop-java/"
+    
+  >OOP Java
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/oop-cpp/"
+    
+  >OOP C&#43;&#43;
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/spring/"
+    
+  >Spring6
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/spring_boot/"
+    
+  >Spring Boot
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/poetry/"
+    
+  >Poetry
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/pytest/"
+    
+  >Pytest
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/spark-core/"
+    
+  >Spark Core
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/hadoop/"
+    
+  >Hadoop
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/spark/"
+    
+  >Spark
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cassandra/"
+    
+  >Cassandra
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/ccia_reading_note/"
+    
+  >[C&#43;&#43; Concurrency in Action 2nd Edition by Anthony W.] Reading Note
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/google_test/"
+    
+  >Google Test
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/docker/"
+    
+  >Docker
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/airflow/"
+    
+  >Airflow
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/template_pi/"
+    
+  >Template PI
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/sql/"
+    
+  >MySQL
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/trie_techlead/"
+    
+  >Trie Techlead
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/aws_connection/"
+    
+  >AWS
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/colab_tips/"
+    
+  >Colab Tips
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/colab_upload/"
+    
+  >Colab Upload
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/conda/"
+    
+  >Conda
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/cuda/"
+    
+  >CUDA
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/ds/"
+    
+  >Data Science Knowledge
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/django/"
+    
+  >Django
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/git/"
+    
+  >Git
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/google_cloud/"
+    
+  >Google Cloud
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/hexo/"
+    
+  >Hexo
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/hugo/"
+    
+  >Hugo
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/java/"
+    
+  >Java
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/al_note_legacy/"
+    
+  >Legacy Algo Note
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/linear_algebra/"
+    
+  >Linear Algebra
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/ood/"
+    
+  >OOD
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/python/"
+    
+  >Python
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/python_script/"
+    
+  >Python Scripts
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/utils_notebook/"
+    
+  >Utils Notebook
+    </a></li>
+        <li class=""><a
+    class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+    href="/notes/vim/"
+    
+  >Vim
+    </a></li>
+        
+      </ul>
     </div>
   
   
-  <div class="md:hidden  sticky bottom-0 bg-white dark:bg-dark mx-4 py-4 shadow-[0_-12px_16px_#fff] flex items-center gap-2 dark:border-neutral-800 dark:shadow-[0_-12px_16px_#111] contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:shadow-none border-t" data-toggle-animation="show">
+  <div class="  sticky bottom-0 bg-white dark:bg-dark mx-4 py-4 shadow-[0_-12px_16px_#fff] flex items-center gap-2 dark:border-neutral-800 dark:shadow-[0_-12px_16px_#111] contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:shadow-none border-t" data-toggle-animation="show">
       <div class="flex grow flex-col">
         <button
   title="Change theme"
@@ -1126,31 +1718,15 @@ Analyzed speedup among the all implantations with respect to the number of threa
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#data">Data
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#file-structure">File Structure
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#abstract">Abstract
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example">Example
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#implementation-details-for-work-efficiency-algorithm">Implementation Details for Work-Efficiency Algorithm
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#analyze-each-step">Analyze Each Step
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#step-1">Step 1
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#step-2">Step 2
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#step-3">Step 3
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#docker-example">Docker Example
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1169,128 +1745,131 @@ Analyzed speedup among the all implantations with respect to the number of threa
       <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
-        <a href="https://yixianwang.github.io/projects/">Projects</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm</div>
+        <a href="https://yixianwang.github.io/notes/">Notes</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Github Actions</div>
 </div>
 
         <div class="content">
-          <h1>Exploring Multithreaded Programming with Pthreads Solving Parallel Prefix Scan Algorithm</h1>
-          <ul>
-<li>Implemented base <strong>sequential</strong> version of work-efficient parallel prefix sum algorithm by C++</li>
-<li>Implemented <strong>parallel</strong> and <strong>barrier</strong> versions of work-efficient parallel prefix sum with <strong>POSIX thread (pthread)</strong> by C++</li>
-<li>Analyzed speedup among the all implantations with respect to the number of threads and data size</li>
+          <h1>Github Actions</h1>
+          <h2>File Structure<span class="absolute -mt-20" id="file-structure"></span>
+    <a href="#file-structure" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>.github/workflows/**.yml</code>: Github Actions workflow files</li>
 </ul>
-<h2>Data<span class="absolute -mt-20" id="data"></span>
-    <a href="#data" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li><a href="/datasets/pthread_prefix_sum/1k.txt">Data1: 1k</a></li>
-<li><a href="/datasets/pthread_prefix_sum/8k.txt">Data2: 8k</a></li>
-<li><a href="/datasets/pthread_prefix_sum/16k.txt">Data3: 16k</a></li>
-<li><a href="/datasets/pthread_prefix_sum/seq_64_test.txt">Data4: seq_64_test</a></li>
+<h3>Example<span class="absolute -mt-20" id="example"></span>
+    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">workflow Name</span><span class="w"> </span><span class="c"># workflow name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l">push</span><span class="w"> </span><span class="c"># trigger event</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permissions</span><span class="p">:</span><span class="w"> </span><span class="c"># to avoid bugs when add fake-deploy step</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w"> </span><span class="c"># define jobs, jobs are running in parallel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">npm-build</span><span class="p">:</span><span class="w"> </span><span class="c"># random job name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">npm build job</span><span class="w"> </span><span class="c"># job name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w"> </span><span class="c"># runner</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"> </span><span class="c"># define steps, steps are running in sequence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">get code from github</span><span class="w"> </span><span class="c"># step name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w"> </span><span class="c"># action</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">group steps together with vertical bar</span><span class="w"> </span><span class="c"># step name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          npm install
+</span></span></span><span class="line"><span class="cl"><span class="sd">          npm run build</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">fake-deploy</span><span class="w"> </span><span class="c"># step name </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">JamesIves/github-pages-deploy-action@4</span><span class="w"> </span><span class="c"># action</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"> </span><span class="c"># action input</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">gh-pages</span><span class="w"> </span><span class="c"># branch name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">folder</span><span class="p">:</span><span class="w"> </span><span class="l">build</span><span class="w"> </span><span class="c"># artifact folder</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Docker Example<span class="absolute -mt-20" id="docker-example"></span>
+    <a href="#docker-example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>auto generate Docker Image and push to Docker Hub</li>
 </ul>
-<h2>Abstract<span class="absolute -mt-20" id="abstract"></span>
-    <a href="#abstract" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>I use Work Efficient Algorithm with building blocks style to compute prefix sum of large array. My work-efficient algorithm has O(log N) time and O(N) work.</li>
-</ul>
-<h2>Implementation Details for Work-Efficiency Algorithm<span class="absolute -mt-20" id="implementation-details-for-work-efficiency-algorithm"></span>
-    <a href="#implementation-details-for-work-efficiency-algorithm" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
-<li>
-<p>I separate input data into same size blocks. (num_blocks = ceil(log2(N)))</p>
-</li>
-<li>
-<p>I compute local prefix sums for these blocks in parallel. It has O(num_blocks) = O(log N) time, and O(num_blocks) * ceil(N / num_blocks) ~ O(N) work.</p>
-</li>
-<li>
-<p>I store the last element of each blocks into an 2D array, and then I compute prefix sum of this 2D array in parallel, because this 2D array has very small size than input size, so I choose Hillis’s prefix sum algorithm to compute this 2D array in parallel. The main reason is in this step I do care about the time efficiency not the work efficiency in parallel, and this 2D array has very small size which is equal to the number of blocks, so here we should use work-inefficient algorithm which is Hillis’s prefix sum algorithm. It has O(log(N / num_blocks)) = O(log N) time, and O(N/num_blocks * log(N/num_blocks)) = O(n) work.</p>
-</li>
-<li>
-<p>At last, add 2D array to each blocks in proper places in parallel. It also has O(num_blocks) = O(log N) time here, and also has O(num_blocks) * ceil(N / num_blocks) ~ O(N) work.</p>
-</li>
+<ol>
+<li>create a docker hub repository with name<code>react-app</code></li>
+<li><code>New Access Token</code> in Docker Hub</li>
 </ol>
-<p>Analysis:</p>
-<ul>
-<li>Time: O(log N)</li>
-<li>Work: O(N)</li>
-</ul>
-<h2>Analyze Each Step<span class="absolute -mt-20" id="analyze-each-step"></span>
-    <a href="#analyze-each-step" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Step 1<span class="absolute -mt-20" id="step-1"></span>
-    <a href="#step-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
-    <img src="../images/pthread_prefixsum_1.png" alt="Fig 1" loading="lazy" /></p>
-<ul>
-<li>The above graph can show my program performance when setting LOOP to 100000 on different thread numbers. From the graph, we can see there are two inflection points on each subgraph. The first inflection point is on 2 threads because my work-efficient algorithm after averaging on each thread has additional parallel computing operations on my part 2 implementation (see page 1) than the sequential algorithm. The second inflection point is on 4 threads because my laptop CPU has 4 cores, and thus my program can perform best when setting to 4 threads and each core doesn’t need to switch to another thread, and this can save overhead on context switching.
-And with more than 4 threads, the performance of my program decreased, I think the main reason is that there is more overhead when switching threads and that might cause the performance doesn’t improve even decrease. If I setting 4 threads, each core of my 4 core CPU can get only one thread without switching to other threads.</li>
-</ul>
-<h3>Step 2<span class="absolute -mt-20" id="step-2"></span>
-    <a href="#step-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
-    <img src="../images/pthread_prefixsum_2.png" alt="Fig 2" loading="lazy" /></p>
-<ul>
-<li>Here, I set my LOOP to 10 and all other arguments keep the same as step1. We decrease the time of each addition operation, and thus our sequential algorithm can get the fastest result. The main reason is that our CPU can solve the problem very fast in sequential as the professor mentioned in the lecture. The decreased amount of time on each addition operation also indicates that the amount of time cost on each thread decreased, and thus more threads will result in more context switch frequency, and thus this will have more overhead than the sequential algorithm.
-This is the main reason when the addition operation becoming very fast, our parallel algorithm performance can’t beat the sequential algorithm. Another reason is that our parallel algorithm has more addition operation than sequential algorithm after averaging for each thread as I mentioned on page 1 of my implementation details. This also leads to a performance decrease. The above two reasons can explain why the sequential algorithm is the fastest and why the trend is like this.</li>
-</ul>
-<p>
-    <img src="../images/pthread_prefixsum_3.png" alt="Fig 3" loading="lazy" /></p>
-<ul>
-<li>The above graph shows that when setting THREAD number argument to 0 and 4 (0 means sequential algorithm, 4 is because my laptop can get the best performance when threads number is 4), after setting the THREAD argument and changing the LOOP argument to test our program performance. We can see there is an inflection point on each subplot in the red circle because increasing the LOOP argument causes the amount of work on each thread to increase and thus the parallel performance can take advantage of the different workers work at the same time and that meet the performance with the sequential algorithm at the red circle on the graph.
-We also notice that by increasing the input size from 64 to 8k, our inflection point moves to the left as indicated in the green box on the graph. The reason is that increasing the numbers of input values, increases the addition operation to both algorithms and this has the same effect as increasing the LOOP. Thus with these two main factors, increasing the LOOP and increasing the input size, can explain why inflection points in these subgraphs of the second graph can meet earlier and earlier, and cause the trend like above.</li>
-</ul>
-<h3>Step 3<span class="absolute -mt-20" id="step-3"></span>
-    <a href="#step-3" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p>
-    <img src="../images/pthread_prefixsum_4.png" alt="Fig 4" loading="lazy" />
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">Dockerfile</div><pre><code id="code-block-1">FROM node:18-alpine
 
-    <img src="../images/pthread_prefixsum_5.png" alt="Fig 5" loading="lazy" /></p>
-<ul>
-<li>
-<p>Here, I used my own re-entrant barrier to plot the same graph as before in Step 2. My barrier is implemented with conditional variable and mutex lock. Each thread will wait and try to unlock the barrier in the queue, and once all threads get the signal, the program will go further to the next step.</p>
-</li>
-<li>
-<p>Spinlock is different from the mutex lock. As the professor said, spinlock causes the thread to keep rolling the lock to try to find out whether the stuff is unlocked or opened all the time. This will constantly cost CPU resources, and if the thread is locked for a long time, spinlock will keep trying to get the control and cause a lot more CPU resources waste.</p>
-</li>
-<li>
-<p>In the scenarios of the small amount of work in each thread, the spinlock can be better, because spinlock will not waste much CPU time on waiting for the other threads to unlock. It might also boost some performance by trying to get control from those short lifetime threads. And thus in the contrast, in the scenario of a large amount of work in each thread, which means the mutex is better, because in this long waiting time scenarios if some thread wants to unlock and it will wait in a queue instead of waste CPU resources, and won’t constantly cost CPU time.</p>
-</li>
-<li>
-<p>In addition, a multi-core scenario also can get benefit from the spinlock. When the critical section is small and multi-core environment can reduce the context switch time and that can take advantage of the spinlock.</p>
-</li>
-<li>
-<p>The main drawback of the spinlock is that it will cost a lot amount of CPU time when the critical section was held for a long time in some thread, and the spinlock will keep trying to unlock the thread, which will waste the CPU resources.</p>
-</li>
-<li>
-<p>The main drawback of the mutex is that if our program only has a small workload to deal with for each thread, then mutex is very inefficient. Because each thread will go sleep allow another thread to run, however, if the thread has a short lifespan, then the context switching will let the mutex become very inefficient.</p>
-</li>
-<li>
-<p>From the above two graphs compared to Step 2, we can see that my own barrier can’t get better performance than the Pthread barrier. From the first graph, we can see the inflection point meets later than the traditional Pthread barrier in Step 2. And from the second graph, we can compare to the average cost time of the program, the green box, indicating that our barrier is getting slower than the Pthread barrier but not that much, it only got 1000 ms average worse. But basically, the results are in line with my expectation, because the logic behind the Phtread is similar to mine. The main reason that my barrier is slightly inefficient is that I let my barrier spin a little bit to try to unlock the thread, which would cost some CPU time, and that will cause worse performance.</p>
-</li>
-<li>
-<p>I suggest using my own spinlock barrier to some tasks or some scenarios that have some small subtasks that only have a short lifespan, and the rest of the tasks has a large workload. In this scenario, my barrier will work better. Otherwise, if the tasks are all with a large workload, then I suggest using the Pthread barrier instead because it doesn’t waste any time on trying to unlock, it will go to sleep and wait in a queue and let other threads use the resources.</p>
-</li>
-</ul>
+WORKDIR /react-app
+
+COPY public/ /react-app/public/
+COPY src/ /react-app/src/
+COPY package.json /react-app/package.json
+
+RUN npm install
+
+CMD [&#34;npm&#34;, &#34;start&#34;]</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Generate Docker Image and Push to Docker Hub </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l">push </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">npm-build</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">npm build job name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">get code from github </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">login to docker hub</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/login-actiion@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_USERNAME }}</span><span class="w"> </span><span class="c"># github -&gt; Security -&gt; Secrets and variables -&gt; Action</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_PASSWORD }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">build docker image and push to docker hub</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">docker/build-push-action@v5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.DOCKER_USERNAME }}/react-app:latest</span><span class="w"> </span><span class="c"># tag here must be the same as the repository name in Docker Hub</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/projects/cuda_kmeans/"
-        title="Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Exploring GPU Programming with CUDA/CUDA Shared Memory/Thrust Solving K-Means Algorithm</a><a
-        href="/projects/supertuxkart/"
-        title="Draft: Self-driving SuperTuxKart with Pytorch"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/idea/"
+        title="IDEA"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Draft: Self-driving SuperTuxKart with Pytorch<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >IDEA<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
   </div>
 
-      <footer class="hextra-footer bg-gray-100 pb-[env(safe-area-inset-bottom)] dark:bg-neutral-900 print:bg-transparent">
-    <div class='mx-auto flex gap-2 py-2 px-4 max-w-screen-xl'><button
-  title="Change theme"
-  data-theme="light"
-  class="theme-toggle group h-7 rounded-md px-2 text-left text-xs font-medium text-gray-600 transition-colors dark:text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-primary-100/5 dark:hover:text-gray-50"
-  type="button"
-  aria-label="Toggle Dark Mode"
->
-  <div class="flex items-center gap-2 capitalize"><svg height=12 class="group-data-[theme=light]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg><span class="group-data-[theme=light]:hidden">Light</span><svg height=12 class="group-data-[theme=dark]:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><span class="group-data-[theme=dark]:hidden">Dark</span></div>
-</button>
-</div>
-  <hr class="dark:border-neutral-800" />
+      <footer class="hextra-footer bg-gray-100 pb-[env(safe-area-inset-bottom)] dark:bg-neutral-900 print:bg-transparent"><hr class="dark:border-neutral-800" />
   <div
     class='max-w-screen-xl mx-auto flex justify-center py-12 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)] text-gray-600 dark:text-gray-400 md:justify-start'
   >
