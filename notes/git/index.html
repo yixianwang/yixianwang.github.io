@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Git">
 <meta itemprop="description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="290">
+<meta itemprop="wordCount" content="301">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git"/>
 <meta name="twitter:description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1."/>
@@ -1764,6 +1764,14 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example">Example
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#types">Types
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#other-types">other types
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -1885,14 +1893,8 @@ git merge feature-branch</code></pre><div class="opacity-0 transition group-hove
     </button>
   </div>
 </div>
-<p>More Examples:</p>
-<ul>
-<li><code>feat</code>: (new feature for the user, not a new feature for build script)</li>
-<li><code>fix</code>: (bug fix for the user, not a fix to a build script)</li>
-<li><code>docs</code>: (doc change)</li>
-<li><code>style</code>: (code formatting)</li>
-<li><code>refactor</code>: (restructure or improve code, no feature change)</li>
-<li><code>test</code>: (add or update tests)</li>
+<h3>Types<span class="absolute -mt-20" id="types"></span>
+    <a href="#types" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><code>chore</code>: (indicates a task that is not user facing or feature-related)
 <ul>
 <li>update dependencies</li>
@@ -1902,6 +1904,17 @@ git merge feature-branch</code></pre><div class="opacity-0 transition group-hove
 <li>update docs</li>
 </ul>
 </li>
+<li><code>deprecated</code>: (indicates a feature is deprecated)</li>
+<li><code>feat</code>: (new feature for the user, not a new feature for build script)</li>
+<li><code>fix</code>: (bug fix for the user, not a fix to a build script)</li>
+<li><code>release</code>: (indicates a release)</li>
+</ul>
+<h4>other types<span class="absolute -mt-20" id="other-types"></span>
+    <a href="#other-types" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li><code>docs</code>: (doc change)</li>
+<li><code>style</code>: (code formatting)</li>
+<li><code>refactor</code>: (restructure or improve code, no feature change)</li>
+<li><code>test</code>: (add or update tests)</li>
 </ul>
 <p>References:</p>
 <ul>
