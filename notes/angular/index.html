@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="4180">
+<meta itemprop="wordCount" content="4438">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -742,6 +742,18 @@
             </li>
           <li>
               <a
+                href="#approach-1"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >approach 1</a>
+            </li>
+          <li>
+              <a
+                href="#approach-2"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >approach 2</a>
+            </li>
+          <li>
+              <a
                 href="#routing"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Routing</a>
@@ -793,6 +805,18 @@
                 href="#di-dependency-injection"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >DI (dependency injection)</a>
+            </li>
+          <li>
+              <a
+                href="#handle-unit-testing-mistakes"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Handle Unit Testing Mistakes</a>
+            </li>
+          <li>
+              <a
+                href="#flatten-nested-observables"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Flatten Nested Observables</a>
             </li>
           </ul>
   
@@ -1916,6 +1940,14 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-1">approach 1
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#approach-2">approach 2
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#pros">pros
         </a>
       </li>
@@ -2041,6 +2073,14 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#di-dependency-injection">DI (dependency injection)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#handle-unit-testing-mistakes">Handle Unit Testing Mistakes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#flatten-nested-observables">Flatten Nested Observables
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -3278,13 +3318,32 @@ received any input.</p>
     </button>
   </div>
 </div>
-<p>// approach 1
-&lt;input id=&ldquo;email&rdquo; type=&ldquo;email&rdquo; [formControl]=&ldquo;form.controls.email&rdquo; /&gt;
-// approach 2</p>
-<form [formGroup]="form">
-  <input id="email" type="email" [formControlName]="password" />
-</form>
-```
+<h2>approach 1<span class="absolute -mt-20" id="approach-1"></span>
+    <a href="#approach-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-35">&lt;input id=&#34;email&#34; type=&#34;email&#34; [formControl]=&#34;form.controls.email&#34; /&gt;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-35"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>approach 2<span class="absolute -mt-20" id="approach-2"></span>
+    <a href="#approach-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-36">&lt;form [formGroup]=&#34;form&#34;&gt;
+  &lt;input id=&#34;email&#34; type=&#34;email&#34; [formControlName]=&#34;password&#34; /&gt;
+&lt;/form&gt;</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-36"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h3>pros<span class="absolute -mt-20" id="pros"></span>
     <a href="#pros" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>pros: Submitting: in reactive approach, we don&rsquo;t have to pass any argument to onSubmit, because we already have access
@@ -3292,7 +3351,7 @@ to the form in class</li>
 <li>pros: get access and have type safe when using .value <code>this.form.controls.email</code> and <code>this.form.value.email</code></li>
 </ul>
 <h3>validators<span class="absolute -mt-20" id="validators"></span>
-    <a href="#validators" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-35"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormGroup</span><span class="p">({</span>
+    <a href="#validators" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-37"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormGroup</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">// can be [], or {validators:[], }
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// asyncValidators?
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// nonNullable?, it can make sure this input cannot be set to null again if it were reset.
@@ -3305,14 +3364,14 @@ to the form in class</li>
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-35"
+      data-clipboard-target="#code-block-37"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-36"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// custom validators
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-38"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// custom validators
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">customValidator</span><span class="p">(</span><span class="nx">control</span>: <span class="kt">AbstractControl</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
@@ -3332,7 +3391,7 @@ to the form in class</li>
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-36"
+      data-clipboard-target="#code-block-38"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3345,7 +3404,7 @@ to the form in class</li>
 template to render for it to be initialized. we already initialized form in the code.</li>
 <li>so we can use <code>ngOnInit() {}</code></li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-37"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// save value into localStorage
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-39"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="c1">// save value into localStorage
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">private</span> <span class="nx">destroyRef</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">DestroyRef</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">valueChanges</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">debounceTime</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span> <span class="c1">// we don&#39;t need ? after valueChanges.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
@@ -3363,7 +3422,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-37"
+      data-clipboard-target="#code-block-39"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3371,7 +3430,7 @@ template to render for it to be initialized. we already initialized form in the 
   </div>
 </div>
 <h3>nested FormGroup validator<span class="absolute -mt-20" id="nested-formgroup-validator"></span>
-    <a href="#nested-formgroup-validator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-38"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// access controls within nested formgroup
+    <a href="#nested-formgroup-validator" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-40"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// access controls within nested formgroup
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">equalValues</span><span class="p">(</span><span class="nx">control</span>: <span class="kt">AbstractControl</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">confirmPassword</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;confirmPassword&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
@@ -3382,7 +3441,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-38"
+      data-clipboard-target="#code-block-40"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3391,7 +3450,7 @@ template to render for it to be initialized. we already initialized form in the 
 </div>
 <h2>Routing<span class="absolute -mt-20" id="routing"></span>
     <a href="#routing" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>setting up<span class="absolute -mt-20" id="setting-up"></span>
-    <a href="#setting-up" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">main.ts</div><div id="code-block-39"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">//...
+    <a href="#setting-up" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">main.ts</div><div id="code-block-41"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">//...
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">provideRouter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">bootstrapApplication</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">,</span> <span class="p">{</span>
@@ -3407,7 +3466,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-39"
+      data-clipboard-target="#code-block-41"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3415,7 +3474,7 @@ template to render for it to be initialized. we already initialized form in the 
   </div>
 </div>
 <h4>outsource routes<span class="absolute -mt-20" id="outsource-routes"></span>
-    <a href="#outsource-routes" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.routes.ts</div><div id="code-block-40"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Routes</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+    <a href="#outsource-routes" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.routes.ts</div><div id="code-block-42"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Routes</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">routes</span>: <span class="kt">Routes</span> <span class="o">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">  <span class="p">{</span>
@@ -3426,7 +3485,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-40"
+      data-clipboard-target="#code-block-42"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3434,7 +3493,7 @@ template to render for it to be initialized. we already initialized form in the 
   </div>
 </div>
 <h4>outsource app config<span class="absolute -mt-20" id="outsource-app-config"></span>
-    <a href="#outsource-app-config" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.config.ts</div><div id="code-block-41"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+    <a href="#outsource-app-config" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.config.ts</div><div id="code-block-43"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ApplicationConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">appConfig</span>: <span class="kt">ApplicationConfig</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
@@ -3444,7 +3503,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-41"
+      data-clipboard-target="#code-block-43"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3462,7 +3521,7 @@ template to render for it to be initialized. we already initialized form in the 
 </ul>
 <h3>retrieve route parameters<span class="absolute -mt-20" id="retrieve-route-parameters"></span>
     <a href="#retrieve-route-parameters" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h4>via input<span class="absolute -mt-20" id="via-input"></span>
-    <a href="#via-input" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.config.ts</div><div id="code-block-42"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">appConfig</span>: <span class="kt">ApplicationConfig</span> <span class="o">=</span> <span class="p">{</span>
+    <a href="#via-input" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.config.ts</div><div id="code-block-44"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">appConfig</span>: <span class="kt">ApplicationConfig</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">provideRouter</span><span class="p">(</span><span class="nx">routes</span><span class="p">,</span> <span class="nx">withComponentInputBinding</span><span class="p">()),</span> <span class="c1">// any argument except first
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">],</span>
@@ -3470,19 +3529,19 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-42"
+      data-clipboard-target="#code-block-44"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">Component</div><div id="code-block-43"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">  <span class="nx">userId</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">required</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;();</span> <span class="c1">// angular will set this userId
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">Component</div><div id="code-block-45"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">  <span class="nx">userId</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">required</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;();</span> <span class="c1">// angular will set this userId
 </span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-43"
+      data-clipboard-target="#code-block-45"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3500,7 +3559,7 @@ template to render for it to be initialized. we already initialized form in the 
     <a href="#via-observables" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>pros: works for child routes</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-44"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">private</span> <span class="nx">activatedRoute</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">ActivatedRoute</span><span class="p">);</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-46"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">private</span> <span class="nx">activatedRoute</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">ActivatedRoute</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">paramMap</span><span class="p">...</span> <span class="c1">// to extract paramMap
@@ -3509,7 +3568,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-44"
+      data-clipboard-target="#code-block-46"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3517,14 +3576,14 @@ template to render for it to be initialized. we already initialized form in the 
   </div>
 </div>
 <h3>programmatically routing<span class="absolute -mt-20" id="programmatically-routing"></span>
-    <a href="#programmatically-routing" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-45"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">private</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">Router</span><span class="p">);</span>
+    <a href="#programmatically-routing" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-47"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">private</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">Router</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// disable back navigation by setup replaceUrl
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">([[</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">userId</span><span class="p">()]],</span> <span class="p">{</span><span class="nx">replaceUrl</span>: <span class="kt">true</span><span class="p">,</span> <span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-45"
+      data-clipboard-target="#code-block-47"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3546,11 +3605,11 @@ template to render for it to be initialized. we already initialized form in the 
     <a href="#data-property-inside-route" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li>for static data</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.routes.ts</div><div id="code-block-46"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">app.routes.ts</div><div id="code-block-48"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-46"
+      data-clipboard-target="#code-block-48"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3565,7 +3624,7 @@ template to render for it to be initialized. we already initialized form in the 
 <li>for dynamic data</li>
 </ul>
 <h4>resolver function<span class="absolute -mt-20" id="resolver-function"></span>
-    <a href="#resolver-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">user-tasks.component.ts</div><div id="code-block-47"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">resolveUserName</span>: <span class="kt">ResolveFn</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span>
+    <a href="#resolver-function" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">user-tasks.component.ts</div><div id="code-block-49"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">resolveUserName</span>: <span class="kt">ResolveFn</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">activatedRoute</span>: <span class="kt">ActivatedRouteSnapshot</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">routerState</span>: <span class="kt">RouterStateSnapshot</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -3579,7 +3638,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-47"
+      data-clipboard-target="#code-block-49"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3601,7 +3660,7 @@ template to render for it to be initialized. we already initialized form in the 
 <li><code>can**</code> property. To control access to a route. All of them take arrays of guard functions or classes.</li>
 <li><code>canMatch</code> -&gt; <code>canActivate</code>(before the component has been loaded)</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-48"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">dummyCanMatch</span>: <span class="kt">CanMatchFn</span> <span class="o">=</span> <span class="p">(</span><span class="nx">route</span><span class="p">,</span> <span class="nx">segments</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-50"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">dummyCanMatch</span>: <span class="kt">CanMatchFn</span> <span class="o">=</span> <span class="p">(</span><span class="nx">route</span><span class="p">,</span> <span class="nx">segments</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">Router</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">shouldGetAccess</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">shouldGetAccess</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
@@ -3612,7 +3671,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-48"
+      data-clipboard-target="#code-block-50"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3622,7 +3681,7 @@ template to render for it to be initialized. we already initialized form in the 
 <ul>
 <li><code>canDeactivate</code>, the idea is that we can control whether a user is allowed to leave a page or not.</li>
 </ul>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">new-task.component.ts</div><div id="code-block-49"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">canLeaveEditPage</span>: <span class="kt">CanDeactivateFn</span><span class="p">&lt;</span><span class="nt">NewTaskComponent</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nx">component</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">new-task.component.ts</div><div id="code-block-51"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">canLeaveEditPage</span>: <span class="kt">CanDeactivateFn</span><span class="p">&lt;</span><span class="nt">NewTaskComponent</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nx">component</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">enteredTitle</span><span class="p">()</span> <span class="o">||</span> <span class="nx">component</span><span class="p">.</span><span class="nx">enteredDate</span><span class="p">()</span> <span class="o">||</span> <span class="nx">component</span><span class="p">.</span><span class="nx">enteredSummary</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;Do you really want to leave? You will lose the entered data.&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -3631,7 +3690,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-49"
+      data-clipboard-target="#code-block-51"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3643,7 +3702,7 @@ template to render for it to be initialized. we already initialized form in the 
 <li>update component.</li>
 <li>change <code>runGuardsAndResolvers:'always'</code> to always inside parent route.</li>
 </ol>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-50"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 1. update component
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-52"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 1. update component
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">([</span><span class="s1">&#39;./&#39;</span><span class="p">],</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">relativeTo</span>: <span class="kt">this.activatedRoute</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nx">onSameUrlNavigation</span><span class="o">:</span> <span class="s1">&#39;reload&#39;</span><span class="p">,</span>
@@ -3652,7 +3711,7 @@ template to render for it to be initialized. we already initialized form in the 
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-50"
+      data-clipboard-target="#code-block-52"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3661,12 +3720,12 @@ template to render for it to be initialized. we already initialized form in the 
 </div>
 <h2>Performance - Lazy Loading<span class="absolute -mt-20" id="performance---lazy-loading"></span>
     <a href="#performance---lazy-loading" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Route-based lazy loading<span class="absolute -mt-20" id="route-based-lazy-loading"></span>
-    <a href="#route-based-lazy-loading" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">users.routes.ts</div><div id="code-block-51"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">    <span class="nx">loadComponent</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+    <a href="#route-based-lazy-loading" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">users.routes.ts</div><div id="code-block-53"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">    <span class="nx">loadComponent</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;../tasks/tasks.component&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">mod</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">TasksComponent</span><span class="p">),</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-51"
+      data-clipboard-target="#code-block-53"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3815,7 +3874,7 @@ only runs in browser, right after the next overall Component render cycle.</p>
 </tbody>
 </table>
 <h2>tapResponse &mdash;&gt; rxjs<span class="absolute -mt-20" id="tapresponse-----rxjs"></span>
-    <a href="#tapresponse-----rxjs" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-52"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="nx">tapResponse</span><span class="p">(</span>
+    <a href="#tapresponse-----rxjs" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-54"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="nx">tapResponse</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">mySuccessAction</span><span class="p">({</span><span class="nx">data</span><span class="p">}),</span>
 </span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">myFailureAction</span><span class="p">({</span><span class="nx">error</span><span class="p">}),</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
@@ -3829,7 +3888,7 @@ only runs in browser, right after the next overall Component render cycle.</p>
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-52"
+      data-clipboard-target="#code-block-54"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -3837,7 +3896,7 @@ only runs in browser, right after the next overall Component render cycle.</p>
   </div>
 </div>
 <h2>ComponentStore<span class="absolute -mt-20" id="componentstore"></span>
-    <a href="#componentstore" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-53"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpClient</span><span class="p">,</span> <span class="nx">HttpErrorResponse</span><span class="p">,</span> <span class="nx">HttpHeaders</span><span class="p">,</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
+    <a href="#componentstore" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-55"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">HttpClient</span><span class="p">,</span> <span class="nx">HttpErrorResponse</span><span class="p">,</span> <span class="nx">HttpHeaders</span><span class="p">,</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/common/http&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ComponentStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/component-store&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Injectable</span><span class="p">,</span> <span class="nx">inject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ApiService</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@mgm/shared-frontend&#39;</span><span class="p">;</span>
@@ -3996,14 +4055,14 @@ only runs in browser, right after the next overall Component render cycle.</p>
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-53"
+      data-clipboard-target="#code-block-55"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
     </button>
   </div>
 </div>
-<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-54"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-56"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AddNewPoolStore</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">ConsumerComponent</span> <span class="p">{</span>
@@ -4018,7 +4077,7 @@ only runs in browser, right after the next overall Component render cycle.</p>
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-54"
+      data-clipboard-target="#code-block-56"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -4032,6 +4091,106 @@ only runs in browser, right after the next overall Component render cycle.</p>
 <li>Custom Configurations: <code>@Inject</code>, <code>@Optional</code>, <code>@Host</code>, <code>@Self</code>, or <code>@SkipSelf</code>.</li>
 <li>Standalone Components: Use <code>inject</code> for cleaner code.</li>
 </ul>
+<h2>Handle Unit Testing Mistakes<span class="absolute -mt-20" id="handle-unit-testing-mistakes"></span>
+    <a href="#handle-unit-testing-mistakes" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://www.youtube.com/watch?v=BTEx2X_8b-U&amp;ab_channel=DecodedFrontend" target="_blank" rel="noopener">Angular Unit Testing Mistakes</a></li>
+</ul>
+<ol>
+<li>we should initiate variables in <code>beforeEach</code></li>
+<li>we should use <code>fixture.componentRef.setInput('data', widgetTestingData)</code> to set input value</li>
+<li>we should use <code>&lt;p data-testId=&quot;no-location&quot;</code>, and
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-57"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">const noLocation = fixture.debugElement.query(By.css(&#39;[data-testId=&#34;no-location&#34;]&#39;));
+</span></span><span class="line"><span class="cl">// noLocation.nativeElement.value = &#39;tomorrow&#39;;
+</span></span><span class="line"><span class="cl">// noLocation.nativeElement.dispatchEvent(new Event(&#39;change&#39;)); // to fire the change event
+</span></span><span class="line"><span class="cl">expect(noLocation).toBeTruthy();</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-57"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+</ol>
+<h2>Flatten Nested Observables<span class="absolute -mt-20" id="flatten-nested-observables"></span>
+    <a href="#flatten-nested-observables" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="https://www.youtube.com/watch?v=OhuRvfcw3Tw&amp;ab_channel=DecodedFrontend" target="_blank" rel="noopener">Flatten Nested Observables</a></li>
+</ul>
+<ol>
+<li>we should use flatten operators like <code>switchMap</code> to flatten nested observables</li>
+<li>we should use <code>takeUntilDestroyed</code> at then end of pipe chain. we can have a eslint rule to enforce this.
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-58"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">searchConfig$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">switchMap</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">url</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">takeUntilDestroyed</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroyRef</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">).</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-58"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+<li>we should add subscription right after component property. Either use signal or async pipe(). With async pipe we can remove <code>takeUntilDestroyed</code>.
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-59"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// this is a property in component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">users$</span> <span class="o">=</span> <span class="nx">toSignal</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">searchConfig$</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">switchMap</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">url</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">takeUntilDestroyed</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroyRef</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-59"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+<li>avoid <strong>cold observables</strong>, which is executing observable logic multiple times.
+<ul>
+<li>approach 1: reduce subscription in template</li>
+<li>approach 2: use <strong>hot observables</strong></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-60"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">users$</span> <span class="o">=</span> <span class="nx">toSignal</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">searchConfig$</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">switchMap</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">url</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// when a new subscriber arrives, the logic before shareReplay will not be executed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// the switchMap will executed only when a new config is emitted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">shareReplay</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-60"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+</li>
+<li>avoid improper usage of <code>distinctUntilChanged()</code> in pipe chain.
+<ul>
+<li><code>distinctUntilChanged()</code> only works for primitive values, not for objects. <code>// {} === {}</code> is false.</li>
+<li>to resolve this by using <code>distinctUntilChanged((prev, curr) =&gt; prev.id === curr.id)</code> or <code>distinctUntilKeyChanged('id')</code>, or deep comparison.</li>
+</ul>
+</li>
+<li>avoid using side effects in the wrong places.
+<ul>
+<li><code>tap</code> is for side effects, not for changing the observable stream.</li>
+<li><code>tap</code> is for logging, debugging, or triggering side effects.</li>
+</ul>
+</li>
+</ol>
 
         </div>
         <div class="mt-16"></div>
