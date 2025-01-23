@@ -11,25 +11,25 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Kafka – Yixian Wang</title>
-  <meta name="description" content="" />
+  <title>Redis – Yixian Wang</title>
+  <meta name="description" content="SETNX The SETNX command in Redis stands for SET if Not eXists. It is used to set a key to a value only if the key does not already exist. This operation is atomic, which means it ensures that no race conditions occur when multiple clients attempt to execute the command simultaneously. syntax: SETNX key value Parameters: key: The name of the key to set. value: The value to associate with the key if it does not already exist." />
 
   
 
-<meta property="og:title" content="Kafka" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Redis" />
+<meta property="og:description" content="SETNX The SETNX command in Redis stands for SET if Not eXists. It is used to set a key to a value only if the key does not already exist. This operation is atomic, which means it ensures that no race conditions occur when multiple clients attempt to execute the command simultaneously. syntax: SETNX key value Parameters: key: The name of the key to set. value: The value to associate with the key if it does not already exist." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/kafka/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-07-04T04:54:15-04:00" />
-<meta property="article:modified_time" content="2024-07-04T04:54:15-04:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/redis/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2025-01-22T23:53:20-05:00" />
+<meta property="article:modified_time" content="2025-01-22T23:53:20-05:00" />
 
-  <meta itemprop="name" content="Kafka">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-07-04T04:54:15-04:00" />
-<meta itemprop="dateModified" content="2024-07-04T04:54:15-04:00" />
-<meta itemprop="wordCount" content="0">
+  <meta itemprop="name" content="Redis">
+<meta itemprop="description" content="SETNX The SETNX command in Redis stands for SET if Not eXists. It is used to set a key to a value only if the key does not already exist. This operation is atomic, which means it ensures that no race conditions occur when multiple clients attempt to execute the command simultaneously. syntax: SETNX key value Parameters: key: The name of the key to set. value: The value to associate with the key if it does not already exist."><meta itemprop="datePublished" content="2025-01-22T23:53:20-05:00" />
+<meta itemprop="dateModified" content="2025-01-22T23:53:20-05:00" />
+<meta itemprop="wordCount" content="320">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kafka"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Redis"/>
+<meta name="twitter:description" content="SETNX The SETNX command in Redis stands for SET if Not eXists. It is used to set a key to a value only if the key does not already exist. This operation is atomic, which means it ensures that no race conditions occur when multiple clients attempt to execute the command simultaneously. syntax: SETNX key value Parameters: key: The name of the key to set. value: The value to associate with the key if it does not already exist."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -286,13 +286,58 @@
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/redis/"
     
   >Redis
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#setnx"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >SETNX</a>
+            </li>
+          <li>
+              <a
+                href="#tools-like-redis-redlock-are-used-to-handle-locks-in-distributed-systems"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Tools like Redis (Redlock) are used to handle locks in distributed systems.</a>
+            </li>
+          <li>
+              <a
+                href="#queue-based-processing"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Queue-Based Processing</a>
+            </li>
+          <li>
+              <a
+                href="#optimistic-locking"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Optimistic Locking</a>
+            </li>
+          <li>
+              <a
+                href="#transaction-annotation"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Transaction annotation</a>
+            </li>
+          <li>
+              <a
+                href="#heading"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              ></a>
+            </li>
+          <li>
+              <a
+                href="#prompt"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Prompt</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -486,14 +531,13 @@
   >Memo
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/kafka/"
     
   >Kafka
     </a>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1078,9 +1122,9 @@
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/redis/"
     
   >Redis
@@ -1253,9 +1297,9 @@
     
   >Memo
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/kafka/"
     
   >Kafka
@@ -1723,8 +1767,44 @@
 </aside>
     
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4">
-      <div class=" sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#setnx">SETNX
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#parameters">Parameters:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#behavior">Behavior:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#summary">Summary
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tools-like-redis-redlock-are-used-to-handle-locks-in-distributed-systems">Tools like Redis (Redlock) are used to handle locks in distributed systems.
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#queue-based-processing">Queue-Based Processing
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#optimistic-locking">Optimistic Locking
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#transaction-annotation">Transaction annotation
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#prompt">Prompt
+        </a>
+      </li></ul>
+      <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
           <span>Scroll to top</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline ml-1 h-3.5 w-3.5 border rounded-full border-gray-500 hover:border-gray-900 dark:border-gray-400 dark:hover:border-gray-100 contrast-more:border-gray-800 contrast-more:dark:border-gray-50">
@@ -1741,23 +1821,113 @@
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Kafka</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Redis</div>
 </div>
 
         <div class="content">
-          <h1>Kafka</h1>
-          
+          <h1>Redis</h1>
+          <h2>SETNX<span class="absolute -mt-20" id="setnx"></span>
+    <a href="#setnx" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>The SETNX command in <strong>Redis</strong> stands for <strong>SET if Not eXists</strong>. It is used to set a key to a value only if the key does not already exist. This operation is atomic, which means it ensures that no race conditions occur when multiple clients attempt to execute the command simultaneously.</li>
+<li>syntax: <code>SETNX key value</code></li>
+</ul>
+<h3>Parameters:<span class="absolute -mt-20" id="parameters"></span>
+    <a href="#parameters" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><p><strong>key</strong>: The name of the key to set.
+<strong>value</strong>: The value to associate with the key if it does not already exist.</p>
+<h3>Behavior:<span class="absolute -mt-20" id="behavior"></span>
+    <a href="#behavior" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>If the key <strong>does not exist</strong>, the command sets the key with the given value and returns 1.</li>
+<li>If the key <strong>already exists</strong>, the command does nothing and returns 0.
+This is useful for implementing <strong>distributed locks</strong> or ensuring that certain keys are only set once.</li>
+</ul>
+<h3>Summary<span class="absolute -mt-20" id="summary"></span>
+    <a href="#summary" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>SETNX is commonly used to implement a <strong>distributed locking mechanism</strong>. For example:</li>
+</ul>
+<ol>
+<li>Use SETNX lock_key &ldquo;lock_value&rdquo; to acquire a lock.</li>
+<li>If the command returns 1, the lock is successfully acquired.</li>
+<li>If the command returns 0, another process holds the lock.</li>
+</ol>
+<ul>
+<li>To ensure the lock is eventually released, this is often paired with a TTL (using EXPIRE or SET with options) to avoid deadlocks.</li>
+</ul>
+<p>Let me know if you’d like more examples or related use cases!</p>
+<h2>Tools like Redis (Redlock) are used to handle locks in distributed systems.<span class="absolute -mt-20" id="tools-like-redis-redlock-are-used-to-handle-locks-in-distributed-systems"></span>
+    <a href="#tools-like-redis-redlock-are-used-to-handle-locks-in-distributed-systems" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Queue-Based Processing<span class="absolute -mt-20" id="queue-based-processing"></span>
+    <a href="#queue-based-processing" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Implement message queues (e.g., Kafka, RabbitMQ) at the Java level for sequential processing of requests.</li>
+</ul>
+<h2>Optimistic Locking<span class="absolute -mt-20" id="optimistic-locking"></span>
+    <a href="#optimistic-locking" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>If your database schema includes a version column, you can handle it in Java:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Version</span>
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="kt">int</span> <span class="n">version</span><span class="o">;</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>JPA will automatically check and manage version conflicts during updates.</li>
+</ul>
+<h2>Transaction annotation<span class="absolute -mt-20" id="transaction-annotation"></span>
+    <a href="#transaction-annotation" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Annotate methods with @Transactional to manage database operations atomically.</li>
+</ul>
+<h2><span class="absolute -mt-20" id="heading"></span>
+    <a href="#heading" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h2>Prompt<span class="absolute -mt-20" id="prompt"></span>
+    <a href="#prompt" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">how bank system solve race conditions to avoid duplicate transactions</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">how to use 2. Optimistic Locking and 3. Pessimistic Locking in bank system. should they be used in database or java system?</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">explain Libraries like Axon Framework can help manage event sourcing and CQRS in Java applications.</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/note/"
-        title="Memo"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Memo</a><a
-        href="/notes/bugs/"
-        title="Bugs"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/github-actions/"
+        title="Github Actions"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Bugs<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Github Actions<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
