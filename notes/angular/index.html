@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="5140">
+<meta itemprop="wordCount" content="5346">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -839,6 +839,12 @@
                 href="#ngrx"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >NGRX</a>
+            </li>
+          <li>
+              <a
+                href="#router-guard"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Router Guard</a>
             </li>
           </ul>
   
@@ -2153,6 +2159,18 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#ngrx">NGRX
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#router-guard">Router Guard
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-case">use case
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#all-types-of-router-guards">all types of router guards
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -4617,6 +4635,53 @@ it is a unique key that we can use to identify the dependency.</p>
     </button>
   </div>
 </div>
+<h2>Router Guard<span class="absolute -mt-20" id="router-guard"></span>
+    <a href="#router-guard" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>use case<span class="absolute -mt-20" id="use-case"></span>
+    <a href="#use-case" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>To <strong>confirm</strong> the navigation operation.</li>
+<li>Asking whether to save data before moving away from view.</li>
+<li>Allow access to certain parts of the application to specific users.</li>
+<li>Validating the Route parameters before navigating to the route.</li>
+<li>Fetching some data before you display the component view.</li>
+</ul>
+<h3>all types of router guards<span class="absolute -mt-20" id="all-types-of-router-guards"></span>
+    <a href="#all-types-of-router-guards" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>
+<p>CanActivate – Determines if a route can be activated.</p>
+<ul>
+<li>Used to prevent unauthorized users from accessing certain routes.</li>
+<li>Example use case: Restricting access to authenticated users.</li>
+</ul>
+</li>
+<li>
+<p>CanActivateChild – Determines if child routes can be activated.</p>
+<ul>
+<li>Similar to <code>CanActivate</code>, but applies to child routes.</li>
+<li>Example use case: Preventing access to child routes if the parent route is restricted.</li>
+</ul>
+</li>
+<li>
+<p>CanDeactivate – Determines if a route can be exited.</p>
+<ul>
+<li>Used to warn users before leaving a route (e.g., unsaved changes).</li>
+<li>Example use case: Prompting a user to save form data before navigating away.</li>
+</ul>
+</li>
+<li>
+<p>Resolve – Fetches data before navigating to a route.</p>
+<ul>
+<li>Used to <strong>pre-load data</strong> required by a route before displaying the component.</li>
+<li>Example use case: Loading user details before opening a profile page.</li>
+</ul>
+</li>
+<li>
+<p>CanLoad – Determines if a module can be lazily loaded.</p>
+<ul>
+<li>Prevents unauthorized users from loading an entire module.</li>
+<li>Example use case: Restricting access to an admin module before it is loaded.</li>
+</ul>
+</li>
+</ol>
 
         </div>
         <div class="mt-16"></div>
