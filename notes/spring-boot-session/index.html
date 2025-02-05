@@ -29,7 +29,7 @@ import lombok.Data; @Data public class Result { private Integer code; private St
 <meta itemprop="description" content="Example Result common.Result
 import lombok.Data; @Data public class Result { private Integer code; private String message; private Object data; protected Result(Integer code, String message, Object data) { this.code = code; this.message = message; this.data = data; } public static Result OK() { return new Result(200, null, null); } public static Result success(Object data) { return new Result(200, null, data); } public static Result success(String message, Object data) { return new Result(200, message, data); } } BackgroundController controller."><meta itemprop="datePublished" content="2025-02-05T07:22:27-05:00" />
 <meta itemprop="dateModified" content="2025-02-05T07:22:27-05:00" />
-<meta itemprop="wordCount" content="360">
+<meta itemprop="wordCount" content="371">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot Session"/>
 <meta name="twitter:description" content="Example Result common.Result
@@ -1996,10 +1996,13 @@ import lombok.Data; @Data public class Result { private Integer code; private St
 <p>run the application and visit <code>http://localhost:8080/background</code> to see if it reminds you <code>login failed, please login first</code> .</p>
 </blockquote>
 <blockquote>
-<p>visit <code>http://localhost:8080/user/login?username=admin&amp;password=admin</code> to see the result, it should be <code>login success</code>.</p>
+<p>visit <code>http://localhost:8080/api/user/login?username=admin&amp;password=admin</code> to see the result, it should be <code>login success</code>.</p>
 </blockquote>
 <blockquote>
-<p>visit <code>http://localhost:8080/background</code> to see the result, it should be <code>backend data</code>.</p>
+<p>visit <code>http://localhost:8080/api/background</code> to see the result, it should be <code>backend data</code>.</p>
+</blockquote>
+<blockquote>
+<p>visit <code>http://localhost:8080/api/user/logout</code> to see the result, it should be <code>backend data</code>.</p>
 </blockquote>
 
         </div>
