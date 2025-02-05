@@ -12,24 +12,24 @@
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
   <title>Git – Yixian Wang</title>
-  <meta name="description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1." />
+  <meta name="description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3." />
 
   
 
 <meta property="og:title" content="Git" />
-<meta property="og:description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1." />
+<meta property="og:description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yixianwang.github.io/notes/git/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2023-10-24T03:10:46-04:00" />
 <meta property="article:modified_time" content="2023-10-24T03:10:46-04:00" />
 
   <meta itemprop="name" content="Git">
-<meta itemprop="description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
+<meta itemprop="description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="390">
+<meta itemprop="wordCount" content="534">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git"/>
-<meta name="twitter:description" content="branch operations # set the remote branch to track the local branch git push --set-upstream origin branchb # check upstream branch git branch -vv # change upstream branch later git branch -u origin/branch-name # delete a branch git branch -d &lt;branch-name&gt; # create a new branch git checkout -b &lt;branch-name&gt; git switch -c &lt;branch-name&gt; # rename branch git branch -m &lt;new name&gt; tag is a snapshot of all the commits at that time # create a tag, -a means annotation, git tag -a v1."/>
+<meta name="twitter:description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -928,6 +928,18 @@
   
     <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
               <a
+                href="#we-want-to-keep-the-files-locally-modified-but-unstaged"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >We Want to Keep the Files Locally Modified but Unstaged</a>
+            </li>
+          <li>
+              <a
+                href="#we-never-want-to-accidentally-modify-these-files"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >We Never Want to Accidentally Modify These Files</a>
+            </li>
+          <li>
+              <a
                 href="#branch-operations"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >branch operations</a>
@@ -1793,6 +1805,14 @@
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#we-want-to-keep-the-files-locally-modified-but-unstaged">We Want to Keep the Files Locally Modified but Unstaged
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#we-never-want-to-accidentally-modify-these-files">We Never Want to Accidentally Modify These Files
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#branch-operations">branch operations
         </a>
       </li>
@@ -1850,8 +1870,77 @@
 
         <div class="content">
           <h1>Git</h1>
-          <h2>branch operations<span class="absolute -mt-20" id="branch-operations"></span>
-    <a href="#branch-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0"># set the remote branch to track the local branch
+          <h2>We Want to Keep the Files Locally Modified but Unstaged<span class="absolute -mt-20" id="we-want-to-keep-the-files-locally-modified-but-unstaged"></span>
+    <a href="#we-want-to-keep-the-files-locally-modified-but-unstaged" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>If you want to keep local changes without staging them for commits:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-0">git update-index --assume-unchanged config1.yml
+git update-index --assume-unchanged config2.yml
+git update-index --assume-unchanged config3.yml</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>These files will not appear in git status anymore.</li>
+<li>They will remain untracked in future commits but still exist locally.
+To revert this and track them again:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1">git update-index --no-assume-unchanged config1.yml
+git update-index --no-assume-unchanged config2.yml
+git update-index --no-assume-unchanged config3.yml</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>We Never Want to Accidentally Modify These Files<span class="absolute -mt-20" id="we-never-want-to-accidentally-modify-these-files"></span>
+    <a href="#we-never-want-to-accidentally-modify-these-files" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>If these files are in the repository but should never be changed on your local machine, use:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2">git update-index --skip-worktree config1.yml
+git update-index --skip-worktree config2.yml
+git update-index --skip-worktree config3.yml</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>This tells Git to ignore future changes in these files unless you explicitly change them.
+To undo this and allow modifications again:</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">git update-index --no-skip-worktree config1.yml
+git update-index --no-skip-worktree config2.yml
+git update-index --no-skip-worktree config3.yml</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>branch operations<span class="absolute -mt-20" id="branch-operations"></span>
+    <a href="#branch-operations" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4"># set the remote branch to track the local branch
 git push --set-upstream origin branchb
 
 # check upstream branch
@@ -1872,7 +1961,7 @@ git branch -m &lt;new name&gt;</code></pre><div class="opacity-0 transition grou
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-0"
+      data-clipboard-target="#code-block-4"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1880,7 +1969,7 @@ git branch -m &lt;new name&gt;</code></pre><div class="opacity-0 transition grou
   </div>
 </div>
 <h2>tag is a snapshot of all the commits at that time<span class="absolute -mt-20" id="tag-is-a-snapshot-of-all-the-commits-at-that-time"></span>
-    <a href="#tag-is-a-snapshot-of-all-the-commits-at-that-time" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-1"># create a tag, -a means annotation, 
+    <a href="#tag-is-a-snapshot-of-all-the-commits-at-that-time" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5"># create a tag, -a means annotation, 
 git tag -a v1.0.0 -m &#34;version 1.0.0&#34;
 git tag
 git push origin v1.0.0
@@ -1894,7 +1983,7 @@ git push origin v1.0.1</code></pre><div class="opacity-0 transition group-hover/
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-1"
+      data-clipboard-target="#code-block-5"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1902,7 +1991,7 @@ git push origin v1.0.1</code></pre><div class="opacity-0 transition group-hover/
   </div>
 </div>
 <h2>merge, on development branch, do operations to merge feature branch into development branch<span class="absolute -mt-20" id="merge-on-development-branch-do-operations-to-merge-feature-branch-into-development-branch"></span>
-    <a href="#merge-on-development-branch-do-operations-to-merge-feature-branch-into-development-branch" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-2"># merge feature branch into development branch, locally
+    <a href="#merge-on-development-branch-do-operations-to-merge-feature-branch-into-development-branch" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-6"># merge feature branch into development branch, locally
 git checkout development
 git merge feature-branch
 
@@ -1919,7 +2008,7 @@ git merge origin/development
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-2"
+      data-clipboard-target="#code-block-6"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1927,7 +2016,7 @@ git merge origin/development
   </div>
 </div>
 <h2>rebase<span class="absolute -mt-20" id="rebase"></span>
-    <a href="#rebase" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-3">git checkout feature-branch
+    <a href="#rebase" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">git checkout feature-branch
 git pull --rebase origin development
 
 # If conflicts occur, resolve them and continue rebasing:
@@ -1938,7 +2027,7 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-3"
+      data-clipboard-target="#code-block-7"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1946,11 +2035,11 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
   </div>
 </div>
 <h2>git diff<span class="absolute -mt-20" id="git-diff"></span>
-    <a href="#git-diff" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-4">git diff remote-origin/branch-name # compare local with remote</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <a href="#git-diff" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-8">git diff remote-origin/branch-name # compare local with remote</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-4"
+      data-clipboard-target="#code-block-8"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
@@ -1962,7 +2051,7 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
 <p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p>
 <p><code>&lt;scope&gt;</code> is optional</p>
 <h3>Example<span class="absolute -mt-20" id="example"></span>
-    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-5">feat: add hat wobble
+    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-9">feat: add hat wobble
 ^--^  ^------------^
 |     |
 |     &#43;-&gt; Summary in present tense. e.g. add, update, resolve, remove, reformat, optimize, reduce, fix, upgrade, merge, etc.
@@ -1971,7 +2060,7 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-5"
+      data-clipboard-target="#code-block-9"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
