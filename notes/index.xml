@@ -280,9 +280,13 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;run the application and visit &lt;code&gt;http://localhost:8080/background&lt;/code&gt; to see if it reminds you &lt;code&gt;login failed, please login first&lt;/code&gt; .
-visit &lt;code&gt;http://localhost:8080/user/login?username=admin&amp;amp;password=admin&lt;/code&gt; to see the result, it should be &lt;code&gt;login success&lt;/code&gt;.
-visit &lt;code&gt;http://localhost:8080/background&lt;/code&gt; to see the result, it should be &lt;code&gt;backend data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;run the application and visit &lt;code&gt;http://localhost:8080/background&lt;/code&gt; to see if it reminds you &lt;code&gt;login failed, please login first&lt;/code&gt; .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;visit &lt;code&gt;http://localhost:8080/user/login?username=admin&amp;amp;password=admin&lt;/code&gt; to see the result, it should be &lt;code&gt;login success&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;visit &lt;code&gt;http://localhost:8080/background&lt;/code&gt; to see the result, it should be &lt;code&gt;backend data&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
       </description>
