@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="6044">
+<meta itemprop="wordCount" content="6226">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -2287,6 +2287,14 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#angular-has-two-injector-hierarchy">angular has two injector hierarchy
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#resolution-modifiers">Resolution Modifiers
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#dependency-providers">Dependency Providers
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -5041,6 +5049,44 @@ it is a unique key that we can use to identify the dependency.</p>
 
     <img src=".././images-angular/1.png" alt="images" loading="lazy" /></li>
 </ol>
+<h3>Resolution Modifiers<span class="absolute -mt-20" id="resolution-modifiers"></span>
+    <a href="#resolution-modifiers" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>@Self: it will only look for the dependency in the current injector and not in the parent injector. If there is no provider here - throw the error. It doesn&rsquo;t traverse injectors tree.</li>
+<li>@SkipSelf: it tells Angular to skip local injector and start traversing of injector tree from parent injector.</li>
+<li>@Optional: it tells Angular that it should not throw the error if there is no provider and just returns NULL.</li>
+<li>@Host: it tells Angular that it should resolve dependencies in scope of current component view. It is applicable mostly for directives or projected components.</li>
+</ol>
+<h3>Dependency Providers<span class="absolute -mt-20" id="dependency-providers"></span>
+    <a href="#dependency-providers" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>useClass: just provides a new instance of some certain class.</li>
+<li>useExisting: works as an alias. It doesn&rsquo;t create a new instance but reuse already instantiated one.</li>
+<li>useValue: Utilize it when we need to provide non-class object like string, object or already instantiated class instance.</li>
+<li>useFactory: useful when we have to perform some additional logic during the dependency value creation.</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-78"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TS" data-lang="TS"><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-root&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">provide</span>: <span class="kt">Config</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">useFactory</span><span class="o">:</span> <span class="p">(</span><span class="nx">http</span>: <span class="kt">HttpClient</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">http</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;some/config&#39;</span><span class="p">)</span> <span class="c1">// some logic
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">deps</span><span class="o">:</span> <span class="p">[</span><span class="nx">HttpClient</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span> 
+</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-78"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h2>Unit tests<span class="absolute -mt-20" id="unit-tests"></span>
     <a href="#unit-tests" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><blockquote>
 <p>In unit tests env, the initial change detection cycle is not triggered automatically. We have to trigger it manually.</p>
