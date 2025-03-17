@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Algo Note">
 <meta itemprop="description" content="Templates Binary Search 二分法 Two Pointers 双指针 Sorting 排序算法 Quick Select Iteratively &#43; Recursively Binary Tree Divide &amp; Conquer 二叉树分治 BST Iterator 二叉搜索树非递归 BFS 宽度优先搜索 DFS 深度优先搜索 Dynamic Programming 动态规划 Heap 堆 Prioirty Queue: Union Find 并查集 Trie 字典树 Red-Black Tree Basics Rotations: O(1) Insertions(strategy) Data Structure Implementations LCS: Longest Commen Subsequence LCA: Lowest Common Ancestor Example: Lintcode 88 LCA TSP: MST: Minimon Spinning Tree LRU: Least Recently Used LIS: Longest Increasing Subsequence DP - LIS LIS 的动态规划四要素 Binary Search - LIS LIS2: Longest Continuous Increasing Subsequence 2 LDS: Largest Divisible Subset HashMap Implementation Other Notes Reverse Linked List 通过数据范围推测算法 背诵贪心算法 Python String methods C&#43;&#43; string methods 时间复杂度算法列表 跟面试官核实 BFS 的使用场景 BFS 的使用场景（summer） 以下哪些问题 BFS 可以处理： BFS 的三种实现方法 二叉树的 BFS vs 图的 BFS： Recursion/ DFS/ Backtracking: 遍历法 vs 分治法： 平衡二叉树 计算深度 Binary Search Tree 二叉查找树： BST 基本操作： Delete Node in a BST Red-Black Tree 红黑树： 二叉树三种遍历： “二叉树的中序遍历”的非递归实现 Prefix Sum Prefix Product, Suffix Product 使用前缀和数组在 O(1)的时间复杂度内计算子数组和 解决最短路径的算法： time &amp; space compelxity of recursive: 遇到二叉树的问题，就想想整棵树在该问题上的结果和左右孩子在该问题上的结果之间有什么联系 拓扑排序 Topological Sorting: 拓扑排序的四种不同问法： Others Quick Select GCD - Greatest Common Divisor lower_bound vs upper_bound string find, mismatch string find mismatch assert try throw catch - error handling gtest with cmake step 1: step 2: CMakeLists."><meta itemprop="datePublished" content="2024-02-11T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2024-02-11T03:10:46-04:00" />
-<meta itemprop="wordCount" content="12136">
+<meta itemprop="wordCount" content="12223">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Algo Note"/>
 <meta name="twitter:description" content="Templates Binary Search 二分法 Two Pointers 双指针 Sorting 排序算法 Quick Select Iteratively &#43; Recursively Binary Tree Divide &amp; Conquer 二叉树分治 BST Iterator 二叉搜索树非递归 BFS 宽度优先搜索 DFS 深度优先搜索 Dynamic Programming 动态规划 Heap 堆 Prioirty Queue: Union Find 并查集 Trie 字典树 Red-Black Tree Basics Rotations: O(1) Insertions(strategy) Data Structure Implementations LCS: Longest Commen Subsequence LCA: Lowest Common Ancestor Example: Lintcode 88 LCA TSP: MST: Minimon Spinning Tree LRU: Least Recently Used LIS: Longest Increasing Subsequence DP - LIS LIS 的动态规划四要素 Binary Search - LIS LIS2: Longest Continuous Increasing Subsequence 2 LDS: Largest Divisible Subset HashMap Implementation Other Notes Reverse Linked List 通过数据范围推测算法 背诵贪心算法 Python String methods C&#43;&#43; string methods 时间复杂度算法列表 跟面试官核实 BFS 的使用场景 BFS 的使用场景（summer） 以下哪些问题 BFS 可以处理： BFS 的三种实现方法 二叉树的 BFS vs 图的 BFS： Recursion/ DFS/ Backtracking: 遍历法 vs 分治法： 平衡二叉树 计算深度 Binary Search Tree 二叉查找树： BST 基本操作： Delete Node in a BST Red-Black Tree 红黑树： 二叉树三种遍历： “二叉树的中序遍历”的非递归实现 Prefix Sum Prefix Product, Suffix Product 使用前缀和数组在 O(1)的时间复杂度内计算子数组和 解决最短路径的算法： time &amp; space compelxity of recursive: 遇到二叉树的问题，就想想整棵树在该问题上的结果和左右孩子在该问题上的结果之间有什么联系 拓扑排序 Topological Sorting: 拓扑排序的四种不同问法： Others Quick Select GCD - Greatest Common Divisor lower_bound vs upper_bound string find, mismatch string find mismatch assert try throw catch - error handling gtest with cmake step 1: step 2: CMakeLists."/>
@@ -2297,6 +2297,10 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#multiset-in-c">multiset in C++
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#inblock-dfs-in-c">inblock dfs in C++
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
@@ -7301,6 +7305,43 @@ Return type: Boolean, true if a multiset is empty else false</code></pre><div cl
     </button>
   </div>
 </div>
+<h3>inblock dfs in C++<span class="absolute -mt-20" id="inblock-dfs-in-c"></span>
+    <a href="#inblock-dfs-in-c" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Leetcode 377</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-99"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">combinationSum4</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">memo</span><span class="p">(</span><span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// -1 表示没有计算过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">auto</span> <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">this</span> <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">dfs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 爬完了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="o">&amp;</span><span class="n">res</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// 注意这里是引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 之前计算过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-99"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h3>C++ isalnum, isalpha, isdigit<span class="absolute -mt-20" id="c-isalnum-isalpha-isdigit"></span>
     <a href="#c-isalnum-isalpha-isdigit" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
 <li><code>isalnum</code> checks whether c is either a decimal digit or an uppercase or lowercase letter.</li>
@@ -7323,12 +7364,12 @@ Return type: Boolean, true if a multiset is empty else false</code></pre><div cl
     <a href="#gpu-k-means" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Tree Comparison<span class="absolute -mt-20" id="tree-comparison"></span>
     <a href="#tree-comparison" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>Two Phase Commit Protocol<span class="absolute -mt-20" id="two-phase-commit-protocol"></span>
     <a href="#two-phase-commit-protocol" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h3>MPI Barnes-hut<span class="absolute -mt-20" id="mpi-barnes-hut"></span>
-    <a href="#mpi-barnes-hut" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-99"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//www.youtube.com/watch?v=m9f6CoToIGU
+    <a href="#mpi-barnes-hut" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-100"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//www.youtube.com/watch?v=m9f6CoToIGU
 </span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-99"
+      data-clipboard-target="#code-block-100"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
