@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Angular">
 <meta itemprop="description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"><meta itemprop="datePublished" content="2024-01-27T02:54:24-04:00" />
 <meta itemprop="dateModified" content="2024-01-27T02:54:24-04:00" />
-<meta itemprop="wordCount" content="7244">
+<meta itemprop="wordCount" content="7354">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular"/>
 <meta name="twitter:description" content="How to read source code in Github Node and Angular Version Control Check Current Angular and Node.js Versions node -v ng version Upgrade or Downgrade Angular ng update @angular/cli @angular/core npm uninstall @angular/cli @angular/core npm install @angular/cli@12 @angular/core@12 Reinstall Node Modules After upgrading or downgrading Angular, it’s a good practice to remove the node_modules folder and reinstall dependencies to ensure everything works with the new version: rm -rf node_modules npm install Concepts template reference variable Useful: child component can interact with or manipulate the parent&rsquo;s HTMLElement &lt;input #text /&gt; &lt;app-child [inputRef]=&#34;text&#34;&gt;&lt;/app-child&gt; child component use @Input to receive the reference of HTMLInputElement"/>
@@ -923,6 +923,12 @@
                 href="#unit-tests"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Unit tests</a>
+            </li>
+          <li>
+              <a
+                href="#typescript-memo"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Typescript memo</a>
             </li>
           </ul>
   
@@ -2331,6 +2337,18 @@
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#nativeelement-vs-debugelement">nativeElement vs debugElement
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#typescript-memo">Typescript memo
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#interface-can-extends-more-than-one-interfaces">interface can extends more than one interfaces
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#class-extends-one-class--class-implements-more-than-one-interfaces">class extends one class + class implements more than one interfaces
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -5502,6 +5520,66 @@ use <code>fixture.detectChanges()</code> to trigger the change detection cycle.<
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-88"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Typescript memo<span class="absolute -mt-20" id="typescript-memo"></span>
+    <a href="#typescript-memo" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>interface can extends more than one interfaces<span class="absolute -mt-20" id="interface-can-extends-more-than-one-interfaces"></span>
+    <a href="#interface-can-extends-more-than-one-interfaces" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-89"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">IA</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">aa</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">IB</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bb</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// interface extends more than one interfaces
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">interface</span> <span class="nx">IC</span> <span class="kr">extends</span> <span class="nx">IA</span><span class="p">,</span> <span class="nx">IB</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cc</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-89"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>class extends one class + class implements more than one interfaces<span class="absolute -mt-20" id="class-extends-one-class--class-implements-more-than-one-interfaces"></span>
+    <a href="#class-extends-one-class--class-implements-more-than-one-interfaces" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-90"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">animal</span> <span class="o">=</span> <span class="s1">&#39;animal&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">eat() {</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;animal eat!&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Human</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">human</span> <span class="o">=</span> <span class="s1">&#39;human&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">run() {</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;human run!&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// class extends one class
+</span></span></span><span class="line"><span class="cl"><span class="c1">// class implements more than one interfaces
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">class</span> <span class="nx">Thing</span> <span class="kr">extends</span> <span class="nx">Animal</span> <span class="kr">implements</span> <span class="nx">IA</span><span class="p">,</span> <span class="nx">IB</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">thing</span> <span class="o">=</span> <span class="s1">&#39;thing&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sit() {</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;thing thing&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cc</span> <span class="o">=</span> <span class="s1">&#39;cc&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">aa</span> <span class="o">=</span> <span class="s1">&#39;aa&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bb</span> <span class="o">=</span> <span class="s1">&#39;bb&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-90"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
