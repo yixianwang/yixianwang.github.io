@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="413">
+<meta itemprop="wordCount" content="525">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -821,6 +821,12 @@
                 href="#mybatis-plus"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Mybatis-Plus</a>
+            </li>
+          <li>
+              <a
+                href="#responseentity"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >ResponseEntity</a>
             </li>
           </ul>
   
@@ -1910,6 +1916,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#searching-multiple-tables">Searching Multiple Tables
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#responseentity">ResponseEntity
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2161,7 +2171,17 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
   </div>
 </div>
 <h3>Searching Multiple Tables<span class="absolute -mt-20" id="searching-multiple-tables"></span>
-    <a href="#searching-multiple-tables" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+    <a href="#searching-multiple-tables" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><h2>ResponseEntity<span class="absolute -mt-20" id="responseentity"></span>
+    <a href="#responseentity" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Returning a resource: Use <code>ResponseEntity.ok(resource)</code> for successful retrieval (200 OK).</li>
+<li>Handling &ldquo;Not Found&rdquo;: Use <code>new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND)</code> or <code>ResponseEntity.notFound().build()</code> for resources that don&rsquo;t exist (404 Not Found).</li>
+<li>Creating a new resource: Use <code>ResponseEntity.status(HttpStatus.CREATED).headers(headers).body(createdResource)</code> or <code>ResponseEntity.created(locationUri).body(createdResource)</code> for successful creation (201 Created), often including a Location header.</li>
+<li>No content: Use <code>ResponseEntity.noContent().build()</code> when an operation is successful but there&rsquo;s no content to return (204 No Content).</li>
+<li>Bad requests: Use <code>ResponseEntity.badRequest().body(errorMessage)</code> for invalid client requests (400 Bad Request), often with an error message in the body.</li>
+<li>Internal server errors: Use <code>ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage)</code> for unexpected server-side issues (500 Internal Server Error).</li>
+<li>Conditional responses: Use headers like <code>ETag</code>, <code>Last-Modified</code> with appropriate status codes like 304 Not Modified using ResponseEntity.</li>
+</ul>
+
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
