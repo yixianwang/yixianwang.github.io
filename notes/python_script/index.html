@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Python Scripts">
 <meta itemprop="description" content="Add sentences to the beginning of all markdown files import os # Define the sentence you want to add sentence_to_add = &#34;&#34;&#34;&#43;&#43;&#43; title = &#39;Markdown&#39; date = 2023-10-23T21:50:46-04:00 draft = true &#43;&#43;&#43; \n&#34;&#34;&#34; # Specify the directory where your Markdown files are located markdown_directory = &#34;./&#34; # List all the Markdown files in the directory markdown_files = [f for f in os.listdir(markdown_directory) if f.endswith(&#34;.md&#34;)] # Loop through each Markdown file and add the sentence for markdown_file in markdown_files: file_path = os."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="353">
+<meta itemprop="wordCount" content="365">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Scripts"/>
 <meta name="twitter:description" content="Add sentences to the beginning of all markdown files import os # Define the sentence you want to add sentence_to_add = &#34;&#34;&#34;&#43;&#43;&#43; title = &#39;Markdown&#39; date = 2023-10-23T21:50:46-04:00 draft = true &#43;&#43;&#43; \n&#34;&#34;&#34; # Specify the directory where your Markdown files are located markdown_directory = &#34;./&#34; # List all the Markdown files in the directory markdown_files = [f for f in os.listdir(markdown_directory) if f.endswith(&#34;.md&#34;)] # Loop through each Markdown file and add the sentence for markdown_file in markdown_files: file_path = os."/>
@@ -1052,6 +1052,12 @@
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Auto-Tagging and Version Bumping</a>
             </li>
+          <li>
+              <a
+                href="#read-env-variables-directly"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Read Env variables directly</a>
+            </li>
           </ul>
   
               
@@ -1843,6 +1849,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#auto-tagging-and-version-bumping">Auto-Tagging and Version Bumping
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#read-env-variables-directly">Read Env variables directly
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2036,6 +2046,21 @@
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Read Env variables directly<span class="absolute -mt-20" id="read-env-variables-directly"></span>
+    <a href="#read-env-variables-directly" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-7"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">API_EMAIL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;JIRA_EMAIL&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">API_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;JIRA_API_TOKEN&#34;</span><span class="p">)</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
