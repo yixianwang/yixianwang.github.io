@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="525">
+<meta itemprop="wordCount" content="621">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -835,6 +835,12 @@
                 href="#responseentity"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >ResponseEntity</a>
+            </li>
+          <li>
+              <a
+                href="#lombok"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Lombok</a>
             </li>
           </ul>
   
@@ -1935,6 +1941,34 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#responseentity">ResponseEntity
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lombok">Lombok
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#noargsconstructor">@NoArgsConstructor
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-case">Use Case:
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#allargsconstructor">@AllArgsConstructor
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-case-1">Use Case
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#requiredargsconstructor">@RequiredArgsConstructor
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-case-2">Use Case
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2195,6 +2229,40 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
 <li>Bad requests: Use <code>ResponseEntity.badRequest().body(errorMessage)</code> for invalid client requests (400 Bad Request), often with an error message in the body.</li>
 <li>Internal server errors: Use <code>ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage)</code> for unexpected server-side issues (500 Internal Server Error).</li>
 <li>Conditional responses: Use headers like <code>ETag</code>, <code>Last-Modified</code> with appropriate status codes like 304 Not Modified using ResponseEntity.</li>
+</ul>
+<h2>Lombok<span class="absolute -mt-20" id="lombok"></span>
+    <a href="#lombok" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>@NoArgsConstructor<span class="absolute -mt-20" id="noargsconstructor"></span>
+    <a href="#noargsconstructor" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Creates constructor with no parameters</li>
+<li>Handles <code>final</code> fields by initializing to <code>0/false/null</code> (adds compiler warning)</li>
+<li>Use <code>force = true</code> to force <code>final</code> fields to <code>0/false/null</code> (suppresses warning)</li>
+</ul>
+<h4>Use Case:<span class="absolute -mt-20" id="use-case"></span>
+    <a href="#use-case" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>JPA entity classes (require no-arg constructor)</li>
+<li>Frameworks like Hibernate that use reflection</li>
+<li>Deserialization (JSON → Object)</li>
+</ul>
+<h3>@AllArgsConstructor<span class="absolute -mt-20" id="allargsconstructor"></span>
+    <a href="#allargsconstructor" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Order of parameters matches field declaration order</li>
+<li>Includes <code>final</code> and non-final fields</li>
+<li>Handles <code>@NonNull</code> fields (null checks)</li>
+</ul>
+<h4>Use Case<span class="absolute -mt-20" id="use-case-1"></span>
+    <a href="#use-case-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>Quick object initialization(Value Object)</li>
+<li>Testing (creating objects with specific state)</li>
+<li>Immutable configuration objects</li>
+</ul>
+<h3>@RequiredArgsConstructor<span class="absolute -mt-20" id="requiredargsconstructor"></span>
+    <a href="#requiredargsconstructor" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Generates a constructor for <code>final</code> fields and <code>@NonNull</code> fields.</li>
+</ul>
+<h4>Use Case<span class="absolute -mt-20" id="use-case-2"></span>
+    <a href="#use-case-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li>Dependency injection</li>
+<li>Immutable data</li>
 </ul>
 
         </div>
