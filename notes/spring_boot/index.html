@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="621">
+<meta itemprop="wordCount" content="642">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -1969,6 +1969,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#use-case-2">Use Case
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#best-practices">Best Practices:
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2263,6 +2267,12 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
     <a href="#use-case-2" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
 <li>Dependency injection</li>
 <li>Immutable data</li>
+</ul>
+<h3>Best Practices:<span class="absolute -mt-20" id="best-practices"></span>
+    <a href="#best-practices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>Prefer <code>@RequiredArgsConstructor</code> for DI</li>
+<li>Use <code>@NoArgsConstructor</code> only when required by frameworks</li>
+<li>Combine with <code>@Data</code> or <code>@Value</code> for full POJOs</li>
 </ul>
 
         </div>
