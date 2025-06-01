@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="1163">
+<meta itemprop="wordCount" content="1542">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -847,6 +847,12 @@
                 href="#lombok-annotations-best-practice"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Lombok Annotations Best Practice</a>
+            </li>
+          <li>
+              <a
+                href="#java-records-immutable-data-carriers"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Java Records: Immutable Data Carriers</a>
             </li>
           </ul>
   
@@ -1983,6 +1989,30 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#lombok-annotations-best-practice">Lombok Annotations Best Practice
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-records-immutable-data-carriers">Java Records: Immutable Data Carriers
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#advanced-usage">Advanced Usage
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#limitations">Limitations
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#records-vs-traditional-classes">Records vs Traditional Classes
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#records-vs-lombok-data">Records vs Lombok @Data
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#best-practices-1">Best Practices
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2652,6 +2682,291 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
 </tr>
 </tbody>
 </table>
+<h2>Java Records: Immutable Data Carriers<span class="absolute -mt-20" id="java-records-immutable-data-carriers"></span>
+    <a href="#java-records-immutable-data-carriers" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Eliminate boilerplate code for data-oriented classes.</li>
+</ul>
+<p>Key Features</p>
+<ol>
+<li>Auto-Generated Components:</li>
+</ol>
+<ul>
+<li><code>final</code> fields (private)</li>
+<li>Public constructor (canonical)</li>
+<li>Accessor methods (<code>field()</code> instead of <code>getField()</code>)</li>
+<li><code>equals(), hashCode(), toString()</code></li>
+</ul>
+<ol start="2">
+<li>Immutability:</li>
+</ol>
+<ul>
+<li>All fields are implicitly <code>final</code></li>
+<li>No setter methods</li>
+</ul>
+<ol start="3">
+<li>Syntax</li>
+</ol>
+<ul>
+<li><code>public record Point(int x, int y) {}</code></li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-19"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Equivalent Traditional Class
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">y</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">x</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">y</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">y</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Auto-generated:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// - equals() (compares all fields)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// - hashCode() (uses all fields)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// - toString() (e.g., &#34;Point[x=1, y=2]&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-19"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Use Cases</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Transfer Objects (DTOs)</td>
+<td>API responses, DB results</td>
+</tr>
+<tr>
+<td>Value objects</td>
+<td>Currency, Coordinates</td>
+</tr>
+<tr>
+<td>Tuple-like structures</td>
+<td>Pair&lt;K,V&gt;, Coordinate</td>
+</tr>
+<tr>
+<td>Temporary data containers</td>
+<td>Method return values</td>
+</tr>
+</tbody>
+</table>
+<h3>Advanced Usage<span class="absolute -mt-20" id="advanced-usage"></span>
+    <a href="#advanced-usage" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Custom Constructors</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-20"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Compact constructor (no parameters)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">Point</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;Negative values&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Fields auto-assigned after this block
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-20"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ol start="2">
+<li>Add Methods</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-21"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">distance</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-21"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ol start="3">
+<li>Implement Interfaces</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-22"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="nf">User</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-22"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ol start="4">
+<li>Annotations</li>
+</ol>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-23"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="nf">User</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@NotBlank</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Min</span><span class="o">(</span><span class="mi">18</span><span class="o">)</span> <span class="kt">int</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span> <span class="o">{}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-23"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h3>Limitations<span class="absolute -mt-20" id="limitations"></span>
+    <a href="#limitations" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Cannot:</li>
+</ol>
+<ul>
+<li>Extend other classes (implicitly <code>final</code>)</li>
+<li>Declare non-<code>final</code> fields</li>
+<li>Add instance initializers</li>
+</ul>
+<ol start="2">
+<li>Restrictions:</li>
+</ol>
+<ul>
+<li>All fields defined in header</li>
+<li>No abstract records</li>
+<li>Accessors must match field names</li>
+</ul>
+<h3>Records vs Traditional Classes<span class="absolute -mt-20" id="records-vs-traditional-classes"></span>
+    <a href="#records-vs-traditional-classes" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Record</th>
+<th>Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boilerplate</td>
+<td>Auto-generated</td>
+<td>Manual coding</td>
+</tr>
+<tr>
+<td>Immutability</td>
+<td>Enforced</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td>No extension (final)</td>
+<td>Extendable</td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td>Compact syntax</td>
+<td>Explicit assignment</td>
+</tr>
+<tr>
+<td>Accessors</td>
+<td>x() instead of getX()</td>
+<td>Traditional getters</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>Data carriers</td>
+<td>Complex behavior</td>
+</tr>
+</tbody>
+</table>
+<h3>Records vs Lombok @Data<span class="absolute -mt-20" id="records-vs-lombok-data"></span>
+    <a href="#records-vs-lombok-data" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Java Record</th>
+<th>Lombok @Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language feature</td>
+<td>Native (JVM)</td>
+<td>Compiler plugin</td>
+</tr>
+<tr>
+<td>Immutability</td>
+<td>Enforced</td>
+<td>Optional (final fields)</td>
+</tr>
+<tr>
+<td>Serialization</td>
+<td>Built-in support</td>
+<td>Manual configuration</td>
+</tr>
+<tr>
+<td>Pattern Matching</td>
+<td>Works with instanceof</td>
+<td>No special support</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Compact constructor</td>
+<td>Manual validation</td>
+</tr>
+</tbody>
+</table>
+<h3>Best Practices<span class="absolute -mt-20" id="best-practices-1"></span>
+    <a href="#best-practices-1" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
+<li>Use for simple data carriers: DTOs, configuration, coordinates</li>
+<li>Avoid:</li>
+</ol>
+<ul>
+<li>Adding mutable state</li>
+<li>Complex business logic</li>
+<li>Inheritance hierarchies</li>
+</ul>
+<ol start="3">
+<li>Prefer over Lombok for new projects (native solution)</li>
+<li>Validate data in compact constructors</li>
+</ol>
+<p>Example: REST API DTO</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-24"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="n">ApiResponse</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">status</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">message</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ApiResponse</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Usage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ApiResponse</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ApiResponse</span><span class="o">&lt;&gt;(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;OK&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-24"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
