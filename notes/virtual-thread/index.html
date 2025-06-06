@@ -29,7 +29,7 @@ Virtual threads Virtual threads are a lightweight alternative to platform thread
 <meta itemprop="description" content="Platform threads Platform threads are the traditional threads provided by the operating system. They are managed by the OS and can be used to perform concurrent tasks. However, they can be resource-intensive and may lead to issues like thread contention and deadlocks.
 Virtual threads Virtual threads are a lightweight alternative to platform threads, introduced in Java 19 as a preview feature and made stable in Java 21. They are designed to be more efficient and easier to use for concurrent programming."><meta itemprop="datePublished" content="2025-06-05T21:10:40-04:00" />
 <meta itemprop="dateModified" content="2025-06-05T21:10:40-04:00" />
-<meta itemprop="wordCount" content="863">
+<meta itemprop="wordCount" content="873">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Virtual Thread"/>
 <meta name="twitter:description" content="Platform threads Platform threads are the traditional threads provided by the operating system. They are managed by the OS and can be used to perform concurrent tasks. However, they can be resource-intensive and may lead to issues like thread contention and deadlocks.
@@ -1940,6 +1940,10 @@ Virtual threads Virtual threads are a lightweight alternative to platform thread
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#%e5%9c%ba%e6%99%af-4%e5%b9%b6%e8%a1%8c%e6%b5%8b%e8%af%95%e6%89%a7%e8%a1%8c%e5%99%a8">场景 4：并行测试执行器
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#-%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%ab%98%e7%ba%a7%e7%94%a8%e6%b3%95%e7%bb%86%e8%8a%82">⚠️ 注意事项（高级用法细节）
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2393,6 +2397,13 @@ Offload CPU-bound tasks to a separate pool of platform threads:</p>
     </button>
   </div>
 </div>
+<h3>⚠️ 注意事项（高级用法细节）<span class="absolute -mt-20" id="-注意事项高级用法细节"></span>
+    <a href="#-%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%ab%98%e7%ba%a7%e7%94%a8%e6%b3%95%e7%bb%86%e8%8a%82" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>每个任务创建一个新虚拟线程，适合 IO 密集型、不共享状态的任务。</li>
+<li>不适用于高频、极短任务（如纳秒级计算），否则调度开销可能超过任务成本。</li>
+<li>使用时应配合 try-with-resources 保证资源关闭。</li>
+<li>不自动限制并发数，如有资源限制应手动控制（如信号量或限流器）。</li>
+</ul>
 
         </div>
         <div class="mt-16"></div>
