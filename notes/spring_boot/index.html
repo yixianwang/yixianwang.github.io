@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="1715">
+<meta itemprop="wordCount" content="1958">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -867,6 +867,12 @@
                 href="#model-mapper-in-spring-boot"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Model Mapper in Spring Boot</a>
+            </li>
+          <li>
+              <a
+                href="#modern-and-recommended-folder-structure"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Modern and recommended folder structure</a>
             </li>
           </ul>
   
@@ -2046,6 +2052,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#custom-mappings">Custom Mappings
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#modern-and-recommended-folder-structure">Modern and recommended folder structure
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -3094,6 +3104,87 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-27"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Modern and recommended folder structure<span class="absolute -mt-20" id="modern-and-recommended-folder-structure"></span>
+    <a href="#modern-and-recommended-folder-structure" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-28"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">src
+</span></span><span class="line"><span class="cl">└── main
+</span></span><span class="line"><span class="cl">    ├── java
+</span></span><span class="line"><span class="cl">    │   └── com
+</span></span><span class="line"><span class="cl">    │       └── yourcompany
+</span></span><span class="line"><span class="cl">    │           └── yourproject
+</span></span><span class="line"><span class="cl">    │               ├── YourProjectApplication.java
+</span></span><span class="line"><span class="cl">    │               ├── config
+</span></span><span class="line"><span class="cl">    │               │   └── (configuration classes: security, web, etc.)
+</span></span><span class="line"><span class="cl">    │               ├── controller
+</span></span><span class="line"><span class="cl">    │               │   └── (REST/controllers)
+</span></span><span class="line"><span class="cl">    │               ├── dto
+</span></span><span class="line"><span class="cl">    │               │   └── (Data Transfer Objects)
+</span></span><span class="line"><span class="cl">    │               ├── entity
+</span></span><span class="line"><span class="cl">    │               │   └── (JPA entities/domain models)
+</span></span><span class="line"><span class="cl">    │               ├── exception
+</span></span><span class="line"><span class="cl">    │               │   └── (custom exceptions and handlers)
+</span></span><span class="line"><span class="cl">    │               ├── repository
+</span></span><span class="line"><span class="cl">    │               │   └── (Spring Data repositories)
+</span></span><span class="line"><span class="cl">    │               ├── service
+</span></span><span class="line"><span class="cl">    │               │   └── (service layer)
+</span></span><span class="line"><span class="cl">    │               ├── mapper
+</span></span><span class="line"><span class="cl">    │               │   └── (MapStruct/ModelMapper mappers)
+</span></span><span class="line"><span class="cl">    │               ├── util
+</span></span><span class="line"><span class="cl">    │               │   └── (utility/helper classes)
+</span></span><span class="line"><span class="cl">    │               └── (any feature-based packages, e.g., user, order, etc.)
+</span></span><span class="line"><span class="cl">    ├── resources
+</span></span><span class="line"><span class="cl">    │   ├── application.yml
+</span></span><span class="line"><span class="cl">    │   ├── static
+</span></span><span class="line"><span class="cl">    │   │   └── (static web resources)
+</span></span><span class="line"><span class="cl">    │   ├── templates
+</span></span><span class="line"><span class="cl">    │   │   └── (Thymeleaf/Freemarker templates)
+</span></span><span class="line"><span class="cl">    │   └── (other resource files)
+</span></span><span class="line"><span class="cl">    └── test
+</span></span><span class="line"><span class="cl">        └── java
+</span></span><span class="line"><span class="cl">            └── com
+</span></span><span class="line"><span class="cl">                └── yourcompany
+</span></span><span class="line"><span class="cl">                    └── yourproject
+</span></span><span class="line"><span class="cl">                        └── (test classes, mirroring main structure)</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-28"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<ul>
+<li>config: Java configuration classes (security, CORS, Swagger/OpenAPI, etc.)</li>
+<li>controller: REST or web controllers (@RestController, @Controller)</li>
+<li>dto: Data Transfer Objects for requests &amp; responses</li>
+<li>entity: JPA/Hibernate entities (database models)</li>
+<li>exception: Custom exceptions and exception handlers (@ControllerAdvice)</li>
+<li>repository: Spring Data repository interfaces</li>
+<li>service: Business logic/services (@Service)</li>
+<li>mapper: Classes/interfaces for mapping between entities and DTOs (e.g., using MapStruct or ModelMapper)</li>
+<li>util: Utility or helper classes (validation, constants, etc.)</li>
+</ul>
+<p>For larger projects, use feature-based modularization:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-29"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">└── user
+</span></span><span class="line"><span class="cl">    ├── UserController.java
+</span></span><span class="line"><span class="cl">    ├── UserService.java
+</span></span><span class="line"><span class="cl">    ├── UserRepository.java
+</span></span><span class="line"><span class="cl">    ├── User.java
+</span></span><span class="line"><span class="cl">    ├── UserDto.java
+</span></span><span class="line"><span class="cl">    └── UserMapper.java
+</span></span><span class="line"><span class="cl">└── order
+</span></span><span class="line"><span class="cl">    └── (order-related classes)</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-29"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
