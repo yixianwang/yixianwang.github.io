@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="1542">
+<meta itemprop="wordCount" content="1600">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -2006,6 +2006,10 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#summary-for-best-practices">Summary for best practices
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java-records-immutable-data-carriers">Java Records: Immutable Data Carriers
         </a>
       </li>
@@ -2694,6 +2698,45 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
 <td>@EqualsAndHashCode</td>
 <td>Immutable values, include superclass</td>
 <td>Entities (use primary key manually)</td>
+</tr>
+</tbody>
+</table>
+<h3>Summary for best practices<span class="absolute -mt-20" id="summary-for-best-practices"></span>
+    <a href="#summary-for-best-practices" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Annotation</th>
+<th style="text-align:center">Use Case &amp; Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@RequiredArgsConstructor</td>
+<td style="text-align:center">Preferred for constructor injection in Spring beans</td>
+</tr>
+<tr>
+<td style="text-align:center">@Getter, @Setter</td>
+<td style="text-align:center">Use on fields or class; avoid on JPA entities</td>
+</tr>
+<tr>
+<td style="text-align:center">@Slf4j</td>
+<td style="text-align:center">For logging (no manual logger needed)</td>
+</tr>
+<tr>
+<td style="text-align:center">@Data</td>
+<td style="text-align:center">For DTOs only (not JPA entities)</td>
+</tr>
+<tr>
+<td style="text-align:center">@Builder</td>
+<td style="text-align:center">For DTOs, not JPA entities</td>
+</tr>
+<tr>
+<td style="text-align:center">@Value</td>
+<td style="text-align:center">For immutable DTOs</td>
+</tr>
+<tr>
+<td style="text-align:center">@NoArgsConstructor(force = true)</td>
+<td style="text-align:center">For JPA entities</td>
 </tr>
 </tbody>
 </table>
