@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Git">
 <meta itemprop="description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="579">
+<meta itemprop="wordCount" content="680">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git"/>
 <meta name="twitter:description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."/>
@@ -1020,6 +1020,18 @@
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Semantic Commit Messages</a>
             </li>
+          <li>
+              <a
+                href="#create-a-revert-commit-by-resetting-and-commiting"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Create a Revert Commit by Resetting and Commiting</a>
+            </li>
+          <li>
+              <a
+                href="#revert-individual-commits"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Revert individual commits</a>
+            </li>
           </ul>
   
               
@@ -1915,6 +1927,14 @@
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#create-a-revert-commit-by-resetting-and-commiting">Create a Revert Commit by Resetting and Commiting
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#revert-individual-commits">Revert individual commits
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#example">Example
         </a>
       </li>
@@ -2158,8 +2178,47 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
     <a href="#semantic-commit-messages" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>See how a minor change to your commit message style can make you a better programmer.</p>
 <p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p>
 <p><code>&lt;scope&gt;</code> is optional</p>
+<h2>Create a Revert Commit by Resetting and Commiting<span class="absolute -mt-20" id="create-a-revert-commit-by-resetting-and-commiting"></span>
+    <a href="#create-a-revert-commit-by-resetting-and-commiting" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. Start a new branch from latest main</span>
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl">git pull origin main
+</span></span><span class="line"><span class="cl">git checkout -b fix/revert-main-to-&lt;old-commit&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Reset working directory to old commit (but keep as changes to commit)</span>
+</span></span><span class="line"><span class="cl">git reset --hard &lt;old-commit&gt;
+</span></span><span class="line"><span class="cl">git reset --soft HEAD@<span class="o">{</span>1<span class="o">}</span> <span class="c1"># makes the changes from the old commit a staged change</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Cmomit the changes as a new revert commit</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;fix: revert main to &lt;old-commit-id&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. push branch</span>
+</span></span><span class="line"><span class="cl">git push origin fix/revert-main-to-&lt;old-commit&gt;</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-11"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>Revert individual commits<span class="absolute -mt-20" id="revert-individual-commits"></span>
+    <a href="#revert-individual-commits" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout -b fix/revert-bad-change
+</span></span><span class="line"><span class="cl">git revert &lt;bad-commit-id&gt;
+</span></span><span class="line"><span class="cl">git push origin fix/revert-bad-change</span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-12"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 <h3>Example<span class="absolute -mt-20" id="example"></span>
-    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-11">feat: add hat wobble
+    <a href="#example" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-13">feat: add hat wobble
 ^--^  ^------------^
 |     |
 |     &#43;-&gt; Summary in present tense. e.g. add, update, resolve, remove, reformat, optimize, reduce, fix, upgrade, merge, etc.
@@ -2168,7 +2227,7 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
-      data-clipboard-target="#code-block-11"
+      data-clipboard-target="#code-block-13"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
