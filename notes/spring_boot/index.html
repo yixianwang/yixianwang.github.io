@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="2823">
+<meta itemprop="wordCount" content="2944">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -3671,6 +3671,79 @@ public class KieConfig {
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-39"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">ValidationRuleSet.java</div><div id="code-block-40"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">ValidationRuleSet</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">POOL</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;rules/poolRule1.drl&#34;</span><span class="o">,</span> <span class="s">&#34;rules/poolRule2.drl&#34;</span><span class="o">)),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOAN</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;rules/loanRule1.drl&#34;</span><span class="o">,</span> <span class="s">&#34;rules/loanRule2.drl&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">drlFiles</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ValidationRuleSet</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">drlFiles</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">drlFiles</span> <span class="o">=</span> <span class="n">drlFiles</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getDrlFiles</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">drlFiles</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-40"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div class="filename">KieConfig.java</div><div id="code-block-41"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KieConfig</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">KModuleBeanFactoryPostProcessor</span> <span class="nf">kiePostProcessor</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">KModuleBeanFactoryPostProcessor</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;poolKieContainer&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">KieContainer</span> <span class="nf">poolKieContainer</span><span class="o">(</span><span class="n">KieServices</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">createKieContainer</span><span class="o">(</span><span class="n">ks</span><span class="o">,</span> <span class="n">ValidationRuleSet</span><span class="o">.</span><span class="na">POOL</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;loanKieContainer&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">KieContainer</span> <span class="nf">loanKieContainer</span><span class="o">(</span><span class="n">KieServices</span> <span class="n">ks</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">createKieContainer</span><span class="o">(</span><span class="n">ks</span><span class="o">,</span> <span class="n">ValidationRuleSet</span><span class="o">.</span><span class="na">LOAN</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">KieContainer</span> <span class="nf">createKieContainer</span><span class="o">(</span><span class="n">KieServices</span> <span class="n">ks</span><span class="o">,</span> <span class="n">ValidationRuleSet</span> <span class="n">ruleSet</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">drlFiles</span> <span class="o">=</span> <span class="n">ruleSet</span><span class="o">.</span><span class="na">getDrlFiles</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">KieFileSystem</span> <span class="n">kfs</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">newKieFileSystem</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">KieModuleModel</span> <span class="n">kModuleModel</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">newKieModuleModel</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kfs</span><span class="o">.</span><span class="na">writeKModuleXML</span><span class="o">(</span><span class="n">kModuleModel</span><span class="o">.</span><span class="na">toXML</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">drl</span> <span class="o">:</span> <span class="n">drlFiles</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">kfs</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&#34;src/main/resources/&#34;</span> <span class="o">+</span> <span class="n">drl</span><span class="o">,</span> <span class="n">ks</span><span class="o">.</span><span class="na">getResources</span><span class="o">().</span><span class="na">newClassPathResource</span><span class="o">(</span><span class="n">drl</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">KieBuilder</span> <span class="n">kieBuilder</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="na">newKieBuilder</span><span class="o">(</span><span class="n">kfs</span><span class="o">).</span><span class="na">buildAll</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">kieBuilder</span><span class="o">.</span><span class="na">getResults</span><span class="o">().</span><span class="na">hasMessages</span><span class="o">(</span><span class="n">org</span><span class="o">.</span><span class="na">kie</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">builder</span><span class="o">.</span><span class="na">Message</span><span class="o">.</span><span class="na">Level</span><span class="o">.</span><span class="na">ERROR</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">&#34;Error building KIE base: &#34;</span> <span class="o">+</span> <span class="n">kieBuilder</span><span class="o">.</span><span class="na">getResults</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ReleaseId</span> <span class="n">releaseId</span> <span class="o">=</span> <span class="n">kieBuilder</span><span class="o">.</span><span class="na">getKieModule</span><span class="o">().</span><span class="na">getReleaseId</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ks</span><span class="o">.</span><span class="na">newKieContainer</span><span class="o">(</span><span class="n">releaseId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-8">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-41"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
