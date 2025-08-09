@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Spring Boot">
 <meta itemprop="description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."><meta itemprop="datePublished" content="2023-12-27T09:02:18-05:00" />
 <meta itemprop="dateModified" content="2023-12-27T09:02:18-05:00" />
-<meta itemprop="wordCount" content="2359">
+<meta itemprop="wordCount" content="2525">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot"/>
 <meta name="twitter:description" content="Spring bean an instance of a class managed by the Spring container show all default beans // within main method ApplicationContext apc = SpringApplication.run(ClassName.class) for (String s : apc.getBeanDefinitionNames()) { System.out.println(s); } Spring container part of the core of the Spring framework managing all beans: it decides when to create this instance, when to kill this instance, and how to initialize the instance, etc. performs dependency injection IoC(Inversion of Control) instead of the programmer really deciding the flow of the application, deciding what objects are created, etc."/>
@@ -3441,6 +3441,74 @@ spring.servlet.multipart.max-request-size=10MB</code></pre><div class="opacity-0
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
       title="Copy code"
       data-clipboard-target="#code-block-34"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-35">package com.example.validation.config;
+
+import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
+import org.kie.api.builder.KieBuilder;
+import org.kie.api.builder.ReleaseId;
+import org.kie.api.builder.model.KieModuleModel;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.StatelessKieSession;
+import org.kie.api.runtime.KieBase;
+import org.kie.api.runtime.KieBaseConfiguration;
+import org.kie.api.runtime.conf.EventProcessingOption;
+import org.kie.api.runtime.KieContainer;
+import org.kie.spring.KModuleBeanFactoryPostProcessor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
+
+@Configuration
+public class KieConfig {
+
+    @Bean
+    public KModuleBeanFactoryPostProcessor kiePostProcessor() {
+        return new KModuleBeanFactoryPostProcessor();
+    }
+
+    /**
+     * Build KieContainer by loading provided DRL files from classpath or file system.
+     * For simplicity, assume drlFiles are classpath resources (e.g. &#34;rules/myrules.drl&#34;)
+     */
+    @Bean
+    public KieContainer kieContainer(KieServices ks) {
+        List&lt;String&gt; drlFiles = List.of(&#34;rules/rule1.drl&#34;, &#34;rules/rule2.drl&#34;); // &lt;- Inject or configure this list
+
+        KieFileSystem kfs = ks.newKieFileSystem();
+
+        // Create a minimal KieModule model (optional, but good practice)
+        KieModuleModel kModuleModel = ks.newKieModuleModel();
+        kfs.writeKModuleXML(kModuleModel.toXML());
+
+        // Add DRL files from classpath to the KieFileSystem
+        for (String drl : drlFiles) {
+            String path = &#34;src/main/resources/&#34; &#43; drl; // adjust if needed
+            kfs.write(&#34;src/main/resources/&#34; &#43; drl, ks.getResources().newClassPathResource(drl));
+        }
+
+        KieBuilder kieBuilder = ks.newKieBuilder(kfs).buildAll();
+        if (kieBuilder.getResults().hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
+            throw new RuntimeException(&#34;Errors while building Drools rules: &#34; &#43; kieBuilder.getResults());
+        }
+
+        ReleaseId releaseId = kieBuilder.getKieModule().getReleaseId();
+
+        return ks.newKieContainer(releaseId);
+    }
+}</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-35"
     >
       <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
       <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
