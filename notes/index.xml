@@ -123,7 +123,20 @@
 &lt;li&gt;&lt;a href=&#34;https://leetcode.cn/discuss/post/3144832/fen-xiang-gun-ti-dan-zi-fu-chuan-kmpzhan-ugt4/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;String: KMP (Knuth-Morris-Pratt; prefix function/pi array)/Manacher (longest palindromic substring)/string hashing/AC automation(Aho-Corasick automation; trie with failure links)/suffix array (SA; LCP array (longest common prefix))&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Data Structures&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data-structures&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#data-structures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+    &lt;a href=&#34;#data-structures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Basic&lt;span class=&#34;absolute -mt-20&#34; id=&#34;basic&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#basic&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Enumerate the right, maintain the left.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For a two-variable problem—for example, the two-sum a_i + a_j = t—you can enumerate the right-hand a_j, turning it into a single-variable problem: check to the left of a_j whether there exists an a_i such that a_i = t − a_j. This can be maintained with a hash table.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Enumerate the middle.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For problems with three or four variables, enumerating the middle variable is often easier to compute.
+Why? For example, suppose there are three indices satisfying 0 ≤ i &amp;lt; j &amp;lt; k &amp;lt; n. Compare:
+If you enumerate i, then subsequent calculations still need to ensure j &amp;lt; k.
+If you enumerate j, then i and k are automatically separated by j and are independent, so there’s no need to worry about the positional relationship between i and k afterward.
+Therefore, enumerating the middle variable is simpler.&lt;/p&gt;
+
       </description>
     </item>
     
