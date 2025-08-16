@@ -1939,13 +1939,13 @@ For two-variable problems like the two-sum where <code>a_i + a_j = t</code>:</p>
 <p><strong>Implementation Pattern:</strong></p>
 <div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">two_sum_pattern</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">seen</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Hash table for left elements</span>
-</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">a_j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="n">complement</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">a_j</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">complement</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="p">[</span><span class="n">seen</span><span class="p">[</span><span class="n">complement</span><span class="p">],</span> <span class="n">j</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="n">seen</span><span class="p">[</span><span class="n">a_j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
-</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">None</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
@@ -1991,13 +1991,13 @@ When dealing with multiple variables with ordering constraints, enumerate the mi
 <div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">three_sum_pattern</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># Enable two-pointer technique</span>
 </span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># Enumerate middle</span>
 </span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">right</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="n">current_sum</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">current_sum</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]])</span>
 </span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -2006,7 +2006,7 @@ When dealing with multiple variables with ordering constraints, enumerate the mi
 </span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">                <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
     <button
       class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
