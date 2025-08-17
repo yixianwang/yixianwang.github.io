@@ -214,6 +214,26 @@ When dealing with multiple variables with ordering constraints, enumerate the mi
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;h3&gt;Prefix Sum&lt;span class=&#34;absolute -mt-20&#34; id=&#34;prefix-sum&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#prefix-sum&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1. Left-Closed Right-Open Formula&lt;span class=&#34;absolute -mt-20&#34; id=&#34;1-left-closed-right-open-formula&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-left-closed-right-open-formula&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Core Concept:&lt;/strong&gt;
+For the sum of elements in the left-closed right-open interval &lt;code&gt;[left, right)&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-2&#34;&gt;Range Sum = sum[right] - sum[left]&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-2&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sum[i]&lt;/code&gt; represents the sum of the first i elements (i.e., &lt;code&gt;arr[0] + arr[1] + ... + arr[i-1]&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Interval &lt;code&gt;[left, right)&lt;/code&gt; includes &lt;code&gt;left&lt;/code&gt; but excludes &lt;code&gt;right&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
