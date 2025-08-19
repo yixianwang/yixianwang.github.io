@@ -91,6 +91,36 @@
     </item>
     
     <item>
+      <title>Rendercv</title>
+      <link>https://yixianwang.github.io/notes/rendercv/</link>
+      <pubDate>Tue, 19 Aug 2025 04:05:30 -0400</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/rendercv/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;CLI&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cli&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cli&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.rendercv.com/user_guide/cli/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rendercv CLI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div id=&#34;code-block-0&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rendercv new &lt;span class=&#34;s2&#34;&gt;&amp;#34;Name&amp;#34;&lt;/span&gt; --theme &lt;span class=&#34;s2&#34;&gt;&amp;#34;engineeringclassic&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rendercv render &lt;span class=&#34;s2&#34;&gt;&amp;#34;xxx.yaml&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+      data-clipboard-target=&#34;#code-block-0&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>LC 2025</title>
       <link>https://yixianwang.github.io/notes/lc-2025/</link>
       <pubDate>Sat, 16 Aug 2025 09:05:05 -0400</pubDate>
@@ -9570,181 +9600,6 @@ func inc(x *int) {
 &lt;/ul&gt;
 &lt;p&gt;These principles help create more modular, maintainable, and flexible codebases, improving software quality and reducing the risk of bugs and technical debt.&lt;/p&gt;
 
-      </description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>https://yixianwang.github.io/notes/aws/</link>
-      <pubDate>Mon, 29 Apr 2024 15:12:10 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/aws/</guid>
-      <description>
-        
-        
-        &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/keenanromain/AWS-SAA-C02-Study-Guide?tab=readme-ov-file#elastic-block-store-ebs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SAA-02 Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Global Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;global-services&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#global-services&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Identity and Access Management (IAM)&lt;/li&gt;
-&lt;li&gt;Route 53 (DNS service)&lt;/li&gt;
-&lt;li&gt;CloudFront (Content Delivery Network)&lt;/li&gt;
-&lt;li&gt;WAF (Web Application Firewall)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Region-scoped&lt;span class=&#34;absolute -mt-20&#34; id=&#34;region-scoped&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#region-scoped&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Amazon EC2 (Infrastructure as a Service)
-&lt;ul&gt;
-&lt;li&gt;Renting virtual machines (EC2)&lt;/li&gt;
-&lt;li&gt;Storing data on virtual drives (EBS)&lt;/li&gt;
-&lt;li&gt;Elastic File System (EFS)&lt;/li&gt;
-&lt;li&gt;Distributing load across machines (ELB)&lt;/li&gt;
-&lt;li&gt;Scaling the services using an auto-scaling group (ASG)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Elastic Beanstalk (Platform as a Service)&lt;/li&gt;
-&lt;li&gt;Lambda (Function as a Service)&lt;/li&gt;
-&lt;li&gt;Rekognition (Software as a Service)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Concepts&lt;span class=&#34;absolute -mt-20&#34; id=&#34;concepts&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#concepts&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;RDS Multi-AZ = Synchronous = High Availability&lt;/li&gt;
-&lt;li&gt;Read Replica = Asynchronous = Disaster Recovery (DR)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;IAM&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iam&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#iam&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code id=&#34;code-block-0&#34;&gt;which aws
-aws --version
-
-aws configure
-
-aws iam list-users&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-      data-clipboard-target=&#34;#code-block-0&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Section 7: EC2 Instance Storage&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-7-ec2-instance-storage&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-7-ec2-instance-storage&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;EBS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ebs&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ebs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
-    &lt;img src=&#34;../images-aws/1.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;h4&gt;General Purpose SSD, gp2, gp3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;general-purpose-ssd-gp2-gp3&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#general-purpose-ssd-gp2-gp3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;gp3: IOPS and throughput are not linked.&lt;/li&gt;
-&lt;li&gt;gp2: IOPS and throughput are linked.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Provisioned IOPS (PIOPS) SSD, io1/io2&lt;span class=&#34;absolute -mt-20&#34; id=&#34;provisioned-iops-piops-ssd-io1io2&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#provisioned-iops-piops-ssd-io1io2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Use Case:
-&lt;ul&gt;
-&lt;li&gt;Critical business applications with sustained IOPS performance.&lt;/li&gt;
-&lt;li&gt;Or applications that need more than 16000 IOPS&lt;/li&gt;
-&lt;li&gt;Great for database workloads(sensitive to storage perf and consistency)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;PIOPS and storage size are not linked just like gp3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Hard Disk Drives(HDD), st1, sc1&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hard-disk-driveshdd-st1-sc1&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#hard-disk-driveshdd-st1-sc1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;cannot be boot volume&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Throughput Optimized HDD(st1)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Big Data, Data Warehouses, Log Processing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Cold HDD(sc1)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;For data that is infrequently accessed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;EBS Multi-Attach - io1/io2 family&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ebs-multi-attach---io1io2-family&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ebs-multi-attach---io1io2-family&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;attach the same EBS volume to multiple EC2 instances in the same AZ&lt;/li&gt;
-&lt;li&gt;Up to 16 EC2 instances at a time.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;EBS Encryption&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ebs-encryption&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ebs-encryption&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;create snapshot
-&lt;ol&gt;
-&lt;li&gt;copy snapshot &amp;amp;&amp;amp; encrypt snapshot&lt;/li&gt;
-&lt;li&gt;create volume from snapshot &amp;amp;&amp;amp; encrypt volume&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;EFS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;efs&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#efs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;EFS works with EC2 instances in multi-AZ&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Section 8: High Availability and Scalability: ELB &amp;amp; ASG&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-8-high-availability-and-scalability-elb--asg&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-8-high-availability-and-scalability-elb--asg&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 9: AWS Fundamentals: RDS + Aurora + ElastiCache&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-9-aws-fundamentals-rds--aurora--elasticache&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-9-aws-fundamentals-rds--aurora--elasticache&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 10: Route 53&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-10-route-53&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-10-route-53&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Domain Registrar: Amazon Route 53, GoDaddy, &amp;hellip;&lt;/li&gt;
-&lt;li&gt;DNS Records: A, AAAA, CNAME, NS, &amp;hellip;&lt;/li&gt;
-&lt;li&gt;Zone File: contains DNS Records&lt;/li&gt;
-&lt;li&gt;Name Server: resolves DNS queries (Authoritative or Non-Authoritative)&lt;/li&gt;
-&lt;li&gt;Top Level Domain (TLD): .com, .us, .in, .gov, .org, &amp;hellip;&lt;/li&gt;
-&lt;li&gt;Second Level Domain (SLD): amazon.com, google.com, &amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;img src=&#34;../images-aws/2.png&#34; alt=&#34;URL&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DNS SOA(Start of Authority) record&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;How DNS works&lt;span class=&#34;absolute -mt-20&#34; id=&#34;how-dns-works&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#how-dns-works&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h2&gt;Section 11: Classic Solutions Architecture Discussions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-11-classic-solutions-architecture-discussions&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-11-classic-solutions-architecture-discussions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 12: Amazon S3 Introduction&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-12-amazon-s3-introduction&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-12-amazon-s3-introduction&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 13: Advanced Amazon S3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-13-advanced-amazon-s3&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-13-advanced-amazon-s3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 14: Amazon S3 Security&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-14-amazon-s3-security&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-14-amazon-s3-security&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 15: CloudFront &amp;amp; AWS Global Accelerator&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-15-cloudfront--aws-global-accelerator&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-15-cloudfront--aws-global-accelerator&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 16: AWS Storage Extras&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-16-aws-storage-extras&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-16-aws-storage-extras&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 17: Decoupling applications: SQS, SNS, Kinesis, Active MQ&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-17-decoupling-applications-sqs-sns-kinesis-active-mq&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-17-decoupling-applications-sqs-sns-kinesis-active-mq&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 18: Containers on AWS: ECS, Fargate, ECR &amp;amp; EKS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-18-containers-on-aws-ecs-fargate-ecr--eks&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-18-containers-on-aws-ecs-fargate-ecr--eks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 19: Serverless Overviews from a Solution Architect Perspective&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-19-serverless-overviews-from-a-solution-architect-perspective&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-19-serverless-overviews-from-a-solution-architect-perspective&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 20: Serverless Solution Architecture Discussions&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-20-serverless-solution-architecture-discussions&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-20-serverless-solution-architecture-discussions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 21: Databases in AWS&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-21-databases-in-aws&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-21-databases-in-aws&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 22: Data &amp;amp; Analytics&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-22-data--analytics&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-22-data--analytics&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 23: Machine Learning&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-23-machine-learning&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-23-machine-learning&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Rekognition: face detection, labeling, celebrity recognition&lt;/li&gt;
-&lt;li&gt;Transcribe: audio to text&lt;/li&gt;
-&lt;li&gt;Polly: text to audio&lt;/li&gt;
-&lt;li&gt;Translate: translations&lt;/li&gt;
-&lt;li&gt;Lex: build conversational bots - chatbots&lt;/li&gt;
-&lt;li&gt;Connect: cloud contact center&lt;/li&gt;
-&lt;li&gt;Comprehend: NLP&lt;/li&gt;
-&lt;li&gt;SageMaker: ML for every developer and data scientist&lt;/li&gt;
-&lt;li&gt;Forecast: build high accurate forecasts&lt;/li&gt;
-&lt;li&gt;Kendra: ML-powered search engine&lt;/li&gt;
-&lt;li&gt;Personalize: real-time personalized recommendations&lt;/li&gt;
-&lt;li&gt;Textract: extract text from file&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Section 24: AWS Monitor &amp;amp; Audit: CloudWatch, CloudTrail &amp;amp; Config&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-24-aws-monitor--audit-cloudwatch-cloudtrail--config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 25: Identity and Access Management(IAM) - Advanced&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-25-identity-and-access-managementiam---advanced&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-25-identity-and-access-managementiam---advanced&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 26: AWS Security &amp;amp; Encryption: KMS, SSM Parameter Store, Shield, WAF&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-26-aws-security--encryption-kms-ssm-parameter-store-shield-waf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 27: Networking - VPC&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-27-networking---vpc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-27-networking---vpc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Gateway VPC endpoints: Amazon S3 and DynamoDB, with route we don&amp;rsquo;t need public IP addresses&lt;/li&gt;
-&lt;li&gt;Interface VPC endpoints: are used by all the other services that are becoming available inside our VPC.
-&lt;ul&gt;
-&lt;li&gt;PrivateLink: we can use this to share our services with thousands of other VPCs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Section 28: Disaster Recovery &amp;amp; Migrations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-28-disaster-recovery--migrations&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-28-disaster-recovery--migrations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 29: More Solution Architecures&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-29-more-solution-architecures&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-29-more-solution-architecures&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Section 30: Other Services&lt;span class=&#34;absolute -mt-20&#34; id=&#34;section-30-other-services&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#section-30-other-services&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
       </description>
     </item>
     
