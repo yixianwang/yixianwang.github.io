@@ -11,29 +11,33 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Do You Have Experience – Yixian Wang</title>
-  <meta name="description" content="Java Yes, I have extensive experience with Java, having worked as a Java developer for over six years. During this time, I have primarily focused on backend development and building robust microservice architectures.
-In my current role, I have been involved in various projects where I designed and implemented scalable and efficient solutions using core Java concepts and popular frameworks. For instance, in a recent project, I developed a data analytics dashboard where I utilized Java in conjunction with Spring Boot to create RESTful APIs, handle business logic, and manage database interactions using Hibernate and JPA." />
+  <title>Spring Boot Exception – Yixian Wang</title>
+  <meta name="description" content="USER in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects
+Thoughts In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.
+ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use RFC 7807 Problem Details everywhere, with a small, intentional exception hierarchy and a single global handler." />
 
   
 
-<meta property="og:title" content="Do You Have Experience" />
-<meta property="og:description" content="Java Yes, I have extensive experience with Java, having worked as a Java developer for over six years. During this time, I have primarily focused on backend development and building robust microservice architectures.
-In my current role, I have been involved in various projects where I designed and implemented scalable and efficient solutions using core Java concepts and popular frameworks. For instance, in a recent project, I developed a data analytics dashboard where I utilized Java in conjunction with Spring Boot to create RESTful APIs, handle business logic, and manage database interactions using Hibernate and JPA." />
+<meta property="og:title" content="Spring Boot Exception" />
+<meta property="og:description" content="USER in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects
+Thoughts In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.
+ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use RFC 7807 Problem Details everywhere, with a small, intentional exception hierarchy and a single global handler." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/do_you_have_experience/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-08-02T07:33:49-04:00" />
-<meta property="article:modified_time" content="2024-08-02T07:33:49-04:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/spring-boot-exception/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2025-09-09T07:48:03-04:00" />
+<meta property="article:modified_time" content="2025-09-09T07:48:03-04:00" />
 
-  <meta itemprop="name" content="Do You Have Experience">
-<meta itemprop="description" content="Java Yes, I have extensive experience with Java, having worked as a Java developer for over six years. During this time, I have primarily focused on backend development and building robust microservice architectures.
-In my current role, I have been involved in various projects where I designed and implemented scalable and efficient solutions using core Java concepts and popular frameworks. For instance, in a recent project, I developed a data analytics dashboard where I utilized Java in conjunction with Spring Boot to create RESTful APIs, handle business logic, and manage database interactions using Hibernate and JPA."><meta itemprop="datePublished" content="2024-08-02T07:33:49-04:00" />
-<meta itemprop="dateModified" content="2024-08-02T07:33:49-04:00" />
-<meta itemprop="wordCount" content="1230">
+  <meta itemprop="name" content="Spring Boot Exception">
+<meta itemprop="description" content="USER in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects
+Thoughts In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.
+ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use RFC 7807 Problem Details everywhere, with a small, intentional exception hierarchy and a single global handler."><meta itemprop="datePublished" content="2025-09-09T07:48:03-04:00" />
+<meta itemprop="dateModified" content="2025-09-09T07:48:03-04:00" />
+<meta itemprop="wordCount" content="757">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Do You Have Experience"/>
-<meta name="twitter:description" content="Java Yes, I have extensive experience with Java, having worked as a Java developer for over six years. During this time, I have primarily focused on backend development and building robust microservice architectures.
-In my current role, I have been involved in various projects where I designed and implemented scalable and efficient solutions using core Java concepts and popular frameworks. For instance, in a recent project, I developed a data analytics dashboard where I utilized Java in conjunction with Spring Boot to create RESTful APIs, handle business logic, and manage database interactions using Hibernate and JPA."/>
+<meta name="twitter:title" content="Spring Boot Exception"/>
+<meta name="twitter:description" content="USER in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects
+Thoughts In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.
+ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use RFC 7807 Problem Details everywhere, with a small, intentional exception hierarchy and a single global handler."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -298,13 +302,40 @@ In my current role, I have been involved in various projects where I designed an
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/spring-boot-exception/"
     
   >Spring Boot Exception
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#user"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >USER</a>
+            </li>
+          <li>
+              <a
+                href="#thoughts"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >Thoughts</a>
+            </li>
+          <li>
+              <a
+                href="#assistant"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >ASSISTANT</a>
+            </li>
+          <li>
+              <a
+                href="#tldr-template-copypaste"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >TL;DR template (copy/paste)</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -530,52 +561,13 @@ In my current role, I have been involved in various projects where I designed an
   >Keyword Structure
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/do_you_have_experience/"
     
   >Do You Have Experience
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#java"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Java</a>
-            </li>
-          <li>
-              <a
-                href="#debugging"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Debugging</a>
-            </li>
-          <li>
-              <a
-                href="#springboot"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >SpringBoot</a>
-            </li>
-          <li>
-              <a
-                href="#database"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Database</a>
-            </li>
-          <li>
-              <a
-                href="#unit-test-and-integration-test"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Unit Test and Integration Test</a>
-            </li>
-          <li>
-              <a
-                href="#angular"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Angular</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1216,9 +1208,9 @@ In my current role, I have been involved in various projects where I designed an
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/spring-boot-exception/"
     
   >Spring Boot Exception
@@ -1419,9 +1411,9 @@ In my current role, I have been involved in various projects where I designed an
     
   >Keyword Structure
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/do_you_have_experience/"
     
   >Do You Have Experience
@@ -1940,27 +1932,19 @@ In my current role, I have been involved in various projects where I designed an
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
     <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#java">Java
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#user">USER
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#debugging">Debugging
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#thoughts">Thoughts
         </a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#springboot">SpringBoot
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#assistant">ASSISTANT
         </a>
-      </li>
+      </li></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#database">Database
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#unit-test-and-integration-test">Unit Test and Integration Test
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#angular">Angular
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tldr-template-copypaste">TL;DR template (copy/paste)
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -1980,64 +1964,249 @@ In my current role, I have been involved in various projects where I designed an
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Do You Have Experience</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Spring Boot Exception</div>
 </div>
 
         <div class="content">
-          <h1>Do You Have Experience</h1>
-          <h2>Java<span class="absolute -mt-20" id="java"></span>
-    <a href="#java" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have extensive experience with Java, having worked as a Java developer for over six years. During this time, I have primarily focused on backend development and building robust microservice architectures.</p>
-<p>In my current role, I have been involved in various projects where I designed and implemented scalable and efficient solutions using core Java concepts and popular frameworks. For instance, in a recent project, I developed a data analytics dashboard where I utilized Java in conjunction with Spring Boot to create RESTful APIs, handle business logic, and manage database interactions using Hibernate and JPA.</p>
-<p>I have a deep understanding of object-oriented programming principles, including inheritance, polymorphism, encapsulation, and abstraction. I am proficient in using Java collections, multithreading, concurrency utilities, and Java Streams API for processing large datasets efficiently.</p>
-<p>Additionally, I have experience with various Java frameworks and tools such as:</p>
-<p>Spring Framework: Including Spring Boot, Spring MVC, Spring Security, and Spring Data JPA.
-Hibernate: For ORM and database interactions.
-JUnit and Mockito: For unit testing and test-driven development.
-Maven and Gradle: For build automation and dependency management.
-I am also well-versed in modern development practices such as continuous integration/continuous deployment (CI/CD) using tools like Jenkins, Docker, and Kubernetes.</p>
-<p>Overall, my experience with Java has equipped me with the skills to deliver high-quality, maintainable, and scalable software solutions, and I am always eager to leverage this expertise in new and challenging projects.</p>
-<h2>Debugging<span class="absolute -mt-20" id="debugging"></span>
-    <a href="#debugging" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have extensive experience with debugging programs. Debugging is a crucial part of my development process, and I&rsquo;ve used various tools and techniques to identify and fix issues efficiently.</p>
-<p>Tools: I frequently use IDEs like IntelliJ IDEA, which provide powerful debugging tools. These tools allow me to set breakpoints, step through code, inspect variables, and evaluate expressions. I also use logging frameworks such as Log4j and SLF4J to log important information, which helps in understanding the flow of the application and identifying issues.</p>
-<p>Techniques: My approach to debugging usually starts with replicating the issue and understanding the context in which it occurs. I set breakpoints at critical points in the code to inspect the state of the application. I also use watch expressions to monitor specific variables and conditions.</p>
-<p>Examples: In one of my recent projects, we encountered a performance issue where a particular API endpoint was responding slowly. I used profiling tools like VisualVM and JProfiler to analyze the application&rsquo;s performance. By examining the CPU and memory usage, I was able to pinpoint a specific method that was causing a bottleneck. Further inspection revealed an inefficient database query, which I optimized to improve the response time significantly.</p>
-<p>Collaboration: I also believe in collaborating with my team when debugging complex issues. Sometimes, a fresh pair of eyes or a different perspective can help identify the root cause of a problem more quickly.</p>
-<p>Overall, my debugging experience has equipped me with the skills to identify, analyze, and resolve issues efficiently, ensuring that the applications I work on are reliable and perform well.</p>
-<h2>SpringBoot<span class="absolute -mt-20" id="springboot"></span>
-    <a href="#springboot" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have extensive experience with Spring Boot. In my current role, I have used Spring Boot to develop several microservices as part of a larger microservice architecture. One notable project was a data analytics dashboard, where I was responsible for designing and implementing backend services using Spring Boot.</p>
-<p>I used Spring Boot&rsquo;s various modules like Spring Data JPA for database interactions, Spring Security for securing APIs, and Spring Cloud for service discovery and configuration management. I also leveraged Spring Boot&rsquo;s support for RESTful APIs to create endpoints for data retrieval and manipulation.</p>
-<p>One of the key benefits I found with Spring Boot is its auto-configuration feature, which significantly speeds up development by reducing boilerplate code. I also appreciated the ease of integrating other Spring projects and third-party libraries, which helped in building robust and scalable applications.</p>
-<p>Overall, Spring Boot is a valuable tool in my development toolkit.</p>
-<h2>Database<span class="absolute -mt-20" id="database"></span>
-    <a href="#database" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have extensive experience with databases. I have worked with both relational databases like IBM DB2 and Microsoft SQL Server, as well as NoSQL databases like Cassandra.</p>
-<p>For relational databases, I have designed and optimized complex queries, created stored procedures, and managed database schema changes. In one of my projects, I was responsible for migrating a legacy system to IBM DB2, which involved data modeling, writing SQL scripts, and ensuring data integrity and performance optimization.</p>
-<p>With NoSQL databases, specifically Cassandra, I have worked on a high-traffic web application where we needed a scalable and distributed database solution. I was involved in setting up and configuring Cassandra clusters, designing the data model to handle large volumes of data efficiently, and writing CQL (Cassandra Query Language) queries. I also ensured that the data replication and consistency settings were optimized for our application’s needs.</p>
-<p>In addition, I have experience with ORMs like Hibernate and Spring Data JPA, which abstract the database interactions and help in writing cleaner and more maintainable code.</p>
-<p>Overall, my experience with both relational and NoSQL databases has equipped me with a strong understanding of how to design, implement, and optimize database solutions to support various types of applications.</p>
-<h2>Unit Test and Integration Test<span class="absolute -mt-20" id="unit-test-and-integration-test"></span>
-    <a href="#unit-test-and-integration-test" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have extensive experience with both unit and integration testing.</p>
-<p>For unit testing, I primarily use JUnit and Mockito. In my projects, I write unit tests to ensure that individual components or methods work as expected. I use Mockito to create mock objects and isolate the component being tested from its dependencies. For instance, in one of my Spring Boot applications, I wrote comprehensive unit tests for the service layer to verify business logic independently from the data access layer.</p>
-<p>For integration testing, I use Spring Boot’s testing framework, which includes tools like Spring TestContext Framework. Integration tests verify that different parts of the application work together correctly. I often write tests that start the entire Spring context and use actual components. For example, I have written integration tests to test RESTful endpoints using MockMvc:</p>
-<p>In my projects, I ensure that unit tests cover the business logic thoroughly, while integration tests validate the interaction between different layers and components of the application. This approach helps in identifying issues early in the development cycle and ensures the reliability of the application.</p>
-<p>Overall, my experience with unit and integration testing has helped me build robust and maintainable software by catching issues early and ensuring the correctness of the application components and their interactions.</p>
-<h2>Angular<span class="absolute -mt-20" id="angular"></span>
-    <a href="#angular" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Yes, I have considerable experience with Angular. In my previous role, I was responsible for developing the front-end of a complex web application using Angular.</p>
-<p>One significant project I worked on was an e-commerce platform where I built several key components such as the product catalog, shopping cart, and user authentication system. I used Angular&rsquo;s powerful data binding and dependency injection features to create dynamic, responsive user interfaces.</p>
-<p>I also utilized Angular&rsquo;s routing module to manage navigation within the application, and Angular Services to handle business logic and communicate with RESTful APIs for data retrieval and updates. Additionally, I implemented state management using NgRx to maintain a consistent state across the application.</p>
-<p>During the project, I adhered to best practices for component-based architecture, which helped in maintaining clean, modular, and reusable code. I also performed unit testing using Jasmine and Karma to ensure the reliability of the components.</p>
-<p>My experience with Angular has enabled me to build high-performance, scalable applications that provide a seamless user experience.</p>
+          <h1>Spring Boot Exception</h1>
+          <h2>USER<span class="absolute -mt-20" id="user"></span>
+    <a href="#user" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects</p>
+<h2>Thoughts<span class="absolute -mt-20" id="thoughts"></span>
+    <a href="#thoughts" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.</p>
+<h2>ASSISTANT<span class="absolute -mt-20" id="assistant"></span>
+    <a href="#assistant" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Great question. In Java 21 + Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use <strong>RFC 7807 Problem Details</strong> everywhere, with a small, intentional exception hierarchy and a single global handler. Here’s a compact blueprint you can drop into any project.</p>
+<h1>1) Define a small, meaningful exception set</h1><ul>
+<li>Prefer <strong>unchecked</strong> domain exceptions (extend <code>RuntimeException</code>), e.g. <code>ResourceNotFoundException</code>, <code>BusinessRuleViolationException</code>, <code>ConflictException</code>.</li>
+<li>Keep messages developer-friendly; expose safe, client-facing text in the response body (not stack traces).</li>
+<li>Use Spring’s built-ins where appropriate (e.g. <code>MethodArgumentNotValidException</code>, <code>ConstraintViolationException</code>, <code>HttpMessageNotReadableException</code>, <code>DataIntegrityViolationException</code>).</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResourceNotFoundException</span> <span class="kd">extends</span> <span class="n">RuntimeException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">ResourceNotFoundException</span><span class="o">(</span><span class="n">String</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span> <span class="kd">super</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>2) Return RFC 7807 responses via ProblemDetail</h1><p>Spring 6 introduces <code>ProblemDetail</code> and <code>ErrorResponse</code>/<code>ErrorResponseException</code>. Prefer these for consistent JSON errors.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestControllerAdvice</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">ResourceNotFoundException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleNotFound</span><span class="o">(</span><span class="n">ResourceNotFoundException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ProblemDetail</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">NOT_FOUND</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Resource Not Found&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/resource-not-found&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;errorCode&#34;</span><span class="o">,</span> <span class="s">&#34;RES_404_001&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">MethodArgumentNotValidException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleValidation</span><span class="o">(</span><span class="n">MethodArgumentNotValidException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ProblemDetail</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Validation Failed&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;One or more fields are invalid.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">fieldErrors</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="na">getBindingResult</span><span class="o">().</span><span class="na">getFieldErrors</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">fe</span> <span class="o">-&gt;</span> <span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;field&#34;</span><span class="o">,</span> <span class="n">fe</span><span class="o">.</span><span class="na">getField</span><span class="o">(),</span> <span class="s">&#34;message&#34;</span><span class="o">,</span> <span class="n">fe</span><span class="o">.</span><span class="na">getDefaultMessage</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">toList</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;violations&#34;</span><span class="o">,</span> <span class="n">fieldErrors</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">ConstraintViolationException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleConstraint</span><span class="o">(</span><span class="n">ConstraintViolationException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ProblemDetail</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Constraint Violation&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;One or more constraints were violated.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">violations</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="na">getConstraintViolations</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;path&#34;</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">getPropertyPath</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span> <span class="s">&#34;message&#34;</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">getMessage</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">toList</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;violations&#34;</span><span class="o">,</span> <span class="n">violations</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Fallback
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleUnknown</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// log full details server-side only
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ProblemDetail</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Internal Server Error&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;An unexpected error occurred. If the problem persists, contact support.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/internal&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>Typical JSON (client-facing):</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;https://example.com/problems/validation-failed&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Validation Failed&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;detail&#34;</span><span class="p">:</span> <span class="s2">&#34;One or more fields are invalid.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;instance&#34;</span><span class="p">:</span> <span class="s2">&#34;/api/orders&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;violations&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nt">&#34;field&#34;</span><span class="p">:</span> <span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;must be a well-formed email address&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;errorCode&#34;</span><span class="p">:</span> <span class="s2">&#34;VAL_400_002&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>3) Use <code>ErrorResponseException</code> inside controllers/services when needed</h1><p>If you must throw with an HTTP status from deep layers:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">throw</span> <span class="k">new</span> <span class="n">ErrorResponseException</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">FORBIDDEN</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatusAndDetail</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">FORBIDDEN</span><span class="o">,</span> <span class="s">&#34;Not allowed for this account&#34;</span><span class="o">),</span> <span class="kc">null</span><span class="o">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>4) Validation: prefer annotations + groups</h1><ul>
+<li>DTOs: <code>jakarta.validation</code> annotations + <code>@Valid</code>.</li>
+<li>For query/path validations: <code>@Validated</code> on controller + <code>ConstraintViolationException</code> handling (shown above).</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-4"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">record</span> <span class="nf">CreateUserRequest</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">@NotBlank</span> <span class="n">String</span> <span class="n">username</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">@Email</span> <span class="n">String</span> <span class="n">email</span>
+</span></span><span class="line"><span class="cl"><span class="o">)</span> <span class="o">{}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-4"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-5"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/users&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">UserDto</span> <span class="nf">create</span><span class="o">(</span><span class="nd">@Valid</span> <span class="nd">@RequestBody</span> <span class="n">CreateUserRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-5"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>5) Logging &amp; observability</h1><ul>
+<li><strong>Never</strong> log stack traces at INFO/WARN. Use:
+<ul>
+<li><code>ERROR</code> for server bugs (5xx),</li>
+<li><code>WARN</code> for client issues worth attention (e.g., repeated 4xx),</li>
+<li><code>INFO</code> for expected flows (optional),</li>
+<li><code>DEBUG/TRACE</code> during development.</li>
+</ul>
+</li>
+<li>Add a <strong>correlation/request ID</strong> (e.g., from <code>X-Request-Id</code>) via a filter and put it in MDC so logs tie to a request. Return it back in responses.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-6"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CorrelationIdFilter</span> <span class="kd">implements</span> <span class="n">Filter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doFilter</span><span class="o">(</span><span class="n">ServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">FilterChain</span> <span class="n">chain</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ServletException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">cid</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(((</span><span class="n">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">).</span><span class="na">getHeader</span><span class="o">(</span><span class="s">&#34;X-Request-Id&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="n">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="o">(</span><span class="n">MDC</span><span class="o">.</span><span class="na">MDCCloseable</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">MDC</span><span class="o">.</span><span class="na">putCloseable</span><span class="o">(</span><span class="s">&#34;cid&#34;</span><span class="o">,</span> <span class="n">cid</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">((</span><span class="n">HttpServletResponse</span><span class="o">)</span> <span class="n">response</span><span class="o">).</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&#34;X-Request-Id&#34;</span><span class="o">,</span> <span class="n">cid</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-6"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>6) Transactions &amp; rollback rules</h1><ul>
+<li>By default, <strong>runtime exceptions</strong> cause rollback; <strong>checked exceptions</strong> do not.</li>
+<li>If you throw checked exceptions and still want rollback: <code>@Transactional(rollbackFor = Exception.class)</code>.</li>
+<li>Keep business exceptions unchecked to align with default rollback semantics.</li>
+</ul>
+<h1>7) Don’t leak internals</h1><ul>
+<li>Avoid exposing DB keys, stack traces, or class names in <code>detail</code>.</li>
+<li>Map low-level exceptions to stable, documented <strong>error codes</strong>. Keep a central <code>ErrorCatalog</code> (enum or constants) and document them in your API spec.</li>
+</ul>
+<h1>8) Integrate with API docs</h1><ul>
+<li>If you use springdoc-openapi, define common error schemas (ProblemDetail with <code>violations</code>, <code>errorCode</code>) and reference them in endpoint responses for 4xx/5xx.</li>
+</ul>
+<h1>9) Configuration and defaults</h1><ul>
+<li>Keep Boot’s default <code>/error</code> path; but turn on helpful bits in non-prod only:
+<ul>
+<li><code>server.error.include-message=never</code> (prod), <code>always</code> (local)</li>
+<li><code>server.error.include-binding-errors=never</code> (prod), <code>always</code> (local)</li>
+<li><code>server.error.include-exception=never</code></li>
+</ul>
+</li>
+<li>Centralize handler in one package and test it with <code>@WebMvcTest</code> or <code>@SpringBootTest</code>.</li>
+</ul>
+<h1>10) For reactive (WebFlux)</h1><p>Same approach: <code>@RestControllerAdvice</code> + <code>ProblemDetail</code>. Use reactive equivalents (<code>ServerWebExchange</code> if you need the path for <code>instance</code>).</p>
+<hr>
+<h2>TL;DR template (copy/paste)<span class="absolute -mt-20" id="tldr-template-copypaste"></span>
+    <a href="#tldr-template-copypaste" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ol>
+<li>Create a few custom <code>RuntimeException</code>s for domain errors.</li>
+<li>One <code>@RestControllerAdvice</code> that returns <strong>ProblemDetail</strong> for:
+<ul>
+<li>domain errors (404/409/422, etc.),</li>
+<li>validation (<code>MethodArgumentNotValidException</code>, <code>ConstraintViolationException</code>),</li>
+<li>parsing/binding (<code>HttpMessageNotReadableException</code>),</li>
+<li>persistence (<code>DataIntegrityViolationException</code>),</li>
+<li>a final catch-all <code>Exception</code> → 500.</li>
+</ul>
+</li>
+<li>Add correlation-ID filter + structured logging (MDC).</li>
+<li>Keep messages safe, publish stable <code>errorCode</code>s, document them in OpenAPI.</li>
+<li>Lean on default transaction rollback (unchecked exceptions).</li>
+</ol>
+<p>If you want, I can turn this into a small starter module (with tests) you can drop into your multi-module repo.</p>
 
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/keyword_structure/"
-        title="Keyword Structure"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Keyword Structure</a><a
-        href="/notes/goldman/"
-        title="Goldman"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/nlp/"
+        title="NLP"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Goldman<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >NLP<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
