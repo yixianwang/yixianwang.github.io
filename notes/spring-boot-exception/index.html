@@ -32,7 +32,7 @@ ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), t
 Thoughts In Spring Boot 3, I’ll suggest using the ProblemDetail class (RFC7807) for structured error reports. Utilize @ControllerAdvice, @ExceptionHandler, and @RestControllerAdvice with logging (slf4j). Map exceptions to details like type, title, and status. While @ResponseStatus is still valid, consider customizing with WebMvcConfigurer for MVC and WebFlux.
 ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), the “modern” best practice is to use RFC 7807 Problem Details everywhere, with a small, intentional exception hierarchy and a single global handler."><meta itemprop="datePublished" content="2025-09-09T07:48:03-04:00" />
 <meta itemprop="dateModified" content="2025-09-09T07:48:03-04:00" />
-<meta itemprop="wordCount" content="757">
+<meta itemprop="wordCount" content="1500">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Spring Boot Exception"/>
 <meta name="twitter:description" content="USER in java 21, springboot 3, what&rsquo;s the best practice to handle exception in projects
@@ -333,6 +333,66 @@ ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), t
                 href="#tldr-template-copypaste"
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >TL;DR template (copy/paste)</a>
+            </li>
+          <li>
+              <a
+                href="#0-goals"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >0) Goals</a>
+            </li>
+          <li>
+              <a
+                href="#1-project-layout-suggested"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >1) Project layout (suggested)</a>
+            </li>
+          <li>
+              <a
+                href="#2-prefer-custom-exceptions-for-domain-errors-implement-errorresponse"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >2) Prefer custom exceptions for domain errors (implement &lt;code&gt;ErrorResponse&lt;/code&gt;)</a>
+            </li>
+          <li>
+              <a
+                href="#3-use-problemdetail-in-advice-for-frameworkvalidationinfra"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >3) Use &lt;code&gt;ProblemDetail&lt;/code&gt; in advice for framework/validation/infra</a>
+            </li>
+          <li>
+              <a
+                href="#4-use-errorresponseexception-for-quick-one-offs"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >4) Use &lt;code&gt;ErrorResponseException&lt;/code&gt; for quick one-offs</a>
+            </li>
+          <li>
+              <a
+                href="#5-simple-decision-checklist"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >5) Simple decision checklist</a>
+            </li>
+          <li>
+              <a
+                href="#6-cross-cutting-logging-request-id-and-safety"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >6) Cross-cutting: logging, request ID, and safety</a>
+            </li>
+          <li>
+              <a
+                href="#7-openapi--clients"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >7) OpenAPI &amp;amp; clients</a>
+            </li>
+          <li>
+              <a
+                href="#8-testing-pattern"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >8) Testing pattern</a>
+            </li>
+          <li>
+              <a
+                href="#tldr"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >TL;DR</a>
             </li>
           </ul>
   
@@ -1946,6 +2006,46 @@ ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), t
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tldr-template-copypaste">TL;DR template (copy/paste)
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#0-goals">0) Goals
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#1-project-layout-suggested">1) Project layout (suggested)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#2-prefer-custom-exceptions-for-domain-errors-implement-errorresponse">2) Prefer custom exceptions for domain errors (implement <code>ErrorResponse</code>)
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-use-problemdetail-in-advice-for-frameworkvalidationinfra">3) Use <code>ProblemDetail</code> in advice for framework/validation/infra
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#4-use-errorresponseexception-for-quick-one-offs">4) Use <code>ErrorResponseException</code> for quick one-offs
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#5-simple-decision-checklist">5) Simple decision checklist
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#6-cross-cutting-logging-request-id-and-safety">6) Cross-cutting: logging, request ID, and safety
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#7-openapi--clients">7) OpenAPI &amp; clients
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#8-testing-pattern">8) Testing pattern
+        </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tldr">TL;DR
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2195,6 +2295,256 @@ ASSISTANT Great question. In Java 21 &#43; Spring Boot 3 (Spring Framework 6), t
 <li>Lean on default transaction rollback (unchecked exceptions).</li>
 </ol>
 <p>If you want, I can turn this into a small starter module (with tests) you can drop into your multi-module repo.</p>
+<hr>
+<p>Awesome — here’s a pragmatic, <strong>hybrid strategy</strong> that uses <code>ProblemDetail</code>, <code>ErrorResponse</code>, and <code>ErrorResponseException</code> together without overengineering.</p>
+<h2>0) Goals<span class="absolute -mt-20" id="0-goals"></span>
+    <a href="#0-goals" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>One consistent JSON shape (RFC 7807).</li>
+<li>Minimal boilerplate for common cases.</li>
+<li>Clear separation: <strong>domain errors</strong> vs <strong>framework/validation/infra</strong>.</li>
+<li>Good logging + traceability.</li>
+</ul>
+<h2>1) Project layout (suggested)<span class="absolute -mt-20" id="1-project-layout-suggested"></span>
+    <a href="#1-project-layout-suggested" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-7">com.example.shared.error
+  ├─ ErrorCode.java           // stable catalog of error codes
+  ├─ BaseAppException.java    // implements ErrorResponse
+  ├─ NotFoundException.java   // extends BaseAppException
+  ├─ ConflictException.java   // extends BaseAppException
+  ├─ ValidationAdvice.java    // @RestControllerAdvice: validation &amp; parsing
+  └─ FallbackAdvice.java      // @RestControllerAdvice: 3rd-party, unknown</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-7"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>2) Prefer custom exceptions for domain errors (implement <code>ErrorResponse</code>)<span class="absolute -mt-20" id="2-prefer-custom-exceptions-for-domain-errors-implement-errorresponse"></span>
+    <a href="#2-prefer-custom-exceptions-for-domain-errors-implement-errorresponse" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Make <strong>reusable domain exceptions</strong> self-describing by implementing <code>ErrorResponse</code>, so you don’t need a handler for each.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-8"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// ErrorCode is your stable, documented catalog
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">ErrorCode</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">USER_NOT_FOUND</span><span class="o">(</span><span class="s">&#34;USR_404_001&#34;</span><span class="o">,</span> <span class="s">&#34;The user does not exist.&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">EMAIL_TAKEN</span><span class="o">(</span><span class="s">&#34;USR_409_002&#34;</span><span class="o">,</span> <span class="s">&#34;Email already in use.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">code</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">defaultMessage</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ErrorCode</span><span class="o">(</span><span class="n">String</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">defaultMessage</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">defaultMessage</span> <span class="o">=</span> <span class="n">defaultMessage</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-8"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-9"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseAppException</span> <span class="kd">extends</span> <span class="n">RuntimeException</span> <span class="kd">implements</span> <span class="n">ErrorResponse</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">ProblemDetail</span> <span class="n">body</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">private</span> <span class="kd">final</span> <span class="n">HttpStatus</span> <span class="n">status</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">protected</span> <span class="nf">BaseAppException</span><span class="o">(</span><span class="n">HttpStatus</span> <span class="n">status</span><span class="o">,</span> <span class="n">ErrorCode</span> <span class="n">error</span><span class="o">,</span> <span class="n">String</span> <span class="n">detail</span><span class="o">,</span> <span class="n">URI</span> <span class="n">type</span><span class="o">,</span> <span class="n">URI</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">(</span><span class="n">detail</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">status</span> <span class="o">=</span> <span class="n">status</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">body</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">status</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">body</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">error</span><span class="o">.</span><span class="na">defaultMessage</span><span class="o">);</span>          <span class="c1">// safe, client-facing summary
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">body</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="n">detail</span><span class="o">);</span>                       <span class="c1">// domain-specific detail (safe)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">body</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">type</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">type</span> <span class="o">:</span> <span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/&#34;</span> <span class="o">+</span> <span class="n">error</span><span class="o">.</span><span class="na">code</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">body</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">instance</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">body</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;errorCode&#34;</span><span class="o">,</span> <span class="n">error</span><span class="o">.</span><span class="na">code</span><span class="o">);</span>    <span class="c1">// stable code for clients
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span> <span class="kd">public</span> <span class="n">ProblemDetail</span> <span class="nf">getBody</span><span class="o">()</span>      <span class="o">{</span> <span class="k">return</span> <span class="n">body</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">@Override</span> <span class="kd">public</span> <span class="n">HttpStatusCode</span> <span class="nf">getStatusCode</span><span class="o">(){</span> <span class="k">return</span> <span class="n">status</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-9"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-10"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NotFoundException</span> <span class="kd">extends</span> <span class="n">BaseAppException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">NotFoundException</span><span class="o">(</span><span class="n">ErrorCode</span> <span class="n">error</span><span class="o">,</span> <span class="n">String</span> <span class="n">detail</span><span class="o">,</span> <span class="n">URI</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">NOT_FOUND</span><span class="o">,</span> <span class="n">error</span><span class="o">,</span> <span class="n">detail</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="n">instance</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConflictException</span> <span class="kd">extends</span> <span class="n">BaseAppException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="nf">ConflictException</span><span class="o">(</span><span class="n">ErrorCode</span> <span class="n">error</span><span class="o">,</span> <span class="n">String</span> <span class="n">detail</span><span class="o">,</span> <span class="n">URI</span> <span class="n">instance</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">CONFLICT</span><span class="o">,</span> <span class="n">error</span><span class="o">,</span> <span class="n">detail</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="n">instance</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-10"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p><strong>Usage (service or controller):</strong></p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-11"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Service layer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">userRepo</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">).</span><span class="na">orElseThrow</span><span class="o">(()</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="n">NotFoundException</span><span class="o">(</span><span class="n">ErrorCode</span><span class="o">.</span><span class="na">USER_NOT_FOUND</span><span class="o">,</span> <span class="s">&#34;User %s not found&#34;</span><span class="o">.</span><span class="na">formatted</span><span class="o">(</span><span class="n">id</span><span class="o">),</span> <span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;/users/&#34;</span> <span class="o">+</span> <span class="n">id</span><span class="o">)));</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-11"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>➡️ <strong>Why</strong>: The exception <strong>already knows</strong> how to serialize to a <code>ProblemDetail</code>. No per-type handler needed.</p>
+<h2>3) Use <code>ProblemDetail</code> in advice for framework/validation/infra<span class="absolute -mt-20" id="3-use-problemdetail-in-advice-for-frameworkvalidationinfra"></span>
+    <a href="#3-use-problemdetail-in-advice-for-frameworkvalidationinfra" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>Keep two small advices to normalize validation, parsing, DB, security, etc.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-12"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestControllerAdvice</span>
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">ValidationAdvice</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">MethodArgumentNotValidException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleInvalid</span><span class="o">(</span><span class="n">MethodArgumentNotValidException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Validation Failed&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;One or more fields are invalid.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/validation&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;violations&#34;</span><span class="o">,</span> <span class="n">ex</span><span class="o">.</span><span class="na">getBindingResult</span><span class="o">().</span><span class="na">getFieldErrors</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">fe</span> <span class="o">-&gt;</span> <span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;field&#34;</span><span class="o">,</span> <span class="n">fe</span><span class="o">.</span><span class="na">getField</span><span class="o">(),</span> <span class="s">&#34;message&#34;</span><span class="o">,</span> <span class="n">fe</span><span class="o">.</span><span class="na">getDefaultMessage</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">ConstraintViolationException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleConstraint</span><span class="o">(</span><span class="n">ConstraintViolationException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Constraint Violation&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;One or more constraints were violated.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/validation&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;violations&#34;</span><span class="o">,</span> <span class="n">ex</span><span class="o">.</span><span class="na">getConstraintViolations</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;path&#34;</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">getPropertyPath</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span> <span class="s">&#34;message&#34;</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">getMessage</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-12"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-13"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestControllerAdvice</span>
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">FallbackAdvice</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">DataIntegrityViolationException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleDataIntegrity</span><span class="o">(</span><span class="n">DataIntegrityViolationException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">CONFLICT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Data Integrity Violation&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;A database constraint was violated.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/data-integrity&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">Exception</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span> <span class="nf">handleUnknown</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// log with correlation id in MDC (see §6)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">var</span> <span class="n">pd</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Internal Server Error&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;An unexpected error occurred. If the problem persists, contact support.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setInstance</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pd</span><span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;https://example.com/problems/internal&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-13"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>➡️ <strong>Why</strong>: Centralize all “generic” exceptions via <code>ProblemDetail</code> without custom types.</p>
+<h2>4) Use <code>ErrorResponseException</code> for quick one-offs<span class="absolute -mt-20" id="4-use-errorresponseexception-for-quick-one-offs"></span>
+    <a href="#4-use-errorresponseexception-for-quick-one-offs" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>If you don’t need a custom class and want to bubble up an HTTP error from deep code:</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-14"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">throw</span> <span class="k">new</span> <span class="n">ErrorResponseException</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">HttpStatus</span><span class="o">.</span><span class="na">FORBIDDEN</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatusAndDetail</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">FORBIDDEN</span><span class="o">,</span> <span class="s">&#34;Not allowed for this account&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">  <span class="kc">null</span>
+</span></span><span class="line"><span class="cl"><span class="o">);</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-14"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>Good for <strong>rare</strong> cases or <strong>adapter layers</strong> where you don’t want new exception types.</p>
+<h2>5) Simple decision checklist<span class="absolute -mt-20" id="5-simple-decision-checklist"></span>
+    <a href="#5-simple-decision-checklist" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>Is it a recurring domain error?</strong>
+➜ Create/throw a custom exception that <strong>extends <code>BaseAppException</code></strong> (implements <code>ErrorResponse</code>).</li>
+<li><strong>Is it a framework/validation/infra exception?</strong>
+➜ Let a <strong><code>@RestControllerAdvice</code> return <code>ProblemDetail</code></strong>.</li>
+<li><strong>Is it a one-off HTTP error from deep code?</strong>
+➜ <strong>Throw <code>ErrorResponseException</code></strong> with a <code>ProblemDetail</code>.</li>
+</ul>
+<h2>6) Cross-cutting: logging, request ID, and safety<span class="absolute -mt-20" id="6-cross-cutting-logging-request-id-and-safety"></span>
+    <a href="#6-cross-cutting-logging-request-id-and-safety" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>Put a <strong>correlation/request ID</strong> (e.g., <code>X-Request-Id</code>) in MDC via a servlet filter and echo it in responses.</li>
+<li>Log <strong>domain exceptions</strong> at <code>WARN</code> (client-caused) or <code>INFO</code> (expected), and unknown/5xx at <code>ERROR</code>.</li>
+<li>Keep <code>detail</code> safe for clients; never expose stack traces, SQL, class names.</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-15"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">server</span><span class="o">.</span><span class="na">error</span><span class="o">.</span><span class="na">include</span><span class="o">-</span><span class="n">message</span><span class="o">=</span><span class="n">never</span>
+</span></span><span class="line"><span class="cl"><span class="n">server</span><span class="o">.</span><span class="na">error</span><span class="o">.</span><span class="na">include</span><span class="o">-</span><span class="n">binding</span><span class="o">-</span><span class="n">errors</span><span class="o">=</span><span class="n">never</span>
+</span></span><span class="line"><span class="cl"><span class="n">server</span><span class="o">.</span><span class="na">error</span><span class="o">.</span><span class="na">include</span><span class="o">-</span><span class="n">exception</span><span class="o">=</span><span class="n">never</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-15"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h2>7) OpenAPI &amp; clients<span class="absolute -mt-20" id="7-openapi--clients"></span>
+    <a href="#7-openapi--clients" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>With springdoc-openapi, define a <strong>Problem schema</strong> once (ProblemDetail + <code>errorCode</code> + <code>violations</code>) and reference it for 4xx/5xx. This guarantees a predictable contract for frontend/other services.</p>
+<h2>8) Testing pattern<span class="absolute -mt-20" id="8-testing-pattern"></span>
+    <a href="#8-testing-pattern" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>@WebMvcTest</code> for each advice class to snapshot JSON structure for typical exceptions.</li>
+<li>Service-layer tests that <strong>assert thrown exception type</strong> (<code>NotFoundException</code>, <code>ConflictException</code>, etc.).</li>
+<li>One integration test ensuring MDC/request-id is present on error responses.</li>
+</ul>
+<hr>
+<h2>TL;DR<span class="absolute -mt-20" id="tldr"></span>
+    <a href="#tldr" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><strong>Domain errors</strong>: custom exceptions that implement <code>ErrorResponse</code> (via an abstract <code>BaseAppException</code>).</li>
+<li><strong>Framework/validation/infra</strong>: handle in global <code>@RestControllerAdvice</code> and <strong>return <code>ProblemDetail</code></strong>.</li>
+<li><strong>Edge cases/one-offs</strong>: <strong>throw <code>ErrorResponseException</code></strong> with a prepared <code>ProblemDetail</code>.</li>
+</ul>
+<p>If you want, tell me your package names and I’ll drop in ready-to-compile classes (with JUnit tests and a minimal sample controller) tailored to your repo.</p>
 
         </div>
         <div class="mt-16"></div>
