@@ -2563,9 +2563,11 @@ I’ve grouped them into Beginner → Intermediate → Advanced levels so you ca
 </span></span><span class="line"><span class="cl"><span class="c1">// ---------------------------
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 6) Priority queue (heap) - min and max
 </span></span></span><span class="line"><span class="cl"><span class="c1">// ---------------------------
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Max-heap: priority_queue&lt;int&gt; pq;
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Min-heap: priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pq;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Max-heap: 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Min-heap: 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Example: k smallest elements
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">k_smallest</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">  <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pq</span><span class="p">;</span>
