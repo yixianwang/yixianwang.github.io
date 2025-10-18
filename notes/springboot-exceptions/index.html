@@ -11,29 +11,37 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>Interview Questions – Yixian Wang</title>
-  <meta name="description" content="Questions Important Introduce your self and the previous project in 2 to 3 minutes.
-Hi, thanks for having me today. My name is Austin Wang. I a professional Java developer with over 6 years experience. Within my past working experience, all the projects I have are Web-Application. So I am very proficient in back-end programming with Java and Spring Framework. and also many other web technologies. like database including the relational and non-relational ones." />
+  <title>Springboot Exceptions – Yixian Wang</title>
+  <meta name="description" content="Great question. Here’s a pragmatic, Spring-friendly playbook for handling runtime exceptions cleanly and predictably.
+1) Let them bubble to the right boundary Don’t catch RuntimeException deep in your code unless you’re adding context or translating it.
+Let it bubble to a well-defined boundary (controller, scheduled job, async worker) where you can convert it to:
+a meaningful HTTP error (for web APIs), or a log &#43; metric &#43; retry decision (for background work)." />
 
   
 
-<meta property="og:title" content="Interview Questions" />
-<meta property="og:description" content="Questions Important Introduce your self and the previous project in 2 to 3 minutes.
-Hi, thanks for having me today. My name is Austin Wang. I a professional Java developer with over 6 years experience. Within my past working experience, all the projects I have are Web-Application. So I am very proficient in back-end programming with Java and Spring Framework. and also many other web technologies. like database including the relational and non-relational ones." />
+<meta property="og:title" content="Springboot Exceptions" />
+<meta property="og:description" content="Great question. Here’s a pragmatic, Spring-friendly playbook for handling runtime exceptions cleanly and predictably.
+1) Let them bubble to the right boundary Don’t catch RuntimeException deep in your code unless you’re adding context or translating it.
+Let it bubble to a well-defined boundary (controller, scheduled job, async worker) where you can convert it to:
+a meaningful HTTP error (for web APIs), or a log &#43; metric &#43; retry decision (for background work)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yixianwang.github.io/notes/interview-questions/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2024-06-20T22:49:47-04:00" />
-<meta property="article:modified_time" content="2024-06-20T22:49:47-04:00" />
+<meta property="og:url" content="https://yixianwang.github.io/notes/springboot-exceptions/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2025-10-18T01:58:22-04:00" />
+<meta property="article:modified_time" content="2025-10-18T01:58:22-04:00" />
 
-  <meta itemprop="name" content="Interview Questions">
-<meta itemprop="description" content="Questions Important Introduce your self and the previous project in 2 to 3 minutes.
-Hi, thanks for having me today. My name is Austin Wang. I a professional Java developer with over 6 years experience. Within my past working experience, all the projects I have are Web-Application. So I am very proficient in back-end programming with Java and Spring Framework. and also many other web technologies. like database including the relational and non-relational ones."><meta itemprop="datePublished" content="2024-06-20T22:49:47-04:00" />
-<meta itemprop="dateModified" content="2024-06-20T22:49:47-04:00" />
-<meta itemprop="wordCount" content="2926">
+  <meta itemprop="name" content="Springboot Exceptions">
+<meta itemprop="description" content="Great question. Here’s a pragmatic, Spring-friendly playbook for handling runtime exceptions cleanly and predictably.
+1) Let them bubble to the right boundary Don’t catch RuntimeException deep in your code unless you’re adding context or translating it.
+Let it bubble to a well-defined boundary (controller, scheduled job, async worker) where you can convert it to:
+a meaningful HTTP error (for web APIs), or a log &#43; metric &#43; retry decision (for background work)."><meta itemprop="datePublished" content="2025-10-18T01:58:22-04:00" />
+<meta itemprop="dateModified" content="2025-10-18T01:58:22-04:00" />
+<meta itemprop="wordCount" content="663">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Interview Questions"/>
-<meta name="twitter:description" content="Questions Important Introduce your self and the previous project in 2 to 3 minutes.
-Hi, thanks for having me today. My name is Austin Wang. I a professional Java developer with over 6 years experience. Within my past working experience, all the projects I have are Web-Application. So I am very proficient in back-end programming with Java and Spring Framework. and also many other web technologies. like database including the relational and non-relational ones."/>
+<meta name="twitter:title" content="Springboot Exceptions"/>
+<meta name="twitter:description" content="Great question. Here’s a pragmatic, Spring-friendly playbook for handling runtime exceptions cleanly and predictably.
+1) Let them bubble to the right boundary Don’t catch RuntimeException deep in your code unless you’re adding context or translating it.
+Let it bubble to a well-defined boundary (controller, scheduled job, async worker) where you can convert it to:
+a meaningful HTTP error (for web APIs), or a log &#43; metric &#43; retry decision (for background work)."/>
 
     <link rel="preload" href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" as="style" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
     <link href="/css/compiled/main.min.16b68a354e65cf45bc12a9b9a023854fe5d743c179103958df82062ebdb2af3a.css" rel="stylesheet" integrity="sha256-FraKNU5lz0W8Eqm5oCOFT&#43;XXQ8F5EDlY34IGLr2yrzo=" />
@@ -298,13 +306,22 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
   >Latex
     </a>
               
-            </li><li class="flex flex-col gap-1 "><a
+            </li><li class="flex flex-col gap-1 open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/springboot-exceptions/"
     
   >Springboot Exceptions
     </a>
+  
+    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
+              <a
+                href="#tldr-checklist"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >TL;DR checklist</a>
+            </li>
+          </ul>
+  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -650,34 +667,13 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
   >Interview Projects
     </a>
               
-            </li><li class="flex flex-col gap-1 open"><a
+            </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/interview-questions/"
     
   >Interview Questions
     </a>
-  
-    <ul class='flex flex-col gap-1 relative before:absolute before:inset-y-1 before:w-px before:bg-gray-200 before:content-[""] dark:before:bg-neutral-800 ltr:pl-3 ltr:before:left-0 rtl:pr-3 rtl:before:right-0 ltr:ml-3 rtl:mr-3'><li>
-              <a
-                href="#questions"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Questions</a>
-            </li>
-          <li>
-              <a
-                href="#questions-to-ask-at-the-end-of-an-interview"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Questions to ask at the end of an interview</a>
-            </li>
-          <li>
-              <a
-                href="#tips-before-interview"
-                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
-              >Tips before interview</a>
-            </li>
-          </ul>
-  
               
             </li><li class="flex flex-col gap-1 "><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
@@ -1222,9 +1218,9 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
     
   >Latex
     </a></li>
-        <li class=""><a
+        <li class="open"><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
     href="/notes/springboot-exceptions/"
     
   >Springboot Exceptions
@@ -1530,9 +1526,9 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
     
   >Interview Projects
     </a></li>
-        <li class="open"><a
+        <li class=""><a
     class="flex items-center justify-between gap-2 cursor-pointer rounded px-2 py-1.5 text-sm transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 contrast-more:border contrast-more:border-primary-500 dark:bg-primary-400/10 dark:text-primary-600 contrast-more:dark:border-primary-500"
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 contrast-more:border contrast-more:border-transparent contrast-more:text-gray-900 contrast-more:hover:border-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:dark:text-gray-50 contrast-more:dark:hover:border-gray-50"
     href="/notes/interview-questions/"
     
   >Interview Questions
@@ -1965,29 +1961,9 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
 </aside>
     
 <nav class="hextra-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
-    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+    <div class="hextra-scrollbar sticky top-16 overflow-y-auto pr-4 pt-6 text-sm [hyphens:auto] max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] ltr:-mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#questions">Questions
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#important">Important
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#normal">Normal
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#questions-to-ask-at-the-end-of-an-interview">Questions to ask at the end of an interview
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="ltr:pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#3-types-of-questions">3 types of questions
-        </a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tips-before-interview">Tips before interview
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#tldr-checklist">TL;DR checklist
         </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
@@ -2007,461 +1983,193 @@ Hi, thanks for having me today. My name is Austin Wang. I a professional Java de
         <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400 contrast-more:text-current">
       <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
         <a href="https://yixianwang.github.io/notes/">Notes</a>
-      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Interview Questions</div>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="whitespace-nowrap transition-colors font-medium text-gray-700 contrast-more:font-bold contrast-more:text-current dark:text-gray-100 contrast-more:dark:text-current">Springboot Exceptions</div>
 </div>
 
         <div class="content">
-          <h1>Interview Questions</h1>
-          <h2>Questions<span class="absolute -mt-20" id="questions"></span>
-    <a href="#questions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>Important<span class="absolute -mt-20" id="important"></span>
-    <a href="#important" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+          <h1>Springboot Exceptions</h1>
+          <p>Great question. Here’s a pragmatic, Spring-friendly playbook for handling <strong>runtime exceptions</strong> cleanly and predictably.</p>
+<h1>1) Let them bubble to the right boundary</h1><ul>
 <li>
-<p>Introduce your self and the previous project in 2 to 3 minutes.</p>
+<p><strong>Don’t catch <code>RuntimeException</code> deep in your code</strong> unless you’re adding context or translating it.</p>
+</li>
+<li>
+<p>Let it bubble to a <strong>well-defined boundary</strong> (controller, scheduled job, async worker) where you can convert it to:</p>
 <ul>
-<li>Hi, thanks for having me today. My name is Austin Wang. I a professional Java developer with over 6 years experience.</li>
-<li>Within my past working experience, all the projects I have are Web-Application.</li>
-<li>So I am very proficient in back-end programming with Java and Spring Framework.</li>
-<li>and also many other web technologies.</li>
-<li>like database including the relational and non-relational ones.</li>
-<li>the messaging queue systems like Kafka</li>
-<li>the ORM(Object-relational mapping) frameworks including hibernate and Spring Data JPA, and so on.</li>
-<li>I also have experience in developing front-end using Angular.</li>
-<li>I am an AWS-certified solution architect with real hands-on experience.</li>
-<li>The most recent project I am currently working on is called Data Analytics Dashboard System at Shopify company. This project is only designed for internal users only. They will use this system provide analytics and some comprehensive insights to various departments like sales department, customer support department, and so on. The Data Analytics Dashboard System also supports Role based access control for different users.</li>
-<li>With those knowledge and experience I can work on any complex and sophisticated project for the company.</li>
-<li>Thank you!</li>
+<li>a meaningful <strong>HTTP error</strong> (for web APIs), or</li>
+<li>a <strong>log + metric + retry</strong> decision (for background work).</li>
 </ul>
 </li>
 <li>
-<p>Describe a specific function/feature you did in last project. As detailed as possible.</p>
-<ul>
-<li>The most recent project is called Data Analytics Dashboard at eBay. There is a Feature I worked on is called <strong>Real-Time User Activity</strong> Dashboard.</li>
-<li>This feature is designed to provide insights into user activity on the platform.</li>
-<li>It helps them understand user behavior, identify trends, and make data-driven decisions.</li>
-<li>Details:
-<ol>
-<li>Gather Requirements:
-<ul>
-<li>I collaborated with BA to collect specific needs and the kind of metrics they wanted to track, and how they wanna define the metrics.</li>
-<li>Key Metrics: We identified key metrics such as user login frequency, page views, search queries, purchase behavior, and real-time user location data.</li>
-<li>For example, the metric to define new users including two parts: the brand new user should be categorize new users for sure, and also some old users that haven&rsquo;t use eBay more than 1 year we count these users as new users as well. And so on so forth, all those kind of metrics.</li>
-</ul>
-</li>
-<li>Design Phase:
-<ul>
-<li>I designed a microservice architecture using Spring Boot for the backend services, Kafka for real-time data streaming, and Redis for caching frequently accessed data.</li>
-<li>Data Flow: The data flow involved collecting raw user activity data, processing it in real-time, and storing it in a format suitable for quick retrieval and visualization.</li>
-</ul>
-</li>
-<li>Implementation:
-<ul>
-<li>Data Collection Service:
-<ul>
-<li>Developed a Spring Boot service to collect raw user activity data from various sources (e.g., web logs, API calls).</li>
-<li>Integrated Kafka producers to publish this raw data to different Kafka topics based on activity types.</li>
-</ul>
-</li>
-<li>Data Processing Service:
-<ul>
-<li>Created Kafka consumers using Spring Kafka to read the data from Kafka topics.</li>
-<li>Implemented data transformation and enrichment logic to normalize and augment the data with additional information (e.g., user demographics, geolocation).</li>
-<li>Used Redis to cache frequently accessed metrics and intermediate results to reduce latency.</li>
-</ul>
-</li>
-<li>Data Storage:
-<ul>
-<li>Stored the processed data in PostgreSQL for relational queries and historical analysis.</li>
-<li>Utilized MongoDB to store unstructured data and support flexible querying for real-time dashboards.</li>
-</ul>
+<p>This keeps code simple, avoids double-logging, and preserves stack traces.</p>
 </li>
 </ul>
-</li>
-<li>API Development:
-<ul>
-<li>RESTful APIs: Developed RESTful APIs using Spring Boot to expose the processed data to the frontend application.</li>
-<li>Endpoints: Created endpoints for fetching aggregated metrics, detailed activity logs, and real-time updates.</li>
-<li>Documentation: Documented the APIs using Swagger to ensure clarity and ease of use for frontend developers.</li>
+<h1>2) Use a single global handler for web APIs</h1><p>Prefer a <strong>global</strong> handler over per-controller handlers so behavior is uniform.</p>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestControllerAdvice</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Map *expected* domain errors (still unchecked) to 4xx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">DomainException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ProblemDetail</span> <span class="nf">handleDomain</span><span class="o">(</span><span class="n">DomainException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ProblemDetail</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">UNPROCESSABLE_ENTITY</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Domain rule violated&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span> <span class="n">ex</span><span class="o">.</span><span class="na">getCode</span><span class="o">());</span> <span class="c1">// stable machine code
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">p</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Fallback for unexpected runtime failures → 500
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">RuntimeException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ProblemDetail</span> <span class="nf">handleRuntime</span><span class="o">(</span><span class="n">RuntimeException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ProblemDetail</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Internal error&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="o">.</span><span class="na">setDetail</span><span class="o">(</span><span class="s">&#34;An unexpected error occurred.&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">p</span><span class="o">;</span> <span class="c1">// log the exception separately (see §5)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-0"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p><strong>Why <code>ProblemDetail</code>?</strong> (Spring 6+) It implements RFC 9457 “Problem Details” — a clean, extensible error schema.</p>
+<h1>3) Classify exceptions up front</h1><ul>
+<li><strong>Domain/Business exceptions</strong> (e.g., “insufficient funds”, “invalid state transition”) → custom unchecked types, mapped to <strong>4xx</strong>.</li>
+<li><strong>Infrastructure/Transient</strong> (timeouts, DB deadlocks) → consider <strong>retry/circuit breaker</strong>.</li>
+<li><strong>Programming bugs</strong> (NPE, <code>IllegalStateException</code>) → <strong>500</strong>; fix at source.</li>
 </ul>
+<h1>4) Prefer translation, not blanket catching</h1><ul>
+<li>At integration boundaries (DB, HTTP clients), <strong>translate</strong> low-level exceptions into your <strong>domain/integration exceptions</strong> with context.</li>
+<li>Avoid <code>catch (Exception e) { /* swallow */ }</code>.</li>
+<li>If you must catch, <strong>rethrow</strong> with added context (message fields like ids, state) and keep the original cause.</li>
+</ul>
+<h1>5) Log once, at the edge, with context</h1><ul>
+<li>
+<p><strong>One log per failure</strong> (usually in the global handler or job runner).
+Multiple logs for the same exception = noisy.</p>
 </li>
-</ol>
+<li>
+<p>Use <strong>structured logging</strong> (+ MDC) to attach requestId, userId, entityId, etc.</p>
 </li>
+<li>
+<p>Levels:</p>
+<ul>
+<li><strong>WARN</strong> for expected client mistakes (4xx you anticipate).</li>
+<li><strong>ERROR</strong> for real server faults (5xx).</li>
 </ul>
 </li>
 <li>
-<p>How did you agile in your team? Typical Day?</p>
-<ul>
-<li>We follow the Agile Scrum framework, conducting regular meetings such as daily stand-ups, spring planning, sprint reviews, and retrospectives. With these practices ensured continuous improvement and allowed us to quickly adapt to any change on the business requirement.</li>
-<li>For each of typical day, the scrum master will hold a stand-up meeting in the morning about 15 minutes to discuss what we have done yesterday and what we should do in the current day. Get task from Jira System, and work on it then update the Jira system.
-<ul>
-<li>Just Coding.</li>
-<li>Following Standard.</li>
-<li>Bring new ideas.</li>
-<li>Learn and self improve.</li>
-</ul>
+<p>Never <code>printStackTrace</code>; use SLF4J and log the <strong>exception object</strong>.</p>
 </li>
 </ul>
-</li>
-<li>
-<p>What is the size of team? BA, DBA, QA, TL(team lead)?</p>
-<ul>
-<li>Our team has 25 members.
-<ul>
-<li>1 Product Manager + Scrum Master</li>
-<li>1 BA</li>
-<li>1 Project Manger + BE TL</li>
-<li>BE 1 TL + 7 Dev</li>
-<li>FE 1 TL + 5 Dev</li>
-<li>QA 1 TL + 4 QA</li>
-<li>DBA 2 DBA</li>
-<li>DevOps 2 DevOps</li>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-1"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">RuntimeException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">ProblemDetail</span> <span class="nf">handleRuntime</span><span class="o">(</span><span class="n">RuntimeException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&#34;Unhandled runtime exception path={} reqId={}&#34;</span><span class="o">,</span> <span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">MDC</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;requestId&#34;</span><span class="o">),</span> <span class="n">ex</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">INTERNAL_SERVER_ERROR</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-1"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>6) Don’t expose internals to clients</h1><ul>
+<li>Return <strong>stable error codes</strong> and human-safe messages; keep stack traces out of responses.</li>
+<li>Put technical details in logs/metrics, not the API payload.</li>
 </ul>
-</li>
-<li>One Business Analyst who gathers requirements from stakeholders and ensures they are clearly communicated to the team.</li>
-<li>Two Database Administrator who manages the database system.</li>
-<li>Five Quality Assurance Engineers who are responsible for testing.</li>
-<li>One Team Lead conducts code review, provides technical guidance, mentors team members, and coordinates with other teams.</li>
-<li>The core of our team has 7 Developers who write and maintain the code, implement new features, and fix bugs.</li>
+<h1>7) Validation first, not exceptions later</h1><ul>
+<li>Use method parameter validation (<code>@Validated</code>, <code>@NotNull</code>, etc.).
+Handle <code>MethodArgumentNotValidException</code> in your advice to return a clean 400 with field errors.</li>
 </ul>
-</li>
-<li>
-<p>Most challenging/proud task.</p>
-</li>
-<li>
-<p>What is the Deployment process? How do you release? How many environment do you have?</p>
-<ul>
-<li>Environments:
-<ul>
-<li>Development Environment:
-<ul>
-<li>Purpose: Used by developers to build and test new features and bug fixes.</li>
-<li>Tools: Local development environments, Docker containers, and possibly a shared development server.</li>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-2"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="nf">handleMethodArgumentNotValid</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MethodArgumentNotValidException</span> <span class="n">ex</span><span class="o">,</span> <span class="n">HttpHeaders</span> <span class="n">headers</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HttpStatusCode</span> <span class="n">status</span><span class="o">,</span> <span class="n">WebRequest</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ProblemDetail</span><span class="o">.</span><span class="na">forStatus</span><span class="o">(</span><span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&#34;Validation failed&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;errors&#34;</span><span class="o">,</span> <span class="n">ex</span><span class="o">.</span><span class="na">getBindingResult</span><span class="o">().</span><span class="na">getFieldErrors</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">err</span> <span class="o">-&gt;</span> <span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;field&#34;</span><span class="o">,</span> <span class="n">err</span><span class="o">.</span><span class="na">getField</span><span class="o">(),</span> <span class="s">&#34;msg&#34;</span><span class="o">,</span> <span class="n">err</span><span class="o">.</span><span class="na">getDefaultMessage</span><span class="o">()))</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ResponseEntity</span><span class="o">.</span><span class="na">badRequest</span><span class="o">().</span><span class="na">body</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-2"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<p>(# You can get this by extending <code>ResponseEntityExceptionHandler</code> or write your own.)</p>
+<h1>8) Transactions &amp; retries</h1><ul>
+<li><strong>Transactions</strong>: by default, Spring rolls back on <code>RuntimeException</code>. Keep it that way; avoid catching and “continuing”.</li>
+<li><strong>Retries</strong>: wrap transient failures with <strong>Resilience4j</strong> (<code>@Retry</code>, circuit breakers, timeouts), and make write operations <strong>idempotent</strong>.</li>
 </ul>
-</li>
-<li>Staging Environment:
-<ul>
-<li>Purpose: Acts as a pre-production environment to test the integration of new features and ensure they work correctly before going live. It mirrors the production environment closely.</li>
-<li>Tools: AWS EC2 instances, Kubernetes (EKS), RDS, etc.</li>
+<h1>9) Async &amp; scheduled jobs</h1><ul>
+<li>For <code>@Async</code>, register an <code>AsyncUncaughtExceptionHandler</code>.</li>
+<li>For scheduled tasks, wrap the job body with a top-level try/catch that logs once and decides on retry/alert.</li>
 </ul>
-</li>
-<li>Production Environment:
-<ul>
-<li>Purpose: The live environment where the application is available to internal users.</li>
-<li>Tools: AWS EC2 instances, RDS, ElastiCache, MSK, CloudFront, etc.</li>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-3"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@EnableAsync</span>
+</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">AsyncCfg</span> <span class="kd">implements</span> <span class="n">AsyncConfigurer</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">AsyncUncaughtExceptionHandler</span> <span class="nf">getAsyncUncaughtExceptionHandler</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">(</span><span class="n">ex</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">params</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&#34;Uncaught async exception in {} with params={}&#34;</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">params</span><span class="o">),</span> <span class="n">ex</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-3"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
+<h1>10) Testing &amp; contracts</h1><ul>
+<li><strong>Unit test</strong> handlers and <strong>slice tests</strong> (<code>@WebMvcTest</code>) for representative failures.</li>
+<li>Publish an <strong>error contract</strong> (Problem Details schema + codes) so clients can rely on stable behavior.</li>
 </ul>
-</li>
+<hr>
+<h2>TL;DR checklist<span class="absolute -mt-20" id="tldr-checklist"></span>
+    <a href="#tldr-checklist" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><input disabled="" type="checkbox"> Let runtime exceptions <strong>bubble</strong>; handle at boundaries.</li>
+<li><input disabled="" type="checkbox"> Use <strong><code>@RestControllerAdvice</code> + <code>ProblemDetail</code></strong> for uniform API errors.</li>
+<li><input disabled="" type="checkbox"> <strong>Classify</strong>: domain (4xx), transient (retry), programming bug (5xx).</li>
+<li><input disabled="" type="checkbox"> <strong>Log once</strong> with MDC; sanitize responses.</li>
+<li><input disabled="" type="checkbox"> Validate early; handle validation errors as <strong>400</strong>.</li>
+<li><input disabled="" type="checkbox"> Respect transactional rollback; add <strong>resilience</strong> for transient faults.</li>
+<li><input disabled="" type="checkbox"> Cover async/scheduled pathways.</li>
+<li><input disabled="" type="checkbox"> Test handlers and document error codes.</li>
 </ul>
-</li>
-<li>Deployment Process:
-<ol>
-<li>Code Commit and Version Control:
-<ul>
-<li>Git: Developers commit their code changes to a shared repository using Git.</li>
-<li>Branching Strategy: Utilize a branching strategy like Gitflow to manage feature development, releases, and hotfixes.</li>
-</ul>
-</li>
-<li>Continuous Integration (CI):
-<ul>
-<li>Jenkins Pipeline:
-<ul>
-<li>Triggers: The CI pipeline is triggered automatically upon code commit or pull request.</li>
-<li>Steps:
-<ul>
-<li>Build: Compile the code and resolve dependencies.</li>
-<li>Unit Tests: Run unit tests using JUnit to ensure code quality and functionality.</li>
-<li>Static Code Analysis: Use SonarQube to analyze code quality and identify potential issues.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Artifact Storage:
-<ul>
-<li>Docker Hub/Amazon ECR: Build Docker images and store them in a container registry like Docker Hub or Amazon Elastic Container Registry (ECR).</li>
-</ul>
-</li>
-<li>Continuous Deployment (CD):
-<ul>
-<li>Jenkins/CD Pipeline:
-<ul>
-<li>Triggers: The CD pipeline is triggered upon successful completion of the CI pipeline.</li>
-<li>Steps:
-<ul>
-<li>Deploy to Development:
-<ul>
-<li>Docker Compose: Use Docker Compose to deploy the application in the development environment.</li>
-<li>Automated Tests: Run integration tests and functional tests.</li>
-</ul>
-</li>
-<li>Deploy to Staging:
-<ul>
-<li>Kubernetes: Use Helm charts to deploy Docker containers to the Kubernetes cluster in the staging environment.</li>
-<li>Manual Testing: Perform manual testing and user acceptance testing (UAT).</li>
-<li>Load Testing: Conduct load and performance testing.</li>
-</ul>
-</li>
-<li>Approval Process: Obtain approval from QA and stakeholders before deploying to production.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Release to Production:
-<ul>
-<li>Blue-Green Deployment/Canary Release:
-<ul>
-<li>Blue-Green Deployment: Deploy the new version of the application in parallel with the old version, then switch traffic to the new version once it&rsquo;s verified to be stable.</li>
-<li>Canary Release: Gradually roll out the new version to a small subset of users before fully deploying it.</li>
-</ul>
-</li>
-<li>Kubernetes: Use Helm charts to deploy Docker containers to the Kubernetes cluster in the production environment.</li>
-<li>Post-Deployment Monitoring: Monitor application performance and logs using AWS CloudWatch and Prometheus to ensure the new release is functioning as expected.</li>
-</ul>
-</li>
-<li>Rollback Strategy:
-<ul>
-<li>Automated Rollback: Implement automated rollback mechanisms in the Jenkins pipeline to revert to the previous stable version in case of issues.</li>
-<li>Manual Rollback: Have procedures in place for manual rollback if automated rollback is not feasible.</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>
-<p>Do you have front-end experience?</p>
-<ul>
-<li>Yes, I do have front-end experience. With small part of time I would do DOM manipulation with vanilla Javascript or with jQuery. Most of time I just use Angular framework. Over the course of my career, I have worked on various projects where I was responsible for designing and implementing user interfaces that are not only visually appealing but also highly functional and responsive.</li>
-</ul>
-</li>
-<li>
-<p>Do you know Cloud/AWS? Where/what do you use?</p>
-<ul>
-<li>I am AWS certified solution architect.</li>
-<li>I also have hands-on experience in AWS provisioning for my previous projects including EC2, S3, RDS, SNS, SQS, etc.</li>
-<li>For example, in my the most recent project at eBay which is Data Analytics Dashboard.
-<ul>
-<li>I use EC2 to host microservices I built.</li>
-<li>I also use Amazon RDS to host PostgreSQL database.</li>
-<li>And MSK(Managed Kafka) service for real-time data streaming. And so on.
-<ul>
-<li>Set up VPCs to create isolated network environments, configured subnets, route tables, and NAT gateways.</li>
-<li>Used S3 for storing and retrieving large datasets, including log files and user-generated content. Configured bucket policies and lifecycle rules for data management.</li>
-<li>Configured CloudWatch for monitoring application performance, setting up alarms, and logging. Integrated CloudWatch with Prometheus for enhanced monitoring.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3>Normal<span class="absolute -mt-20" id="normal"></span>
-    <a href="#normal" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
-<li>What&rsquo;s your strong/weak point?
-<ul>
-<li>Strong point: I am very strict with my time management. For instance, I like to set reasonable deadline for each task. The deadline I set can give me a sense of urgency. And I believe that a sense of urgency makes me more efficient.</li>
-<li>Week point: I will get nervous if I have to give a speak in a big meeting or conference in front of a lot of people.</li>
-</ul>
-</li>
-<li>Version control. How did you use it? SVN? GIT? Branching, CheckIn-CheckOut.
-<ul>
-<li>In my projects, I&rsquo;ve primarily used Git for version control. Our team followed a branching strategy similar to Gitflow. We had separate branches for feature development, bug fixes, and releases. Typically, we would:
-<ul>
-<li>Branching: Create feature branches from the develop branch.</li>
-<li>CheckIn-CheckOut: Regularly commit changes locally and push them to the remote repository. We also performed code reviews using pull requests before merging changes back into the develop branch.</li>
-<li>Merging: Once features were tested, they were merged into the develop branch, and periodically we would merge develop into main for a release.</li>
-<li>SVN Experience: Although I primarily used Git, I have experience with SVN from earlier projects where we used a centralized approach to version control, focusing on check-in/check-out mechanisms and resolving conflicts during updates.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Did you do production support.
-<ul>
-<li>Yes, I have been involved in production support. My responsibilities included monitoring application performance, handling incidents, debugging production issues, and ensuring high availability. We used tools like AWS CloudWatch and Prometheus for monitoring and alerting, and I was part of the on-call rotation to address critical issues promptly.</li>
-</ul>
-</li>
-<li>What will you do if you don&rsquo;t like the design from other team member? Conflict? Which project is your favorite?
-<ul>
-<li>If I don&rsquo;t agree with a design from a team member, I would:
-<ul>
-<li>Discuss: Arrange a meeting to discuss the design and understand the reasoning behind their choices.</li>
-<li>Collaborate: Provide constructive feedback and suggest alternatives while keeping an open mind.</li>
-<li>Consensus: Aim to reach a consensus that benefits the project as a whole. If needed, involve a neutral third party, like a team lead or architect, to mediate.</li>
-<li>Favorite Project: My favorite project was the Real-Time User Activity Dashboard at eBay. It was complex, involved cutting-edge technology, and had a significant impact on the business.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>How did you use spring mvc/ws/hibernate/transaction/all technologies in your resume in detail with examples of your project
-<ul>
-<li>Spring MVC: Used for building RESTful APIs to serve the real-time analytics data to the frontend.</li>
-<li>Spring WS: Developed SOAP-based web services for internal communication between legacy systems and new microservices.</li>
-<li>Hibernate: Utilized for ORM to map Java objects to database tables and manage CRUD operations efficiently.</li>
-<li>Transactions: Managed transactions using Spring&rsquo;s @Transactional annotation to ensure data integrity during complex operations.</li>
-<li>Example: &ldquo;In the eBay project, I used Spring MVC to create endpoints for the analytics dashboard. Spring WS facilitated integration with legacy systems, enabling seamless data exchange. Hibernate managed data persistence in PostgreSQL, and Spring’s transaction management ensured data consistency during multi-step operations, like processing and updating user activity logs.</li>
-</ul>
-</li>
-<li>How many tables you worked on, how much traffic, how many users/clients
-<ul>
-<li>In the eBay Real-Time User Activity Dashboard project:
-<ul>
-<li>Tables: Worked on around 50 tables, including complex joins and indexing strategies for performance.</li>
-<li>Traffic: Handled data streams of several thousand events per second using Kafka.</li>
-<li>Users: Supported hundreds of internal users, including analysts and executives, who accessed the dashboard for insights.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>How did you use JIRA/jenkins?
-<ul>
-<li>JIRA: Used for task management, sprint planning, and tracking progress. Created user stories, logged bugs, and followed Agile methodologies.</li>
-<li>Jenkins: Set up CI/CD pipelines to automate builds, run tests, and deploy applications. Configured jobs for different environments and integrated with GitHub for automatic triggers on code commits.</li>
-</ul>
-</li>
-<li>Do you write document? What kind of document? Swagger?
-<ul>
-<li>Yes, I write various types of documentation:
-<ul>
-<li>API Documentation: Used Swagger to document RESTful APIs, making it easy for frontend developers to understand and consume the services.</li>
-<li>Technical Documentation: Detailed system architecture, data flow diagrams, and design decisions.</li>
-<li>User Guides: Instructions for internal users on how to use the analytics dashboard.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>What&rsquo;s the name of your manager/team lead/architect?
-<ul>
-<li>My project manager was [Josh Lee]. The Backend team lead is [Agrima Jindal], she also worked as an architect.</li>
-</ul>
-</li>
-<li>Where is the project located?
-<ul>
-<li>The project was developed and deployed within eBay&rsquo;s internal infrastructure, hosted on AWS cloud services. Our development team was based in [Location, e.g., San Jose, California].</li>
-</ul>
-</li>
-<li>How did you do unit testing?
-<ul>
-<li>I used JUnit for writing unit tests. Each method was tested independently, ensuring they performed as expected. Mocking frameworks like Mockito were used to simulate dependencies. We aimed for high code coverage to catch potential bugs early.</li>
-</ul>
-</li>
-<li>How do you handle exception? How do you log? Any tools used?
-<ul>
-<li>Exception Handling: Implemented centralized exception handling using Spring&rsquo;s @ControllerAdvice and @ExceptionHandler. Custom exceptions were created for specific error scenarios.</li>
-<li>Logging: Used SLF4J with Logback for logging. Logs were structured and included context to aid debugging. Tools like ELK Stack (Elasticsearch, Logstash, Kibana) were used for log aggregation and visualization.</li>
-</ul>
-</li>
-<li>Do you know any scripting language? Where do you use scripting?
-<ul>
-<li>Yes, I am proficient in Python and Bash scripting. I used:
-<ul>
-<li>Python: For data analysis, automation tasks, and creating custom scripts for data processing.</li>
-<li>Bash: For writing deployment scripts, automating server setup, and managing cron jobs.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Given a task/story, what&rsquo;s the steps you take to complete it? What if there are road-blockers?
-<ul>
-<li>Understanding: Thoroughly read the task/story and clarify any ambiguities with stakeholders.</li>
-<li>Planning: Break down the task into smaller, manageable sub-tasks.</li>
-<li>Execution: Start with development, write tests, and commit changes.</li>
-<li>Testing: Run unit and integration tests to ensure functionality.</li>
-<li>Review: Submit the code for peer review and make necessary adjustments.</li>
-<li>Road-blockers: Identify the issue, research possible solutions, seek help from team members or stakeholders, and escalate to the team lead if necessary.&rdquo;</li>
-</ul>
-</li>
-<li>What will you do if you cannot finish a task on time?
-<ul>
-<li>If I cannot finish a task on time, I would:
-<ul>
-<li>Communicate: Inform my team lead and stakeholders about the delay as soon as possible.</li>
-<li>Assess: Analyze the reasons for the delay and identify any blockers.</li>
-<li>Plan: Create a revised plan with a new timeline and any additional resources needed.</li>
-<li>Prioritize: Focus on critical aspects and defer non-essential parts if necessary.&quot;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>What&rsquo;s your next 5 years plan?
-<ul>
-<li>In the next 5 years, I aim to:
-<ul>
-<li>Skill Development: Continue enhancing my technical skills, particularly in cloud computing and AI/ML.</li>
-<li>Leadership: Transition into a technical leadership role where I can mentor junior developers and lead larger projects.</li>
-<li>Innovation: Contribute to innovative projects that drive business value and leverage emerging technologies.&quot;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>What do you know about our company? Do some research before go to a client interview.</li>
-<li>Why are you looking for a new project?
-<ul>
-<li>I seek new challenges and opportunities to grow my skills in different domains.</li>
-<li>I also want to work on projects that have a significant impact and align with my passion for technology and innovation.</li>
-<li>I am also eager to collaborate with new teams and bring fresh perspectives to complex problems.</li>
-</ul>
-</li>
-</ul>
-<h2>Questions to ask at the end of an interview<span class="absolute -mt-20" id="questions-to-ask-at-the-end-of-an-interview"></span>
-    <a href="#questions-to-ask-at-the-end-of-an-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>At least 3 - 5 questions for the interviewer.</li>
-</ul>
-<h3>3 types of questions<span class="absolute -mt-20" id="3-types-of-questions"></span>
-    <a href="#3-types-of-questions" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ol>
-<li>Culture
-<ul>
-<li>What do you love most about your job?</li>
-<li>What makes people stay with this organization?</li>
-<li>What are the biggest challenges or opportunities that this organization or department is facing in the next six months to a year?</li>
-<li><strong>What is your favorite part about working here in this organization?</strong></li>
-<li><strong>How would you describe the work environment here?</strong></li>
-</ul>
-</li>
-<li>Role-specific
-<ul>
-<li>Can you tell me what a typical day or week looks like in this position?</li>
-<li>What do you want the person in this position to accomplish in their first 30/60/90 days?</li>
-<li>What challenges or opportunities do you foresee this position taking on in the next six month?</li>
-<li><strong>How will my performance be measured in this position?</strong></li>
-<li><strong>How long will this project last?</strong></li>
-<li><strong>What are the next steps in the interview process?</strong></li>
-</ul>
-</li>
-<li>Hesitation
-<ul>
-<li>Do you have any hesitation about me filling this position?</li>
-<li>Based on what we&rsquo;ve talked about today, is there anything that is causing you hesitation about my fit for this position</li>
-<li>How do I compare to other candidates you&rsquo;ve interviewed for this role?</li>
-<li>Have I answered all the questions that you have for me?</li>
-<li><strong>Do you have any hesitation about my qualifications?</strong></li>
-<li><strong>Is there anything I can clarify for you?</strong></li>
-</ul>
-</li>
-</ol>
-<h2>Tips before interview<span class="absolute -mt-20" id="tips-before-interview"></span>
-    <a href="#tips-before-interview" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
-<li>Prepare your phone/monitor/laptop at least 10 mins before. Double check if it is a dial-in call or they call you on your phone or skype.</li>
-<li>Dress code: dress as professional as you can.</li>
-<li><strong>DO research on the client company.</strong></li>
-<li>Keep checking your hangout/email.</li>
-<li><strong>Always ask questions at the end of the interview.</strong></li>
-<li>Take it seriously and be confident</li>
-<li>Always Turn on the camera. Make the background clean.</li>
-<li>You don&rsquo;t need to answer all the questions correctly to get the job.</li>
-</ul>
+<p>If you share a snippet of your current handler or a specific failure mode you’re seeing (e.g., DB timeout vs. NPE), I can tailor the mappings and logging fields precisely to your stack.</p>
 
         </div>
         <div class="mt-16"></div>
         <div class="mb-8 flex items-center border-t pt-8 dark:border-neutral-800 contrast-more:border-neutral-400 dark:contrast-more:border-neutral-400 print:hidden"><a
-        href="/notes/interview-projects/"
-        title="Interview Projects"
+        href="/notes/latex/"
+        title="Latex"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:pr-4 rtl:pl-4"
-      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Interview Projects</a><a
-        href="/notes/projects-v3/"
-        title="Projects V3"
+      ><svg class="inline h-5 shrink-0 ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Latex</a><a
+        href="/notes/rest-client/"
+        title="Rest Client"
         class="flex max-w-[50%] items-center gap-1 py-4 text-base font-medium text-gray-600 transition-colors [word-break:break-word] hover:text-primary-600 dark:text-gray-300 md:text-lg ltr:ml-auto ltr:pl-4 ltr:text-right rtl:mr-auto rtl:pr-4 rtl:text-left"
-      >Projects V3<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
+      >Rest Client<svg class="inline h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
         
       </main>
     </article>
