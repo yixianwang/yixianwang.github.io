@@ -26,7 +26,7 @@
   <meta itemprop="name" content="Git">
 <meta itemprop="description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."><meta itemprop="datePublished" content="2023-10-24T03:10:46-04:00" />
 <meta itemprop="dateModified" content="2023-10-24T03:10:46-04:00" />
-<meta itemprop="wordCount" content="680">
+<meta itemprop="wordCount" content="955">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git"/>
 <meta name="twitter:description" content="We Want to Keep the Files Locally Modified but Unstaged If you want to keep local changes without staging them for commits: git update-index --assume-unchanged config1.yml git update-index --assume-unchanged config2.yml git update-index --assume-unchanged config3.yml These files will not appear in git status anymore. They will remain untracked in future commits but still exist locally. To revert this and track them again: git update-index --no-assume-unchanged config1.yml git update-index --no-assume-unchanged config2.yml git update-index --no-assume-unchanged config3."/>
@@ -1104,6 +1104,12 @@
                 class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
               >Revert individual commits</a>
             </li>
+          <li>
+              <a
+                href="#gitattribute"
+                class="flex rounded px-2 py-1.5 text-sm transition-colors [word-break:break-word] cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] contrast-more:border flex gap-2 before:opacity-25 before:content-['#'] text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-neutral-400 dark:hover:bg-primary-100/5 dark:hover:text-gray-50 contrast-more:text-gray-900 contrast-more:dark:text-gray-50 contrast-more:border-transparent contrast-more:hover:border-gray-900 contrast-more:dark:hover:border-gray-50"
+              >.gitattribute</a>
+            </li>
           </ul>
   
               
@@ -2095,6 +2101,10 @@
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="ltr:pl-8 rtl:pr-8 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#other-types">other types
         </a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 contrast-more:text-gray-900 contrast-more:underline contrast-more:dark:text-gray-50 w-full break-words" href="#gitattribute">.gitattribute
+        </a>
       </li></ul>
       <div class="mt-8 border-t bg-white pt-8 shadow-[0_-12px_16px_white] dark:bg-dark dark:shadow-[0_-12px_16px_#111] sticky bottom-0 flex flex-col items-start gap-2 pb-8 dark:border-neutral-800 contrast-more:border-t contrast-more:border-neutral-400 contrast-more:shadow-none contrast-more:dark:border-neutral-400">
         <button aria-hidden="true" id="backToTop" onClick="scrollUp();" class="transition-all transition duration-75 opacity-0 text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 contrast-more:text-gray-800 contrast-more:dark:text-gray-50">
@@ -2413,6 +2423,117 @@ git push --force origin feature-branch</code></pre><div class="opacity-0 transit
 <li><a href="https://seesparkbox.com/foundry/semantic_commit_messages" target="_blank" rel="noopener">https://seesparkbox.com/foundry/semantic_commit_messages</a></li>
 <li><a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html" target="_blank" rel="noopener">http://karma-runner.github.io/1.0/dev/git-commit-msg.html</a></li>
 </ul>
+<h2>.gitattribute<span class="absolute -mt-20" id="gitattribute"></span>
+    <a href="#gitattribute" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><div class="code-block relative mt-6 first:mt-0 group/code"><pre><code id="code-block-14">###############################################################################
+# Global text handling
+###############################################################################
+# Automatically normalize line endings on commit and checkout
+* text=auto
+
+# Explicitly enforce LF for source code (avoid CRLF issues)
+*.java     text eol=lf
+*.kt       text eol=lf
+*.xml      text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.sql      text eol=lf
+*.sh       text eol=lf
+*.ts       text eol=lf
+*.js       text eol=lf
+*.json     text eol=lf
+*.html     text eol=lf
+*.scss     text eol=lf
+*.css      text eol=lf
+*.md       text eol=lf
+
+# Windows batch scripts should keep CRLF
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+
+
+###############################################################################
+# Binary files
+###############################################################################
+# Mark images, fonts, and archives as binary so Git won’t try to diff or merge them
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.ico      binary
+*.zip      binary
+*.jar      binary
+*.war      binary
+*.pdf      binary
+*.eot      binary
+*.ttf      binary
+*.woff     binary
+*.woff2    binary
+
+
+###############################################################################
+# Merge strategies
+###############################################################################
+# Never try to merge lock or dependency files automatically
+package-lock.json merge=ours
+yarn.lock         merge=ours
+pnpm-lock.yaml    merge=ours
+*.iml             merge=ours
+*.class           merge=ours
+
+# Ignore changes in generated build artifacts
+/dist/*           merge=ours
+/build/*          merge=ours
+/target/*         merge=ours
+
+
+###############################################################################
+# Diff settings
+###############################################################################
+# Use syntax-aware diffs for specific file types
+*.java diff=java
+*.xml  diff=xml
+*.html diff=html
+*.ts   diff=javascript
+*.scss diff=css
+*.css  diff=css
+*.md   diff=markdown
+
+# Disable diffs for binary files
+*.png -diff
+*.jpg -diff
+*.gif -diff
+*.jar -diff
+*.zip -diff
+
+
+###############################################################################
+# Git LFS (optional)
+###############################################################################
+# If using Git LFS for large media or artifacts, mark them lockable
+# *.psd filter=lfs diff=lfs merge=lfs -text lockable
+# *.mp4 filter=lfs diff=lfs merge=lfs -text lockable
+
+
+###############################################################################
+# Export / Archive rules
+###############################################################################
+# Exclude node_modules and build outputs when creating a Git archive
+node_modules/ export-ignore
+dist/         export-ignore
+build/        export-ignore
+target/       export-ignore
+.idea/        export-ignore
+.vscode/      export-ignore</code></pre><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button
+      class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50"
+      title="Copy code"
+      data-clipboard-target="#code-block-14"
+    >
+      <div class="group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4"></div>
+      <div class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4"></div>
+    </button>
+  </div>
+</div>
 
         </div>
         <div class="mt-16"></div>
