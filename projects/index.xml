@@ -31,19 +31,19 @@
 &lt;li&gt;Architecture &amp;amp; Language: MVVM, Kotlin&lt;/li&gt;
 &lt;li&gt;Third-party libraries: MPAndroid, Itextpdf, Android-pdf-viewer&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Built &amp;amp; Settings&lt;span class=&#34;absolute -mt-20&#34; id=&#34;built--settings&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Built &amp;amp; Settings&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;built--settings&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#built--settings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Hardware: Pixel 6 API 32&lt;/li&gt;
-&lt;li&gt;The login email: &lt;a href=&#34;mailto:fake@example.com&#34; &gt;fake@example.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The login email: &lt;a href=&#34;mailto:fake@example.com&#34;&gt;fake@example.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The password: 123456&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;App Description&lt;span class=&#34;absolute -mt-20&#34; id=&#34;app-description&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;App Description&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;app-description&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#app-description&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;It is a business management app designed for my parents&amp;rsquo; real daily business of renting houses. It consists of two essential parts, business management and accounting. The inspiration is only from my parent&amp;rsquo;s business which is handled by their handwriting right now. This app will save them much time creating a new contract or appointment. It can also automatically create an accountant summary and some beautiful graphs simultaneously that give my parents an intuitive view of how the business is running. The firebase is heavily used in this project.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/android_business_management_1.png&#34; alt=&#34;App&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;h2&gt;APIs &amp;amp; Android Features&lt;span class=&#34;absolute -mt-20&#34; id=&#34;apis--android-features&#34;&gt;&lt;/span&gt;
+    &lt;img src=&#34;../images/android_business_management_1.png&#34; alt=&#34;App&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;APIs &amp;amp; Android Features&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;apis--android-features&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#apis--android-features&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;APIs:
 &lt;ul&gt;
@@ -70,7 +70,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Third-party Libraries &amp;amp; Services Description&lt;span class=&#34;absolute -mt-20&#34; id=&#34;third-party-libraries--services-description&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Third-party Libraries &amp;amp; Services Description&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;third-party-libraries--services-description&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#third-party-libraries--services-description&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;MPAndroidChart: I use this library to create beautiful interactive pie charts, line charts, and bar charts. The good thing is that I can choose many different charts and customize them. The challenging part is customizing the x-axis because, from its last GitHub update change, the x-axis data only support float data type. That means I always have to use boilerplate code to customize and cast type in the helper function when using the customized x-axis.&lt;/p&gt;
@@ -85,7 +85,7 @@
 &lt;p&gt;Firebase: I use this to utilize firebase to store the data and keep them saved and stored in the cloud.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;UI/UX/Display&lt;span class=&#34;absolute -mt-20&#34; id=&#34;uiuxdisplay&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;UI/UX/Display&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;uiuxdisplay&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#uiuxdisplay&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;For the “Contract” and “Appointment” parts, I use RecyclerView with CardView for each row. There is an insert button on both of them to insert new data into “Contract” or “Appointment.”&lt;/p&gt;
@@ -100,7 +100,7 @@
 &lt;p&gt;For “Data,” this part is also automatically updated. Here consists of three valuable graphs to give an intuitive and straightforward overlook of how my parents’ business is running.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Backend Processing Logic&lt;span class=&#34;absolute -mt-20&#34; id=&#34;backend-processing-logic&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Backend Processing Logic&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;backend-processing-logic&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#backend-processing-logic&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;I have three tables in the firebase database: “allAppointments,” “allContracts,” and “allHouses.”&lt;/p&gt;
@@ -118,13 +118,13 @@
 &lt;p&gt;I have described how these three tables work with UI in section 6 of this report.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Firebase Database Schemas&lt;span class=&#34;absolute -mt-20&#34; id=&#34;firebase-database-schemas&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Firebase Database Schemas&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;firebase-database-schemas&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#firebase-database-schemas&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;
-    &lt;img src=&#34;../images/android_business_management_2.png&#34; alt=&#34;Firebase 1&#34; loading=&#34;lazy&#34; /&gt;
+    &lt;img src=&#34;../images/android_business_management_2.png&#34; alt=&#34;Firebase 1&#34;  loading=&#34;lazy&#34; /&gt;
 
-    &lt;img src=&#34;../images/android_business_management_3.png&#34; alt=&#34;Firebase 2&#34; loading=&#34;lazy&#34; /&gt;
+    &lt;img src=&#34;../images/android_business_management_3.png&#34; alt=&#34;Firebase 2&#34;  loading=&#34;lazy&#34; /&gt;
 
-    &lt;img src=&#34;../images/android_business_management_4.png&#34; alt=&#34;Firebase 3&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/android_business_management_4.png&#34; alt=&#34;Firebase 3&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
       </description>
     </item>
     
@@ -142,19 +142,19 @@
 &lt;li&gt;Programmed &lt;strong&gt;OpenGL&lt;/strong&gt; to visualize the movement of the bodies in the domain by C++&lt;/li&gt;
 &lt;li&gt;Analyzed performance with the number of bodies, processors, timesteps, iterations&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Hardware Details &amp;amp; OS Version&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hardware-details--os-version&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Hardware Details &amp;amp; OS Version&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;hardware-details--os-version&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hardware-details--os-version&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Processor:&lt;/strong&gt; 3.6GHz 10-core Intel Core i9&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Memory:&lt;/strong&gt; 32GB 2667 MHz DDR4&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OS version:&lt;/strong&gt; macOS Big Sur Version 11.6.1&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Data&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/mpi_barnes_hut/nb-10.txt&#34;&gt;Data1: nb-10.txt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/mpi_barnes_hut/nb-100.txt&#34;&gt;Data1: nb-100.txt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/mpi_barnes_hut/nb-100000.txt&#34;&gt;Data1: nb-100000.txt&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Analyze&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;My approach can be represented by two main parts: the first is constructing a sequential version of the Barnes-Hut Algorithm and implementing OpenGL to visualize the result, the second is implementing API of MPI to take advantage of parallel from different processes.&lt;/p&gt;
@@ -167,17 +167,19 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/mpi_barnes_hut_1.png&#34; alt=&#34;MPI Barnes Hut Fig 1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/mpi_barnes_hut_1.png&#34; alt=&#34;MPI Barnes Hut Fig 1&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 1. Performance measurement by fixing the number of steps(-s parameter to 1000), the number of threshold for MAC(-t parameter to 1.0) and the timestep(-d parameter to 0.04).&lt;/p&gt;
+  &lt;p&gt;Fig. 1. Performance measurement by fixing the number of steps(-s parameter to 1000), the number of threshold for MAC(-t parameter to 1.0) and the timestep(-d parameter to 0.04).&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;In Fig. 1., I measured the performance of my program from different input sizes by fixing other parameters. In a small input size case(“nb-10.txt”), my program cannot take advantage of the parallel and it can get the best performance when the number of processes is one that is sequentially implemented as shown in the first graph in Fig 1. The main reason is that in a modern computer, the CPU is very powerful it can handle instructions very fast in a sequential style in small input size case. In addition, the small input size will have more overhead on message passing if the number of processes is greater than one which is parallelly implemented. Thus when I increase the number of processes, it will have more overhead on message passing and it will impact the performance of the program. In the (“nb-100.txt”) input scenario, our program can get benefit from parallel. It can get the best performance when the number of processes is around 10 shown as in the second graph in Fig 1, the main reason is that my processor has 10 cores and thus different cores in the processor can handle different processes separately. When I increase the number of processes from 1 to 10, the performance is improved significantly, this indicates that we can get benefit from the computing force in a parallel style. However, when the number of processes is greater than 10, the performance is decreased, some processes are idle during the run time because all 10 cores in processor work on 10 processes separately and the scheduler will let other processes wait for these 10 processes. In a large input size case(“nb-100000.txt”) case, my program has similar improvement when increasing the number of processes. It also can get benefit from the parallel and it can get best performance when the number of processes is around five. However, the performance decreased earlier than the (“nb-100.txt”) case, the main reason is that a large input size has more overhead on the communication between processes during computing force. It has to gather all data computed in local processes in each iteration step and thus the running time in large input size case increasing earlier than previous case.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/mpi_barnes_hut_2.png&#34; alt=&#34;MPI Barnes Hut Fig 2&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/mpi_barnes_hut_2.png&#34; alt=&#34;MPI Barnes Hut Fig 2&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 2. Average running time by fixing the number of processes(-np parameter to 4), the number of steps(-s parameter to 1000) and the timestep(-d parameter to 0.04). NAÏVE is the quadratic relationship.&lt;/p&gt;
+  &lt;p&gt;Fig. 2. Average running time by fixing the number of processes(-np parameter to 4), the number of steps(-s parameter to 1000) and the timestep(-d parameter to 0.04). NAÏVE is the quadratic relationship.&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;The running time results in Fig 2 indicates that the Barnes-Hut approximation can significantly speed up computation about 2.5X when theta is setting to 1.0 or 1.5 comparing to the NAÏVE case. As expected, the naïve approach exhibits a quadratic relationship, whereas increasing the theta parameter leads to faster calculations. It does not fare better than the naïve approach until processing the largest input file. Until that point, the overhead of quadtree construction and center of mass calculation outstrips any gains in force estimation. For theta=1 and theta=1.5, however, we see a significant improvement in running time, with similar performance for each.&lt;/li&gt;
@@ -201,18 +203,18 @@
 &lt;li&gt;Assembled a &lt;strong&gt;concurrent buffer&lt;/strong&gt; to secure communication among threads&lt;/li&gt;
 &lt;li&gt;Analyzed performance among all the implementations&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Hardware Details &amp;amp; OS Version&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hardware-details--os-version&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Hardware Details &amp;amp; OS Version&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;hardware-details--os-version&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hardware-details--os-version&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;CPU:&lt;/strong&gt; 2 GHz Quad-Core Intel Core i5&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OS:&lt;/strong&gt; macOS Big Sur version 11.6&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Data&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/go_tree_comparison/simple.txt&#34;&gt;Data1: simple&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/go_tree_comparison/coarse.txt&#34;&gt;Data2: coarse&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/go_tree_comparison/fine.txt&#34;&gt;Data3: fine&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Analyze HashTime&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-hashtime&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze HashTime&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-hashtime&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze-hashtime&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;img src=&#34;../images/go_tree_1.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: left&#34;&gt;
 &lt;img src=&#34;../images/go_tree_2.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: right&#34;&gt;
 &lt;img src=&#34;../images/go_tree_3.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: center&#34;&gt;
@@ -220,7 +222,8 @@
 ![HashTime of Coarse](images/go_tree_2.png)
 ![HashTime of Fine](images/go_tree_3.png) --&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 1. Hash value computing time compared to Goroutines. Different input files has different hash-workers experiments. Computing time are all measured in seconds.  The x-axis represents the number of hash-workers.&lt;/p&gt;
+  &lt;p&gt;Fig. 1. Hash value computing time compared to Goroutines. Different input files has different hash-workers experiments. Computing time are all measured in seconds.  The x-axis represents the number of hash-workers.&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -239,7 +242,7 @@
 &lt;p&gt;If the number of goroutines is less than the number of CPU cores, the program cannot get the best performance on specific hardware even if the Go runtime can schedule the goroutine very well. If the number of goroutines is much more than the number of CPU cores, it will also have some overhead when creating the segment stack even if only 3 registers need when goroutine switch context, and thus I think we also can’t get ideal performance on this setup. In both “coarse.txt” and “fine.txt” cases, I can get the best performance when my second implementation has 4 hash-workers which is the number of the CPU cores and it can also get ideal performance when the number of hash-workers is in a reasonable range. So I think this is kind of proof.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Analyze Averaged HashGroupTime&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-averaged-hashgrouptime&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze Averaged HashGroupTime&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-averaged-hashgrouptime&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze-averaged-hashgrouptime&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;img src=&#34;../images/go_tree_4.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: left&#34;&gt;
 &lt;img src=&#34;../images/go_tree_5.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: right&#34;&gt;
 &lt;img src=&#34;../images/go_tree_6.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: center&#34;&gt;
@@ -247,7 +250,8 @@
 ![Averaged HashGroupTime of Coarse](images/go_tree_5.png)
 ![Averaged HashGroupTime of Fine](images/go_tree_6.png) --&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 2. Averaged hashGroupTime for different input file. There are four different implementations tested on each input file: Sequential version, Channel version, Lock version and Extra Implementation for extra credit. All computing time are measured in seconds.&lt;/p&gt;
+  &lt;p&gt;Fig. 2. Averaged hashGroupTime for different input file. There are four different implementations tested on each input file: Sequential version, Channel version, Lock version and Extra Implementation for extra credit. All computing time are measured in seconds.&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -266,7 +270,7 @@
 &lt;p&gt;For extra credits, I also implement fine-grain synchronization to allow up to data-workers threads to access the data structure at once. It was not access to the shared data structure a bottleneck before. The main reason is that even if it has more parallelism it also has more overhead and it also has to wait for other threads to unlock the shared data structure. These extra implementations also are not simpler than the previous three implementations, because we have to handle the different threads to access data and avoid concurrency errors.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Analyze Averaged CompareTreeTime&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-averaged-comparetreetime&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze Averaged CompareTreeTime&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-averaged-comparetreetime&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze-averaged-comparetreetime&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;img src=&#34;../images/go_tree_7.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: left&#34;&gt;
 &lt;img src=&#34;../images/go_tree_8.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: right&#34;&gt;
 &lt;img src=&#34;../images/go_tree_9.png&#34; alt=&#34;image&#34; width=&#34;50%&#34; height=&#34;auto&#34; style=&#34;float: center&#34;&gt;
@@ -274,7 +278,8 @@
 ![Averaged CompareTreeTime of Coarse](images/go_tree_8.png)
 ![Averaged CompareTreeTime of Fine](images/go_tree_9.png) --&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 3. Averaged compareTreeTime for different input file. There are three different implementation for each input file: Sequential, Goroutine per BST and Concurrent Buffer. All computing time measured in seconds.&lt;/p&gt;
+  &lt;p&gt;Fig. 3. Averaged compareTreeTime for different input file. There are three different implementation for each input file: Sequential, Goroutine per BST and Concurrent Buffer. All computing time measured in seconds.&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -306,22 +311,23 @@
 &lt;li&gt;Implemented third parallel version of K-Means with &lt;strong&gt;CUDA on Shared Memory&lt;/strong&gt; by C++&lt;/li&gt;
 &lt;li&gt;Analyzed speedup among all the implementations&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Hardware Details &amp;amp; OS Version &amp;amp; Settings&lt;span class=&#34;absolute -mt-20&#34; id=&#34;hardware-details--os-version--settings&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Hardware Details &amp;amp; OS Version &amp;amp; Settings&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;hardware-details--os-version--settings&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#hardware-details--os-version--settings&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;GPU:&lt;/strong&gt; the Codio environment(Tesla T4, Driver Version: 460.91.03 , CUDA Version: 11.2)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;CPU:&lt;/strong&gt; the Codio environment(Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, 4 cores)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OS:&lt;/strong&gt; the Codio environment(Ubuntu 18.04.2 LTS (GNU/Linux 5.4.0-1054-aws x86_64))&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;the data in this report was collected when I set “threshold argument” to 1e-6.&lt;/p&gt;
+  &lt;p&gt;the data in this report was collected when I set “threshold argument” to 1e-6.&lt;/p&gt;
+
 &lt;/blockquote&gt;
-&lt;h2&gt;Data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Data&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/cuda_kmeans/random-n2048-d16-c16.txt&#34;&gt;Data1: size = 2048, dim = 16, c = 16&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/cuda_kmeans/random-n16384-d24-c16.txt&#34;&gt;Data2: size = 16384, dim = 24, c = 16&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/cuda_kmeans/random-n65536-d32-c16.txt&#34;&gt;Data3: size = 65536, dim = 32, c = 16&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;The Fastest Implementation&lt;span class=&#34;absolute -mt-20&#34; id=&#34;the-fastest-implementation&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;The Fastest Implementation&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;the-fastest-implementation&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#the-fastest-implementation&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;For averaged elapsed time per iteration, &lt;strong&gt;CUDA Shared Memory is always the fastest&lt;/strong&gt; implementation on different input sizes. (Fig. 1, left) Because the shared memory in each block is very fast, which means the processing unit for each thread can access data in shared memory very fast after transferring data from global memory to the shared memory.&lt;/p&gt;
@@ -330,7 +336,7 @@
 &lt;p&gt;For total elapsed time (E2E runtime), &lt;strong&gt;sequential version is the fastest&lt;/strong&gt; when the input size is very small and &lt;strong&gt;CUDA Shared Memory is the fastest&lt;/strong&gt; when the input size is very large. (Fig. 1, right) The main reason is that the CPU is very powerful in computing a single thread and the CPU doesn’t need to transfer data between host and device. When the input size is very small, it is the fastest. However, when the input size is large, the power and advantage of parallel are obvious, and the overhead over transferring data can be ignored, and in this case, the CUDA Shared Memory is my fastest implementation.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Compare and Analyze Performance Among Four Implementations&lt;span class=&#34;absolute -mt-20&#34; id=&#34;compare-and-analyze-performance-among-four-implementations&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Compare and Analyze Performance Among Four Implementations&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;compare-and-analyze-performance-among-four-implementations&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#compare-and-analyze-performance-among-four-implementations&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;strong&gt;CUDA Shared Memory&lt;/strong&gt; has the smallest elapsed time per iteration (Fig. 1, left) but it also has the largest overhead on transferring data between host and device and between the device and shared memory. It is the fastest implementation when the input size is very large. As the amount of input data increases, it can get more benefit from parallelism and the influence of the overhead can be ignored. (Fig. 1, right)&lt;/p&gt;
@@ -346,14 +352,16 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/cuda_kmeans_1.png&#34; alt=&#34;cuda kmeans 1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/cuda_kmeans_1.png&#34; alt=&#34;cuda kmeans 1&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;!-- &lt;img src=&#34;../images/cuda_kmeans_1.png&#34; alt=&#34;image&#34; width=&#34;100%&#34; height=&#34;auto&#34;&gt; --&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 1. Averaged elapsed time per iteration and Total elapsed time(E2E runtime) measured on different input size.&lt;/p&gt;
+  &lt;p&gt;Fig. 1. Averaged elapsed time per iteration and Total elapsed time(E2E runtime) measured on different input size.&lt;/p&gt;
+
 &lt;/blockquote&gt;
-&lt;h2&gt;Estimate the best-case performance of CUDA implementation should have based on the hardware&lt;span class=&#34;absolute -mt-20&#34; id=&#34;estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Estimate the best-case performance of CUDA implementation should have based on the hardware&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#estimate-the-best-case-performance-of-cuda-implementation-should-have-based-on-the-hardware&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Based on the number of threads in my program and the number of processing contexts actually supported by my hardware&lt;/p&gt;
+  &lt;p&gt;Based on the number of threads in my program and the number of processing contexts actually supported by my hardware&lt;/p&gt;
+
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -373,11 +381,12 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/cuda_kmeans_2.png&#34; alt=&#34;cuda kmeans 2&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/cuda_kmeans_2.png&#34; alt=&#34;cuda kmeans 2&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 2. Cuda Shmem, Cuda basic, and Thrust implementations speed up X times compared to sequential kmeans. “2k, 16k and 65k” means “2048, 16384 and 65536” input size. Red color is Cuda Shmem, orange color is Cuda basic and yellow color is Thrust implementation.&lt;/p&gt;
+  &lt;p&gt;Fig. 2. Cuda Shmem, Cuda basic, and Thrust implementations speed up X times compared to sequential kmeans. “2k, 16k and 65k” means “2048, 16384 and 65536” input size. Red color is Cuda Shmem, orange color is Cuda basic and yellow color is Thrust implementation.&lt;/p&gt;
+
 &lt;/blockquote&gt;
-&lt;h2&gt;Analyze Why Thrust Is Compromising&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-why-thrust-is-compromising&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze Why Thrust Is Compromising&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-why-thrust-is-compromising&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze-why-thrust-is-compromising&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;The Thrust is the slowest parallel implementation, and it does match my expectations. (Fig. 1, left and Fig. 2.)&lt;/p&gt;
@@ -390,11 +399,12 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/cuda_kmeans_3.png&#34; alt=&#34;cuda kmeans 3&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/cuda_kmeans_3.png&#34; alt=&#34;cuda kmeans 3&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Fig. 3. The fraction of the end-to-end runtime in CUDA versions(Shared Memory and Basic) is spent in data transfer.&lt;/p&gt;
+  &lt;p&gt;Fig. 3. The fraction of the end-to-end runtime in CUDA versions(Shared Memory and Basic) is spent in data transfer.&lt;/p&gt;
+
 &lt;/blockquote&gt;
-&lt;h2&gt;Analyze the Fraction of the End-to-End Runtime of CUDA Implementations Spent in Data Transfer&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze the Fraction of the End-to-End Runtime of CUDA Implementations Spent in Data Transfer&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#analyze-the-fraction-of-the-end-to-end-runtime-of-cuda-implementations-spent-in-data-transfer&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;For both CUDA versions (Shared Memory and Basic), the fraction is decreased with the increasing input data size. This indicates that the impact of the overhead of transferring data is decreasing with the increase of input size. (Fig. 3.)&lt;/p&gt;
@@ -420,18 +430,18 @@
 &lt;li&gt;Implemented &lt;strong&gt;parallel&lt;/strong&gt; and &lt;strong&gt;barrier&lt;/strong&gt; versions of work-efficient parallel prefix sum with &lt;strong&gt;POSIX thread (pthread)&lt;/strong&gt; by C++&lt;/li&gt;
 &lt;li&gt;Analyzed speedup among the all implantations with respect to the number of threads and data size&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Data&lt;span class=&#34;absolute -mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Data&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;data&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#data&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/pthread_prefix_sum/1k.txt&#34;&gt;Data1: 1k&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/pthread_prefix_sum/8k.txt&#34;&gt;Data2: 8k&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/pthread_prefix_sum/16k.txt&#34;&gt;Data3: 16k&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://yixianwang.github.io/datasets/pthread_prefix_sum/seq_64_test.txt&#34;&gt;Data4: seq_64_test&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Abstract&lt;span class=&#34;absolute -mt-20&#34; id=&#34;abstract&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Abstract&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;abstract&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#abstract&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;I use Work Efficient Algorithm with building blocks style to compute prefix sum of large array. My work-efficient algorithm has O(log N) time and O(N) work.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Implementation Details for Work-Efficiency Algorithm&lt;span class=&#34;absolute -mt-20&#34; id=&#34;implementation-details-for-work-efficiency-algorithm&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Implementation Details for Work-Efficiency Algorithm&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;implementation-details-for-work-efficiency-algorithm&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#implementation-details-for-work-efficiency-algorithm&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;I separate input data into same size blocks. (num_blocks = ceil(log2(N)))&lt;/p&gt;
@@ -451,32 +461,32 @@
 &lt;li&gt;Time: O(log N)&lt;/li&gt;
 &lt;li&gt;Work: O(N)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Analyze Each Step&lt;span class=&#34;absolute -mt-20&#34; id=&#34;analyze-each-step&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#analyze-each-step&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 1&lt;span class=&#34;absolute -mt-20&#34; id=&#34;step-1&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Analyze Each Step&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;analyze-each-step&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#analyze-each-step&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 1&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-1&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#step-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
-    &lt;img src=&#34;../images/pthread_prefixsum_1.png&#34; alt=&#34;Fig 1&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/pthread_prefixsum_1.png&#34; alt=&#34;Fig 1&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The above graph can show my program performance when setting LOOP to 100000 on different thread numbers. From the graph, we can see there are two inflection points on each subgraph. The first inflection point is on 2 threads because my work-efficient algorithm after averaging on each thread has additional parallel computing operations on my part 2 implementation (see page 1) than the sequential algorithm. The second inflection point is on 4 threads because my laptop CPU has 4 cores, and thus my program can perform best when setting to 4 threads and each core doesn’t need to switch to another thread, and this can save overhead on context switching.
 And with more than 4 threads, the performance of my program decreased, I think the main reason is that there is more overhead when switching threads and that might cause the performance doesn’t improve even decrease. If I setting 4 threads, each core of my 4 core CPU can get only one thread without switching to other threads.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Step 2&lt;span class=&#34;absolute -mt-20&#34; id=&#34;step-2&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;Step 2&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-2&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#step-2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
-    &lt;img src=&#34;../images/pthread_prefixsum_2.png&#34; alt=&#34;Fig 2&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/pthread_prefixsum_2.png&#34; alt=&#34;Fig 2&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Here, I set my LOOP to 10 and all other arguments keep the same as step1. We decrease the time of each addition operation, and thus our sequential algorithm can get the fastest result. The main reason is that our CPU can solve the problem very fast in sequential as the professor mentioned in the lecture. The decreased amount of time on each addition operation also indicates that the amount of time cost on each thread decreased, and thus more threads will result in more context switch frequency, and thus this will have more overhead than the sequential algorithm.
 This is the main reason when the addition operation becoming very fast, our parallel algorithm performance can’t beat the sequential algorithm. Another reason is that our parallel algorithm has more addition operation than sequential algorithm after averaging for each thread as I mentioned on page 1 of my implementation details. This also leads to a performance decrease. The above two reasons can explain why the sequential algorithm is the fastest and why the trend is like this.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
-    &lt;img src=&#34;../images/pthread_prefixsum_3.png&#34; alt=&#34;Fig 3&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/pthread_prefixsum_3.png&#34; alt=&#34;Fig 3&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The above graph shows that when setting THREAD number argument to 0 and 4 (0 means sequential algorithm, 4 is because my laptop can get the best performance when threads number is 4), after setting the THREAD argument and changing the LOOP argument to test our program performance. We can see there is an inflection point on each subplot in the red circle because increasing the LOOP argument causes the amount of work on each thread to increase and thus the parallel performance can take advantage of the different workers work at the same time and that meet the performance with the sequential algorithm at the red circle on the graph.
 We also notice that by increasing the input size from 64 to 8k, our inflection point moves to the left as indicated in the green box on the graph. The reason is that increasing the numbers of input values, increases the addition operation to both algorithms and this has the same effect as increasing the LOOP. Thus with these two main factors, increasing the LOOP and increasing the input size, can explain why inflection points in these subgraphs of the second graph can meet earlier and earlier, and cause the trend like above.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Step 3&lt;span class=&#34;absolute -mt-20&#34; id=&#34;step-3&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;Step 3&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;step-3&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#step-3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;
-    &lt;img src=&#34;../images/pthread_prefixsum_4.png&#34; alt=&#34;Fig 4&#34; loading=&#34;lazy&#34; /&gt;
+    &lt;img src=&#34;../images/pthread_prefixsum_4.png&#34; alt=&#34;Fig 4&#34;  loading=&#34;lazy&#34; /&gt;
 
-    &lt;img src=&#34;../images/pthread_prefixsum_5.png&#34; alt=&#34;Fig 5&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+    &lt;img src=&#34;../images/pthread_prefixsum_5.png&#34; alt=&#34;Fig 5&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Here, I used my own re-entrant barrier to plot the same graph as before in Step 2. My barrier is implemented with conditional variable and mutex lock. Each thread will wait and try to unlock the barrier in the queue, and once all threads get the signal, the program will go further to the next step.&lt;/p&gt;
