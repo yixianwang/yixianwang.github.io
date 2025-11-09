@@ -95,6 +95,33 @@
     </item>
     
     <item>
+      <title>Grep</title>
+      <link>https://yixianwang.github.io/notes/grep/</link>
+      <pubDate>Sat, 08 Nov 2025 22:13:55 -0500</pubDate>
+      
+      <guid>https://yixianwang.github.io/notes/grep/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;Alias for chekcing logs&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;alias-for-chekcing-logs&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#alias-for-chekcing-logs&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;grepless&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;grep --color=always &amp;#34;$@&amp;#34; | less -R&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# grepless &amp;#34;error&amp;#34; *.log&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>UV</title>
       <link>https://yixianwang.github.io/notes/uv/</link>
       <pubDate>Wed, 22 Oct 2025 22:49:34 -0400</pubDate>
@@ -7699,366 +7726,6 @@ Continuous Improvement &amp;amp; Next Sprint Planning&lt;/code&gt;&lt;/pre&gt;&l
       <pubDate>Wed, 19 Jun 2024 22:42:17 -0400</pubDate>
       
       <guid>https://yixianwang.github.io/notes/projects-v3/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;Descriptions (3-5 sentences, 30 sec, industry, admin/internal/external/hybrid)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;descriptions-3-5-sentences-30-sec-industry-admininternalexternalhybrid&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#descriptions-3-5-sentences-30-sec-industry-admininternalexternalhybrid&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;It&amp;rsquo;s an E-commerce web app where users can browse products, add items to a cart, place orders, and make payments.&lt;/li&gt;
-&lt;li&gt;It supports Role Based Access Control(RBAC) for both internal users to update products price or quantity and external users to browse, search and buy products.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Data Flow (frontend data, what kind of payload, what kind of format, design data flow: FE-&amp;gt;BE-&amp;gt;DB, then we have architecture, then in the middle: add buffering or caching, just add different tools to handle different problem, i.e. failure tolerance, scalability, &amp;hellip;.)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;data-flow-frontend-data-what-kind-of-payload-what-kind-of-format-design-data-flow-fe-be-db-then-we-have-architecture-then-in-the-middle-add-buffering-or-caching-just-add-different-tools-to-handle-different-problem-ie-failure-tolerance-scalability-&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#data-flow-frontend-data-what-kind-of-payload-what-kind-of-format-design-data-flow-fe-be-db-then-we-have-architecture-then-in-the-middle-add-buffering-or-caching-just-add-different-tools-to-handle-different-problem-ie-failure-tolerance-scalability-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;DB&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Internal User Table (userID, name)&lt;/li&gt;
-&lt;li&gt;External User Table (userID, name)&lt;/li&gt;
-&lt;li&gt;Product Inventory Table (productUID, description, price, quantity)&lt;/li&gt;
-&lt;li&gt;Cart Table (userID, productUID, price, quantity)&lt;/li&gt;
-&lt;li&gt;Order Table (orderID, userID, productID, quantity, price, amount)&lt;/li&gt;
-&lt;li&gt;Credit card Table (userID, card number, billing address, expiration date, cvv)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(internal): add product image, product descriptions, price and quantity.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(out): product info (image + text + numbers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;BE(internal): add product image to MongoDB, add product meta data into PostgresSQL&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(internal): fetch inventory data and manage inventories(delete or update product)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(in): List of products (list of image + text + numbers)&lt;/li&gt;
-&lt;li&gt;data(out): productUID (numbers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(external): fetch data from the backend&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(in): List of (image + text + numbers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(external): add products into cart, remove products from cart, update product quantity&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(out): cart table (userID, productUID)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(external): make order, make payment, receive notification about the order status&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(out):
-&lt;ul&gt;
-&lt;li&gt;List of orderItem: product idx, price, quantity(numbers)&lt;/li&gt;
-&lt;li&gt;credit card info &amp;amp;&amp;amp; save credit card info?(numbers, date, text, boolean)&lt;/li&gt;
-&lt;li&gt;addresses(text)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;data(in):
-&lt;ul&gt;
-&lt;li&gt;order status: successful or failed (numbers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;BE(external):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(in):
-&lt;ul&gt;
-&lt;li&gt;List of orderItem: product idx, price, quantity(numbers)&lt;/li&gt;
-&lt;li&gt;credit card info(numbers, date, text)&lt;/li&gt;
-&lt;li&gt;addresses(text)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FE(external):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(in &amp;amp;&amp;amp; out):
-&lt;ul&gt;
-&lt;li&gt;order status (number)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;BE(external):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;data(int &amp;amp;&amp;amp; out):
-&lt;ul&gt;
-&lt;li&gt;order status (number)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Tech stack(???pros &amp;amp; cons)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;tech-stackpros--cons&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#tech-stackpros--cons&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Frontend&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;frontend&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#frontend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Angular 14.2.5&lt;/li&gt;
-&lt;li&gt;Typescript 4.7 for optimal compatibility and features&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Backend&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;backend&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#backend&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Java 17&lt;/li&gt;
-&lt;li&gt;SpringBoot 2.7.5&lt;/li&gt;
-&lt;li&gt;Spring Security 5.7.5&lt;/li&gt;
-&lt;li&gt;Spring Data JPA 2.7.5&lt;/li&gt;
-&lt;li&gt;Spring Data MongoDB 3.4.5&lt;/li&gt;
-&lt;li&gt;Spring Data Redis 2.7.5&lt;/li&gt;
-&lt;li&gt;Kafka
-&lt;ul&gt;
-&lt;li&gt;Spring Kafka 2.8.8&lt;/li&gt;
-&lt;li&gt;Kafka Server 2.8.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;PostgreSQL
-&lt;ul&gt;
-&lt;li&gt;JDBC Driver: 42.4.2&lt;/li&gt;
-&lt;li&gt;Database Server 14.5&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;MongoDB
-&lt;ul&gt;
-&lt;li&gt;Java Driver 4.7.1&lt;/li&gt;
-&lt;li&gt;Database Server 5.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Redis
-&lt;ul&gt;
-&lt;li&gt;Spring Data Redis 2.7.5&lt;/li&gt;
-&lt;li&gt;Redis Server 6.2.6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Swagger
-&lt;ul&gt;
-&lt;li&gt;Springfox Swagger 3.0.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;CI/CD and Testing Tools&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;cicd-and-testing-tools&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cicd-and-testing-tools&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Jenkins 2.346.1 (For build pipeline)&lt;/li&gt;
-&lt;li&gt;SonarQube (For code quality analysis)
-&lt;ul&gt;
-&lt;li&gt;Server Version 9.4&lt;/li&gt;
-&lt;li&gt;Scanner Version 4.6.2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Docker 20.10.7 (For building container images)&lt;/li&gt;
-&lt;li&gt;Kubernetes 1.24 (For deploying and managing microservices)&lt;/li&gt;
-&lt;li&gt;JUnit 5.8.2&lt;/li&gt;
-&lt;li&gt;Selenium
-&lt;ul&gt;
-&lt;li&gt;Selenium WebDriver 4.4.0&lt;/li&gt;
-&lt;li&gt;Browser Driver(e.g. ChromeDriver) 104.0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Cloud and Deployment&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;cloud-and-deployment&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cloud-and-deployment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;AWS (ECS, EKS)&lt;/li&gt;
-&lt;li&gt;Docker 20.10.7 (For containerization)&lt;/li&gt;
-&lt;li&gt;Kubernetes 1.24 (For orchestration)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Additional Tools and Libraries&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;additional-tools-and-libraries&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#additional-tools-and-libraries&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;JWT, Library &lt;code&gt;jjwt&lt;/code&gt; 0.11.5&lt;/li&gt;
-&lt;li&gt;BCrypt, Library &lt;code&gt;spring-security-crypto&lt;/code&gt; 5.7.5&lt;/li&gt;
-&lt;li&gt;Lombok, 1.18.22&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;On-premise or Cloud&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;on-premise-or-cloud&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#on-premise-or-cloud&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;AWS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;??? Teams ( people we worked with, Agile style/how big the team/what&amp;rsquo;s my role/different scenario we need to talk to different people, who I talked with/ who I suppose to talk with/&amp;hellip; )&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-teams--people-we-worked-with-agile-stylehow-big-the-teamwhats-my-roledifferent-scenario-we-need-to-talk-to-different-people-who-i-talked-with-who-i-suppose-to-talk-with-&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#-teams--people-we-worked-with-agile-stylehow-big-the-teamwhats-my-roledifferent-scenario-we-need-to-talk-to-different-people-who-i-talked-with-who-i-suppose-to-talk-with-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Distributed&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;distributed&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#distributed&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;distributed&amp;rdquo; refers to the architectural approach of breaking down the application into smaller, independent services that communicate with each other over a network.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Pros&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;pros&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#pros&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Scalability: Distributed systems can scale horizontally by adding more instances of individual services rather than scaling up a monolithic application.&lt;/li&gt;
-&lt;li&gt;Fault Isolation: Failures in one microservice are isolated, preventing cascading failures across the entire system.&lt;/li&gt;
-&lt;li&gt;Flexibility: Teams can choose the most appropriate technology stack for each microservice, optimizing performance and developer productivity.&lt;/li&gt;
-&lt;li&gt;Improved Maintainability: Smaller, focused codebases are easier to maintain and update compared to a large monolithic application.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Cons&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;cons&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#cons&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Increased Complexity: Managing multiple microservices introduces complexity in terms of deployment, monitoring, and debugging.&lt;/li&gt;
-&lt;li&gt;Consistency: Ensuring data consistency and transaction management across distributed services can be challenging.&lt;/li&gt;
-&lt;li&gt;Network Overhead: Communication between microservices over a network can introduce latency and require robust error handling.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Example scenario in this project&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;example-scenario-in-this-project&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#example-scenario-in-this-project&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;The User Service handles user authentication and profile management.&lt;/li&gt;
-&lt;li&gt;The Product Catalog Service manages product information and inventory.&lt;/li&gt;
-&lt;li&gt;The Order Service processes customer orders and manages order fulfillment.&lt;/li&gt;
-&lt;li&gt;The Payment Service handles payment processing and integrates with payment gateways.&lt;/li&gt;
-&lt;li&gt;The Notification Service sends notifications to users about order status updates.&lt;/li&gt;
-&lt;li&gt;Each of these services operates independently but collaborates through well-defined APIs, enabling the platform to deliver a seamless e-commerce experience while benefiting from the scalability and resilience of a distributed architecture.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;Overall, in this project, &amp;ldquo;distributed&amp;rdquo; signifies the adoption of a microservices architecture to achieve modularity, scalability, and maintainability in building and operating the e-commerce platform.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-&lt;h2&gt;Project: Distributed E-commerce Platform&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;project-distributed-e-commerce-platform&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#project-distributed-e-commerce-platform&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Project Overview:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;project-overview&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#project-overview&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Develop a distributed e-commerce platform where users can browse products, add items to a cart, place orders, and make payments. The platform should also include user authentication and authorization, real-time updates, and analytics.&lt;/p&gt;
-&lt;h2&gt;Architecture and Technologies:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;architecture-and-technologies&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#architecture-and-technologies&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Microservices Architecture: Use Spring Boot to create independent services for different functionalities.&lt;/li&gt;
-&lt;li&gt;Message Queuing: Use Kafka for communication between services.&lt;/li&gt;
-&lt;li&gt;Caching: Use Redis for caching frequently accessed data.&lt;/li&gt;
-&lt;li&gt;Cloud Deployment: Deploy services on AWS.&lt;/li&gt;
-&lt;li&gt;Front-End: Develop a user interface using Angular.&lt;/li&gt;
-&lt;li&gt;Data Persistence: Use PostgreSQL for relational data and MongoDB for NoSQL data.&lt;/li&gt;
-&lt;li&gt;API Documentation: Use Swagger for API documentation.&lt;/li&gt;
-&lt;li&gt;Continuous Integration/Continuous Deployment (CI/CD): Use Jenkins for CI/CD pipeline.&lt;/li&gt;
-&lt;li&gt;Security: Implement security using Spring Security.&lt;/li&gt;
-&lt;li&gt;Testing: Write unit tests using JUnit, integrate SonarQube for code quality analysis, and use Selenium for end-to-end testing.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Detailed Components:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;detailed-components&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#detailed-components&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;User Service:
-&lt;ul&gt;
-&lt;li&gt;Manages user registration, login, profile management.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, Spring Security, PostgreSQL, JWT for authentication.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Product Service:
-&lt;ul&gt;
-&lt;li&gt;Manages product catalog, including CRUD operations for products.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, MongoDB, Swagger.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Order Service:
-&lt;ul&gt;
-&lt;li&gt;Manages orders, order history, and interactions with the payment service.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, PostgreSQL, Kafka.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Cart Service:
-&lt;ul&gt;
-&lt;li&gt;Manages user cart operations.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, Redis.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Payment Service:
-&lt;ul&gt;
-&lt;li&gt;Manages payment processing.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, external payment gateway integration (e.g., Stripe).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Notification Service:
-&lt;ul&gt;
-&lt;li&gt;Sends real-time notifications to users (e.g., order status updates).&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, Kafka.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Analytics Service:
-&lt;ul&gt;
-&lt;li&gt;Collects and analyzes data for business insights.&lt;/li&gt;
-&lt;li&gt;Technology: Spring Boot, MongoDB.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Frontend Application:
-&lt;ul&gt;
-&lt;li&gt;User interface for the e-commerce platform.&lt;/li&gt;
-&lt;li&gt;Technology: Angular, integrating with various backend services.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;CI/CD Pipeline:
-&lt;ul&gt;
-&lt;li&gt;Automate testing, build, and deployment processes.&lt;/li&gt;
-&lt;li&gt;Technology: Jenkins, SonarQube, Docker for containerization, AWS for deployment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Testing:
-&lt;ul&gt;
-&lt;li&gt;Unit Testing: JUnit.&lt;/li&gt;
-&lt;li&gt;End-to-End Testing: Selenium.&lt;/li&gt;
-&lt;li&gt;Code Quality: SonarQube.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Example Workflow:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;example-workflow&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#example-workflow&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;User Registration and Authentication:
-&lt;ul&gt;
-&lt;li&gt;User signs up and logs in via the User Service.&lt;/li&gt;
-&lt;li&gt;JWT tokens are generated for authenticated sessions.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Product Browsing:
-&lt;ul&gt;
-&lt;li&gt;User browses products through the Product Service.&lt;/li&gt;
-&lt;li&gt;Product data is cached using Redis for quick access.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Shopping Cart:
-&lt;ul&gt;
-&lt;li&gt;User adds products to the cart.&lt;/li&gt;
-&lt;li&gt;Cart Service manages the cart with Redis to ensure fast performance.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Order Placement:
-&lt;ul&gt;
-&lt;li&gt;User places an order, which triggers the Order Service.&lt;/li&gt;
-&lt;li&gt;Order details are stored in PostgreSQL, and the service sends a message via Kafka to the Payment Service.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Payment Processing:
-&lt;ul&gt;
-&lt;li&gt;Payment Service processes the payment.&lt;/li&gt;
-&lt;li&gt;On successful payment, the Order Service updates the order status and sends a notification via Kafka.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Real-Time Notifications:
-&lt;ul&gt;
-&lt;li&gt;Notification Service sends real-time updates to the user about order status.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Analytics:
-&lt;ul&gt;
-&lt;li&gt;Analytics Service collects data from various services to generate business insights.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Deployment:&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;deployment&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#deployment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;AWS Infrastructure:
-&lt;ul&gt;
-&lt;li&gt;Use AWS EC2 for deploying microservices.&lt;/li&gt;
-&lt;li&gt;Use AWS RDS for PostgreSQL database.&lt;/li&gt;
-&lt;li&gt;Use AWS S3 for static content storage.&lt;/li&gt;
-&lt;li&gt;Use AWS Lambda for serverless computing where applicable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;CI/CD with Jenkins:
-&lt;ul&gt;
-&lt;li&gt;Jenkins pipelines for automated testing, building, and deployment.&lt;/li&gt;
-&lt;li&gt;Integration with SonarQube for code quality analysis.&lt;/li&gt;
-&lt;li&gt;Docker for containerizing microservices.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Projects V2</title>
-      <link>https://yixianwang.github.io/notes/projects-v2/</link>
-      <pubDate>Tue, 18 Jun 2024 22:42:17 -0400</pubDate>
-      
-      <guid>https://yixianwang.github.io/notes/projects-v2/</guid>
       <description>
         
         
