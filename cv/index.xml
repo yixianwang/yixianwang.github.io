@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cvs on Yixian Wang</title><link>https://arkticor.com/cv/</link><description>Recent content in Cvs on Yixian Wang</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://arkticor.com/cv/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://arkticor.com/cv/memo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://arkticor.com/cv/memo/</guid><description>&lt;h2 class="relative group"&gt;Projects
+ &lt;div id="projects" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#projects" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+
+&lt;h3 class="relative group"&gt;PTS UI &amp;amp;&amp;amp; SERVICE
+ &lt;div id="pts-ui--service" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#pts-ui--service" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;DCTR SERVICE CI
+ &lt;div id="dctr-service-ci" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#dctr-service-ci" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;HMBS BRE SERVICE
+ &lt;div id="hmbs-bre-service" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hmbs-bre-service" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;RECERTIFICATION SERVICE
+ &lt;div id="recertification-service" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#recertification-service" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;HUD11708 SERVICE
+ &lt;div id="hud11708-service" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hud11708-service" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;BATCH JOB
+ &lt;div id="batch-job" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#batch-job" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h2 class="relative group"&gt;Challenges
+ &lt;div id="challenges" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#challenges" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+
+&lt;h3 class="relative group"&gt;Virtual thread block the other thread
+ &lt;div id="virtual-thread-block-the-other-thread" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#virtual-thread-block-the-other-thread" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;jps -l&lt;/code&gt; # to list java process, find springboot Application.class process
+2.0 &lt;code&gt;jcmd 12345 help&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jcmd 12345 Thread.print&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- 2.legacy jstack 12345 # thread dump, to debug thead deadlock, stuck threads: look for BLOCKED, and WAITING threads --&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;code&gt;jcmd 12345 VM.flags&lt;/code&gt; # inspect JVM flags&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jcmd 12345 GC.heap_info&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- 4.legacy jmap -heap 12345 # memory dump, to debug memory leak --&gt;
+&lt;ol start="5"&gt;
+&lt;li&gt;&lt;code&gt;jcmd PID VM.command_line&lt;/code&gt; # inspect JVM arguments&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- 5.legacy `wmic process where processid=12345 get commandline` --&gt;
+
+&lt;h3 class="relative group"&gt;Use JFR
+ &lt;div id="use-jfr" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#use-jfr" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;jcmd 12345 JFR.start name=debug duration=60s filename=C:\temp\debug.jfr&lt;/code&gt;
+1.1 &lt;code&gt;jcmd JFR.check&lt;/code&gt;
+1.2 &lt;code&gt;jcmd JFR.stop name=xxx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jmc&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class="relative group"&gt;BRE performance: stream dao layer for large query, separate query to avoid large CTE, virtual thread
+ &lt;div id="bre-performance-stream-dao-layer-for-large-query-separate-query-to-avoid-large-cte-virtual-thread" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#bre-performance-stream-dao-layer-for-large-query-separate-query-to-avoid-large-cte-virtual-thread" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;Production defect: WAF rule
+ &lt;div id="production-defect-waf-rule" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#production-defect-waf-rule" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;DB Unique index constraint bug for efficient code
+ &lt;div id="db-unique-index-constraint-bug-for-efficient-code" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#db-unique-index-constraint-bug-for-efficient-code" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;Drool syntax: &amp;amp;&amp;amp; cannot skip second part, comma can skip second part
+ &lt;div id="drool-syntax--cannot-skip-second-part-comma-can-skip-second-part" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#drool-syntax--cannot-skip-second-part-comma-can-skip-second-part" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;Not code related: not coding error, need to push back to not coding error
+ &lt;div id="not-code-related-not-coding-error-need-to-push-back-to-not-coding-error" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#not-code-related-not-coding-error-need-to-push-back-to-not-coding-error" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+
+&lt;h3 class="relative group"&gt;jdk25 bugs:
+ &lt;div id="jdk25-bugs" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#jdk25-bugs" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;jackson 3, cannot use primitive boolean in payload&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class="relative group"&gt;sb4 bugs:
+ &lt;div id="sb4-bugs" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#sb4-bugs" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;queryForObject always throw EmptyResultDataAccessException if set fetchSize globally, we should use for each preparedStatement for each query&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class="relative group"&gt;improve query performance
+ &lt;div id="improve-query-performance" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#improve-query-performance" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;reduce the size of CTE (common table expression)&lt;/li&gt;
+&lt;li&gt;landing on index (most of time)&lt;/li&gt;
+&lt;li&gt;improve table join&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>
