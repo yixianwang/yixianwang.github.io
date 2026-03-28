@@ -1,0 +1,1428 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Tar &middot; Yixian Wang</title>
+    <meta name="title" content="Tar &middot; Yixian Wang">
+  
+
+  
+  
+    <meta name="description" content="CS Graduate Student at UT Austin">
+  
+  
+  
+  
+  <link rel="canonical" href="https://arkticor.com/notes/tar/">
+  
+
+  
+  
+    <meta name="author" content="Yixian Wang">
+  
+  
+    
+      
+        
+          <link href="https://github.com/yixianwang" rel="me">
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://arkticor.com/notes/tar/">
+  <meta property="og:site_name" content="Yixian Wang">
+  <meta property="og:title" content="Tar">
+  <meta property="og:description" content="The tar command — a practical, modern guide # Below is a tight-but-complete playbook you can actually use. Copy/paste the recipes; tweak paths as needed.
+0) What tar is # tar = “tape archive”: it groups files/dirs into a single stream (“archive”). It can also compress by delegating to gzip/bzip2/xz/zstd/etc. Common archive suffixes: .tar (no compression), .tar.gz/.tgz, .tar.bz2, .tar.xz, .tar.zst, .tar.lz4. 1) The 5 core verbs # c = create x = extract t = list (table of contents) r = append (to end; works only for uncompressed .tar) u = update (append newer versions; also for plain .tar) Always pair with f to name the archive file.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-10-21T22:58:48-04:00">
+    <meta property="article:modified_time" content="2025-10-21T22:58:48-04:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tar">
+  <meta name="twitter:description" content="The tar command — a practical, modern guide # Below is a tight-but-complete playbook you can actually use. Copy/paste the recipes; tweak paths as needed.
+0) What tar is # tar = “tape archive”: it groups files/dirs into a single stream (“archive”). It can also compress by delegating to gzip/bzip2/xz/zstd/etc. Common archive suffixes: .tar (no compression), .tar.gz/.tgz, .tar.bz2, .tar.xz, .tar.zst, .tar.lz4. 1) The 5 core verbs # c = create x = extract t = list (table of contents) r = append (to end; works only for uncompressed .tar) u = update (append newer versions; also for plain .tar) Always pair with f to name the archive file.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9d9d71d26c2e825121c641318431e491a670625d5755fa4f65897b2482e0a438e9210017afe3c2fb25e0104a6dc06a8113c029fd632bafd806cc528fcdf9a6bd.css"
+    integrity="sha512-nZ1x0mwuglEhxkExhDHkkaZwYl1XVfpPZYl7JILgpDjpIQAXr&#43;PC&#43;yXgEEptwGqBE8Ap/WMrr9gGzFKPzfmmvQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.6b483bdc9246a18b35259ce2a40e363ade34a01edf2f3a31094f0a396844e75f863d18735a89b85ee8301f2dfdb9e471bdf47c44483d4b8f0d6eb93701873824.js"
+      integrity="sha512-a0g73JJGoYs1JZzipA42Ot40oB7fLzoxCU8KOWhE51&#43;GPRhzWom4XugwHy39ueRxvfR8REg9S48Nbrk3AYc4JA=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Notes",
+    "name": "Tar",
+    "headline": "Tar",
+    
+    "inLanguage": "en",
+    "url" : "https://arkticor.com/notes/tar/",
+    "author" : {
+      "@type": "Person",
+      "name": "Yixian Wang"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-21T22:58:48-04:00",
+    "datePublished": "2025-10-21T22:58:48-04:00",
+    
+    "dateModified": "2025-10-21T22:58:48-04:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1152"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Yixian Wang
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projects"
+      title="Projects">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projects
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blog/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="Blog">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/notes/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Notes"
+      title="Notes">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Notes
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href=""
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Search"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Search
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projects"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projects" class="text-2xl font-bold tracking-tight">
+          Projects
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blog/"
+        aria-label="Blog"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Blog" class="text-2xl font-bold tracking-tight">
+          Blog
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/notes/"
+        aria-label="Notes"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Notes" class="text-2xl font-bold tracking-tight">
+          Notes
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href=""
+        aria-label="Search"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          Search
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      >About me</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/"
+      >Notes</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/tar/"
+      >Tar</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Tar
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-21T22:58:48-04:00">21 October 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+  
+    
+  
+  
+
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/yixianwang/yixian-site/tree/main/content/notes/tar.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Edit content"
+    ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a
+  >
+</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-what-tar-is">0) What <code>tar</code> is</a></li>
+    <li><a href="#1-the-5-core-verbs">1) The 5 core verbs</a></li>
+    <li><a href="#2-compression-options-when-creating">2) Compression options (when creating)</a></li>
+    <li><a href="#3-must-know-safety-habits">3) Must-know safety habits</a></li>
+    <li><a href="#4-excluding-things">4) Excluding things</a></li>
+    <li><a href="#5-preserve-ownership-permissions-metadata">5) Preserve ownership, permissions, metadata</a></li>
+    <li><a href="#6-verify-and-compare">6) Verify and compare</a></li>
+    <li><a href="#7-incremental-and-differential-backups-gnu-tar">7) Incremental and differential backups (GNU tar)</a></li>
+    <li><a href="#8-streaming--remote-copies-no-temp-files">8) Streaming &amp; remote copies (no temp files)</a></li>
+    <li><a href="#9-split-large-archives--reassemble">9) Split large archives &amp; reassemble</a></li>
+    <li><a href="#10-sparse-files-devices-fifos">10) Sparse files, devices, FIFOs</a></li>
+    <li><a href="#11-path-rewrites-and-layout-control">11) Path rewrites and layout control</a></li>
+    <li><a href="#12-selecting-by-time-or-size">12) Selecting by time or size</a></li>
+    <li><a href="#13-show-progress">13) Show progress</a></li>
+    <li><a href="#14-extract-to-stdout-for-one-off-inspection">14) Extract to stdout (for one-off inspection)</a></li>
+    <li><a href="#15-appending--updating-plain-tar-only">15) Appending &amp; updating (plain .tar only)</a></li>
+    <li><a href="#16-reproducible-deterministic-archives">16) Reproducible (deterministic) archives</a></li>
+    <li><a href="#17-platform-notes">17) Platform notes</a></li>
+    <li><a href="#18-quick-cheat-sheet-copy-me">18) Quick cheat sheet (copy me)</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-what-tar-is">0) What <code>tar</code> is</a></li>
+    <li><a href="#1-the-5-core-verbs">1) The 5 core verbs</a></li>
+    <li><a href="#2-compression-options-when-creating">2) Compression options (when creating)</a></li>
+    <li><a href="#3-must-know-safety-habits">3) Must-know safety habits</a></li>
+    <li><a href="#4-excluding-things">4) Excluding things</a></li>
+    <li><a href="#5-preserve-ownership-permissions-metadata">5) Preserve ownership, permissions, metadata</a></li>
+    <li><a href="#6-verify-and-compare">6) Verify and compare</a></li>
+    <li><a href="#7-incremental-and-differential-backups-gnu-tar">7) Incremental and differential backups (GNU tar)</a></li>
+    <li><a href="#8-streaming--remote-copies-no-temp-files">8) Streaming &amp; remote copies (no temp files)</a></li>
+    <li><a href="#9-split-large-archives--reassemble">9) Split large archives &amp; reassemble</a></li>
+    <li><a href="#10-sparse-files-devices-fifos">10) Sparse files, devices, FIFOs</a></li>
+    <li><a href="#11-path-rewrites-and-layout-control">11) Path rewrites and layout control</a></li>
+    <li><a href="#12-selecting-by-time-or-size">12) Selecting by time or size</a></li>
+    <li><a href="#13-show-progress">13) Show progress</a></li>
+    <li><a href="#14-extract-to-stdout-for-one-off-inspection">14) Extract to stdout (for one-off inspection)</a></li>
+    <li><a href="#15-appending--updating-plain-tar-only">15) Appending &amp; updating (plain .tar only)</a></li>
+    <li><a href="#16-reproducible-deterministic-archives">16) Reproducible (deterministic) archives</a></li>
+    <li><a href="#17-platform-notes">17) Platform notes</a></li>
+    <li><a href="#18-quick-cheat-sheet-copy-me">18) Quick cheat sheet (copy me)</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">The <code>tar</code> command — a practical, modern guide
+    <div id="the-tar-command--a-practical-modern-guide" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-tar-command--a-practical-modern-guide" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<p>Below is a tight-but-complete playbook you can actually use. Copy/paste the recipes; tweak paths as needed.</p>
+<hr>
+
+<h2 class="relative group">0) What <code>tar</code> is
+    <div id="0-what-tar-is" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#0-what-tar-is" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>tar</strong> = “tape archive”: it groups files/dirs into a single stream (“archive”).</li>
+<li>It can <strong>also</strong> compress by delegating to gzip/bzip2/xz/zstd/etc.</li>
+<li>Common archive suffixes: <code>.tar</code> (no compression), <code>.tar.gz</code>/<code>.tgz</code>, <code>.tar.bz2</code>, <code>.tar.xz</code>, <code>.tar.zst</code>, <code>.tar.lz4</code>.</li>
+</ul>
+<hr>
+
+<h2 class="relative group">1) The 5 core verbs
+    <div id="1-the-5-core-verbs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-the-5-core-verbs" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>c</strong> = create</li>
+<li><strong>x</strong> = extract</li>
+<li><strong>t</strong> = list (table of contents)</li>
+<li><strong>r</strong> = append (to end; works only for uncompressed <code>.tar</code>)</li>
+<li><strong>u</strong> = update (append newer versions; also for plain <code>.tar</code>)</li>
+</ul>
+<p>Always pair with <strong>f</strong> to name the archive file.</p>
+<p><strong>Patterns</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create</span>
+</span></span><span class="line"><span class="cl">tar -cf archive.tar DIR ...
+</span></span><span class="line"><span class="cl">tar -czf archive.tar.gz DIR ...       <span class="c1"># gzip</span>
+</span></span><span class="line"><span class="cl">tar -cJf archive.tar.xz DIR ...       <span class="c1"># xz</span>
+</span></span><span class="line"><span class="cl">tar -cjf archive.tar.bz2 DIR ...      <span class="c1"># bzip2</span>
+</span></span><span class="line"><span class="cl">tar --zstd -cf archive.tar.zst DIR ...# zstd <span class="o">(</span>GNU tar<span class="o">)</span>
+</span></span><span class="line"><span class="cl">tar --lz4  -cf archive.tar.lz4 DIR ...# lz4  <span class="o">(</span>GNU tar<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># List</span>
+</span></span><span class="line"><span class="cl">tar -tf archive.tar<span class="o">[</span>.gz<span class="p">|</span>.xz<span class="p">|</span>...<span class="o">]</span>      <span class="c1"># see contents</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract</span>
+</span></span><span class="line"><span class="cl">tar -xf archive.tar<span class="o">[</span>.gz<span class="p">|</span>.xz<span class="p">|</span>...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">tar -xf archive.tar -C /target/dir    <span class="c1"># extract somewhere else</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># One file / subset</span>
+</span></span><span class="line"><span class="cl">tar -xf archive.tar path/inside/file
+</span></span><span class="line"><span class="cl">tar -xf archive.tar --strip-components<span class="o">=</span><span class="m">1</span> path/top/dir/</span></span></code></pre></div></div>
+<blockquote><p>Tip: Use <strong><code>-v</code></strong> (verbose) to see file names. Use <strong><code>-C DIR</code></strong> to change into a dir before acting.</p>
+</blockquote><hr>
+
+<h2 class="relative group">2) Compression options (when creating)
+    <div id="2-compression-options-when-creating" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-compression-options-when-creating" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><code>-z</code> = gzip (fast, common)</li>
+<li><code>-j</code> = bzip2 (slower, better than gzip)</li>
+<li><code>-J</code> = xz (slowest, best ratio)</li>
+<li><code>--zstd</code> = Zstandard (great ratio <strong>and</strong> speed; needs GNU tar)</li>
+<li><code>--lz4</code> = LZ4 (very fast, lower ratio; GNU tar)</li>
+<li><code>-a</code> = <strong>auto</strong>: pick compressor from extension (GNU tar)</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Auto-compress by extension (GNU tar)</span>
+</span></span><span class="line"><span class="cl">tar -caf backup.tar.zst /data
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Fast, good default (zstd)</span>
+</span></span><span class="line"><span class="cl">tar --zstd -cf site.tar.zst /var/www</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">3) Must-know safety habits
+    <div id="3-must-know-safety-habits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-must-know-safety-habits" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>
+<p><strong>Peek before extracting</strong>: <code>tar -tf archive.tar.gz | less</code></p>
+</li>
+<li>
+<p><strong>Don’t overwrite existing files</strong>: <code>tar -xkf archive.tar.gz</code> (keep old files) or <code>--skip-old-files</code></p>
+</li>
+<li>
+<p><strong>Avoid absolute paths in archives</strong> (they can write to <code>/</code>). If you must extract them, you’d need <code>-P/--absolute-names</code>—avoid unless you trust the archive.</p>
+</li>
+<li>
+<p><strong>Choose the target dir</strong> with <code>-C</code> and/or strip leading folders:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xf thing.tar.gz -C /opt/app --strip-components<span class="o">=</span><span class="m">1</span></span></span></code></pre></div></div>
+</li>
+</ul>
+<hr>
+
+<h2 class="relative group">4) Excluding things
+    <div id="4-excluding-things" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#4-excluding-things" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -czf src.tar.gz src/ --exclude-vcs <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --exclude<span class="o">=</span><span class="s1">&#39;node_modules&#39;</span> --exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># From a file</span>
+</span></span><span class="line"><span class="cl">tar -czf home.tar.gz /home/user --exclude-from<span class="o">=</span>exclude.txt
+</span></span><span class="line"><span class="cl"><span class="c1"># exclude.txt lines: </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># .cache</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># **/*.tmp</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Downloads/large/*</span></span></span></code></pre></div></div>
+<blockquote><p>On GNU tar, globs in <code>--exclude</code> are handled by tar; if you pass globs as positional paths, <strong>quote them</strong> so the shell doesn’t expand first.</p>
+</blockquote><hr>
+
+<h2 class="relative group">5) Preserve ownership, permissions, metadata
+    <div id="5-preserve-ownership-permissions-metadata" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#5-preserve-ownership-permissions-metadata" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>
+<p><strong>When creating</strong>: tar stores mode/uid/gid/mtime by default.</p>
+</li>
+<li>
+<p><strong>When extracting</strong>:</p>
+<ul>
+<li>
+<p>As <strong>root</strong>, use <code>--same-owner</code> to preserve owners; as non-root, owners map to your uid.</p>
+</li>
+<li>
+<p><code>-p/--preserve-permissions</code> to keep file modes.</p>
+</li>
+<li>
+<p>For extended metadata:</p>
+<ul>
+<li><code>--xattrs</code> (Linux extended attributes)</li>
+<li><code>--acls</code> (POSIX ACLs)</li>
+<li><code>--selinux</code> (SELinux contexts)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo tar -xpf backup.tar --xattrs --acls --selinux -C /</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">6) Verify and compare
+    <div id="6-verify-and-compare" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#6-verify-and-compare" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Compare archive vs filesystem</span>
+</span></span><span class="line"><span class="cl">tar -df archive.tar<span class="o">[</span>.gz<span class="p">|</span>...<span class="o">]</span>          <span class="c1"># reports differences</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Or verify integrity of the file you created</span>
+</span></span><span class="line"><span class="cl">tar -tf archive.tar.gz &gt; /dev/null    <span class="c1"># lists everything; nonzero exit on error</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For compressed archives, add a checksum file after creation:</span>
+</span></span><span class="line"><span class="cl">sha256sum archive.tar.zst &gt; archive.tar.zst.sha256
+</span></span><span class="line"><span class="cl">sha256sum -c archive.tar.zst.sha256</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">7) Incremental and differential backups (GNU tar)
+    <div id="7-incremental-and-differential-backups-gnu-tar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#7-incremental-and-differential-backups-gnu-tar" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>Keep a <strong>snapshot file</strong> that records state between runs.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Full</span>
+</span></span><span class="line"><span class="cl">tar --listed-incremental<span class="o">=</span>snap.snar -cpf full.tar /home
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Next runs (incremental)</span>
+</span></span><span class="line"><span class="cl">tar --listed-incremental<span class="o">=</span>snap.snar -cpf inc-2025-10-21.tar /home</span></span></code></pre></div></div>
+<ul>
+<li>Restoring: extract the <strong>full</strong> first, then incrementals <strong>in order</strong>.</li>
+<li>To create a fresh full backup next time, remove/rotate the <code>.snar</code>.</li>
+</ul>
+<blockquote><p>If you just want a “changed since last full” without <code>.snar</code>, consider using <code>rsync</code> or <code>--newer-mtime='2025-10-01'</code> for date-based selection.</p>
+</blockquote><hr>
+
+<h2 class="relative group">8) Streaming &amp; remote copies (no temp files)
+    <div id="8-streaming--remote-copies-no-temp-files" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#8-streaming--remote-copies-no-temp-files" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Push to remote over SSH</span>
+</span></span><span class="line"><span class="cl">tar -C /data -czf - . <span class="p">|</span> ssh host <span class="s1">&#39;tar -xzf - -C /srv/backup&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Pull from remote</span>
+</span></span><span class="line"><span class="cl">ssh host <span class="s1">&#39;tar -C /srv/logs -czf - .&#39;</span> <span class="p">|</span> tar -xzf - -C ./logs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Stream to/from cloud tools that read stdin/stdout similarly</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">9) Split large archives &amp; reassemble
+    <div id="9-split-large-archives--reassemble" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#9-split-large-archives--reassemble" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create and split into 2 GiB parts</span>
+</span></span><span class="line"><span class="cl">tar -czf - bigdir/ <span class="p">|</span> split -b 2000m - bigdir.tar.gz.part-
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reassemble and extract</span>
+</span></span><span class="line"><span class="cl">cat bigdir.tar.gz.part-* <span class="p">|</span> tar -xzf -</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">10) Sparse files, devices, FIFOs
+    <div id="10-sparse-files-devices-fifos" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#10-sparse-files-devices-fifos" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>Sparse files</strong> (disk images, databases): <code>--sparse</code> on create &amp; extract to save space.</li>
+<li><strong>Special files</strong> (device nodes, FIFOs, sockets): tar can store them; to restore properly you usually need root, and often <code>--same-owner -p</code>.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -c --sparse -f images.tar /var/lib/libvirt/images</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">11) Path rewrites and layout control
+    <div id="11-path-rewrites-and-layout-control" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#11-path-rewrites-and-layout-control" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Pack contents of ./build into archive root (no leading &#39;build/&#39;)</span>
+</span></span><span class="line"><span class="cl">tar -C build -czf app.tar.gz .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Strip first N leading components when extracting</span>
+</span></span><span class="line"><span class="cl">tar -xzf app.tar.gz --strip-components<span class="o">=</span><span class="m">1</span> -C /opt/app
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Rename paths on the fly (GNU tar)</span>
+</span></span><span class="line"><span class="cl">tar -czf src-renamed.tar.gz src/ --transform<span class="o">=</span><span class="s1">&#39;s,^src/,project-src/,&#39;</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">12) Selecting by time or size
+    <div id="12-selecting-by-time-or-size" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#12-selecting-by-time-or-size" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Only files newer than a date</span>
+</span></span><span class="line"><span class="cl">tar -czf recent.tar.gz /data --newer-mtime<span class="o">=</span><span class="s1">&#39;2025-10-01&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Only files under a size (use find + tar)</span>
+</span></span><span class="line"><span class="cl">find /logs -type f -size -50M -print0 <span class="p">|</span> tar --null -T - -czf small-logs.tar.gz</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">13) Show progress
+    <div id="13-show-progress" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#13-show-progress" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Rough progress (file count)</span>
+</span></span><span class="line"><span class="cl">tar -czf backup.tar.gz /home <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --checkpoint<span class="o">=</span>.500 --totals
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># With pv (pipe viewer) for byte-level progress</span>
+</span></span><span class="line"><span class="cl">tar -cf - /home <span class="p">|</span> pv <span class="p">|</span> gzip &gt; home.tar.gz</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">14) Extract to stdout (for one-off inspection)
+    <div id="14-extract-to-stdout-for-one-off-inspection" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#14-extract-to-stdout-for-one-off-inspection" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Print a file from inside the archive</span>
+</span></span><span class="line"><span class="cl">tar -xOf archive.tar.gz path/inside/file.txt <span class="p">|</span> less
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Save a single file</span>
+</span></span><span class="line"><span class="cl">tar -xzf archive.tar.gz path/inside/file.txt -O &gt; file.txt</span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">15) Appending &amp; updating (plain .tar only)
+    <div id="15-appending--updating-plain-tar-only" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#15-appending--updating-plain-tar-only" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -rf archive.tar newfile
+</span></span><span class="line"><span class="cl">tar -uf archive.tar maybe/updated/dir</span></span></code></pre></div></div>
+<blockquote><p>Not supported for compressed archives; recreate instead (or use <code>--append --file=-</code> tricks with compressors, but it’s messy—prefer a new archive).</p>
+</blockquote><hr>
+
+<h2 class="relative group">16) Reproducible (deterministic) archives
+    <div id="16-reproducible-deterministic-archives" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#16-reproducible-deterministic-archives" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Make byte-identical archives across machines/runs:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -cf app.tar src <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --sort<span class="o">=</span>name <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --mtime<span class="o">=</span><span class="s1">&#39;UTC 2020-01-01&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --owner<span class="o">=</span><span class="m">0</span> --group<span class="o">=</span><span class="m">0</span> --numeric-owner
+</span></span><span class="line"><span class="cl">gzip -n app.tar   <span class="c1"># gzip without timestamps</span></span></span></code></pre></div></div>
+<hr>
+
+<h2 class="relative group">17) Platform notes
+    <div id="17-platform-notes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#17-platform-notes" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>Linux</strong> (GNU tar): supports <code>--zstd</code>, <code>--lz4</code>, <code>--transform</code>, <code>-a</code>, incremental <code>--listed-incremental</code>, rich metadata flags.</li>
+<li><strong>macOS</strong> default <code>tar</code> = <strong>bsdtar</strong> (libarchive). Most flags are similar; some long options differ. For full GNU features (<code>--zstd</code>, certain transforms), install <strong>gnu-tar</strong> via Homebrew (<code>brew install gnu-tar</code>, command is <code>gtar</code>).</li>
+<li><strong>Windows</strong>: in Git Bash or WSL, use GNU tar. On vanilla PowerShell, prefer WSL or 3rd-party ports.</li>
+</ul>
+<hr>
+
+<h2 class="relative group">18) Quick cheat sheet (copy me)
+    <div id="18-quick-cheat-sheet-copy-me" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#18-quick-cheat-sheet-copy-me" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create (auto-compress by extension, GNU tar)</span>
+</span></span><span class="line"><span class="cl">tar -caf backup.tar.zst DIR/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Safe extract: inspect first, then extract to a clean dir</span>
+</span></span><span class="line"><span class="cl">tar -tf backup.tar.zst <span class="p">|</span> less
+</span></span><span class="line"><span class="cl">mkdir restore <span class="o">&amp;&amp;</span> tar -xaf backup.tar.zst -C restore
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Exclude stuff</span>
+</span></span><span class="line"><span class="cl">tar -caf src.tar.xz src/ --exclude-vcs --exclude<span class="o">=</span><span class="s1">&#39;node_modules&#39;</span> --exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract subset + strip leading folder</span>
+</span></span><span class="line"><span class="cl">tar -xaf pkg.tar.gz --strip-components<span class="o">=</span><span class="m">1</span> -C /opt/pkg path/top/dir/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Remote copy over SSH</span>
+</span></span><span class="line"><span class="cl">tar -C /data -caf - . <span class="p">|</span> ssh host <span class="s1">&#39;tar -xaf - -C /srv/backup&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Incremental (GNU)</span>
+</span></span><span class="line"><span class="cl">tar --listed-incremental<span class="o">=</span>state.snar -cpf full.tar /home
+</span></span><span class="line"><span class="cl">tar --listed-incremental<span class="o">=</span>state.snar -cpf inc1.tar /home
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Progress</span>
+</span></span><span class="line"><span class="cl">tar -caf backup.tar.zst /home --checkpoint<span class="o">=</span>.1000 --totals
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify</span>
+</span></span><span class="line"><span class="cl">tar -df backup.tar.zst</span></span></code></pre></div></div>
+<hr>
+<p>If you tell me your OS (Linux/macOS) and which compressor you prefer (gzip/zstd/xz), I can tailor a few one-liners and a tiny <code>backup.sh</code> for your exact setup.</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/springboot-exceptions/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Springboot Exceptions
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-10-18T01:58:22-04:00">18 October 2025</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/uv/">
+              <span class="leading-6">
+                UV&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2025-10-22T22:49:34-04:00">22 October 2025</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+    <script>
+document.addEventListener("keydown", function (e) {
+  
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || document.activeElement.isContentEditable) return;
+  const searchWrapper = document.getElementById("search-wrapper");
+  if (searchWrapper && !searchWrapper.classList.contains("invisible")) return;
+
+  let link = null;
+
+  if (e.key === "ArrowRight" || e.key === "j") {
+    
+    link = document.querySelector('a[rel="next"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[footerLinks.length - 1];
+    }
+  } else if (e.key === "ArrowLeft" || e.key === "k") {
+    
+    link = document.querySelector('a[rel="prev"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[0];
+    }
+  }
+
+  if (link) {
+    e.preventDefault();
+    window.location.href = link.href;
+  }
+});
+</script>
+
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://arkticor.com/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

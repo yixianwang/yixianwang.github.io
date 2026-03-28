@@ -1,0 +1,1554 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Angular NgRx &middot; Yixian Wang</title>
+    <meta name="title" content="Angular NgRx &middot; Yixian Wang">
+  
+
+  
+  
+    <meta name="description" content="CS Graduate Student at UT Austin">
+  
+  
+  
+  
+  <link rel="canonical" href="https://arkticor.com/notes/angular_ngrx/">
+  
+
+  
+  
+    <meta name="author" content="Yixian Wang">
+  
+  
+    
+      
+        
+          <link href="https://github.com/yixianwang" rel="me">
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://arkticor.com/notes/angular_ngrx/">
+  <meta property="og:site_name" content="Yixian Wang">
+  <meta property="og:title" content="Angular NgRx">
+  <meta property="og:description" content="Tips
+Youtube
+Pros # The component shouldn’t have to worry about how to manage the state when something happens. It doesn’t need to know what services to inject or methods to call to get the job done. Work flow # A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result. Usually we would have a reducer for each feature or entity in the app. Reducers detect the action, take the current state and store the new state in the store. So the store which is often global is where all of the state for our application lives. Store is really just one big object full of data. When a component wants to use some of that state from the store. Component can use a selector to pull in the state that it needs from the store. Effects, an important concept is that effects reduces the functions that take in an action and create a new state are pure functions. That means two thing: Given the same input, they will always produce the same output. Pure functions should also not create any side effects. So when an action is dispatched, it needs to be immediately handled by the reducer. And the state will be changed based on just the data immediately available to that action. That means for us is that when we dispatch an action, we need to give it all of the data that the reducer needs to make the state modification immediately. We cannot be making asynchronous calls to go load in data from a server for example.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-09-04T19:21:00-04:00">
+    <meta property="article:modified_time" content="2024-09-04T19:21:00-04:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Angular NgRx">
+  <meta name="twitter:description" content="Tips
+Youtube
+Pros # The component shouldn’t have to worry about how to manage the state when something happens. It doesn’t need to know what services to inject or methods to call to get the job done. Work flow # A component dispatches an action to indicate that something happened. The part of our application actually responsible for determining how actions should modify state are the reducers. Reducers detect all of the actions being dispatched in the app and determine how the state should be modified as a result. Usually we would have a reducer for each feature or entity in the app. Reducers detect the action, take the current state and store the new state in the store. So the store which is often global is where all of the state for our application lives. Store is really just one big object full of data. When a component wants to use some of that state from the store. Component can use a selector to pull in the state that it needs from the store. Effects, an important concept is that effects reduces the functions that take in an action and create a new state are pure functions. That means two thing: Given the same input, they will always produce the same output. Pure functions should also not create any side effects. So when an action is dispatched, it needs to be immediately handled by the reducer. And the state will be changed based on just the data immediately available to that action. That means for us is that when we dispatch an action, we need to give it all of the data that the reducer needs to make the state modification immediately. We cannot be making asynchronous calls to go load in data from a server for example.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9d9d71d26c2e825121c641318431e491a670625d5755fa4f65897b2482e0a438e9210017afe3c2fb25e0104a6dc06a8113c029fd632bafd806cc528fcdf9a6bd.css"
+    integrity="sha512-nZ1x0mwuglEhxkExhDHkkaZwYl1XVfpPZYl7JILgpDjpIQAXr&#43;PC&#43;yXgEEptwGqBE8Ap/WMrr9gGzFKPzfmmvQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.6b483bdc9246a18b35259ce2a40e363ade34a01edf2f3a31094f0a396844e75f863d18735a89b85ee8301f2dfdb9e471bdf47c44483d4b8f0d6eb93701873824.js"
+      integrity="sha512-a0g73JJGoYs1JZzipA42Ot40oB7fLzoxCU8KOWhE51&#43;GPRhzWom4XugwHy39ueRxvfR8REg9S48Nbrk3AYc4JA=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Notes",
+    "name": "Angular NgRx",
+    "headline": "Angular NgRx",
+    
+    "inLanguage": "en",
+    "url" : "https://arkticor.com/notes/angular_ngrx/",
+    "author" : {
+      "@type": "Person",
+      "name": "Yixian Wang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-09-04T19:21:00-04:00",
+    "datePublished": "2024-09-04T19:21:00-04:00",
+    
+    "dateModified": "2024-09-04T19:21:00-04:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1732"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Yixian Wang
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projects"
+      title="Projects">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projects
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blog/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="Blog">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/notes/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Notes"
+      title="Notes">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Notes
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href=""
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Search"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Search
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projects"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projects" class="text-2xl font-bold tracking-tight">
+          Projects
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blog/"
+        aria-label="Blog"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Blog" class="text-2xl font-bold tracking-tight">
+          Blog
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/notes/"
+        aria-label="Notes"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Notes" class="text-2xl font-bold tracking-tight">
+          Notes
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href=""
+        aria-label="Search"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          Search
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      >About me</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/"
+      >Notes</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/angular_ngrx/"
+      >Angular NgRx</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Angular NgRx
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-09-04T19:21:00-04:00">4 September 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+  
+    
+  
+  
+
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/yixianwang/yixian-site/tree/main/content/notes/angular_ngrx.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Edit content"
+    ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a
+  >
+</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pros">Pros</a></li>
+    <li><a href="#work-flow">Work flow</a></li>
+    <li><a href="#concepts">Concepts</a></li>
+    <li><a href="#install-ngrx">Install NgRx</a>
+      <ul>
+        <li><a href="#module">Module</a></li>
+        <li><a href="#standalone">Standalone</a></li>
+      </ul>
+    </li>
+    <li><a href="#syntax">syntax</a></li>
+    <li><a href="#combinelatest">combineLatest</a>
+      <ul>
+        <li><a href="#more-example">More Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#if-else-in-subscribe-block">if-else in subscribe block</a></li>
+    <li><a href="#combinelatest-1">combineLatest</a></li>
+    <li><a href="#behavior-subject">Behavior Subject</a></li>
+    <li><a href="#entitystate-for-crud-operations">EntityState for CRUD operations</a></li>
+    <li><a href="#partial-for-states-that-are-populated-after-an-api-call">Partial for states that are populated after an API call</a></li>
+    <li><a href="#avoid-any">Avoid any</a></li>
+    <li><a href="#logger-for-signal-store">logger for signal store</a></li>
+    <li><a href="#entity-management">Entity Management</a></li>
+    <li><a href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context">Manual Cleanup signalMethod created in an ancestor injection context</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pros">Pros</a></li>
+    <li><a href="#work-flow">Work flow</a></li>
+    <li><a href="#concepts">Concepts</a></li>
+    <li><a href="#install-ngrx">Install NgRx</a>
+      <ul>
+        <li><a href="#module">Module</a></li>
+        <li><a href="#standalone">Standalone</a></li>
+      </ul>
+    </li>
+    <li><a href="#syntax">syntax</a></li>
+    <li><a href="#combinelatest">combineLatest</a>
+      <ul>
+        <li><a href="#more-example">More Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#if-else-in-subscribe-block">if-else in subscribe block</a></li>
+    <li><a href="#combinelatest-1">combineLatest</a></li>
+    <li><a href="#behavior-subject">Behavior Subject</a></li>
+    <li><a href="#entitystate-for-crud-operations">EntityState for CRUD operations</a></li>
+    <li><a href="#partial-for-states-that-are-populated-after-an-api-call">Partial for states that are populated after an API call</a></li>
+    <li><a href="#avoid-any">Avoid any</a></li>
+    <li><a href="#logger-for-signal-store">logger for signal store</a></li>
+    <li><a href="#entity-management">Entity Management</a></li>
+    <li><a href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context">Manual Cleanup signalMethod created in an ancestor injection context</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <ul>
+<li>
+<p><a href="https://dev.to/this-is-angular/ngrx-tips-i-needed-in-the-beginning-4hno"  target="_blank" rel="noreferrer">Tips</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=kx0VTgTtSBg"  target="_blank" rel="noreferrer">Youtube</a></p>
+</li>
+</ul>
+
+<h2 class="relative group">Pros
+    <div id="pros" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#pros" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>The component shouldn&rsquo;t have to worry about how to manage the state when something happens.</li>
+<li>It doesn&rsquo;t need to know what services to inject or methods to call to get the job done.</li>
+</ul>
+
+<h2 class="relative group">Work flow
+    <div id="work-flow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#work-flow" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>A <strong>component</strong> dispatches an <strong>action</strong> to indicate that something happened.</li>
+<li>The part of our application actually responsible for determining how <strong>actions</strong> should modify state are the <strong>reducers</strong>.</li>
+<li><strong>Reducers</strong> detect all of the <strong>actions</strong> being dispatched in the app and determine how the state should be modified as a result.</li>
+<li>Usually we would have a <strong>reducer</strong> for each feature or entity in the app.</li>
+<li><strong>Reducers</strong> detect the <strong>action</strong>, take the current state and store the new state in the <strong>store</strong>.</li>
+<li>So the <strong>store</strong> which is often global is where all of the state for our application lives.</li>
+<li><strong>Store</strong> is really just one big object full of data.</li>
+<li>When a <strong>component</strong> wants to use some of that state from the <strong>store</strong>. <strong>Component</strong> can use a <strong>selector</strong> to pull in the state that it needs from the <strong>store</strong>.</li>
+<li><strong>Effects</strong>, an important concept is that <strong>effects</strong> reduces the functions that take in an <strong>action</strong> and create a new state are <strong>pure functions</strong>. That means two thing:
+<ol>
+<li>Given the same input, they will always produce the same output.</li>
+<li>Pure functions should also not create any side effects.</li>
+</ol>
+</li>
+</ol>
+<blockquote><p>So when an <strong>action</strong> is dispatched, it needs to be immediately handled by the <strong>reducer</strong>.
+And the state will be changed based on just the data immediately available to that <strong>action</strong>.
+That means for us is that when we dispatch an action, we need to give it all of the data that the <strong>reducer</strong> needs to make the state modification immediately.
+We cannot be making asynchronous calls to go load in data from a server for example.</p>
+</blockquote><blockquote><p>If we want to load some data into the application and add it to the <strong>store</strong>.
+We might need to do this with some asynchronous operation that&rsquo;s going to call a service that&rsquo;s going to load in some data from some API somewhere, and that&rsquo;s going to take sometime to complete. This is where <strong>effects</strong> come into play.
+Like a <strong>reducer</strong>, an <strong>effect</strong> can also listen to all of the <strong>actions</strong> being dispatched in the app.
+But unlike a <strong>reducer</strong>, that has to be a <strong>pure function</strong> intended just to update the state.
+An <strong>effect</strong> can run whatever side effects it likes.
+In the case of loading data, we would first dispatch an <strong>action</strong> like load todos, this will be immediately handled by the <strong>reducer</strong>, but we don&rsquo;t have the data we need yet. Because we need to make a call to the service to load the data.
+So all the <strong>reducer</strong> will do in response to that load todo <strong>action</strong>, is do something like set a flag in the <strong>store</strong>, changing the status of the todo state to loading or something like that.
+However, our <strong>effect</strong> will also be listening for that load todo <strong>action</strong>.
+And when it detects this, it will go off and fetch the todo from the <strong>service</strong>.
+And once that data has finished loading, it will dispatch a new <strong>action</strong>, either load todo success or load todo failure.
+Now the <strong>reducer</strong> can handle this load todo success <strong>action</strong> that was just dispatched from our <strong>effect</strong>.
+And this time the <strong>action</strong> already has all of the data available to it.
+And so now the <strong>reducer</strong> can set that status flag to success or something similar and it can update the todo&rsquo;s property in the <strong>store</strong> with the data we just loaded.</p>
+</blockquote>
+<h2 class="relative group">Concepts
+    <div id="concepts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#concepts" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li><strong>Store</strong>, this is where our data is stored &amp; managed.</li>
+<li><strong>Component</strong>, this is where the data is needed &amp; updates should be reflected.</li>
+<li><strong>Selector(Optional)</strong>, Component can <em>read data</em> from the store(&ldquo;listen to changes).</li>
+<li><strong>Action</strong>, Standardized messages(&ldquo;events&rdquo;) to which reducers can listen. <em>Describe the changes that should be performed + any extra data that might be needed.</em></li>
+<li><strong>Reducer</strong>, Contains state changing logic. e.g. increment counter by 1. <em>it have the actual logic that gets triggered based on those actions</em></li>
+<li><strong>Effects</strong>, Side-effects that should be triggered for certain actions. e.g. send HTTP request.</li>
+</ol>
+
+<h2 class="relative group">Install NgRx
+    <div id="install-ngrx" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#install-ngrx" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><code>ng add @ngrx/store</code></p>
+
+<h3 class="relative group">Module
+    <div id="module" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#module" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ...
+</span></span></span><span class="line"><span class="cl">   <span class="nx">imports</span><span class="o">:</span> <span class="p">[...,</span> <span class="nx">StoreModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({},</span> <span class="p">{})];</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Standalone
+    <div id="standalone" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#standalone" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">provideStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">bootstrapApplication</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">provideStore</span><span class="p">()]</span> <span class="c1">// added providedStore()
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">syntax
+    <div id="syntax" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#syntax" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li><code>createAction</code> + <code>createReducer</code></li>
+</ol>
+
+<h2 class="relative group">combineLatest
+    <div id="combinelatest" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#combinelatest" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnDestroy</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineLatest</span><span class="p">,</span> <span class="nx">Subject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreA</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../store-a/store-a.service&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">StoreB</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../store-b/store-b.service&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">takeUntil</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-example&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;./example.component.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">styleUrls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./example.component.scss&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">ExampleComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">private</span> <span class="nx">destroy$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Subject</span><span class="p">&lt;</span><span class="nt">void</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">dataA$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeA</span><span class="p">.</span><span class="nx">data$</span><span class="p">;</span> <span class="c1">// Observable from StoreA
+</span></span></span><span class="line"><span class="cl">  <span class="nx">dataB$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">storeB</span><span class="p">.</span><span class="nx">data$</span><span class="p">;</span> <span class="c1">// Observable from StoreB
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">combinedData</span>: <span class="kt">any</span><span class="p">;</span> <span class="c1">// Combined data from both stores
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">storeA</span>: <span class="kt">StoreA</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">storeB</span>: <span class="kt">StoreB</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Example of combining streams for component logic
+</span></span></span><span class="line"><span class="cl">    <span class="nx">combineLatest</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">dataA$</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataB$</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Combined Data:&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnDestroy</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;dataA$ | async as dataA&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Data from Store A: {{ dataA | json }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;dataB$ | async as dataB&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Data from Store B: {{ dataB | json }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">More Example
+    <div id="more-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#more-example" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Store</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/store&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Observable</span><span class="p">,</span> <span class="nx">combineLatest</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">map</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">loadUsers</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./store/user.actions&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">selectUsers</span><span class="p">,</span> <span class="nx">selectUsersLoading</span><span class="p">,</span> <span class="nx">selectUsersError</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./store/user.selectors&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;app-users&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;loading&#34;&gt;Loading...&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;error&#34;&gt;{{ error }}&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;ul *ngIf=&#34;processedUsers.length &gt; 0&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">      &lt;li *ngFor=&#34;let user of processedUsers&#34;&gt;{{ user.name }}&lt;/li&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;/ul&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;div *ngIf=&#34;!loading &amp;&amp; processedUsers.length === 0&#34;&gt;No users found.&lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">  `</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">UsersComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loading</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">error</span>: <span class="kt">string</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">processedUsers</span><span class="o">:</span> <span class="p">{</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">name</span>: <span class="kt">string</span> <span class="p">}[]</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">store</span>: <span class="kt">Store</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loadUsers</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Combine streams for business logic
+</span></span></span><span class="line"><span class="cl">    <span class="nx">combineLatest</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsers</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsersLoading</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">selectUsersError</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">map</span><span class="p">(([</span><span class="nx">users</span><span class="p">,</span> <span class="nx">loading</span><span class="p">,</span> <span class="nx">error</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">this</span><span class="p">.</span><span class="nx">loading</span> <span class="o">=</span> <span class="nx">loading</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">this</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">error</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="c1">// Apply business logic here
+</span></span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">users</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">user</span> <span class="o">=&gt;</span> <span class="nx">user</span><span class="p">.</span><span class="nx">isActive</span><span class="p">);</span> <span class="c1">// Example business logic: Filter active users
+</span></span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      <span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">processedUsers</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">processedUsers</span> <span class="o">=</span> <span class="nx">processedUsers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">if-else in subscribe block
+    <div id="if-else-in-subscribe-block" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#if-else-in-subscribe-block" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>If the logic is straightforward and doesn&rsquo;t involve too many nested conditions, it&rsquo;s acceptable.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="nx">dataB</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Missing data&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div></div>
+<ul>
+<li>Move the conditional logic to operators like filter, map, or switchMap before the subscribe block.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">combineLatest</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">dataA$</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataB$</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">filter</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="o">!!</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="nx">dataB</span><span class="p">),</span> <span class="c1">// Ensure both exist
+</span></span></span><span class="line"><span class="cl">    <span class="nx">map</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">}))</span> <span class="c1">// Transform data
+</span></span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">combinedData</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="nx">combinedData</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Combined Data:&#39;</span><span class="p">,</span> <span class="nx">combinedData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span></span></span></code></pre></div></div>
+<ul>
+<li>Extract complex logic into a separate method.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">processData</span><span class="p">(</span><span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">processData</span><span class="p">(</span><span class="nx">dataA</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">dataB</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">dataA</span> <span class="o">&amp;&amp;</span> <span class="nx">dataB</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">combinedData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">dataA</span><span class="p">,</span> <span class="nx">dataB</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Missing data&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">combineLatest
+    <div id="combinelatest-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#combinelatest-1" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><code>combineLatest([observable1, observable2, ...]): Observable&lt;[T1, T2, ...]&gt;</code></li>
+<li>It waits until each of the source observables has emitted at least one value.</li>
+</ul>
+
+<h2 class="relative group">Behavior Subject
+    <div id="behavior-subject" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#behavior-subject" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineLatest</span><span class="p">,</span> <span class="nx">BehaviorSubject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">filter$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BehaviorSubject</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span> <span class="c1">// Emits &#34;active&#34;
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sort$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BehaviorSubject</span><span class="p">&lt;</span><span class="nt">string</span><span class="p">&gt;(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>    <span class="c1">// Emits &#34;name&#34;
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Combine the latest values
+</span></span></span><span class="line"><span class="cl"><span class="nx">combineLatest</span><span class="p">([</span><span class="nx">filter$</span><span class="p">,</span> <span class="nx">sort$</span><span class="p">]).</span><span class="nx">subscribe</span><span class="p">(([</span><span class="nx">filter</span><span class="p">,</span> <span class="nx">sort</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Filter: </span><span class="si">${</span><span class="nx">filter</span><span class="si">}</span><span class="sb">, Sort: </span><span class="si">${</span><span class="nx">sort</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Output:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Filter: active, Sort: name
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Updating streams
+</span></span></span><span class="line"><span class="cl"><span class="nx">filter$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Output: Filter: completed, Sort: name
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">sort$</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Output: Filter: completed, Sort: date
+</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">EntityState for CRUD operations
+    <div id="entitystate-for-crud-operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#entitystate-for-crud-operations" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">EntityState</span><span class="p">,</span> <span class="nx">EntityAdapter</span><span class="p">,</span> <span class="nx">createEntityAdapter</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/entity&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">Todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">completed</span>: <span class="kt">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">TodosState</span> <span class="kr">extends</span> <span class="nx">EntityState</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">adapter</span>: <span class="kt">EntityAdapter</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;</span> <span class="o">=</span> <span class="nx">createEntityAdapter</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">initialTodosState</span>: <span class="kt">TodosState</span> <span class="o">=</span> <span class="nx">adapter</span><span class="p">.</span><span class="nx">getInitialState</span><span class="p">();</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Partial for states that are populated after an API call
+    <div id="partial-for-states-that-are-populated-after-an-api-call" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#partial-for-states-that-are-populated-after-an-api-call" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>Use Partial or Lazy Initialization When Necessary</li>
+<li>For very large or complex state, you can use Partial<T> to initialize only top-level properties and lazy-load the deeper ones as needed. This can be useful for states that are populated after an API call.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">DeepComplexState</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">topLevel</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">deeplyNested</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">level1</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">level2</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">value</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">initialDeepComplexState</span>: <span class="kt">Partial</span><span class="p">&lt;</span><span class="nt">DeepComplexState</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">topLevel</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">deeplyNested</span>: <span class="kt">undefined</span><span class="p">,</span> <span class="c1">// Initialize later when necessary
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Avoid any
+    <div id="avoid-any" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#avoid-any" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>Avoid any in favor of type-safe solutions like Partial, Record, or EntityState.</li>
+</ul>
+
+<h2 class="relative group">logger for signal store
+    <div id="logger-for-signal-store" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#logger-for-signal-store" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>The following example shows how to create a custom feature that logs SignalStore state changes to the console.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">content_copy</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">effect</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">getState</span><span class="p">,</span> <span class="nx">signalStoreFeature</span><span class="p">,</span> <span class="nx">withHooks</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">withLogger</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">signalStoreFeature</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">withHooks</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">onInit</span><span class="p">(</span><span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">effect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">getState</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> state changed`</span><span class="p">,</span> <span class="nx">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<ul>
+<li>The withLogger feature can be used in the BooksStore as follows:</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">signalStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withEntities</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals/entities&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withRequestStatus</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./request-status.feature&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withLogger</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./logger.feature&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Book</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./book.model&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">BooksStore</span> <span class="o">=</span> <span class="nx">signalStore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">&lt;</span><span class="nt">Book</span><span class="p">&gt;(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withRequestStatus</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withLogger</span><span class="p">(</span><span class="s1">&#39;books&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div>
+<ul>
+<li>State changes will be logged to the console whenever the BooksStore state is updated.</li>
+</ul>
+
+<h2 class="relative group">Entity Management
+    <div id="entity-management" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#entity-management" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>The entityConfig function reduces repetitive code when defining a custom entity configuration and ensures strong typing. It accepts a config object where the entity type is required, and the collection name and custom ID selector are optional.</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">patchState</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">signalStore</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">type</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withMethods</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addEntity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entityConfig</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">removeEntity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@ngrx/signals/entities&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Todo</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">text</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">completed</span>: <span class="kt">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">todoConfig</span> <span class="o">=</span> <span class="nx">entityConfig</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entity</span>: <span class="kt">type</span><span class="p">&lt;</span><span class="nt">Todo</span><span class="p">&gt;(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">collection</span><span class="o">:</span> <span class="s1">&#39;todo&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">selectId</span><span class="o">:</span> <span class="p">(</span><span class="nx">todo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">TodosStore</span> <span class="o">=</span> <span class="nx">signalStore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withEntities</span><span class="p">(</span><span class="nx">todoConfig</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withMethods</span><span class="p">((</span><span class="nx">store</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">addTodo</span><span class="p">(</span><span class="nx">todo</span>: <span class="kt">Todo</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">patchState</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">addEntity</span><span class="p">(</span><span class="nx">todo</span><span class="p">,</span> <span class="nx">todoConfig</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">removeTodo</span><span class="p">(</span><span class="nx">todo</span>: <span class="kt">Todo</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">patchState</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">removeEntity</span><span class="p">(</span><span class="nx">todo</span><span class="p">,</span> <span class="nx">todoConfig</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Manual Cleanup signalMethod created in an ancestor injection context
+    <div id="manual-cleanup-signalmethod-created-in-an-ancestor-injection-context" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#manual-cleanup-signalmethod-created-in-an-ancestor-injection-context" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">@Injectable</span><span class="p">({</span> <span class="nx">providedIn</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">NumbersService</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">logDoubledNumber</span> <span class="o">=</span> <span class="nx">signalMethod</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">double</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">double</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@Component</span><span class="p">({</span> <span class="cm">/* ... */</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">NumbersComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">numbersService</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">NumbersService</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">readonly</span> <span class="nx">injector</span> <span class="o">=</span> <span class="nx">inject</span><span class="p">(</span><span class="nx">Injector</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ngOnInit</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">signal</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 👇 Providing the `NumbersComponent` injector
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// to ensure cleanup on component destroy.
+</span></span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">numbersService</span><span class="p">.</span><span class="nx">logDoubledNumber</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">injector</span>: <span class="kt">this.injector</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// 👇 No need to provide an injector for static values.
+</span></span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">numbersService</span><span class="p">.</span><span class="nx">logDoubledNumber</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/aws_cdk/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;AWS CDK
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2024-08-17T20:16:40-04:00">17 August 2024</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/tailwind/">
+              <span class="leading-6">
+                Tailwind&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2024-09-04T19:21:48-04:00">4 September 2024</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+    <script>
+document.addEventListener("keydown", function (e) {
+  
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || document.activeElement.isContentEditable) return;
+  const searchWrapper = document.getElementById("search-wrapper");
+  if (searchWrapper && !searchWrapper.classList.contains("invisible")) return;
+
+  let link = null;
+
+  if (e.key === "ArrowRight" || e.key === "j") {
+    
+    link = document.querySelector('a[rel="next"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[footerLinks.length - 1];
+    }
+  } else if (e.key === "ArrowLeft" || e.key === "k") {
+    
+    link = document.querySelector('a[rel="prev"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[0];
+    }
+  }
+
+  if (link) {
+    e.preventDefault();
+    window.location.href = link.href;
+  }
+});
+</script>
+
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://arkticor.com/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

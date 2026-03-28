@@ -1,0 +1,2406 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Spark Core &middot; Yixian Wang</title>
+    <meta name="title" content="Spark Core &middot; Yixian Wang">
+  
+
+  
+  
+    <meta name="description" content="CS Graduate Student at UT Austin">
+  
+  
+  
+  
+  <link rel="canonical" href="https://arkticor.com/notes/spark-core/">
+  
+
+  
+  
+    <meta name="author" content="Yixian Wang">
+  
+  
+    
+      
+        
+          <link href="https://github.com/yixianwang" rel="me">
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://arkticor.com/notes/spark-core/">
+  <meta property="og:site_name" content="Yixian Wang">
+  <meta property="og:title" content="Spark Core">
+  <meta property="og:description" content="RDD # Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey # hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations # transformation: RDD–&gt;RDD # Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD–&gt;anything else # Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, … collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) #">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2023-12-03T19:43:27-05:00">
+    <meta property="article:modified_time" content="2023-12-03T19:43:27-05:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Spark Core">
+  <meta name="twitter:description" content="RDD # Resilient distributed dataset Fault tolerance distributed immutable data structure, stored in disk or memory There are multiple partitions(#partitions is the same as #machines) within one RDD DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice) only shuffle need data transfering with network, others are in local machine reduceByKey # hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hadoop ---&gt; (hadoop, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) hive ---&gt; (hive, 1) reduceByKey &lt;hadoop, [1, 1, 1]&gt; &lt;hive, [1, 1, 1]&gt; shuffle hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1) hash(hive) ---&gt; hashcode % 3 = 2(machine 2) operations # transformation: RDD–&gt;RDD # Operations Summary map return a new RDD filter return a new RDD; true: keep, false: remove flatMap map &#43; flat(from two dimentional to one dimentional) groupByKey reduceByKey groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) &#43; map(get &lt;hadoop, 3&gt;) sortByKey not default in spark, but default in hadoop join cogroup &#43; remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function cogroup full join action: RDD–&gt;anything else # Operations Summary reduce operation on all elements within RDD, first merges with second element, and then the result merges with the third element, … collect get all elements within RDD to local client count get the total number of elements within RDD take(n) get first unsorted n elements within RDD, top(n) can have first sorted n elements takeOrdered(n, [ordering]) get first sorted n elements within RDD using natural order or a custom comparator saveAsTextFile save to file, each element with toString method countByKey foreach iterate each element within RDD Depencencies(This topic is Transformation operation related) #">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9d9d71d26c2e825121c641318431e491a670625d5755fa4f65897b2482e0a438e9210017afe3c2fb25e0104a6dc06a8113c029fd632bafd806cc528fcdf9a6bd.css"
+    integrity="sha512-nZ1x0mwuglEhxkExhDHkkaZwYl1XVfpPZYl7JILgpDjpIQAXr&#43;PC&#43;yXgEEptwGqBE8Ap/WMrr9gGzFKPzfmmvQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.6b483bdc9246a18b35259ce2a40e363ade34a01edf2f3a31094f0a396844e75f863d18735a89b85ee8301f2dfdb9e471bdf47c44483d4b8f0d6eb93701873824.js"
+      integrity="sha512-a0g73JJGoYs1JZzipA42Ot40oB7fLzoxCU8KOWhE51&#43;GPRhzWom4XugwHy39ueRxvfR8REg9S48Nbrk3AYc4JA=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Notes",
+    "name": "Spark Core",
+    "headline": "Spark Core",
+    
+    "inLanguage": "en",
+    "url" : "https://arkticor.com/notes/spark-core/",
+    "author" : {
+      "@type": "Person",
+      "name": "Yixian Wang"
+    },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-12-03T19:43:27-05:00",
+    "datePublished": "2023-12-03T19:43:27-05:00",
+    
+    "dateModified": "2023-12-03T19:43:27-05:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3361"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Yixian Wang
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projects"
+      title="Projects">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projects
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blog/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="Blog">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/notes/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Notes"
+      title="Notes">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Notes
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href=""
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Search"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Search
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projects"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projects" class="text-2xl font-bold tracking-tight">
+          Projects
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blog/"
+        aria-label="Blog"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Blog" class="text-2xl font-bold tracking-tight">
+          Blog
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/notes/"
+        aria-label="Notes"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Notes" class="text-2xl font-bold tracking-tight">
+          Notes
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href=""
+        aria-label="Search"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          Search
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      >About me</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/"
+      >Notes</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/spark-core/"
+      >Spark Core</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Spark Core
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2023-12-03T19:43:27-05:00">3 December 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+  
+    
+  
+  
+
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/yixianwang/yixian-site/tree/main/content/notes/spark-core.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Edit content"
+    ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a
+  >
+</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rdd">RDD</a>
+      <ul>
+        <li><a href="#reducebykey">reduceByKey</a></li>
+        <li><a href="#operations">operations</a></li>
+        <li><a href="#depencenciesthis-topic-is-transformation-operation-related">Depencencies(This topic is Transformation operation related)</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-sparkcontext">Create sparkContext</a></li>
+    <li><a href="#create-rdd">Create RDD</a>
+      <ul>
+        <li><a href="#1-parallelize-array">1. parallelize array</a></li>
+        <li><a href="#2-load-data-from-outside">2. load data from outside</a></li>
+      </ul>
+    </li>
+    <li><a href="#rdd-operations">RDD Operations</a>
+      <ul>
+        <li><a href="#transformation-rddrdd-1">transformation: RDD&ndash;&gt;RDD</a></li>
+        <li><a href="#action-rddanything-else-1">action: RDD&ndash;&gt;anything else</a></li>
+        <li><a href="#rdd-action-on-numeric-datadescription-statistics">RDD action on numeric data(description statistics)</a></li>
+      </ul>
+    </li>
+    <li><a href="#pair-rdd-operations">Pair RDD Operations</a>
+      <ul>
+        <li><a href="#create-pair-rdd">create Pair RDD</a></li>
+        <li><a href="#transformation-on-pair-rdd">transformation on Pair RDD</a></li>
+      </ul>
+    </li>
+    <li><a href="#rdd-cache">RDD cache</a>
+      <ul>
+        <li><a href="#overview">overview</a></li>
+        <li><a href="#approaches">approaches</a></li>
+        <li><a href="#examples">examples</a></li>
+      </ul>
+    </li>
+    <li><a href="#fault-tolerance">Fault tolerance</a>
+      <ul>
+        <li><a href="#overview-1">overview</a></li>
+        <li><a href="#lineage-mechanism-suit-for-narrow-dependency">lineage mechanism: suit for narrow dependency</a></li>
+        <li><a href="#checkpoint-mechanism-suit-for-wide-dependency">checkpoint mechanism: suit for wide dependency</a></li>
+        <li><a href="#difference-between-checkpoint-and-cache">difference between checkpoint and cache</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-partitions">Data Partitions</a>
+      <ul>
+        <li><a href="#exmaple">exmaple</a></li>
+        <li><a href="#assign-partitions-when-creating-rdd">assign partitions when creating RDD</a></li>
+        <li><a href="#assign-partitions-when-transforming-rdd">assign partitions when transforming RDD</a></li>
+        <li><a href="#customize-partition-function">customize partition function</a></li>
+      </ul>
+    </li>
+    <li><a href="#shared-variables">Shared Variables</a>
+      <ul>
+        <li><a href="#overview-2">overview</a></li>
+        <li><a href="#broadcast">broadcast</a></li>
+        <li><a href="#accumulator">accumulator</a></li>
+      </ul>
+    </li>
+    <li><a href="#shuffle">Shuffle</a>
+      <ul>
+        <li><a href="#overview-3">overview</a></li>
+        <li><a href="#how-it-work">how it work</a></li>
+      </ul>
+    </li>
+    <li><a href="#optimize-performance">Optimize performance</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rdd">RDD</a>
+      <ul>
+        <li><a href="#reducebykey">reduceByKey</a></li>
+        <li><a href="#operations">operations</a></li>
+        <li><a href="#depencenciesthis-topic-is-transformation-operation-related">Depencencies(This topic is Transformation operation related)</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-sparkcontext">Create sparkContext</a></li>
+    <li><a href="#create-rdd">Create RDD</a>
+      <ul>
+        <li><a href="#1-parallelize-array">1. parallelize array</a></li>
+        <li><a href="#2-load-data-from-outside">2. load data from outside</a></li>
+      </ul>
+    </li>
+    <li><a href="#rdd-operations">RDD Operations</a>
+      <ul>
+        <li><a href="#transformation-rddrdd-1">transformation: RDD&ndash;&gt;RDD</a></li>
+        <li><a href="#action-rddanything-else-1">action: RDD&ndash;&gt;anything else</a></li>
+        <li><a href="#rdd-action-on-numeric-datadescription-statistics">RDD action on numeric data(description statistics)</a></li>
+      </ul>
+    </li>
+    <li><a href="#pair-rdd-operations">Pair RDD Operations</a>
+      <ul>
+        <li><a href="#create-pair-rdd">create Pair RDD</a></li>
+        <li><a href="#transformation-on-pair-rdd">transformation on Pair RDD</a></li>
+      </ul>
+    </li>
+    <li><a href="#rdd-cache">RDD cache</a>
+      <ul>
+        <li><a href="#overview">overview</a></li>
+        <li><a href="#approaches">approaches</a></li>
+        <li><a href="#examples">examples</a></li>
+      </ul>
+    </li>
+    <li><a href="#fault-tolerance">Fault tolerance</a>
+      <ul>
+        <li><a href="#overview-1">overview</a></li>
+        <li><a href="#lineage-mechanism-suit-for-narrow-dependency">lineage mechanism: suit for narrow dependency</a></li>
+        <li><a href="#checkpoint-mechanism-suit-for-wide-dependency">checkpoint mechanism: suit for wide dependency</a></li>
+        <li><a href="#difference-between-checkpoint-and-cache">difference between checkpoint and cache</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-partitions">Data Partitions</a>
+      <ul>
+        <li><a href="#exmaple">exmaple</a></li>
+        <li><a href="#assign-partitions-when-creating-rdd">assign partitions when creating RDD</a></li>
+        <li><a href="#assign-partitions-when-transforming-rdd">assign partitions when transforming RDD</a></li>
+        <li><a href="#customize-partition-function">customize partition function</a></li>
+      </ul>
+    </li>
+    <li><a href="#shared-variables">Shared Variables</a>
+      <ul>
+        <li><a href="#overview-2">overview</a></li>
+        <li><a href="#broadcast">broadcast</a></li>
+        <li><a href="#accumulator">accumulator</a></li>
+      </ul>
+    </li>
+    <li><a href="#shuffle">Shuffle</a>
+      <ul>
+        <li><a href="#overview-3">overview</a></li>
+        <li><a href="#how-it-work">how it work</a></li>
+      </ul>
+    </li>
+    <li><a href="#optimize-performance">Optimize performance</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">RDD
+    <div id="rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>Resilient distributed dataset
+<ol>
+<li>Fault tolerance</li>
+<li>distributed</li>
+<li>immutable data structure, stored in disk or memory</li>
+</ol>
+</li>
+<li>There are multiple partitions(#partitions is the same as #machines) within one RDD</li>
+<li>DN(Data Node to store data) and Worker(to compute) are all in one machine(best practice)
+<ul>
+<li>only shuffle need data transfering with network, others are in local machine</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">reduceByKey
+    <div id="reducebykey" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#reducebykey" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hadoop ---&gt; (hadoop, 1)
+</span></span><span class="line"><span class="cl">hadoop ---&gt; (hadoop, 1)
+</span></span><span class="line"><span class="cl">hadoop ---&gt; (hadoop, 1)
+</span></span><span class="line"><span class="cl">hive ---&gt; (hive, 1)
+</span></span><span class="line"><span class="cl">hive ---&gt; (hive, 1)
+</span></span><span class="line"><span class="cl">hive ---&gt; (hive, 1)</span></span></code></pre></div></div>
+<ul>
+<li>reduceByKey</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&lt;hadoop, [1, 1, 1]&gt;
+</span></span><span class="line"><span class="cl">&lt;hive, [1, 1, 1]&gt;</span></span></code></pre></div></div>
+<ul>
+<li>shuffle</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hash(hadoop) ---&gt; hashcode % 3 = 1(machine 1)
+</span></span><span class="line"><span class="cl">hash(hive) ---&gt; hashcode % 3 = 2(machine 2)</span></span></code></pre></div></div>
+
+<h3 class="relative group">operations
+    <div id="operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#operations" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">transformation: RDD&ndash;&gt;RDD
+    <div id="transformation-rddrdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transformation-rddrdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Operations</th>
+          <th>Summary</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">map</td>
+          <td>return a new RDD</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">filter</td>
+          <td>return a new RDD; true: keep, false: remove</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">flatMap</td>
+          <td>map + flat(from two dimentional to one dimentional)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">groupByKey</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">reduceByKey</td>
+          <td>groupByKey(get &lt;hadoop, [1, 1, 1]&gt;) + map(get &lt;hadoop, 3&gt;)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sortByKey</td>
+          <td>not default in spark, but default in hadoop</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">join</td>
+          <td>cogroup + remove nulls: join by key of &lt;key, value&gt;, all pairs will handle by cutomized function</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">cogroup</td>
+          <td>full join</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">action: RDD&ndash;&gt;anything else
+    <div id="action-rddanything-else" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#action-rddanything-else" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Operations</th>
+          <th>Summary</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">reduce</td>
+          <td>operation on all elements within RDD, first merges with second element, and then the result merges with the third element, &hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">collect</td>
+          <td>get all elements within RDD to local client</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">count</td>
+          <td>get the total number of elements within RDD</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">take(n)</td>
+          <td>get first unsorted n elements within RDD, top(n) can have first sorted n elements</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">takeOrdered(n, [ordering])</td>
+          <td>get first sorted n elements within RDD using natural order or a custom comparator</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">saveAsTextFile</td>
+          <td>save to file, each element with toString method</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">countByKey</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">foreach</td>
+          <td>iterate each element within RDD</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Depencencies(This topic is Transformation operation related)
+    <div id="depencenciesthis-topic-is-transformation-operation-related" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#depencenciesthis-topic-is-transformation-operation-related" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="spark-core-1"
+    src="../images-spark/spark-core-1.png"
+    ></figure>
+</p>
+<ul>
+<li>with shuffle(internet connections between different machines) is <strong>wide dependency</strong></li>
+<li>without shuffle is <strong>narrow dependency</strong></li>
+</ul>
+<blockquote><p>the number of stages is depended on the number of wide dependencies</p>
+</blockquote>
+<h4 class="relative group">narrow dependencies - 1 : 1
+    <div id="narrow-dependencies---1--1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#narrow-dependencies---1--1" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>每个父RDD的分区都至多被一个子RDD的分区使用。一对一</p>
+<ol>
+<li>输入输出一对一，结果RDD的分区结构不变，主要是map, flatMap</li>
+<li>输入输出一对一，但结果RDD的分区结构发生变化，如union, coalesce</li>
+<li>从输入中选择部分元素的算子，如filter, distinct, subtract, sample</li>
+</ol>
+
+<h4 class="relative group">wide dependencies - multiple : multiple
+    <div id="wide-dependencies---multiple--multiple" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#wide-dependencies---multiple--multiple" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>多个子RDD的分区依赖一个父RDD的分区。一对多</p>
+<ol>
+<li>对单个RDD基于key进行分组，如groupByKey, reduceByKey</li>
+<li>对两个RDD基于key进行join，如join</li>
+</ol>
+
+<h2 class="relative group">Create sparkContext
+    <div id="create-sparkcontext" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#create-sparkcontext" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&#34;spark://localhost:7077&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;rdd_demos&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Create RDD
+    <div id="create-rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#create-rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">1. parallelize array
+    <div id="1-parallelize-array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-parallelize-array" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># parallelize array in memory to crete RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1"># run in client</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span> <span class="c1"># run in server</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This is an Action, return RDD to Driver</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># check the number of partitions of current RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># OR</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># create RDD like this # range(start = 0, end, step = 1)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">2. load data from outside
+    <div id="2-load-data-from-outside" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-load-data-from-outside" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>txt file</li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/workcount.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textfile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+<ol start="2">
+<li>json file</li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">jsonFile</span> <span class="o">=</span> <span class="s2">&#34;/opt/module/spark-3.5.0-bin-hadoop3/data/core/data/people.json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsonRDD</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">jsonFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsonRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python use json module to handle json file</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">jsonRDD</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># for d in result.collect():</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     print(d)</span></span></span></code></pre></div></div>
+<ul>
+<li><a href="https://www.jianshu.com/p/e33671341f0d"  target="_blank" rel="noreferrer">spark通过textFile读取hdfs数据分区数量规则</a></li>
+<li><a href="https://blog.csdn.net/qq_39192827/article/details/97494565"  target="_blank" rel="noreferrer">Spark：RDD数据分区数量总结(并行化集合parallelize与外部数据集textFile)</a></li>
+</ul>
+
+<h2 class="relative group">RDD Operations
+    <div id="rdd-operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rdd-operations" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/abcdwxc/p/9867475.html"  target="_blank" rel="noreferrer">Spark RDD 创建操作</a></li>
+</ul>
+
+<h3 class="relative group">transformation: RDD&ndash;&gt;RDD
+    <div id="transformation-rddrdd-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transformation-rddrdd-1" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have an RDD, including {1, 2, 3, 3}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># first, create a RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># map</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd1</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [2, 3, 4, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># flatMap</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd2</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3, 2, 3, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># filter</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd3</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd3</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [2, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># distinct</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd4</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># sample: sample(withReplacement, fraction, seed)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># withReplacement param: 是否放回采样</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># fraction param: 抽取比例</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># seed param: random seed(optional)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd5</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd5</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># takeSample: Action not Transformation</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample + take(2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_rdd51</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">takeSample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">data_rdd51</span><span class="p">)</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have two RDDs, {1, 2, 3, 3} and {3, 4, 5}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># first, create two RDDs</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">data2</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># union</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># similar to union all in mysql, not union in mysql</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3, 3, 3, 4, 5]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># intersection</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># subtract</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># cartesian</span>
+</span></span><span class="line"><span class="cl"><span class="n">data1</span><span class="o">.</span><span class="n">cartesian</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(1, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (1, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (1, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (2, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 5),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 3),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 4),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, 5)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># groupBy</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;black&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">,</span> <span class="s2">&#34;white&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;grey&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># [(4, &lt;pyspark.resultiterable.ResultIterable object at 0x7f95187af580&gt;), (5, &lt;pyspark.resultiterable.ResultIterable object at 0x7f95087b5c10&gt;)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">sorted</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">b</span><span class="p">])</span> <span class="c1"># [(4, [&#39;blue&#39;, &#39;grey&#39;]), (5, [&#39;black&#39;, &#39;green&#39;, &#39;white&#39;])]</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">action: RDD&ndash;&gt;anything else
+    <div id="action-rddanything-else-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#action-rddanything-else-1" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># create a RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="c1"># 4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 2, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="c1"># 1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">countByValue</span><span class="p">()</span> <span class="c1"># defaultdict(int, {1: 1, 2: 1, 3: 2})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeOrdered</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="c1"># [3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">takeSample</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 9</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># reduce</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:(&#34;&#34;, 0), y:(&#34;hadoop&#34;, 1)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:(&#34;hadoop&#34;, 1), y:(&#34;hadoop&#34;, 1)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:(&#34;hadoophadoop&#34;, 2)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># reduceByKey: ignore key, only care value</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:0, y:1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:1, y:1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     x:2, y:1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span><span class="o">.</span><span class="n">fole</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># fold</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     has an initial value for each partition and one more for merging</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aggregate(zeroValue, seqOp, combOp)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;RDD 当前的分区数是: &#34;</span><span class="p">,</span> <span class="n">rdd</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span> <span class="c1"># RDD 当前的分区数是:  8</span>
+</span></span><span class="line"><span class="cl"><span class="n">seqOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 每个分区执行的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">combOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 各个分区结果最后聚集时使用的函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="c1"># 28</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seqOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">combOp</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl"><span class="n">result1</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">aggregate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span> <span class="c1"># (10, 4)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result2</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([])</span><span class="o">.</span><span class="n">aggregate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seqOp</span><span class="p">,</span> <span class="n">combOp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span> <span class="c1"># (0, 0)</span></span></span></code></pre></div></div>
+<ul>
+<li><code>reduce</code> is the special case of <code>fold</code></li>
+<li><code>fold</code> is the special case of <code>aggregate</code></li>
+</ul>
+
+<h3 class="relative group">RDD action on numeric data(description statistics)
+    <div id="rdd-action-on-numeric-datadescription-statistics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rdd-action-on-numeric-datadescription-statistics" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mean</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># variance</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">variance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample variance</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sampleVariance</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># standard deviation</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">stdev</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># sample standard deviation</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sampleStdev</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Histogram reference: https://blog.csdn.net/hit0803107/article/details/52807485 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 1</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">histogram</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">20.9</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 2</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 通过调用stats()方法，返回一个StatsCounter对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">status</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">stats</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">variance</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">stdev</span><span class="p">())</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Pair RDD Operations
+    <div id="pair-rdd-operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#pair-rdd-operations" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">create Pair RDD
+    <div id="create-pair-rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#create-pair-rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># There are multiple ways to create Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Approach 1: load from file, and then transform to Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="s2">&#34;/data/spark_demo/rdd/wc.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">lines</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 2: parallelize array</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;Hadoop&#34;</span><span class="p">,</span> <span class="s2">&#34;Spark&#34;</span><span class="p">,</span> <span class="s2">&#34;Hive&#34;</span><span class="p">,</span> <span class="s2">&#34;Spark&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;Hadoop&#39;, 1), (&#39;Spark&#39;, 1), (&#39;Hive&#39;, 1), (&#39;Spark&#39;, 1)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 3: keyBy(): customize the rule for key grouping</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="s2">&#34;black&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">,</span> <span class="s2">&#34;white&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;grey&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># with cutomized function to create keys, return Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">keyBy</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(5, &#39;black&#39;), (4, &#39;blue&#39;), (5, &#39;white&#39;), (5, &#39;green&#39;), (4, &#39;grey&#39;)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Approach 4: creating with tuple</span>
+</span></span><span class="line"><span class="cl"><span class="n">pets</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;dog&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="n">pets</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;cat&#39;, 1), (&#39;dog&#39;, 1), (&#39;cat&#39;, 2)]</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">transformation on Pair RDD
+    <div id="transformation-on-pair-rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transformation-on-pair-rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><code>reduceByKey</code> is special case of <code>aggregateByKey</code></li>
+<li><code>aggregateByKey</code> is special case of <code>combineByKey</code></li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Suppose we have a pair RDD [(1, 2), (3, 4), (3, 6)]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Create Pair RDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># reduceByKey(func)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(1, 2), (3, 10)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># groupByKey()</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">groupByKey</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(1, &lt;pyspark.resultiterable.ResultIterable at 0x7f94d9638970&gt;),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (3, &lt;pyspark.resultiterable.ResultIterable at 0x7f94d021f550&gt;)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># keys: return all keys</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [1, 3, 3]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># values: return all values</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [2, 4, 6]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># sortByKey(): default is increasing</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">sortByKey</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(1, 2), (3, 4), (3, 6)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pairRDD.sortByKey(ascending=False).collect()</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">sortByKey</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(3, 4), (3, 6), (1, 2)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># mapValues(func): apply func to each element of Pair RDD, without chaning key</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">mapValues</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(1, 4), (3, 16), (3, 36)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># flatMapValues(func)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pairRDD</span><span class="o">.</span><span class="n">flatMapValues</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(1, 2), (1, 3), (1, 4), (1, 5), (3, 4), (3, 5)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># combineByKey()</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">92</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">82</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">93</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">86</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-1&#34;</span><span class="p">,</span> <span class="mi">83</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="s2">&#34;company-2&#34;</span><span class="p">,</span> <span class="mi">78</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-2&#34;</span><span class="p">,</span> <span class="mi">96</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-2&#34;</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="s2">&#34;company-3&#34;</span><span class="p">,</span> <span class="mi">88</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-3&#34;</span><span class="p">,</span> <span class="mi">94</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;company-3&#34;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)],</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cbk</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">combineByKey</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">lambda</span> <span class="n">income</span><span class="p">:</span> <span class="p">(</span><span class="n">income</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">income</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">income</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="k">lambda</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">:</span> <span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># total income of each company</span>
+</span></span><span class="line"><span class="cl"><span class="n">cbk</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;company-1&#39;, (521, 6)), (&#39;company-3&#39;, (262, 3)), (&#39;company-2&#39;, (259, 3))]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># average income of each company</span>
+</span></span><span class="line"><span class="cl"><span class="n">cbk</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [(&#39;company-1&#39;, 521, 86.83333333333333),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (&#39;company-3&#39;, 262, 87.33333333333333),</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (&#39;company-2&#39;, 259, 86.33333333333333)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># reduceByKey()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)],</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># apply reduceByKey</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">accum</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">accum</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [(&#39;b&#39;, 5), (&#39;a&#39;, 3)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># customize func separately</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sumFunc</span><span class="p">(</span><span class="n">accum</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">accum</span> <span class="o">+</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="n">sumFunc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span> <span class="c1"># [(&#39;b&#39;, 5), (&#39;a&#39;, 3)]</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># groupByKey()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;USA&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;USA&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;India&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;UK&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;India&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;India&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;USA&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;USA&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;India&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;UK&#34;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;UK&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;UK&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># utilize groupByKey, default partition</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">groupByKey</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># check partitions</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of partitions: &#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># utilize pre-defined partition</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">groupByKey</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;number of partitions: &#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># output result</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">y</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># aggregateByKey</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># utilize key-value pair creating pairRDD studentRDD</span>
+</span></span><span class="line"><span class="cl"><span class="n">student_rdd</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Joseph&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">83</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Joseph&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">74</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Joseph&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">91</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Joseph&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">82</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jimmy&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">69</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jimmy&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">62</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Jimmy&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">97</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jimmy&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">78</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">73</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">68</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">87</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Thomas&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">87</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Thomas&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">93</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Thomas&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">91</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Thomas&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">74</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Cory&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">56</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Cory&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Cory&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">71</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Cory&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">68</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jackeline&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">86</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Jackeline&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">62</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jackeline&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Jackeline&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">83</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Juan&#34;</span><span class="p">,</span> <span class="s2">&#34;Maths&#34;</span><span class="p">,</span> <span class="mi">63</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Juan&#34;</span><span class="p">,</span> <span class="s2">&#34;Physics&#34;</span><span class="p">,</span> <span class="mi">69</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;Juan&#34;</span><span class="p">,</span> <span class="s2">&#34;Chemistry&#34;</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>\
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;Juan&#34;</span><span class="p">,</span> <span class="s2">&#34;Biology&#34;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)],</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># define Sequential Operation and Combiner Operation</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Sequential Operation: find maximum score from single partition</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">seq_op</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">accumulator</span> <span class="o">&gt;</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Combiner Operation: find maximum score from accumulators of all partitions</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">comb_op</span><span class="p">(</span><span class="n">accumulator1</span><span class="p">,</span> <span class="n">accumulator2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">accumulator1</span> <span class="o">&gt;</span> <span class="n">accumulator2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">accumulator2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># In our scenario, zero value is 0, because we are trying to find the maximum score</span>
+</span></span><span class="line"><span class="cl"><span class="n">zero_val</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">aggr_rdd</span> <span class="o">=</span> <span class="n">student_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span><span class="o">.</span><span class="n">aggregateByKey</span><span class="p">(</span><span class="n">zero_val</span><span class="p">,</span> <span class="n">seq_op</span><span class="p">,</span> <span class="n">comb_op</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check output</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">tpl</span> <span class="ow">in</span> <span class="n">aggr_rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Jimmy&#39;, 97)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Tina&#39;, 87)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Thomas&#39;, 93)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Joseph&#39;, 91)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Cory&#39;, 71)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Jackeline&#39;, 86)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Juan&#39;, 69)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># redefine Sequential Operation and Combiner Operation</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">seq_op</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">accumulator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">accumulator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">comb_op</span><span class="p">(</span><span class="n">accumulator1</span><span class="p">,</span> <span class="n">accumulator2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">accumulator1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">accumulator2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">accumulator1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">accumulator2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">zero_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">aggr_rdd</span> <span class="o">=</span> <span class="n">student_rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>\
+</span></span><span class="line"><span class="cl">                      <span class="o">.</span><span class="n">aggregateByKey</span><span class="p">(</span><span class="n">zero_val</span><span class="p">,</span> <span class="n">seq_op</span><span class="p">,</span> <span class="n">comb_op</span><span class="p">)</span>\
+</span></span><span class="line"><span class="cl">                      <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1.0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">tpl</span> <span class="ow">in</span> <span class="n">aggr_rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Jimmy&#39;, 77.0)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Tina&#39;, 76.5)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Thomas&#39;, 86.25)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Joseph&#39;, 82.5)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Cory&#39;, 65.0)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Jackeline&#39;, 76.5)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># (&#39;Juan&#39;, 64.0)</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">RDD cache
+    <div id="rdd-cache" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rdd-cache" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">overview
+    <div id="overview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#overview" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>One of the reasons why Spark is so fast is that it can cache datasets in memory during different operations.</li>
+<li>When an RDD is cached, each node will save the partition computation result in memory and reuse them in other actions performed on this RDD or derived RDDs. This makes subsequenct actions much faster.</li>
+<li>Cache is key to building iterative algorithms and fast iteractive queries in Spark.</li>
+</ul>
+
+<h3 class="relative group">approaches
+    <div id="approaches" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#approaches" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>persist</li>
+<li>cache</li>
+</ol>
+<ul>
+<li>only after triggering <strong>actions</strong>, then current RDD will be cached in memory for later use</li>
+<li>cache invoke persist at last, the default storage level just a part in memory</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="cm">/** Persist this RDD with the default storage level (MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">def persist(): this.type = persist(StorageLevel.MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/** Persist this RDD with the default storage level (MEMORY_ONLY)
+</span></span></span><span class="line"><span class="cl"><span class="cm">def cache(): this.type = persist()</span></span></span></code></pre></div></div>
+<ul>
+<li>There are many storage levels in Spark, storage level is defined in <strong>object StorageLevel</strong></li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">StorageLevel</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">NONE</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">DISK_ONLY</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">DISK_ONLY_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_SER</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_ONLY_SER_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_SER</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">MEMORY_AND_DISK_SER_2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="nc">OFF_HEAP</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">StorageLevel</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></div></div>
+<ul>
+<li>Fault tolerance can recompute some failed partitions of RDD, not all partitions of all RDD</li>
+<li>partitions within a RDD are independent</li>
+</ul>
+
+<h3 class="relative group">examples
+    <div id="examples" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#examples" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">StorageLevel</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;/xxxx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">persist</span><span class="p">(</span><span class="n">StorageLevel</span><span class="o">.</span><span class="n">MEMORY_AND_DISK</span><span class="p">)</span> <span class="c1"># set storage level</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span> <span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span> <span class="o">=</span> <span class="n">rdd3</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Fault tolerance
+    <div id="fault-tolerance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#fault-tolerance" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>mysql: bin_log日志文件（预写日志）</li>
+<li>hbase: wal(write ahead log: 预写日志)</li>
+<li>hdfs: 副本策略（3）</li>
+</ul>
+
+<h3 class="relative group">overview
+    <div id="overview-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#overview-1" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>fault tolerance</strong> for spark: use Lineage and Checkpoint</li>
+</ul>
+
+<h3 class="relative group">lineage mechanism: suit for narrow dependency
+    <div id="lineage-mechanism-suit-for-narrow-dependency" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#lineage-mechanism-suit-for-narrow-dependency" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>RDD&rsquo;s lineage records <strong>Coarse-grained</strong> specific data from Transformation operation. So when some partitions of a RDD lost data, it can reload or recompute from Lineage.</li>
+<li>This Coarse-grained data model limited use cases of Spark, so that Spark cannot use for high performance scenarios.</li>
+</ul>
+<p>Spark Lineage mechanism is performed through RDD dependencies:</p>
+<ol>
+<li>narrow dependency: certain data of child RDD can be directly computed from certain data of parent RDD</li>
+<li>wide dependency: <strong>recompute all parents&rsquo; RDD</strong>, then after finished and hashing, recomputing children RDD. When we deal with long lineage, we need set appropriate checkpoint.</li>
+</ol>
+
+<h3 class="relative group">checkpoint mechanism: suit for wide dependency
+    <div id="checkpoint-mechanism-suit-for-wide-dependency" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#checkpoint-mechanism-suit-for-wide-dependency" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>There are two approaches:
+<ol>
+<li><strong>LocalRDDCheckpointData</strong>: temporarly saved in local disk and memory. It&rsquo;s fast, good for scenarios that lineage info needed to be deleted frequently(e.g. GraphX), can tolerate executor fail.</li>
+<li><strong>ReliableRDDCheckpointData</strong>: saved in reliable outside storage(e.g. HDFS), can tolerate driver fail. It&rsquo;s not fast as local, but it has the highest fault tolerance level.</li>
+</ol>
+</li>
+</ul>
+<blockquote><p>If the code doesn&rsquo;t setup checkpoint, it will use local mode checkpoint. If the path is setup, it will use reliable mode checkpoint.</p>
+</blockquote><ul>
+<li>RDD&rsquo;s action triggering computation, then executing checkpoint.</li>
+<li>If task fails, it will load data from checkpoint to compute</li>
+</ul>
+
+<h4 class="relative group">checkpoint example
+    <div id="checkpoint-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#checkpoint-example" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&#34;spark://localhost:7077&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;rdd_demos&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span><span class="o">.</span><span class="n">setCheckpointDir</span><span class="p">(</span><span class="s1">&#39;hdfs://localhost:9000/spark/checkpoint&#39;</span><span class="p">)</span> <span class="c1"># set directory for saving</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">StorageLevel</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;/xxxx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">persist</span><span class="p">(</span><span class="n">StorageLevel</span><span class="o">.</span><span class="n">MEMORY_AND_DISK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span> <span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">()</span> <span class="c1"># set checkpoint</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd3</span><span class="o">.</span><span class="n">isCheckpointed</span><span class="p">())</span> <span class="c1"># check if RDD is set checkpoint</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd3</span><span class="o">.</span><span class="n">getCheckpointFile</span><span class="p">())</span> <span class="c1"># get the path of saved checkpoint, </span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span> <span class="o">=</span> <span class="n">rdd3</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd4</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># check hdfs if has rdd checkpoint</span>
+</span></span><span class="line"><span class="cl">./bin/hdfs dfs -cat /spark/checkpoint/a335287f-f7aa-408b-a767-0146faalefff/rdd-2/part-00000</span></span></code></pre></div></div>
+
+<h3 class="relative group">difference between checkpoint and cache
+    <div id="difference-between-checkpoint-and-cache" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#difference-between-checkpoint-and-cache" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>checkpoint will cut off the lineage, and save some data</li>
+<li>cache just save some data</li>
+</ul>
+
+<h2 class="relative group">Data Partitions
+    <div id="data-partitions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#data-partitions" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>
+<p>RDD is very large, it will be cutted into partitions saved in different nodes. This is where RDD come from.</p>
+</li>
+<li>
+<p>how to manually setup partitions:</p>
+<ol>
+<li>creating RDD: when executing <strong>textFile</strong> and <strong>parallelize</strong> methods, manually assign the number of partitions. e.g. <code>sc.textFile(path, partitionNum)</code></li>
+<li>get new RDD with transforming operation: directly executing <strong>repartition</strong></li>
+</ol>
+</li>
+</ul>
+<blockquote><p>#partitions == #task == #core(thread) of cpu</p>
+</blockquote><ul>
+<li>the number of executor = totoal-executor-core/executor-core</li>
+</ul>
+
+<h3 class="relative group">exmaple
+    <div id="exmaple" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#exmaple" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<blockquote><p>3 files: 17B, 7B, 165B</p>
+</blockquote><blockquote><p>totalSize = 189B</p>
+</blockquote><ul>
+<li>default the minimum number of partitions in Scala: Math.min(#core, 2) = 2</li>
+<li>goalSize = 189 / 2 = ? // the maximum size for each partition</li>
+</ul>
+<blockquote><p>17B, 94.5B, 128M</p>
+</blockquote><div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">// Math.max(minSize, Math.min(goalSize, blockSize))
+</span></span><span class="line"><span class="cl">splitSize = Math.max(17B, Math.min(94.5B, 128M)) = 94.5B</span></span></code></pre></div></div>
+<ul>
+<li>文件大小与分片大小比较：</li>
+<li>a.txt: 17B &lt; 94.5B 一个分区</li>
+<li>b.txt: 7B &lt; 94.5B 一个分区</li>
+<li>c.txt: 165B &gt; 94.5B 两个分区</li>
+<li>一共四个分区</li>
+</ul>
+
+<h3 class="relative group">assign partitions when creating RDD
+    <div id="assign-partitions-when-creating-rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#assign-partitions-when-creating-rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+</span></span><span class="line"><span class="cl"><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&#34;spark://localhost:7077&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&#34;rdd_demos&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&#34;spark.default.parallelism&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span> <span class="c1"># setup default parallelism</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># assign the num of partitions here</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd1</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the default num of partitions is 2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># rule: max(2, num-executor-core(the number of cpu thread(core) within each executor))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd1</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span> <span class="c1"># rdd1的分区数量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># check how it is partitioned</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd1</span><span class="o">.</span><span class="n">glom</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">assign partitions when transforming RDD
+    <div id="assign-partitions-when-transforming-rdd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#assign-partitions-when-transforming-rdd" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><code>repartition</code> and <code>coalesce(numPartitions, isShuffle = True)</code></li>
+<li><code>repartition(10)</code> &lt;==&gt; <code>coalesce(10, True)</code></li>
+</ul>
+<blockquote><p>it&rsquo;s faster without shuffle</p>
+</blockquote><blockquote><p><code>rdd.coalesce(1, False)</code>: if <code>isShufle</code> is false, it cannot increase the number of partitions, 只能减少分区数</p>
+</blockquote><div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># as for new RDD from transforming, directly executing repartition to get new partitions</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd2</span> <span class="o">=</span> <span class="n">rdd1</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># get rdd2 with transforming</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">rdd2</span><span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span> <span class="o">=</span> <span class="n">rdd2</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># repartition, get rdd3</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">()</span> <span class="c1"># the number of partitions of rdd3</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd3</span><span class="o">.</span><span class="n">glom</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># check distributions</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">customize partition function
+    <div id="customize-partition-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#customize-partition-function" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">pairs</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">repairs</span> <span class="o">=</span> <span class="n">pairs</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># 重新分区</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">repairs</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># customize partition function</span>
+</span></span><span class="line"><span class="cl"><span class="n">partitionedRDD</span> <span class="o">=</span> <span class="n">pairs</span><span class="o">.</span><span class="n">partitionBy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="c1"># use specific partition function</span>
+</span></span><span class="line"><span class="cl"><span class="n">partitionedRDD</span><span class="o">.</span><span class="n">persist</span><span class="p">()</span> <span class="c1"># 持久化，以便后续操作重复使用partitioned,避免重复分区</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">partitionedRDD</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">())</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># for example: write to different files depending on the last digit of key</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># customized partition function</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">UsridPartitioner</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># simulate 5 partitions&#39; data</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># use the last digit of key, changing to 10 partitions, writing to 10 files</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>\
+</span></span><span class="line"><span class="cl">             <span class="o">.</span><span class="n">partitionBy</span><span class="p">(</span><span class="n">numPartitions</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">partitionfunc</span><span class="o">=</span><span class="n">UsridPartitioner</span><span class="p">)</span> <span class="c1"># we can also use lambda here</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># result.saveAsTextFile(&#34;/data/spark_demo/rdd/partition-output&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Shared Variables
+    <div id="shared-variables" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#shared-variables" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">overview
+    <div id="overview-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#overview-2" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>spark has many nodes(machines), and they are independent. spark automatically send referenced variables to each node through network, it&rsquo;s convinent but inefficient. So shared variables are necessary.</li>
+<li>spark provides two kinds of shared variable with limited type: <strong>broadcast</strong> and <strong>accumulator</strong></li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="before"
+    src="../images-spark/spark-core-2.png"
+    ></figure>
+
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="after"
+    src="../images-spark/spark-core-3.png"
+    ></figure>
+</p>
+
+<h3 class="relative group">broadcast
+    <div id="broadcast" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#broadcast" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<blockquote><p><strong>driver define broadcast, and send to each node(or machine) only one time</strong></p>
+</blockquote><ul>
+<li>introduce a broadcast, give all nodes a readable value, instead of sending data through network and saving a copy. This improves the efficiency.</li>
+<li>approach:
+<ul>
+<li>use <code>broadcast()</code> within <code>sparkContext</code> to create broadcast.</li>
+<li>use <code>value</code> to get broadcast value</li>
+<li>use <code>unpersist()</code> to remove the broadcast</li>
+</ul>
+</li>
+</ul>
+<blockquote><p>a broadcast will only send to each node once, it&rsquo;s read-only</p>
+</blockquote>
+<h4 class="relative group">utilize broadcast
+    <div id="utilize-broadcast" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#utilize-broadcast" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">broads</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># create broadcast, it can be any type</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lists</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># create a list for testing</span>
+</span></span><span class="line"><span class="cl"><span class="n">listRDD</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="c1"># create a RDD</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="n">listRDD</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">broads</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;result is&#34;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&#34;:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span> <span class="c1"># [3, 6, 9, 12, 15]</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">update broadcast
+    <div id="update-broadcast" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#update-broadcast" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># update broadcast, use unpersist()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># broadcast is read-only, we cannot update broadcast, we need to remove the old broadcast, then create a new one</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># create dict</span>
+</span></span><span class="line"><span class="cl"><span class="n">mapper</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;dog&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;cat&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># create broadcast</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># update: 1. broadcast</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span><span class="o">.</span><span class="n">unpersist</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># update: 2. change the dict has to be changed</span>
+</span></span><span class="line"><span class="cl"><span class="n">mapper</span><span class="p">[</span><span class="s2">&#34;pig&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># update: 3. create broadcast again</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># get the value</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span><span class="o">.</span><span class="n">value</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">release broadcast
+    <div id="release-broadcast" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#release-broadcast" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># destroy() method is used to release broadcast</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># we cannot use broadcast again after this method</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mapper</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dog&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">mapper</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">broadcatVar</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># destroy broadcast</span>
+</span></span><span class="line"><span class="cl"><span class="n">broadcatVar</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># the value after destroying</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">broadcatVar</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># cannot use it with function</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># rdd.map(lambda t:broadcatVar.value.get(t)).collect()</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">accumulator
+    <div id="accumulator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#accumulator" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li>it is shared among nodes, and it will collect data from nodes to driver</li>
+<li>approaches:
+<ul>
+<li>call <code>accumulator</code> within Driver&rsquo;s <code>SparkContext</code> to create accumulator, and give it a name for checking later in Web UI</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># sum arrary with accumulator</span>
+</span></span><span class="line"><span class="cl"><span class="n">accum</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">accumulator</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">accum</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">accum</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">accum</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">acc</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">accumulator</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">list1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000001</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># run in executors</span>
+</span></span><span class="line"><span class="cl"><span class="n">list1</span><span class="o">.</span><span class="n">foreach</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">acc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># run in driver</span>
+</span></span><span class="line"><span class="cl"><span class="n">acc</span><span class="o">.</span><span class="n">value</span> <span class="c1"># 1000000</span></span></span></code></pre></div></div>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="accumulator"
+    src="../images-spark/spark-core-4.png"
+    ></figure>
+</p>
+
+<h2 class="relative group">Shuffle
+    <div id="shuffle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#shuffle" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>ShuffleManager</strong> handle all shuffle related execution, calculation and operations</li>
+<li>Before Spark 1.2, HashShuffleManager is default. It has many temperary disk files, and these disk IO affects performance alot.</li>
+<li>After Spark 1.2, SortShuffleManager is default. It also has many temperary disk files, but it <strong>merges</strong> all temp files into one disk file, and thus each <strong>Task</strong> only has one disk file. At next stage, when shuffle read task use their own data, they just get some data through indexing of disk file.</li>
+</ul>
+
+<h3 class="relative group">overview
+    <div id="overview-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#overview-3" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h3 class="relative group">how it work
+    <div id="how-it-work" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#how-it-work" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">normal mechanism
+    <div id="normal-mechanism" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#normal-mechanism" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+
+<h4 class="relative group">bypass mechanism
+    <div id="bypass-mechanism" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#bypass-mechanism" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<ul>
+<li>
+<p>shuffle map task 数量小于 <code>spark.shuffle.sort.bypassMergeThreshold</code>参数的值不是聚合类的shuffle算子(e.g. reduceByKey)</p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/licheng/p/6687018.html"  target="_blank" rel="noreferrer">Reference blog: shuffle</a>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Mapreduce&amp;Shuffle"
+    src="../images-spark/spark-core-5.png"
+    ></figure>
+</p>
+</li>
+<li>
+<p>map machine: <strong>shuffle</strong> write data to local disk file</p>
+</li>
+<li>
+<p>reduce machine: <strong>shuffle</strong> read data from disk file of map machine</p>
+</li>
+</ul>
+<blockquote><p>Note: red 1, green 2, blue 3 are all represent partitions, the number of partition are three</p>
+</blockquote><p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Spill"
+    src="../images-spark/spark-core-6.png"
+    ></figure>
+</p>
+<ul>
+<li>Spill includes 输出、排序、溢写、合并</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Spill-Collect"
+    src="../images-spark/spark-core-7.png"
+    ></figure>
+</p>
+
+<h2 class="relative group">Optimize performance
+    <div id="optimize-performance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#optimize-performance" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/shishanyuan/p/8454323.html"  target="_blank" rel="noreferrer">Reference 1</a></li>
+<li><a href="https://www.cnblogs.com/shishanyuan/p/8454310.html"  target="_blank" rel="noreferrer">Reference 2</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/hadoop/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Hadoop
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2023-12-02T17:40:22-05:00">2 December 2023</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/pytest/">
+              <span class="leading-6">
+                Pytest&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2023-12-13T23:22:40-05:00">13 December 2023</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+    <script>
+document.addEventListener("keydown", function (e) {
+  
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || document.activeElement.isContentEditable) return;
+  const searchWrapper = document.getElementById("search-wrapper");
+  if (searchWrapper && !searchWrapper.classList.contains("invisible")) return;
+
+  let link = null;
+
+  if (e.key === "ArrowRight" || e.key === "j") {
+    
+    link = document.querySelector('a[rel="next"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[footerLinks.length - 1];
+    }
+  } else if (e.key === "ArrowLeft" || e.key === "k") {
+    
+    link = document.querySelector('a[rel="prev"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[0];
+    }
+  }
+
+  if (link) {
+    e.preventDefault();
+    window.location.href = link.href;
+  }
+});
+</script>
+
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://arkticor.com/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
