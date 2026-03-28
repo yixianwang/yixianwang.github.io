@@ -1,0 +1,1201 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Claude Tips &middot; Yixian Wang</title>
+    <meta name="title" content="Claude Tips &middot; Yixian Wang">
+  
+
+  
+  
+    <meta name="description" content="CS Graduate Student at UT Austin">
+  
+  
+  
+  
+  <link rel="canonical" href="https://arkticor.com/notes/claude-tips/">
+  
+
+  
+  
+    <meta name="author" content="Yixian Wang">
+  
+  
+    
+      
+        
+          <link href="https://github.com/yixianwang" rel="me">
+        
+      
+    
+      
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="https://arkticor.com/notes/claude-tips/">
+  <meta property="og:site_name" content="Yixian Wang">
+  <meta property="og:title" content="Claude Tips">
+  <meta property="og:description" content=".claude &gt; TODO.md # # project-name TODO ## In Progress (from git status) - [ ] Commit widget implementation changes - [ ] folder/file - [ ] folder/new-file (new) - [ ] folder.new-file2 (new) - [ ] Commit Live Activityand entitlements updates ## Build &amp; Validation Commands **IMPORTANT: After every code change, validate the build succeeds.** ```bash # Build for xxx # Quick error check # Install on xxx # Open in IDE Architecture # Second Brain concept: Code base will grow to have these small domain like md files or some form of like Vectorized Memory that AI can use very quickly. So it doesn&#39;t have to parse the entire codebase every single time. It&#39;s essentially just a small compaction of context that is really available at all times for Claude code to use. Custom Workflows concept: Once we have this like second brain and this real context that we have. A skill of Claude code is basically a saved workflow, a set of steps, and all of it is actually written by Claude itself. It&#39;s actually just a giant prompt in the MD file, but it&#39;s written in a way that Claude knows how to execute those steps every single time consistently. e.x. Every time I ship something, I need to write the same kind of post to let the people know that I had shipped something, what changed, how to test it, what to watch out for, how to get feedback. It&#39;s basically the same structure every single time. And to build this skill so that you don&#39;t have to ever manually write this again. You just actually do these steps manually with Claude just once, step by step. And then all you say is &#34;Turn this into a skill I can reuse&#34; . And now whenever we need to post something, as long as we have been working on the second brain for after every like work session. We can just trigger this skill and instantly. Claude will write into style we wanna to without reexplaining, reinfecting doing anything about like dragging and dropping. We just prompt it and we just have the content that we need to post. - Context is king. Context is best served fresh and condensed. - Let Claude code to manage context on our behalf. - SEV investigation is a big part of our job ## Prompt Update the project notes with what we worked on Give me the latest status report Split this PR into logical chunks Turn this into a skill I can reuse Tell me a good way to plan a live activity for when I background the app This is a cool picture of the Clock Home mascot. Do something with it. Add this to my rules. Hey, can you update that rule for me so we never do it again? Use my Xcode MCP to build the app. Audit my codebase and make sure that we&#39;re removing all of the audio playback and references to the audio of part of the xxx app. Save this to my local CLAUD.md in my project directory. Save the work that we just did. Load my context from my local projects. (Once we have second brain concept, we can say a command like this) After every code change, validate the build succeeds. Add debug logs, and run the app, and then control the emulator. (Then do the action we are trying to do). Read the logs, and debug that way. (Or we can use perfetto, hook into perfecto mcps, do a run, then have it read the traces and then see if it can find junk just like the timings. ) (For web, we could do like puppeteer and have claude navigate it using a /chrome command and then just actually do the navigation or have it write just test or have like integration end to end test.) (To build a skill) Go and fetch hacker news for latest iOS news. And then save a summary to my local claude directory Save what we just did into a new skill called &#34;Fetch Hacker News.&#34; Why don&#39;t you extend this fetch Hacker News to fetch Twitter for Apple News? Find me a good Sigma MCP. Why don&#39;t you just install this for me? Spawn an iOS architecture agent, sub-agent, and do some investigation on my codebase and see if it&#39;s actually good or not. Use what we just did to create an iOS architecture sub-agent. Start working on my live activities feature. All right, let&#39;s test out this iOS architecture and then just spawn a sub-agent. Change the notification to ring a little sound when you finish execution. ```md # TODO.md ## Current Tasks - Commit widget implementation changes (new files) - Commit Live Activity and entitlements updates - Commit music files deletions (~70 mp3s removed) - Commit Models.swift and TimerViews.swift changes - Decide on untracked config files (.claude/, .mcp.json, CLAUDE.md, downloads/) - Validate build after all changes ## Settings - Project: ark-tree - Scheme: ark-tree - Device: rocket ## Available Commands - /build - Build for rocket - /install - Install on rocket - / audit - Run codebase audit - /implement-feature - PRD-driven implementation ## Skills/Agents - Live Activity expert - Widget expert - iOS architect - SwiftUI specialist - Swift reviewer Tips # /init, 300 lines in CLAUD.md /memory Shift &#43; tab (plan mode with new feature ) Escape &#43; up/ give me something else Double click Escape, then restore that context point /help /clear, to clear the context. Create new tab will bring up a new context as well. It’s good to start with a new feature and have completely done with the old task. /context /compact, to save some version of context into local second brain. /model /resume , recover the context /mcp Use templates for git /rewind, to restore the code and the conversion(git is better than this) CLAUD.md # Priority from top to bottom Manually update rules: “Never do X” or “Always do Y.” Document mistakes here. Add to it whenever Claude makes a mistake you don’t want repeated. Ask Claude to update rules: Say “add this to my rules” and Claude updates the file. Our CLAUDE.md becomes how we actually work. Use workflow triggers: When user says deploy, run deploy script. This turns Claude into a workflow engine. Compound Engineering: Commit CLAUDE.md to git: Teams gets instant access. They contribute back. Shared knowledge. Need to get rid of anything like generic for our code like file path and things like that. And we also want to be mindful how large this file becomes. claude --dangerously-skip-permissions Dangerously-skip for throwaway eves: Docker container. Unpunished branch. If we can blow it away, let Claude run free. /permissions Daily workflow # Start features in Plan Mode: Shift &#43; Tab twice. Claude can read but can’t execute. Explores without risk. Iterating with claude code. Arguing with it. Having a conversation with it. Really treating it like another just good engineer that I’m like working with and I never just like purely accept the first answers that it gives to me. I always kind of challenging it and I spent a lot of time and put a lot of effort at this stage of the development. Because I feel like once cloud code builds up that context and have a good execution specs, the generation of the code is actually the easy part. I love being in the zone and writing code. At least I used to. The thing is it’s really hard to get back into that mode. It’s like very different levels of abstractions of the way we’re working. (I gave the command and I go to the next one. I am building the context. I give it a command and I go to the other one. And then I give a command. So I end up like still can get into the zone, but it’s like a different style.) Fresh context beats bloated. Less is more. When the context is full of dead ends, start a new session. Persist before ending session. Sessions are temporary. CLAUD.md is permanent. This is long-term memory. “Save this to my local CLAUD.md in my project directory. Save the work that we just did.” Lazy load context. Index at root pointing to subdirectory docs. Claude loads detail only when needed. “Load my context from my local projects. (Once we have second brain concept, we can say a command like this)” Give verification commands. Test, lint, type check commands in CLAUDE.md. This 2-3x’s output quality. Read thinking blocks. “I assume…” Or “I’m not sure…” = course-correct before Claude commits to wrong path. Power User # Composability Framework">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-03-28T09:03:40-04:00">
+    <meta property="article:modified_time" content="2026-03-28T09:03:40-04:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Tips">
+  <meta name="twitter:description" content=".claude &gt; TODO.md # # project-name TODO ## In Progress (from git status) - [ ] Commit widget implementation changes - [ ] folder/file - [ ] folder/new-file (new) - [ ] folder.new-file2 (new) - [ ] Commit Live Activityand entitlements updates ## Build &amp; Validation Commands **IMPORTANT: After every code change, validate the build succeeds.** ```bash # Build for xxx # Quick error check # Install on xxx # Open in IDE Architecture # Second Brain concept: Code base will grow to have these small domain like md files or some form of like Vectorized Memory that AI can use very quickly. So it doesn&#39;t have to parse the entire codebase every single time. It&#39;s essentially just a small compaction of context that is really available at all times for Claude code to use. Custom Workflows concept: Once we have this like second brain and this real context that we have. A skill of Claude code is basically a saved workflow, a set of steps, and all of it is actually written by Claude itself. It&#39;s actually just a giant prompt in the MD file, but it&#39;s written in a way that Claude knows how to execute those steps every single time consistently. e.x. Every time I ship something, I need to write the same kind of post to let the people know that I had shipped something, what changed, how to test it, what to watch out for, how to get feedback. It&#39;s basically the same structure every single time. And to build this skill so that you don&#39;t have to ever manually write this again. You just actually do these steps manually with Claude just once, step by step. And then all you say is &#34;Turn this into a skill I can reuse&#34; . And now whenever we need to post something, as long as we have been working on the second brain for after every like work session. We can just trigger this skill and instantly. Claude will write into style we wanna to without reexplaining, reinfecting doing anything about like dragging and dropping. We just prompt it and we just have the content that we need to post. - Context is king. Context is best served fresh and condensed. - Let Claude code to manage context on our behalf. - SEV investigation is a big part of our job ## Prompt Update the project notes with what we worked on Give me the latest status report Split this PR into logical chunks Turn this into a skill I can reuse Tell me a good way to plan a live activity for when I background the app This is a cool picture of the Clock Home mascot. Do something with it. Add this to my rules. Hey, can you update that rule for me so we never do it again? Use my Xcode MCP to build the app. Audit my codebase and make sure that we&#39;re removing all of the audio playback and references to the audio of part of the xxx app. Save this to my local CLAUD.md in my project directory. Save the work that we just did. Load my context from my local projects. (Once we have second brain concept, we can say a command like this) After every code change, validate the build succeeds. Add debug logs, and run the app, and then control the emulator. (Then do the action we are trying to do). Read the logs, and debug that way. (Or we can use perfetto, hook into perfecto mcps, do a run, then have it read the traces and then see if it can find junk just like the timings. ) (For web, we could do like puppeteer and have claude navigate it using a /chrome command and then just actually do the navigation or have it write just test or have like integration end to end test.) (To build a skill) Go and fetch hacker news for latest iOS news. And then save a summary to my local claude directory Save what we just did into a new skill called &#34;Fetch Hacker News.&#34; Why don&#39;t you extend this fetch Hacker News to fetch Twitter for Apple News? Find me a good Sigma MCP. Why don&#39;t you just install this for me? Spawn an iOS architecture agent, sub-agent, and do some investigation on my codebase and see if it&#39;s actually good or not. Use what we just did to create an iOS architecture sub-agent. Start working on my live activities feature. All right, let&#39;s test out this iOS architecture and then just spawn a sub-agent. Change the notification to ring a little sound when you finish execution. ```md # TODO.md ## Current Tasks - Commit widget implementation changes (new files) - Commit Live Activity and entitlements updates - Commit music files deletions (~70 mp3s removed) - Commit Models.swift and TimerViews.swift changes - Decide on untracked config files (.claude/, .mcp.json, CLAUDE.md, downloads/) - Validate build after all changes ## Settings - Project: ark-tree - Scheme: ark-tree - Device: rocket ## Available Commands - /build - Build for rocket - /install - Install on rocket - / audit - Run codebase audit - /implement-feature - PRD-driven implementation ## Skills/Agents - Live Activity expert - Widget expert - iOS architect - SwiftUI specialist - Swift reviewer Tips # /init, 300 lines in CLAUD.md /memory Shift &#43; tab (plan mode with new feature ) Escape &#43; up/ give me something else Double click Escape, then restore that context point /help /clear, to clear the context. Create new tab will bring up a new context as well. It’s good to start with a new feature and have completely done with the old task. /context /compact, to save some version of context into local second brain. /model /resume , recover the context /mcp Use templates for git /rewind, to restore the code and the conversion(git is better than this) CLAUD.md # Priority from top to bottom Manually update rules: “Never do X” or “Always do Y.” Document mistakes here. Add to it whenever Claude makes a mistake you don’t want repeated. Ask Claude to update rules: Say “add this to my rules” and Claude updates the file. Our CLAUDE.md becomes how we actually work. Use workflow triggers: When user says deploy, run deploy script. This turns Claude into a workflow engine. Compound Engineering: Commit CLAUDE.md to git: Teams gets instant access. They contribute back. Shared knowledge. Need to get rid of anything like generic for our code like file path and things like that. And we also want to be mindful how large this file becomes. claude --dangerously-skip-permissions Dangerously-skip for throwaway eves: Docker container. Unpunished branch. If we can blow it away, let Claude run free. /permissions Daily workflow # Start features in Plan Mode: Shift &#43; Tab twice. Claude can read but can’t execute. Explores without risk. Iterating with claude code. Arguing with it. Having a conversation with it. Really treating it like another just good engineer that I’m like working with and I never just like purely accept the first answers that it gives to me. I always kind of challenging it and I spent a lot of time and put a lot of effort at this stage of the development. Because I feel like once cloud code builds up that context and have a good execution specs, the generation of the code is actually the easy part. I love being in the zone and writing code. At least I used to. The thing is it’s really hard to get back into that mode. It’s like very different levels of abstractions of the way we’re working. (I gave the command and I go to the next one. I am building the context. I give it a command and I go to the other one. And then I give a command. So I end up like still can get into the zone, but it’s like a different style.) Fresh context beats bloated. Less is more. When the context is full of dead ends, start a new session. Persist before ending session. Sessions are temporary. CLAUD.md is permanent. This is long-term memory. “Save this to my local CLAUD.md in my project directory. Save the work that we just did.” Lazy load context. Index at root pointing to subdirectory docs. Claude loads detail only when needed. “Load my context from my local projects. (Once we have second brain concept, we can say a command like this)” Give verification commands. Test, lint, type check commands in CLAUDE.md. This 2-3x’s output quality. Read thinking blocks. “I assume…” Or “I’m not sure…” = course-correct before Claude commits to wrong path. Power User # Composability Framework">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9d9d71d26c2e825121c641318431e491a670625d5755fa4f65897b2482e0a438e9210017afe3c2fb25e0104a6dc06a8113c029fd632bafd806cc528fcdf9a6bd.css"
+    integrity="sha512-nZ1x0mwuglEhxkExhDHkkaZwYl1XVfpPZYl7JILgpDjpIQAXr&#43;PC&#43;yXgEEptwGqBE8Ap/WMrr9gGzFKPzfmmvQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.6b483bdc9246a18b35259ce2a40e363ade34a01edf2f3a31094f0a396844e75f863d18735a89b85ee8301f2dfdb9e471bdf47c44483d4b8f0d6eb93701873824.js"
+      integrity="sha512-a0g73JJGoYs1JZzipA42Ot40oB7fLzoxCU8KOWhE51&#43;GPRhzWom4XugwHy39ueRxvfR8REg9S48Nbrk3AYc4JA=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Notes",
+    "name": "Claude Tips",
+    "headline": "Claude Tips",
+    
+    "inLanguage": "en",
+    "url" : "https://arkticor.com/notes/claude-tips/",
+    "author" : {
+      "@type": "Person",
+      "name": "Yixian Wang"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-03-28T09:03:40-04:00",
+    "datePublished": "2026-03-28T09:03:40-04:00",
+    
+    "dateModified": "2026-03-28T09:03:40-04:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1709"
+  }]
+  </script>
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Yixian Wang
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/projects/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Projects"
+      title="Projects">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Projects
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blog/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="Blog">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/notes/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Notes"
+      title="Notes">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Notes
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href=""
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Search"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          Search
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/projects/"
+        aria-label="Projects"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Projects" class="text-2xl font-bold tracking-tight">
+          Projects
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blog/"
+        aria-label="Blog"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Blog" class="text-2xl font-bold tracking-tight">
+          Blog
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/notes/"
+        aria-label="Notes"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="Notes" class="text-2xl font-bold tracking-tight">
+          Notes
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href=""
+        aria-label="Search"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          Search
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      >About me</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/"
+      >Notes</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/claude-tips/"
+      >Claude Tips</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Claude Tips
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-03-28T09:03:40-04:00">28 March 2026</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+  
+    
+  
+  
+
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/yixianwang/yixian-site/tree/main/content/notes/claude-tips.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Edit content"
+    ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a
+  >
+</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#claude--todomd">.claude &gt; TODO.md</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#claudmd">CLAUD.md</a></li>
+    <li><a href="#daily-workflow">Daily workflow</a></li>
+    <li><a href="#power-user">Power User</a></li>
+    <li><a href="#advanced">Advanced</a></li>
+    <li><a href="#hooks--automation">Hooks &amp; Automation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#claude--todomd">.claude &gt; TODO.md</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#claudmd">CLAUD.md</a></li>
+    <li><a href="#daily-workflow">Daily workflow</a></li>
+    <li><a href="#power-user">Power User</a></li>
+    <li><a href="#advanced">Advanced</a></li>
+    <li><a href="#hooks--automation">Hooks &amp; Automation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">.claude &gt; TODO.md
+    <div id="claude--todomd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#claude--todomd" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># project-name TODO
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## In Progress (from git status)
+</span></span><span class="line"><span class="cl">- [ ] Commit widget implementation changes
+</span></span><span class="line"><span class="cl">    - [ ] folder/file
+</span></span><span class="line"><span class="cl">    - [ ] folder/new-file (new)
+</span></span><span class="line"><span class="cl">    - [ ] folder.new-file2 (new)
+</span></span><span class="line"><span class="cl">- [ ] Commit Live Activityand entitlements updates
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Build &amp; Validation Commands
+</span></span><span class="line"><span class="cl">**IMPORTANT: After every code change, validate the build succeeds.**
+</span></span><span class="line"><span class="cl">```bash
+</span></span><span class="line"><span class="cl"># Build for xxx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Quick error check
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Install on xxx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Open in IDE</span></span></code></pre></div></div>
+
+<h2 class="relative group">Architecture
+    <div id="architecture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#architecture" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Second Brain concept:
+</span></span><span class="line"><span class="cl">Code base will grow to have these small domain like md files or some form of like Vectorized Memory that AI can use very quickly. So it doesn&#39;t have to parse the entire codebase every single time. It&#39;s essentially just a small compaction of context that is really available at all times for Claude code to use.  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Custom Workflows concept:
+</span></span><span class="line"><span class="cl">Once we have this like second brain and this real context that we have. A skill of Claude code is basically a saved workflow, a set of steps, and all of it is actually written by Claude itself. It&#39;s actually just a giant prompt in the MD file, but it&#39;s written in a way that Claude knows how to execute those steps every single time consistently.  
+</span></span><span class="line"><span class="cl">e.x. Every time I ship something, I need to write the same kind of post to let the people know that I had shipped something, what changed, how to test it, what to watch out for, how to get feedback. It&#39;s basically the same structure every single time. And to build this skill so that you don&#39;t have to ever manually write this again. You just actually do these steps manually with Claude just once, step by step. And then all you say is &#34;Turn this into a skill I can reuse&#34; . And now whenever we need to post something, as long as we have been working on the second brain for after every like work session. We can just trigger this skill and instantly. Claude will write into style we wanna to without reexplaining, reinfecting doing anything about like dragging and dropping. We just prompt it and we just have the content that we need to post. 
+</span></span><span class="line"><span class="cl">- Context is king. Context is best served fresh and condensed. 
+</span></span><span class="line"><span class="cl">- Let Claude code to manage context on our behalf.
+</span></span><span class="line"><span class="cl">- SEV investigation is a big part of our job
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Prompt
+</span></span><span class="line"><span class="cl">Update the project notes with what we worked on
+</span></span><span class="line"><span class="cl">Give me the latest status report
+</span></span><span class="line"><span class="cl">Split this PR into logical chunks
+</span></span><span class="line"><span class="cl">Turn this into a skill I can reuse
+</span></span><span class="line"><span class="cl">Tell me a good way to plan a live activity for when I background the app
+</span></span><span class="line"><span class="cl">This is a cool picture of the Clock Home mascot. Do something with it. 
+</span></span><span class="line"><span class="cl">Add this to my rules.
+</span></span><span class="line"><span class="cl">Hey, can you update that rule for me so we never do it again?
+</span></span><span class="line"><span class="cl">Use my Xcode MCP to build the app.
+</span></span><span class="line"><span class="cl">Audit my codebase and make sure that we&#39;re removing all of the audio playback and references to the audio of part of the xxx app. 
+</span></span><span class="line"><span class="cl">Save this to my local CLAUD.md in my project directory. Save the work that we just did. 
+</span></span><span class="line"><span class="cl">Load my context from my local projects. (Once we have second brain concept, we can say a command like this)
+</span></span><span class="line"><span class="cl">After every code change, validate the build succeeds.
+</span></span><span class="line"><span class="cl">Add debug logs, and run the app, and then control the emulator. (Then do the action we are trying to do). Read the logs, and debug that way. (Or we can use perfetto, hook into perfecto mcps, do a run, then have it read the traces and then see if it can find junk just like the timings. ) (For web, we could do like puppeteer and have claude navigate it using a /chrome command and then just actually do the navigation or have it write just test or have like integration end to end test.)
+</span></span><span class="line"><span class="cl">(To build a skill) Go and fetch hacker news for latest iOS news. 
+</span></span><span class="line"><span class="cl">	And then save a summary to my local claude directory
+</span></span><span class="line"><span class="cl">	Save what we just did into a new skill called &#34;Fetch Hacker News.&#34;
+</span></span><span class="line"><span class="cl">		Why don&#39;t you extend this fetch Hacker News to fetch Twitter for Apple News? Find me a good Sigma MCP.
+</span></span><span class="line"><span class="cl">	Why don&#39;t you just install this for me? Spawn an iOS architecture agent, sub-agent, and do some investigation on my codebase and see if it&#39;s actually good or not.
+</span></span><span class="line"><span class="cl">Use what we just did to create an iOS architecture sub-agent.
+</span></span><span class="line"><span class="cl">Start working on my live activities feature.
+</span></span><span class="line"><span class="cl">All right, let&#39;s test out this iOS architecture and then just spawn a sub-agent.
+</span></span><span class="line"><span class="cl">Change the notification to ring a little sound when you finish execution.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```md
+</span></span><span class="line"><span class="cl"># TODO.md 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Current Tasks
+</span></span><span class="line"><span class="cl">- Commit widget implementation changes (new files)
+</span></span><span class="line"><span class="cl">- Commit Live Activity and entitlements updates
+</span></span><span class="line"><span class="cl">- Commit music files deletions (~70 mp3s removed)
+</span></span><span class="line"><span class="cl">- Commit Models.swift and TimerViews.swift changes
+</span></span><span class="line"><span class="cl">- Decide on untracked config files (.claude/, .mcp.json, CLAUDE.md, downloads/)
+</span></span><span class="line"><span class="cl">- Validate build after all changes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Settings
+</span></span><span class="line"><span class="cl">- Project: ark-tree
+</span></span><span class="line"><span class="cl">- Scheme: ark-tree
+</span></span><span class="line"><span class="cl">- Device: rocket
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Available Commands
+</span></span><span class="line"><span class="cl">- /build - Build for rocket
+</span></span><span class="line"><span class="cl">- /install - Install on rocket
+</span></span><span class="line"><span class="cl">- / audit - Run codebase audit
+</span></span><span class="line"><span class="cl">- /implement-feature - PRD-driven implementation
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Skills/Agents
+</span></span><span class="line"><span class="cl">- Live Activity expert
+</span></span><span class="line"><span class="cl">- Widget expert
+</span></span><span class="line"><span class="cl">- iOS architect
+</span></span><span class="line"><span class="cl">- SwiftUI specialist
+</span></span><span class="line"><span class="cl">- Swift reviewer</span></span></code></pre></div></div>
+
+<h2 class="relative group">Tips
+    <div id="tips" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tips" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>/init, 300 lines in CLAUD.md</li>
+<li>/memory</li>
+<li>Shift + tab (plan mode with new feature )</li>
+<li>Escape + up/ give me something else</li>
+<li>Double click Escape, then restore that context point</li>
+<li>/help</li>
+<li>/clear, to clear the context. Create new tab will bring up a new context as well. It&rsquo;s good to start with a new feature and have completely done with the old task.</li>
+<li>/context</li>
+<li>/compact, to save some version of context into local second brain.</li>
+<li>/model</li>
+<li>/resume , recover the context</li>
+<li>/mcp</li>
+<li>Use templates for git</li>
+<li>/rewind, to restore the code and the conversion(git is better than this)</li>
+</ol>
+
+<h2 class="relative group">CLAUD.md
+    <div id="claudmd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#claudmd" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>Priority from top to bottom</li>
+<li>Manually update rules: &ldquo;Never do X&rdquo; or &ldquo;Always do Y.&rdquo; Document mistakes here. Add to it whenever Claude makes a mistake you don&rsquo;t want repeated.</li>
+<li>Ask Claude to update rules: Say &ldquo;add this to my rules&rdquo; and Claude updates the file. Our CLAUDE.md becomes how we actually work.</li>
+<li>Use workflow triggers: When user says deploy, run deploy script. This turns Claude into a workflow engine.</li>
+<li>Compound Engineering: Commit CLAUDE.md to git: Teams gets instant access. They contribute back. Shared knowledge. Need to get rid of anything like generic for our code like file path and things like that. And we also want to be mindful how large this file becomes.</li>
+<li><code>claude --dangerously-skip-permissions</code> Dangerously-skip for throwaway eves: Docker container. Unpunished branch. If we can blow it away, let Claude run free.</li>
+<li>/permissions</li>
+</ol>
+
+<h2 class="relative group">Daily workflow
+    <div id="daily-workflow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#daily-workflow" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>Start features in Plan Mode: Shift + Tab twice. Claude can read but can&rsquo;t execute. Explores without risk. Iterating with claude code. Arguing with it. Having a conversation with it. Really treating it like another just good engineer that I&rsquo;m like working with and I never just like purely accept the first answers that it gives to me. I always kind of challenging it and I spent a lot of time and put a lot of effort at this stage of the development. Because I feel like once cloud code builds up that context and have a good execution specs, the generation of the code is actually the easy part. I love being in the zone and writing code. At least I used to. The thing is it&rsquo;s really hard to get back into that mode. It&rsquo;s like very different levels of abstractions of the way we&rsquo;re working. (I gave the command and I go to the next one. I am building the context. I give it a command and I go to the other one. And then I give a command. So I end up like still can get into the zone, but it&rsquo;s like a different style.)</li>
+<li>Fresh context beats bloated. Less is more. When the context is full of dead ends, start a new session.</li>
+<li>Persist before ending session. Sessions are temporary. CLAUD.md is permanent. This is long-term memory. &ldquo;Save this to my local CLAUD.md in my project directory. Save the work that we just did.&rdquo;</li>
+<li>Lazy load context. Index at root pointing to subdirectory docs. Claude loads detail only when needed. &ldquo;Load my context from my local projects. (Once we have second brain concept, we can say a command like this)&rdquo;</li>
+<li>Give verification commands. Test, lint, type check commands in CLAUDE.md. This 2-3x&rsquo;s output quality.</li>
+<li>Read thinking blocks. &ldquo;I assume&hellip;&rdquo; Or &ldquo;I&rsquo;m not sure&hellip;&rdquo; = course-correct before Claude commits to wrong path.</li>
+</ol>
+
+<h2 class="relative group">Power User
+    <div id="power-user" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#power-user" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Composability Framework</p>
+<ol>
+<li>Four composability primitives. Skills, Commands, MCPs, Subagents. How they work together separates casuals from power users.</li>
+<li>Skills = recurring workflows. Templates that load context when triggered. Lazy-loaded. Don&rsquo;t eat tokens until needed.</li>
+<li>Never create commands manually. &ldquo;Create a command that does X.&rdquo; Let Claude manage the file structure.</li>
+<li>MCPs = external service docs. Not just API connections. Structured documentation for database, browsers, systems. &ldquo;Find me a good Sigma MCP&rdquo;</li>
+<li>Subagents = isolated context. <code>Task()</code> spawns clones for parallel work, but also it&rsquo;s to protect our context window. Each gets fresh context window. &ldquo;Spawn an iOS architecture agent, sub-agent, and do some investigation on my codebase and see if it&rsquo;s actually good or not.&rdquo;, &ldquo;Use what we just did to create an iOS architecture sub-agent.&rdquo;</li>
+<li>Avoid instruction overload. Context is best served fresh and condensed. Quality over quantity. </li>
+</ol>
+
+<h2 class="relative group">Advanced
+    <div id="advanced" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#advanced" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>Run multiple instances.</li>
+<li>Enable notifications. Custom sound when Claude finishes. Context-switch while Claude works. &ldquo;Change the notification to ring a little sound when you finish execution.&rdquo;</li>
+<li>Git corktree for isolation. Multiple Claude instances, same repo, isolated files. Each corktree = Separate checkout.</li>
+<li>/chrome connects browser. See and interact with web pages. Authenticated session. No API keys.</li>
+<li>Powerful for debugging. Navigate, click, fill forms, read console. &ldquo;Fix the error in console.&rdquo; One flow.</li>
+</ol>
+
+<h2 class="relative group">Hooks &amp; Automation
+    <div id="hooks--automation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hooks--automation" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ol>
+<li>/hooks.  Hooks intercept actions. PreToolUse = before. PostToolUse = after.</li>
+<li>Auto-format with PostToolUse. Format after edits. Catches CI edge cases. Never commit ugly code.</li>
+<li>Block dangerous commands. PreToolUse blocks before execution. Guardrails for destructive ops.</li>
+<li>Explore the plugin ecosystem. Pre-built skills, commands, hooks. Install and use immediately. GitHub: Claude-plugins-official</li>
+</ol>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/ta/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;TA
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-03-27T23:20:36-04:00">27 March 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/latex/">
+              <span class="leading-6">
+                Latex&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2023-10-23T23:51:32-04:00">23 October 2023</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+    <script>
+document.addEventListener("keydown", function (e) {
+  
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || document.activeElement.isContentEditable) return;
+  const searchWrapper = document.getElementById("search-wrapper");
+  if (searchWrapper && !searchWrapper.classList.contains("invisible")) return;
+
+  let link = null;
+
+  if (e.key === "ArrowRight" || e.key === "j") {
+    
+    link = document.querySelector('a[rel="next"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[footerLinks.length - 1];
+    }
+  } else if (e.key === "ArrowLeft" || e.key === "k") {
+    
+    link = document.querySelector('a[rel="prev"]');
+    
+    if (!link) {
+      const footerLinks = document.querySelectorAll("article > footer a");
+      if (footerLinks.length) link = footerLinks[0];
+    }
+  }
+
+  if (link) {
+    e.preventDefault();
+    window.location.href = link.href;
+  }
+});
+</script>
+
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://arkticor.com/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
