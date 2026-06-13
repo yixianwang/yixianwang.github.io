@@ -15,8 +15,8 @@
 
   
   
-    <title>Notes &middot; Yixian Wang</title>
-    <meta name="title" content="Notes &middot; Yixian Wang">
+    <title>System Design &middot; Yixian Wang</title>
+    <meta name="title" content="System Design &middot; Yixian Wang">
   
 
   
@@ -26,10 +26,7 @@
   
   
   
-  <link rel="canonical" href="https://arkticor.com/notes/">
-  
-    
-      <link rel="alternate" type="application/rss+xml" href="/notes/index.xml" title="Yixian Wang" />
+  <link rel="canonical" href="https://arkticor.com/notes/system-design/">
   
 
   
@@ -51,17 +48,20 @@
   
 
   
-  <meta property="og:url" content="https://arkticor.com/notes/">
+  <meta property="og:url" content="https://arkticor.com/notes/system-design/">
   <meta property="og:site_name" content="Yixian Wang">
-  <meta property="og:title" content="Notes">
-  <meta property="og:description" content="CS Graduate Student at UT Austin">
+  <meta property="og:title" content="System Design">
+  <meta property="og:description" content="Distribution Lock # Transactional Database &amp; Distribution Lock &amp; Design # Push coordination into the transactional database - the @Version optimistic check or FOR UPDATE SKIP LOCKED from before. Postgres is already the single shared source of truth, and its row locks are visible to every connection from every instance. A distributed lock service — Redis (SET key NX PX, or Redisson’s RLock since you already use Redis), or Zookeeper. Justified when the critical section isn’t a database write — e.g., “only one instance should run this scheduled job.” For protecting a DB row it’s strictly worse: you’ve added a second system that can disagree with the first (lock expires mid-transaction, Redis failover loses the lock…). Single writer by design — route all spot-claims through one Kafka partition consumed by one consumer, so contention is eliminated by serialization rather than locking. Real pattern, but heavyweight for a parking lot; worth one sentence in an interview to show you know it exists. In-JVM locks # Pessimistic (parkPessimistic): one synchronized block makes find&#43;claim atomic. Correct, simple, but every entry gate serializes through one lock. Mitigation: shard the lock per level. Optimistic (parkOptimistic): AtomicBoolean.compareAndSet — find a candidate, CAS-claim it, and if you lose the race, loop to the next free spot instead of blocking. No locks held during the search. The distributed punchline: in-JVM locks are useless once you run two Spring Boot instances. Takeaway - Framing for interview # use a distributed lock when there is no shared transactional store already arbitrating the resource — coordinating side effects, singleton jobs, leader election. When the resource is a row in a database you’re already writing to, let that database be the arbiter; adding Redis on top is more infrastructure, more failure modes, and less correctness, because you’ve split one source of truth into two that can disagree.">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-06-12T22:55:15-04:00">
+    <meta property="article:modified_time" content="2026-06-12T22:55:15-04:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Notes">
-  <meta name="twitter:description" content="CS Graduate Student at UT Austin">
+  <meta name="twitter:title" content="System Design">
+  <meta name="twitter:description" content="Distribution Lock # Transactional Database &amp; Distribution Lock &amp; Design # Push coordination into the transactional database - the @Version optimistic check or FOR UPDATE SKIP LOCKED from before. Postgres is already the single shared source of truth, and its row locks are visible to every connection from every instance. A distributed lock service — Redis (SET key NX PX, or Redisson’s RLock since you already use Redis), or Zookeeper. Justified when the critical section isn’t a database write — e.g., “only one instance should run this scheduled job.” For protecting a DB row it’s strictly worse: you’ve added a second system that can disagree with the first (lock expires mid-transaction, Redis failover loses the lock…). Single writer by design — route all spot-claims through one Kafka partition consumed by one consumer, so contention is eliminated by serialization rather than locking. Real pattern, but heavyweight for a parking lot; worth one sentence in an interview to show you know it exists. In-JVM locks # Pessimistic (parkPessimistic): one synchronized block makes find&#43;claim atomic. Correct, simple, but every entry gate serializes through one lock. Mitigation: shard the lock per level. Optimistic (parkOptimistic): AtomicBoolean.compareAndSet — find a candidate, CAS-claim it, and if you lose the race, loop to the next free spot instead of blocking. No locks held during the search. The distributed punchline: in-JVM locks are useless once you run two Spring Boot instances. Takeaway - Framing for interview # use a distributed lock when there is no shared transactional store already arbitrating the resource — coordinating side effects, singleton jobs, leader election. When the resource is a row in a database you’re already writing to, let that database be the arbiter; adding Redis on top is more infrastructure, more failure modes, and less correctness, because you’ve split one source of truth into two that can disagree.">
 
   
   
@@ -214,25 +214,25 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Notes",
-    "name": "Notes",
-    "headline": "Notes",
+    "name": "System Design",
+    "headline": "System Design",
     
     "inLanguage": "en",
-    "url" : "https://arkticor.com/notes/",
+    "url" : "https://arkticor.com/notes/system-design/",
     "author" : {
       "@type": "Person",
       "name": "Yixian Wang"
     },
-    "copyrightYear": "2023",
-    "dateCreated": "2023-10-23T21:34:17-04:00",
-    "datePublished": "2023-10-23T21:34:17-04:00",
+    "copyrightYear": "2026",
+    "dateCreated": "2026-06-12T22:55:15-04:00",
+    "datePublished": "2026-06-12T22:55:15-04:00",
     
-    "dateModified": "2023-10-23T21:34:17-04:00",
+    "dateModified": "2026-06-12T22:55:15-04:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "870"
   }]
   </script>
 
@@ -561,17 +561,17 @@
       <main id="main-content" class="grow">
         
   
-  
-  
-
-  
-  
-
-  
-  <header>
+  <article>
     
-      <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
+  
+    
   
     
   
@@ -582,19 +582,28 @@
   </li>
 
   
-  <li class="hidden">
+  <li class="inline">
     <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/"
       >Notes</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/notes/system-design/"
+      >System Design</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
 </ol>
 
 
-    
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Notes</h1>
-    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        System Design
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
 
 
 
@@ -608,9 +617,33 @@
   
 
   
+  
+  
+    
+  
 
   
 
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
   
 
   
@@ -619,149 +652,24 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-  </div>
+      <time datetime="2026-06-12T22:55:15-04:00">12 June 2026</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
-
-    </div>
-  </header>
-
-  
-  
-  
-  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
-    
-    <div class="min-w-0 min-h-0 max-w-prose w-full">
-      
-    </div>
-  </section>
-
-  
-  
-    
-    
-    
-    
-    
-
-    
-      <section class="space-y-10 w-full">
-        
-          
-            
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/sql/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          MySQL
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
 
   
     
   
-
   
 
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-11-03T17:51:02-04:00">3 November 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/yixianwang/yixian-site/tree/main/content/notes/system-design.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="Edit content"
+    ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a
+  >
+</span>
     
 
     
@@ -790,1412 +698,246 @@
 
 
 
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
+      </div>
       
         
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
+  
+  
+  
+  
+  
   
 
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
   
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/vim/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Vim
-          
-        </h2>
-      </a>
-      
+
+  
+
+  
+
+  
+
       
     </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/utils_notebook/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Utils Notebook
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/python_script/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Python Scripts
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/python/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Python
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/ood/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          OOD
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/linear_algebra/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Linear Algebra
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/al_note_legacy/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Legacy Algo Note
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">22 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
 
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/java/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Java
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/notes/hugo/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Hugo
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2023-10-24T03:10:46-04:00">24 October 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-    
-
-    
-    
-  </div>
-
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-            
-          
-        
-      </section>
-    
-    
-  
-  
-  <ul class="flex flex-row mt-8 justify-center">
-      <li>
-        <a
-          href="/notes/page/9/"
-          class="mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-          rel="prev"
-          >&larr;</a
-        >
-      </li>
-    <li>
-          <a
-            href="/notes/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >1</a
-          >
-        </li><li class="page-item ">
-          <span class="page-link" aria-hidden="true">&hellip;</span>
-        </li><li>
-          <a
-            href="/notes/page/8/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >8</a
-          >
-        </li><li>
-          <a
-            href="/notes/page/9/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >9</a
-          >
-        </li><li>
-          <a
-            href="/notes/page/10/"
-            class="
-              bg-primary-200 dark:bg-primary-400 dark:text-neutral-800
-             mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >10</a
-          >
-        </li><li>
-          <a
-            href="/notes/page/11/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >11</a
-          >
-        </li><li>
-          <a
-            href="/notes/page/12/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >12</a
-          >
-        </li>
-      <li>
-        <a
-          href="/notes/page/11/"
-          class="mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-          rel="next"
-          >&rarr;</a
-        >
-      </li>
     
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#distribution-lock">Distribution Lock</a>
+      <ul>
+        <li><a href="#transactional-database--distribution-lock--design">Transactional Database &amp; Distribution Lock &amp; Design</a></li>
+        <li><a href="#in-jvm-locks">In-JVM locks</a></li>
+        <li><a href="#takeaway---framing-for-interview">Takeaway - Framing for interview</a></li>
+        <li><a href="#distribution-lock-three-examples">Distribution Lock three examples</a></li>
+        <li><a href="#term">Term</a></li>
+      </ul>
+    </li>
   </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#distribution-lock">Distribution Lock</a>
+      <ul>
+        <li><a href="#transactional-database--distribution-lock--design">Transactional Database &amp; Distribution Lock &amp; Design</a></li>
+        <li><a href="#in-jvm-locks">In-JVM locks</a></li>
+        <li><a href="#takeaway---framing-for-interview">Takeaway - Framing for interview</a></li>
+        <li><a href="#distribution-lock-three-examples">Distribution Lock three examples</a></li>
+        <li><a href="#term">Term</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">Distribution Lock
+    <div id="distribution-lock" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#distribution-lock" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Transactional Database &amp; Distribution Lock &amp; Design
+    <div id="transactional-database--distribution-lock--design" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#transactional-database--distribution-lock--design" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>Push coordination into the transactional database - the @Version optimistic check or FOR UPDATE SKIP LOCKED from before. Postgres is already the single shared source of truth, and its row locks are visible to every connection from every instance.</li>
+<li>A distributed lock service — Redis (SET key NX PX, or Redisson&rsquo;s RLock since you already use Redis), or Zookeeper. Justified when the critical section isn&rsquo;t a database write — e.g., &ldquo;only one instance should run this scheduled job.&rdquo; For protecting a DB row it&rsquo;s strictly worse: you&rsquo;ve added a second system that can disagree with the first (lock expires mid-transaction, Redis failover loses the lock&hellip;).</li>
+<li>Single writer by design — route all spot-claims through one Kafka partition consumed by one consumer, so contention is eliminated by serialization rather than locking. Real pattern, but heavyweight for a parking lot; worth one sentence in an interview to show you know it exists.</li>
+</ol>
+
+<h3 class="relative group">In-JVM locks
+    <div id="in-jvm-locks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#in-jvm-locks" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>Pessimistic (parkPessimistic): one synchronized block makes find+claim atomic. Correct, simple, but every entry gate serializes through one lock. Mitigation: shard the lock per level.</li>
+<li>Optimistic (parkOptimistic): AtomicBoolean.compareAndSet — find a candidate, CAS-claim it, and if you lose the race, loop to the next free spot instead of blocking. No locks held during the search.</li>
+<li>The distributed punchline: in-JVM locks are useless once you run two Spring Boot instances.</li>
+</ol>
+
+<h3 class="relative group">Takeaway - Framing for interview
+    <div id="takeaway---framing-for-interview" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#takeaway---framing-for-interview" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>use a distributed lock when there is no shared transactional store already arbitrating the resource — coordinating side effects, singleton jobs, leader election. When the resource is a row in a database you&rsquo;re already writing to, let that database be the arbiter; adding Redis on top is more infrastructure, more failure modes, and less correctness, because you&rsquo;ve split one source of truth into two that can disagree.</p>
+
+<h3 class="relative group">Distribution Lock three examples
+    <div id="distribution-lock-three-examples" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#distribution-lock-three-examples" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The three examples are exactly the cases where the resource being protected isn&rsquo;t a row you&rsquo;re transacting against, so the database has nothing to arbitrate:</p>
+<p>Coordinating side effects. &ldquo;Charge this customer&rsquo;s card exactly once,&rdquo; or &ldquo;publish this event to an external API once.&rdquo; The thing you&rsquo;re guarding is an action against an outside system — Stripe, an email gateway. There&rsquo;s no FOR UPDATE you can run on &ldquo;the act of sending an email.&rdquo; Postgres can&rsquo;t lock an HTTP call. So you need an external arbiter to decide which instance performs the side effect. (Note: often the better fix here is idempotency keys rather than a lock — make the side effect safe to retry — but when you genuinely need <strong>at-most-once</strong>, a distributed lock is the tool.)</p>
+<p>Singleton scheduled jobs. Three ECS instances all run @Scheduled(cron=&hellip;) and all fire at the top of the hour. The resource is &ldquo;the right to run this job this hour.&rdquo; That&rsquo;s not a row — it&rsquo;s a transient claim on an activity. No table is being contended; nothing for a DB row lock to grab. A distributed lock (or a DB-backed advisory lock used purely as a coordination token) is what lets exactly one instance proceed. This is the cleanest, most defensible use of RLock.</p>
+<p>Leader election. &ldquo;Exactly one instance is the primary / coordinator at a time.&rdquo; Again the resource is a role, not data — &ldquo;who is leader&rdquo; is process-level state, not a row anyone&rsquo;s updating. This is the canonical Zookeeper/etcd job, because their session-based ephemeral nodes release the role the instant the leader&rsquo;s connection drops, which is more robust than a TTL guess.</p>
+<p>The unifying principle: a lock has to live where all contenders can see it, and you don&rsquo;t want two systems independently tracking the same truth. If the truth already lives in a transactional store (a row), that store should be the single arbiter — push the locking into it (FOR UPDATE, @Version, conditional UPDATE). If the truth isn&rsquo;t in any shared store — it&rsquo;s an external side effect, the right to run an activity, or a role — there&rsquo;s nothing for the database to lock, so you introduce a dedicated coordination system to be that shared point of agreement.</p>
+<p>A quick test you can apply in an interview: &ldquo;Can I express this invariant as a constraint or conditional write on a row I&rsquo;m already touching?&rdquo; If yes, do that and skip the distributed lock. If no — because the contended thing isn&rsquo;t data in your database — that&rsquo;s your signal you genuinely need one.</p>
+
+<h3 class="relative group">Term
+    <div id="term" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#term" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>Idempotency Key(<strong>Perform this specific side effect once. It doesn&rsquo;t fit &ldquo;only one instance should run this hourly job&rdquo;</strong>): The key is something stable derived from the business operation — an order ID, not a random UUID generated fresh per attempt, or the dedup breaks.</li>
+</ol>
+<ul>
+<li>A useful framing for interview: a lock is pessimistic coordination (stop others from acting), an idempotency key is optimistic plus reconciliation (let actions happen, collapse duplicates by identity). For external side effects over unreliable networks, the second survives failure modes that silently break the first.</li>
+</ul>
+<ol start="2">
+<li>DB-backed advisory lock: using database&rsquo;s lock manager. Not a row, not data — purely as the shared point of agreement for &ldquo;who gets to do this.&rdquo; It&rsquo;s the database playing the role a Redis lock would play, but without the second-system drift problem</li>
+</ol>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/spring-boot-exception-best-practice/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Spring Boot Exception Best Practice
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-04-25T20:03:59-04:00">25 April 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/notes/latex/">
+              <span class="leading-6">
+                Latex&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2023-10-23T23:51:32-04:00">23 October 2023</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
 
         
 
