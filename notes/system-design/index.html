@@ -232,7 +232,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "870"
+    "wordCount": "935"
   }]
   </script>
 
@@ -850,7 +850,7 @@
 </h3>
 <p>The three examples are exactly the cases where the resource being protected isn&rsquo;t a row you&rsquo;re transacting against, so the database has nothing to arbitrate:</p>
 <p>Coordinating side effects. &ldquo;Charge this customer&rsquo;s card exactly once,&rdquo; or &ldquo;publish this event to an external API once.&rdquo; The thing you&rsquo;re guarding is an action against an outside system — Stripe, an email gateway. There&rsquo;s no FOR UPDATE you can run on &ldquo;the act of sending an email.&rdquo; Postgres can&rsquo;t lock an HTTP call. So you need an external arbiter to decide which instance performs the side effect. (Note: often the better fix here is idempotency keys rather than a lock — make the side effect safe to retry — but when you genuinely need <strong>at-most-once</strong>, a distributed lock is the tool.)</p>
-<p>Singleton scheduled jobs. Three ECS instances all run @Scheduled(cron=&hellip;) and all fire at the top of the hour. The resource is &ldquo;the right to run this job this hour.&rdquo; That&rsquo;s not a row — it&rsquo;s a transient claim on an activity. No table is being contended; nothing for a DB row lock to grab. A distributed lock (or a DB-backed advisory lock used purely as a coordination token) is what lets exactly one instance proceed. This is the cleanest, most defensible use of RLock.</p>
+<p>Singleton scheduled jobs. Three ECS instances all run @Scheduled(cron=&hellip;) and all fire at the top of the hour. The resource is &ldquo;the right to run this job this hour.&rdquo; That&rsquo;s not a row — it&rsquo;s a transient claim on an activity. No table is being contended; nothing for a DB row lock to grab. A distributed lock (or a DB-backed advisory lock used purely as a coordination token) is what lets <strong>exactly one instance proceed</strong>. This is the cleanest, most defensible use of RLock.</p>
 <p>Leader election. &ldquo;Exactly one instance is the primary / coordinator at a time.&rdquo; Again the resource is a role, not data — &ldquo;who is leader&rdquo; is process-level state, not a row anyone&rsquo;s updating. This is the canonical Zookeeper/etcd job, because their session-based ephemeral nodes release the role the instant the leader&rsquo;s connection drops, which is more robust than a TTL guess.</p>
 <p>The unifying principle: a lock has to live where all contenders can see it, and you don&rsquo;t want two systems independently tracking the same truth. If the truth already lives in a transactional store (a row), that store should be the single arbiter — push the locking into it (FOR UPDATE, @Version, conditional UPDATE). If the truth isn&rsquo;t in any shared store — it&rsquo;s an external side effect, the right to run an activity, or a role — there&rsquo;s nothing for the database to lock, so you introduce a dedicated coordination system to be that shared point of agreement.</p>
 <p>A quick test you can apply in an interview: &ldquo;Can I express this invariant as a constraint or conditional write on a row I&rsquo;m already touching?&rdquo; If yes, do that and skip the distributed lock. If no — because the contended thing isn&rsquo;t data in your database — that&rsquo;s your signal you genuinely need one.</p>
@@ -871,7 +871,7 @@
 <li>A useful framing for interview: a lock is pessimistic coordination (stop others from acting), an idempotency key is optimistic plus reconciliation (let actions happen, collapse duplicates by identity). For external side effects over unreliable networks, the second survives failure modes that silently break the first.</li>
 </ul>
 <ol start="2">
-<li>DB-backed advisory lock: using database&rsquo;s lock manager. Not a row, not data — purely as the shared point of agreement for &ldquo;who gets to do this.&rdquo; It&rsquo;s the database playing the role a Redis lock would play, but without the second-system drift problem</li>
+<li>DB-backed advisory lock(<strong>Only works while all instances share one database (or one primary). It&rsquo;s the middle option you reach for when there&rsquo;s no row to arbitrate (so row locks don&rsquo;t apply) but you do still have a shared database everyone trusts (so you don&rsquo;t yet need to introduce Redis or Zookeeper). The DB stops being a data store for a moment and acts as a bare coordination service.</strong>): using database&rsquo;s lock manager. Not a row, not data — purely as the shared point of agreement for &ldquo;who gets to do this.&rdquo; It&rsquo;s the database playing the role a Redis lock would play, but without the second-system drift problem</li>
 </ol>
 
           
